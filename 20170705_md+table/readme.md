@@ -21,6 +21,11 @@
     - [2.7. git reflog](#27-git-reflog)
     - [2.8. git log](#28-git-log)
     - [2.9. git reset [reflog里的版本号]](#29-git-reset-reflog里的版本号)
+- [table](#table)
+    - [table属性](#table属性)
+    - [tr](#tr)
+    - [td](#td)
+    - [th](#th)
 
 <!-- /TOC -->
 # 1. markdown语法
@@ -65,4 +70,25 @@ git push origin master
 只能看到以前版本，之后修改的看不到
 ## 2.9. git reset [reflog里的版本号]
 加--hard强制提交
+
+# table
+ 标题标签caption无关表格大小，额外
+分组thead tbody tfoot
+tr 行 td 列
+table tr td
+## table属性
+height width border align
+cellspacing单元格外的距离
+cellpadding单元格框到内容距离
+## tr
+align（left center right)
+valign (top middle bottom)
+## td
+align valign 
+colspan 向右合并
+rowspan 向下合并
+## th
+加粗文本
+
+
 
