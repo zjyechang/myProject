@@ -27,12 +27,12 @@
     - [3.3. td](#33-td)
     - [3.4. th](#34-th)
 - [4. form表单](#4-form表单)
-    - [action=""](#action)
-    - [method=""](#method)
-    - [input](#input)
-        - [type](#type)
-        - [name](#name)
-        - [value](#value)
+    - [4.1. action=""](#41-action)
+    - [4.2. method=""](#42-method)
+    - [4.3. input](#43-input)
+        - [4.3.1. type](#431-type)
+        - [4.3.2. name](#432-name)
+        - [4.3.3. value](#433-value)
 
 <!-- /TOC -->
 # 1. markdown语法
@@ -61,7 +61,7 @@ ctrl+shift+p
 ## 2.1. 初始化
 git init
 ## 2.2. 添加远程链接
-gi remote add oringin [网络地址]
+git remote add oringin [网络地址]
 ## 2.3. 提交缓存
 git add  .
 git commit -m "tianjia"
@@ -97,13 +97,13 @@ rowspan 向下合并
 ## 3.4. th
 加粗文本
 # 4. form表单
-##action=""
+## 4.1. action=""
 
-##method=""
+## 4.2. method=""
 默认get网页上能看到提交
 post不能看到
-## input
-### type
+## 4.3. input
+### 4.3.1. type
 text 文本框
 password 密码
 email 邮箱
@@ -118,7 +118,7 @@ submit 提交
 reset 重置
 image 图片按钮
 file 文件
-### name
-### value
+### 4.3.2. name
+### 4.3.3. value
 
 
