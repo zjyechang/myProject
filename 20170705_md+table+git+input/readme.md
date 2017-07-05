@@ -21,11 +21,18 @@
     - [2.7. git reflog](#27-git-reflog)
     - [2.8. git log](#28-git-log)
     - [2.9. git reset [reflog里的版本号]](#29-git-reset-reflog里的版本号)
-- [table](#table)
-    - [table属性](#table属性)
-    - [tr](#tr)
-    - [td](#td)
-    - [th](#th)
+- [3. table](#3-table)
+    - [3.1. table属性](#31-table属性)
+    - [3.2. tr](#32-tr)
+    - [3.3. td](#33-td)
+    - [3.4. th](#34-th)
+- [4. form表单](#4-form表单)
+    - [action=""](#action)
+    - [method=""](#method)
+    - [input](#input)
+        - [type](#type)
+        - [name](#name)
+        - [value](#value)
 
 <!-- /TOC -->
 # 1. markdown语法
@@ -71,24 +78,47 @@ git push origin master
 ## 2.9. git reset [reflog里的版本号]
 加--hard强制提交
 
-# table
+# 3. table
  标题标签caption无关表格大小，额外
 分组thead tbody tfoot
 tr 行 td 列
 table tr td
-## table属性
+## 3.1. table属性
 height width border align
 cellspacing单元格外的距离
 cellpadding单元格框到内容距离
-## tr
+## 3.2. tr
 align（left center right)
 valign (top middle bottom)
-## td
+## 3.3. td
 align valign 
 colspan 向右合并
 rowspan 向下合并
-## th
+## 3.4. th
 加粗文本
+# 4. form表单
+##action=""
 
+##method=""
+默认get网页上能看到提交
+post不能看到
+## input
+### type
+text 文本框
+password 密码
+email 邮箱
+number 数字
+date 日期
+color 颜色
+range 范围条
+checkbox 多选
+radio 单选
+button 点击按钮
+submit 提交
+reset 重置
+image 图片按钮
+file 文件
+### name
+### value
 
 
