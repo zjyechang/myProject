@@ -9,12 +9,13 @@
 </head>
 
 <body>
-    <div style="border:4px solid #0ff" class="aa">
-        <form action="#" method="post" >
-            <span>提交按钮</span>
-            <input type="submit" value="提交完成："><br/><br/>
+
+    <form action="#" method="post" >
+        <fieldset style="border:4px solid #0ff">
+            <label for="submit">提交按钮</label>
+            <input type="submit" value="提交完成：" id="submit"><br/><br/>
             <span>文本框：</span>
-            <input type="text"> <br/><br/>
+            <input type="text"name="text1"> <br/><br/>
             <span>密码框：</span>
             <input type="password" name="password"><br/><br/>
             <span>单选按钮：</span>
@@ -24,8 +25,10 @@
             <input type="checkbox" name="i1" value="逛街">逛街
             <input type="checkbox" name="i1" value="爱美食">爱美食
             <input type="checkbox" name="i1" value="爱哭">爱哭
-            <hr>
-            <span>隐藏</span><br/><br/>
+        </fieldset>
+        <fieldset>
+            <span>隐藏</span>
+            <input type="hidden" value="隐藏"><br/><br/>
             <span>上传：</span>
             <input type="file" name="file"><br/><br/>
             <span>按钮</span>
@@ -36,11 +39,40 @@
             <input type="submit" name="submit"><br/><br/>
             <span>重置</span>
             <input type="reset" name="reset"><br/><br/>
-
-
-
-        </form>
-    
-</div>
+            <label for="id="taxtarea">文字域</label>
+            <textarea name="textarea" id="taxtarea" cols="30" rows="10" required></textarea>
+            <label for="shengri">生日</label>
+            <input type="text" list="shengri" placeholder="请输入你的出生年份">
+            <datalist name="shengri" id="shengri">
+                <option value="1976">1976</option>
+                <option value="1977" selected>1977</option>
+                <option value="1978" disabled>1978</option>
+                <option value="1979">1979</option>
+                <option value="1980">1980</option>
+                <option value="1981">1981</option>
+                <option value="1982">1982</option>
+                <option value="1983">1983</option>
+                <option value="1984">1984</option>
+                <option value="1985">1985</option>
+            </datalist>
+            <input type="text" list>
+        </fieldset>
+        <fieldset>
+            <label for="nianfen">生日</label>
+            <select name="select" id="nianfen" size="4">
+                   <option value="1976">1976</option>
+                <option value="1977" selected>1977</option>
+                <option value="1978" disabled>1978</option>
+                <option value="1979">1979</option>
+                <option value="1980">1980</option>
+                <option value="1981">1981</option>
+                <option value="1982">1982</option>
+                <option value="1983">1983</option>
+                <option value="1984">1984</option>
+                <option value="1985">1985</option>
+            </select>
+        </fieldset>
+        <p>&copy</p>
+    </form>
 </body>
 </html>
