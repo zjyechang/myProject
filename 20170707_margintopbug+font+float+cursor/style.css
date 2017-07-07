@@ -1,0 +1,36 @@
+.container{
+    height:400px;
+    width:400px;
+    background-color: #3ff;
+    /*padding-top:1px;*/
+    /*overflow:hidden;*/
+}
+.over{
+    /*overflow:hidden;*/
+}
+.item{
+    width:100px;
+    height:100px;
+    background-color: #33f;
+    margin-top:30px;
+    float:left;
+    font-family:kaiti;
+    font-weight:bold;
+    font-style:italic;
+    font-size:30px;
+    font-styke,font-weight,font-size,font-family
+}
+
+.over{
+     /*font:bold italic 25px "黑体";
+     white-space：nowrap;
+     text-overflow: ellipsis;*/
+
+
+
+}
+/*.container::before.container:before{
+    content: "";
+    display:block;
+    overflow: hidden;
+}*/

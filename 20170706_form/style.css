@@ -56,45 +56,49 @@ a:active{
     color:#f3f;
 }*/
 .father1{
-    width:1000px;
+    width:1410px;
     height:30px;
     margin:0 auto;
     /*border:1px solid #000;*/
-    
+    font-size:10px;
 }
-.son{
+.son1{
+    height:30px;
+    width:200px;
+    margin:0;
     display:inline;
-    /*height:290px;
-    width:225px;*/
 }
-son1{
-    height:50px;
-    width:300px;
-    margin:0 100px;
-    
-}
-son2{
-    height:50px;
-    width:300px;
-    margin:0 ;
-   
+.son2{
+    height:30px;
+    width:200px; 
+    margin-left:500px;
+   display:inline;
    
 }
 .father2{
-     display:inline;
+    height:70px;
+    width:1410px;
     margin:0 auto;
+    font-size:25px;
 }
 dl{
-   display:inline;
+    margin-left:200px;
+   
 }
 dt{
     display:inline;
 }
 .father3{
+    height:300px;
+    width:1410px;
+     margin:0 auto;
+}
+.father4{
     height:640px;
     width:1000px;
     background-color: #f4f4f4;
     margin:0 auto;
+    /*padding:-50px;*/
 }
 .son3{
     margin:12px;
@@ -108,26 +112,36 @@ dt{
     width:230px;
     margin:0;
 }
-.father4{
+.father5{
     margin:0 auto;
     text-align: center;
     background-color: #b3bdc6;
     height:30px;
-    width:1000px;
+    width:1410px;
 }
-.father5{
+.father6{
     margin:0 auto;
     text-align: center;
     background-color: #ececec;
     height:70px;
-    width:1000px;
+    width:1410px;
 }
 .a1{
     background-color: #cacad0;
     height:10px;
-    width:1000px;
-    margin:0 auto;
+    width:1410px;
+    margin:10px auto;
 }
 .a2{
     margin:0 auto;
+}
+a3{
+    background-color: #cacad0;
+    height:1px;
+    width:1410px;
+    margin:10px auto;
+}
+.font{
+    text-overflow: ellipsis;
+    font-size:15px;
 }

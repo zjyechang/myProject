@@ -10,12 +10,12 @@
         - [1.5.1. option可以只有开始标签，也可以写完整](#151-option可以只有开始标签也可以写完整)
     - [1.6. fieldset](#16-fieldset)
     - [1.7. 转义字符](#17-转义字符)
-    - [css选择器的组合使用](#css选择器的组合使用)
-        - [#id.class](#idclass)
-        - [#id .class](#id-class)
-        - [#id>.class](#idclass)
-        - [#id+.class](#idclass)
-- [伪类](#伪类)
+    - [1.8. css选择器的组合使用](#18-css选择器的组合使用)
+        - [1.8.1. #id.class](#181-idclass)
+        - [1.8.2. #id .class](#182-id-class)
+        - [1.8.3. #id>.class](#183-idclass)
+        - [1.8.4. #id+.class](#184-idclass)
+- [2. 伪类](#2-伪类)
 
 <!-- /TOC -->
 # 1. form 2
@@ -52,16 +52,16 @@ legend 是fieldset的标题
 &gt;大于
 &lt;小于
 &copy;版权
-## css选择器的组合使用
-### #id.class
+## 1.8. css选择器的组合使用
+### 1.8.1. #id.class
 分类分组选择器
-### #id .class
+### 1.8.2. #id .class
 后代选择器
-### #id>.class
+### 1.8.3. #id>.class
 子代选择器
-### #id+.class
+### 1.8.4. #id+.class
 兄弟选择器
-# 伪类
+# 2. 伪类
 link 访问前  
 visited 访问后  
 hover 鼠标经过  

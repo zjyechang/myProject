@@ -1,0 +1,47 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+.margintop::before{
+    content: "";
+    display:block;
+    overflow: hidden;
+}
+.gt{
+    overflow: auto;
+}
+.clear-float{
+    clear:both;
+}
+.clear::after{
+    content:"";
+}
+.container{
+   height:150px;
+    position:relative;
+    left:100px;
+    top:150px;
+}
+.item{
+    width:100px;
+    height:100px;
+    float:left;
+}
+.item1{
+    background-color: #3ff;
+}
+.item2{
+    background-color: #333;
+    position:absolute;
+    left:111px;
+    top:211px;
+}
+.item3{
+    background-color: #3f3;
+}
+.th{
+    width:200px;
+    height:200px;
+    background-color: #33d;
+    cursor:pointer;
+}
