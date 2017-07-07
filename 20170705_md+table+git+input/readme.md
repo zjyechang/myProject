@@ -17,7 +17,7 @@
     - [2.3. 提交缓存](#23-提交缓存)
     - [2.4. 拉取](#24-拉取)
     - [2.5. 推送](#25-推送)
-    - [2.6. git config user.name ""](#26-git-config-username-)
+    - [2.6. git config.name ""](#26-git-configname-)
     - [2.7. git reflog](#27-git-reflog)
     - [2.8. git log](#28-git-log)
     - [2.9. git reset [reflog里的版本号]](#29-git-reset-reflog里的版本号)
@@ -61,7 +61,7 @@ ctrl+shift+p
 ## 2.1. 初始化
 git init
 ## 2.2. 添加远程链接
-gi remote add oringin [网络地址]
+git remote add oringin [网络地址]
 ## 2.3. 提交缓存
 git add  .
 git commit -m "tianjia"
@@ -69,7 +69,7 @@ git commit -m "tianjia"
 git pull origin master
 ## 2.5. 推送
 git push origin master
-## 2.6. git config user.name ""
+## 2.6. git config.name ""
 添加用户名
 ## 2.7. git reflog
 查看以前的提交修改记录，所有版本改动都有
@@ -79,45 +79,45 @@ git push origin master
 加--hard强制提交
 
 # 3. table
- 标题标签caption无关表格大小，额外  
-分组thead tbody tfoot  
+ 标题标签caption无关表格大小，额外
+分组thead tbody tfoot
 tr 行 td 列
 table tr td
 ## 3.1. table属性
-height width border align  
-cellspacing单元格外的距离  
+height width border align
+cellspacing单元格外的距离
 cellpadding单元格框到内容距离
 ## 3.2. tr
-align（left center right)  
+align（left center right)
 valign (top middle bottom)
 ## 3.3. td
 align valign 
-colspan 向右合并  
+colspan 向右合并
 rowspan 向下合并
 ## 3.4. th
 加粗文本
 # 4. form表单
-## 4.1. action=""
-
+## 4.1. action="" 
 ## 4.2. method=""
-默认get网页上能看到提交  
-post不能看到  
+默认get网页上能看到提交
+post不能看到
 ## 4.3. input
 ### 4.3.1. type
-text 文本框  
-password 密码  
-email 邮箱  
-number 数字  
-date 日期  
-color 颜色  
-range 范围条  
-checkbox 多选  
-radio 单选  
-button 点击按钮  
-submit 提交  
-reset 重置  
-image 图片按钮  
-file 文件  
+text 文本框
+password 密码
+email 邮箱
+number 数字
+date 日期
+color 颜色
+range 范围条
+checkbox 多选
+radio 单选
+button 点击按钮
+submit 提交
+reset 重置
+image 图片按钮
+file 文件
 ### 4.3.2. name
 ### 4.3.3. value
+
 

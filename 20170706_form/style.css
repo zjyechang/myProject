@@ -55,24 +55,30 @@ a:hover{
 a:active{
     color:#f3f;
 }*/
+.clearfloat::after{
+    content:"";
+    display: block;
+    clear:both;
+}
 .father1{
-    width:1410px;
+    width:1000px;
     height:30px;
     margin:0 auto;
     /*border:1px solid #000;*/
     font-size:10px;
+ 
 }
 .son1{
     height:30px;
-    width:200px;
+    width:250px;
     margin:0;
-    display:inline;
+    float:left;
 }
 .son2{
     height:30px;
-    width:200px; 
-    margin-left:500px;
-   display:inline;
+    width:350px; 
+    /*margin-left:500px;*/
+    float:right;
    
 }
 .father2{
@@ -89,7 +95,7 @@ dt{
     display:inline;
 }
 .father3{
-    height:300px;
+    height:270px;
     width:1410px;
      margin:0 auto;
 }
@@ -107,10 +113,20 @@ dt{
     float:left;
     background-color: #fff;
 }
+.item2{
+    height: 30px;
+    width:1000px;
+    margin:0 auto;
+    font-size:18px;
+    color:grey;
+}
 .item{
     height:150px;
     width:230px;
     margin:0;
+}
+.item3{
+    width:1000px;
 }
 .father5{
     margin:0 auto;
@@ -143,5 +159,5 @@ a3{
 }
 .font{
     text-overflow: ellipsis;
-    font-size:15px;
+    font-size:13px;
 }
