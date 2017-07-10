@@ -27,8 +27,8 @@
 2、给父元素添加overflw：hidden；  
 3、给父标签添加1像素padding-top  
 4、给父元素30像素padding-top取代子代margin-top  
-5、子元素加float:left;属性
-6、添加给父元素伪类::before（推荐）
+5、子元素加float:left;属性  
+6、添加给父元素伪类::before（推荐） 
 # 2. font
 ## 2.1. font-style 
 ## 2.2. font-weight
@@ -49,9 +49,9 @@ ellipsis 省略号显示
 不能撑开父元素的高度  
 ## 3.1. 清除浮动
 1.给父元素添加overflow：auto；  
-但是占用了父元素的overfloat属性
+但是占用了父元素的overfloat属性  
 2.给浮动元素添加一个并列的空相同元素  
-并且元素设置clear：both；但是多出空的元素
+并且元素设置clear：both；但是多出空的元素  
 3.给父元素添加一个::after伪类  
 {
     content:"";
@@ -65,12 +65,12 @@ ellipsis 省略号显示
 top>bottom
 ## 4.1. static
 静止定位，  
-top，right，bottom，left 定位对其不起作用
+top，right，bottom，left 定位对其不起作用  
 ## 4.2. relative
 相对定位，  
-相对原来的位置偏移
-原来的位置保留
-能为负值，负值反向位移
+相对原来的位置偏移  
+原来的位置保留  
+能为负值，负值反向位移  
 ## 4.3. absolute
 绝对定位  
 相对于外层第一个position且属性不为stasic的元素定位  
@@ -82,7 +82,7 @@ top，right，bottom，left 代表距离参考物边界的距离
 元素原来的位置不保留  
 top，right，bottom，left距离html边距的定位  
 # 5. cursor 光标
-default 默认鼠标箭头
-pointer 手势符号，常见于按钮，超链接
+default 默认鼠标箭头  
+pointer 手势符号，常见于按钮，超链接  
 auto 自动，例如，放到文字上变竖线
 

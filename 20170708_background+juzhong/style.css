@@ -1,0 +1,67 @@
+/*.father{
+    position:relative;
+    margin:20px;
+    background-color:#0f0;
+    width :700px;
+    height:700px;
+   
+}*/
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255,0,0.5);
+    position: absolute;
+   
+    /*top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;*/
+    line-height:100px;
+}
+
+    
+.text{
+    height:300px;
+    width:700px;
+    background-image:url("./3.png");
+    background-repeat:repeat;
+    /*background-attachment:fixed;*/
+    /*background-size:cover;*/
+}
+.text2{
+    
+}
+
+
+
+/*.father{
+    position:relative;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: #f00;
+    position: absolute;
+    margin:auto;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+}
+<<<<<<< HEAD
+.father{
+=======
+? 空DIV
+
+body{
+>>>>>>> 3c14da56d8f9ef0ee5c297ea4e46fe39ed90386b
+    text-align: center;
+}
+.father::before,.father::after,.son{
+    display: inline-block;
+    vertical-align: middle;
+}
+.father::before,.father::after{
+    content:"";
+    height:100%;
+}*/

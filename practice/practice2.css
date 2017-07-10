@@ -1,0 +1,46 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+.clear::after{
+    content: "";
+    display:block;
+    clear:both;
+}
+.container{
+    height:800px;
+    width:800px;
+    background-color: #da8228;
+    margin:auto;
+    overflow:hidden;
+}
+/*.container>*{
+    transition:all 1s;
+}*/
+.container:hover>*{
+    transition:all 1s;
+    
+}
+.item{
+    height:25%;
+    width:25%;
+    margin:12.5%;
+    position:relative;
+    background-color: #3ff;
+    float:left;
+    top:0;
+    left:0;
+}
+
+.container:hover>.item1{
+    left:50%
+}
+.container:hover>.item2{
+    top:50%
+}
+.container:hover>.item3{
+    top:-50%
+}
+.container:hover>.item4{
+    left:-50%
+}

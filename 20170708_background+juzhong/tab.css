@@ -1,0 +1,71 @@
+
+.container{
+    height:400px;
+    width: 400px;
+    position:relative;
+    background-color: #000;
+}
+.container>*{
+    position:absolute;
+}
+.tab{
+    height:100px;
+    width:100px;
+}
+.tab1{
+    top:0;
+    left:0;
+    background-color: #3f3;
+}.tab2{
+    top:0;
+    left:100px;
+    background-color: #00f;
+}
+.tab3{
+    top:0;
+    left:200px;
+    background-color: #0ff;
+}
+.tab4{
+    top:0;
+    left:300px;
+    background-color: #f4f;
+}
+.content{
+    width:400px;
+    height:300px;
+    top:100px;
+    left:0;
+}
+.content1{
+     background-color: #3f0;
+     z-index:4;
+}
+.content2{
+     background-color: #33f;
+     z-index:3;
+}
+.content3{
+     background-color: #aff;
+     z-index:2;
+}
+.content4{
+     background-color: #faf;
+     z-index:1;
+}
+.tab1:hover + .content1{
+    z-index: 1000;
+}
+.tab2:hover + .content2{
+    z-index: 1000;  
+}
+.tab3:hover + .content3{
+    z-index: 1000;
+}
+.tab4:hover + .content4{
+    z-index: 1000;
+}
+.table:hover{
+    background-color: #000;
+}
+

@@ -76,8 +76,7 @@ a:active{
 }
 .son2{
     height:30px;
-    width:350px; 
-    /*margin-left:500px;*/
+    width:210px; 
     float:right;
    
 }
@@ -88,7 +87,8 @@ a:active{
     font-size:25px;
 }
 dl{
-    margin-left:200px;
+    
+    display:inline;
    
 }
 dt{
@@ -149,7 +149,7 @@ dt{
     margin:10px auto;
 }
 .a2{
-    margin:0 auto;
+    margin-right: 100px;
 }
 a3{
     background-color: #cacad0;
