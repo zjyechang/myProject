@@ -20,6 +20,7 @@
     height: 35px;
     background-color: rgb(245,245,245);
     position:absolute;
+    margin:0 auto;
 }
 .head *{
     position:relative;
@@ -148,7 +149,7 @@ div[class*=contant]:hover{
     background-color: #fff;
     position:relative;
     top:35px;
-    left:0;
+    margin:0 auto;
 }
 .head2>*{
     position:absolute;
@@ -321,6 +322,7 @@ a.more2{
     width: 1583px;
     background-color: #fff;
     top:35px;
+    margin:0 auto;
 }
 .index{
     width: 190px;
@@ -422,6 +424,7 @@ a.more2{
     position:absolute;
     top:200px;
     z-index: 10;
+    margin: 0 auto;
 }
 .centerbox2{
     width: 1190px;
@@ -472,13 +475,17 @@ li img[src="./taobao_images/tb22_22.png"]{
     top:480px;
     left:196.5px;
 }
+
+
+
+/* 鼠标滑动显示的内容部分 */
 .main1left [class*="container"]{
     height: 512px;
     width: 710px;
     border:4px solid rgb(255,101,55);
     position:relative;
     background-color: #fff;
-    z-index:0;
+    z-index:1;
     left:175px;
     visibility: hidden;
 }
@@ -532,9 +539,106 @@ li img[src="./taobao_images/tb22_22.png"]{
 }
 
 
+.main1left .coleft{
+    width: 450px;
+    height: 510px;
+    background-color: #fff; 
+ }
+.coleft>div{
+    width: 430px;
+    height: 151px;
+    position: relative;
+    padding:20px 0 0 15px;
+}
+.coleft .picture{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    
+}
+.coleft h3{
+    position: relative;
+    top:-5px;
+    display: inline-block;
+    font-size: 16px;
+}
+.coleft a{
+    color: rgb(108, 108, 108);
+    text-decoration: none;
+}
+.coleft a:hover{
+    color: rgb(242,46,0);
+}
+.coleft p{
+    position: relative;
+    left:300px;
+    display: inline-block;
+}
 
+.line5{
+    width: 430px;
+    border:1px solid rgb(228,228,228);
+    position:relative;
+    top:-5px;
+}
+.main1left .coright{
+    width: 255px;
+    height: 510px;
+    background-color: rgb(245,245,245);
+    position: relative;   
+    left:455px;
+    top:-510px;
+    display: inline-block;
+} 
+.line6{
+    position: absolute;
+    top:35px;
+    left:20px;
+    width: 180px;
+    border:1px solid rgb(228,228,228);
+}
+.coright .p1{
+    position: absolute;
+    top: 20px;
+    left:80px;
+    font-size: 18px;
+    color: #000;
+}
+.coright .p2{
+    position: absolute;
+    top:50px;
+    left:40px;
+    color: rgb(108, 108, 108);
+}
+.coright .pic1{
+    position: absolute;
+    top:25px;
+    left:60px;
+}
+.coright .skirt{
+    position: relative;
+    top:90px;
+    left:20px;
+    margin-bottom: 20px;
+    width: 110px;
+    height: 110px;
+    float:left;
+}
+.xianshou{
+    position: absolute;
+    top:73px;
+    width: 90px;
+    background-color: rgba(255,255,255,0.5);
+    color:rgb(108, 108, 108);
+    z-index: auto;
+    line-height: 18px;
+}
+.
 /* 动画区 */
+.skirt:hover>.xianshou{
+     background-color: rgba(255,255,255,1);
 
+}
 .main1left li:hover>div{
     visibility: visible;
     z-index: 100;
@@ -591,11 +695,11 @@ li img[src="./taobao_images/tb22_22.png"]{
 /* 正文第一部分中间偏右内容 */
 .main1miid{
     width: 180px;
-    height: 525px;
+    height: 515px;
     position: relative;
-    left:720px;
-    top:-515px;
+    margin-top:10px;
     margin-left: 10px;
+    display: inline-block;
 }
 .main1miid> {
     position: relative;
@@ -614,7 +718,55 @@ li img[src="./taobao_images/tb22_22.png"]{
 }
 
 
-
+/* 正文第一部分底部内容 */
+.main1bottom{
+    width: 900px;
+    height: 80px;
+    display: inline-block;
+    position: relative;
+}
+.main1bottom>div{
+    width: 175px;
+    height: 90px;
+    float:left;
+    position: relative;
+}
+.main1bottom img{
+    width: 65px;
+    height: 65px;
+    position:relative;
+    margin:10px 0 0 10px;
+}
+.main1bottom h3{
+    position: relative;
+    top:-65px;
+    left:90px;
+    font-size: 16px;
+}
+.main1bottom span{
+    position: relative;
+    top:-65px;
+    left:90px;
+    font-size: 10px;
+}
+.main1bottom p{
+    color: rgb(108, 108, 108);
+    position: relative;
+    top:-60px;
+    left:90px;
+    font-size: 8px;
+}
+.main1bottom .circle{
+    position: absolute;
+    top:10px;
+    left:10px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+.main1bottom [class*="bottombox"]:hover>.circle{
+    border:2px solid rgb(108, 108, 108);
+}
 
 /* 正文第一部分右侧内容 */
 
@@ -624,5 +776,106 @@ li img[src="./taobao_images/tb22_22.png"]{
     position: relative;
     float:right;
     top:-515px;
+    background-color: rgb(245,245,245);
 }
 
+.main1righttop{
+    position: relative;
+    right:0;
+    width: 295px;
+    height: 165px;
+    background-color: #fff;
+    margin:10px 0 0 5px;
+}
+.Headportrait{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left:120px;
+    top:10px;
+}
+.Headportrait>img{
+    width: 55px;
+    height: 55px; 
+}
+.main1righttop>img{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top:87px;
+    left:50px;
+}
+.main1righttop p{
+    position: relative;
+    font-size: 12px;
+    display: inline-block;
+}
+.main1righttop .p2{
+    top:70px;
+    left:120px;
+}
+.main1righttop .p3{
+    top:85px;
+    left:20px;
+}
+.main1righttop a{
+    text-decoration: none;
+    color:rgb(255,66,0);
+}
+.main1righttop input{
+    padding:5px 20px;
+    position: relative;
+    top:90px;
+    margin-left:5px;
+    color:#fff;
+    background-color: rgb(255,66,0);
+    font-size: 14px;
+    border: 0px;
+    text-align: center;
+    font-weight: 700;
+}
+.main1righttop input[name="signin"]{
+    padding:5px 30px;
+    margin-left:20px;
+}
+
+.main1rightmid{
+    width: 295px;
+    height: 110px;
+    position: relative;
+    margin:5px 0 0 5px;
+    background-color: #fff;
+}
+.main1rightmid .ul{
+    position: relative;
+    top:20px
+}
+.main1rightmid li{
+    position: relative;
+    float:left;
+    text-align: center;
+    line-height: 22px;
+    font-size: 14px;
+    padding:5px 10px;
+}
+.tab-1 a{
+    text-decoration: none;
+    color:rgb(108, 108, 108);
+    padding:5px;
+}
+
+
+
+/* 动画区 */
+.tab-1 a:hover{
+    color:rgb(255,66,0);
+    font-weight: 700;
+}
+.main1rightmid li:hover{
+    border-bottom: 2px solid rgb(255,66,0);
+}
+.ul li:hover>containe1{
+    z-index: 100;
+}
