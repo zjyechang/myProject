@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
 }
-.clearfloat::after{
+.clearfloat::after,.clearfloat:after{
     content:"";
     display: block;
     clear:both;
@@ -11,8 +11,14 @@
     width: 1583px;
     position:relative;
     margin:0 auto;
+    background-color: rgb(245,245,245);
 }
-
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
 /* 头部第一部分 */
 
 .head{
@@ -35,7 +41,6 @@
 }
 .head a{
     color:rgb(108, 108, 108);
-    text-decoration: none;
 }
 
 #text1{
@@ -67,8 +72,7 @@
 .head2 a:hover{
     color: rgb(242,46,0);
 }
-ul{
-    list-style: none;
+.head1 ul{
     right:195px;
 }
 .head li{
@@ -236,14 +240,15 @@ img[src="./taobao_images/tb_03_03.png"]{
     top:100px;
     font-size: 10px;
 }
+.hot{
+    color:rgb(242,46,0)!important;
+}
 .head2 a{
     color:rgb(108, 108, 108);
     text-decoration: none;
     position: relative;
 }
-#hot{
-    color:rgb(242,46,0);
-}
+
 a.more1{
     top:80px;
     left:1050px;
@@ -340,7 +345,6 @@ a.more2{
     color: rgb(255,66,0);
     font-size: 16px;
     font-weight: 700;
-    text-decoration: none;
     height: 27.5px;
     line-height: 27.5px;
     text-align: center; 
@@ -725,17 +729,38 @@ li img[src="./taobao_images/tb22_22.png"]{
     display: inline-block;
     position: relative;
 }
+.bottombox1{
+    color:rgb(154,116,95)
+}
+.bottombox2{
+    color:rgb(129,193,143)
+}
+.bottombox3{
+    color:rgb(114,165,246)
+}
+.bottombox4{
+    color:rgb(132,111,199)
+}
+.bottombox5{
+    color:rgb(222,82,94)
+}
+
 .main1bottom>div{
     width: 175px;
     height: 90px;
     float:left;
     position: relative;
 }
-.main1bottom img{
+.main1bottom .picttt{
     width: 65px;
     height: 65px;
     position:relative;
     margin:10px 0 0 10px;
+}
+.main1bottom .pictt{
+    position: absolute;
+    top:53px;
+    left:75px;
 }
 .main1bottom h3{
     position: relative;
@@ -764,9 +789,23 @@ li img[src="./taobao_images/tb22_22.png"]{
     height: 65px;
     border-radius: 50%;
 }
-.main1bottom [class*="bottombox"]:hover>.circle{
-    border:2px solid rgb(108, 108, 108);
+.main1bottom .bottombox1:hover>.circle{
+    border:1px solid rgb(154,116,95);
 }
+.main1bottom .bottombox2:hover>.circle{
+    border:1px solid rgb(129,193,143);
+}
+.main1bottom .bottombox3:hover>.circle{
+    border:1px solid rgb(114,165,246);
+}
+.main1bottom .bottombox4:hover>.circle{
+    border:1px solid rgb(132,111,199);
+}
+.main1bottom .bottombox5:hover>.circle{
+    border:1px solid rgb(222,82,94);
+}
+
+
 
 /* 正文第一部分右侧内容 */
 
@@ -831,7 +870,7 @@ li img[src="./taobao_images/tb22_22.png"]{
     margin-left:5px;
     color:#fff;
     background-color: rgb(255,66,0);
-    font-size: 14px;
+    font-size: 12px;
     border: 0px;
     text-align: center;
     font-weight: 700;
@@ -841,6 +880,12 @@ li img[src="./taobao_images/tb22_22.png"]{
     margin-left:20px;
 }
 
+
+
+
+
+
+
 .main1rightmid{
     width: 295px;
     height: 110px;
@@ -848,34 +893,63 @@ li img[src="./taobao_images/tb22_22.png"]{
     margin:5px 0 0 5px;
     background-color: #fff;
 }
-.main1rightmid .ul{
+.main1rightmid>ul{
     position: relative;
-    top:20px
+    top:15px;
 }
-.main1rightmid li{
+
+.main1rightmid p{
     position: relative;
     float:left;
     text-align: center;
     line-height: 22px;
-    font-size: 14px;
+    font-size: 13px;
     padding:5px 10px;
-}
-.tab-1 a{
-    text-decoration: none;
-    color:rgb(108, 108, 108);
-    padding:5px;
+    margin:0 5px;
 }
 
+.main1rightmid a{
+    color:rgb(108, 108, 108);
+}
+ .main1rightmid .list{
+    float:left;
+} 
+.main1rightmid .containe{
+    position:absolute;
+    width: 285px;
+    top:30px;
+    left:10px;
+    background-color: #fff;
+    font-size: 12px;
+}
+
+.main1rightmid .li1>*{
+        margin: 5px 10px;
+}
+.li1>*{
+    float:left;
+    margin-right: 10px;
+}
+.containe1{
+    z-index: 5;
+}
 
 
 /* 动画区 */
-.tab-1 a:hover{
-    color:rgb(255,66,0);
+.list>p:hover>a{
+    color:rgb(255,66,0) ;
     font-weight: 700;
-}
-.main1rightmid li:hover{
     border-bottom: 2px solid rgb(255,66,0);
 }
-.ul li:hover>containe1{
+.list:hover>.containe{
     z-index: 100;
+}
+
+
+
+
+.main1rightbottom{
+    position: relative;
+    width: 285px;
+    height: 320px;
 }
