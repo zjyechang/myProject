@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
 }
-.clearfloat::after{
+.clearfloat::after,.clearfloat:after{
     content:"";
     display: block;
     clear:both;
@@ -11,8 +11,14 @@
     width: 1583px;
     position:relative;
     margin:0 auto;
+    background-color: rgb(245,245,245);
 }
-
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
 /* 头部第一部分 */
 
 .head{
@@ -35,7 +41,6 @@
 }
 .head a{
     color:rgb(108, 108, 108);
-    text-decoration: none;
 }
 
 #text1{
@@ -67,8 +72,7 @@
 .head2 a:hover{
     color: rgb(242,46,0);
 }
-ul{
-    list-style: none;
+.head1 ul{
     right:195px;
 }
 .head li{
@@ -234,31 +238,36 @@ img[src="./taobao_images/tb_03_03.png"]{
     line-height: 18px;
     left:465px;
     top:100px;
-    font-size: 10px;
+    font-size: 8px;
+}
+.hot{
+    color:rgb(242,46,0)!important;
 }
 .head2 a{
     color:rgb(108, 108, 108);
-    text-decoration: none;
     position: relative;
 }
-#hot{
-    color:rgb(242,46,0);
-}
+
 a.more1{
-    top:80px;
-    left:1050px;
-    font-size: 12px;
+    top:0px;
+    right:-40px;
+    font-size: 10px;
 }
 a.more2{
-    left:1050px;
-    top:55px;
+   
+   
+}
+.hotsearch>p{
+    position: absolute;
     width: 40px;
-    height: 40px;
-    display: inline-block;
-    font-size: 12px;
+    height: 40px; 
+    right: -13px;
+    top: -50px;
+    font-size: 10px;
     padding-top:5px;
     padding-left:5px;
-}
+    display: inline-block;
+} 
 /* 动画区 */
 
 .tab9:hover{
@@ -340,7 +349,6 @@ a.more2{
     color: rgb(255,66,0);
     font-size: 16px;
     font-weight: 700;
-    text-decoration: none;
     height: 27.5px;
     line-height: 27.5px;
     text-align: center; 
@@ -633,7 +641,7 @@ li img[src="./taobao_images/tb22_22.png"]{
     z-index: auto;
     line-height: 18px;
 }
-.
+
 /* 动画区 */
 .skirt:hover>.xianshou{
      background-color: rgba(255,255,255,1);
@@ -725,17 +733,38 @@ li img[src="./taobao_images/tb22_22.png"]{
     display: inline-block;
     position: relative;
 }
+.bottombox1{
+    color:rgb(154,116,95)
+}
+.bottombox2{
+    color:rgb(129,193,143)
+}
+.bottombox3{
+    color:rgb(114,165,246)
+}
+.bottombox4{
+    color:rgb(132,111,199)
+}
+.bottombox5{
+    color:rgb(222,82,94)
+}
+
 .main1bottom>div{
     width: 175px;
     height: 90px;
     float:left;
     position: relative;
 }
-.main1bottom img{
+.main1bottom .picttt{
     width: 65px;
     height: 65px;
     position:relative;
     margin:10px 0 0 10px;
+}
+.main1bottom .pictt{
+    position: absolute;
+    top:53px;
+    left:75px;
 }
 .main1bottom h3{
     position: relative;
@@ -764,9 +793,23 @@ li img[src="./taobao_images/tb22_22.png"]{
     height: 65px;
     border-radius: 50%;
 }
-.main1bottom [class*="bottombox"]:hover>.circle{
-    border:2px solid rgb(108, 108, 108);
+.main1bottom .bottombox1:hover>.circle{
+    border:1px solid rgb(154,116,95);
 }
+.main1bottom .bottombox2:hover>.circle{
+    border:1px solid rgb(129,193,143);
+}
+.main1bottom .bottombox3:hover>.circle{
+    border:1px solid rgb(114,165,246);
+}
+.main1bottom .bottombox4:hover>.circle{
+    border:1px solid rgb(132,111,199);
+}
+.main1bottom .bottombox5:hover>.circle{
+    border:1px solid rgb(222,82,94);
+}
+
+
 
 /* 正文第一部分右侧内容 */
 
@@ -831,7 +874,7 @@ li img[src="./taobao_images/tb22_22.png"]{
     margin-left:5px;
     color:#fff;
     background-color: rgb(255,66,0);
-    font-size: 14px;
+    font-size: 12px;
     border: 0px;
     text-align: center;
     font-weight: 700;
@@ -841,6 +884,12 @@ li img[src="./taobao_images/tb22_22.png"]{
     margin-left:20px;
 }
 
+
+
+
+
+
+
 .main1rightmid{
     width: 295px;
     height: 110px;
@@ -848,34 +897,225 @@ li img[src="./taobao_images/tb22_22.png"]{
     margin:5px 0 0 5px;
     background-color: #fff;
 }
-.main1rightmid .ul{
+.main1rightmid>ul{
     position: relative;
-    top:20px
+    top:15px;
+    padding-left: 10px;
 }
-.main1rightmid li{
+
+.main1rightmid p{
     position: relative;
     float:left;
     text-align: center;
     line-height: 22px;
-    font-size: 14px;
+    font-size: 13px;
     padding:5px 10px;
+    margin:0 5px;
 }
-.tab-1 a{
-    text-decoration: none;
+
+.main1rightmid a{
     color:rgb(108, 108, 108);
-    padding:5px;
+    line-height: 20px;
+    font-size: 12px;
+    float:left;
+}
+ .main1rightmid .list{
+    float:left;
+} 
+.main1rightmid .containe{
+    position:absolute;
+    width: 285px;
+    top:30px;
+    left:10px;
+    background-color: #fff;
+}
+
+.main1rightmid .li1>*{
+    float: left;
+    margin: 5px 10px;
+}
+
+
+.containe1{
+    z-index: 5;
+}
+
+
+/* 动画区 */
+.list>p:hover>a{
+    color:rgb(255,66,0) ;
+    font-weight: 700;
+    border-bottom: 2px solid rgb(255,66,0);
+}
+.list:hover>.containe{
+    z-index: 100;
+}
+
+
+
+
+
+.main1rightbottom{
+    position: absolute;
+    top:300px;
+    left:1100px;
+    width: 296px;
+    height: 320px;
+    margin:2px;
+}
+.ul5>li{
+    float:left;
+}
+.ul5 a{
+    position: relative;
+    display: block;
+    width: 71px;
+    height: 65px;
+    background-color: #fff;
+    border:1px solid rgb(245,245,245);
+
+}
+.ul5 img{
+    position: relative;
+    top:5px;
+    left:10px;
+}
+.main1rightbottom p{
+    position: relative;
+    top:5px;
+    left:10px;
+    font-size: 12px;
+    color: rgb(108, 108, 108);
+}
+.main1rightbottom p:hover{
+    color: rgb(242,46,0);
+    cursor: pointer;
+}
+.main1rightbottom h3{
+    position: relative;
+    background-color: #fff;
+    padding-left:10px;
+    padding-top:5px;
+}
+
+
+
+.ul6{
+    position: relative;
+    background-color: #fff;
+    padding:10px;
+}
+.appcode{
+    float:left;
+    margin-right: 20px;
+    margin-bottom: 8px;
+}
+.appcode>img{
+    width: 32px;
+    height: 32px;
+}
+.ul6 .app-taobao{
+    position: absolute;
+    width: 90px;
+    height: 100px;
+    top:-100px;
+    background-color: #fff;
+    border:1px solid rgb(228,228,228);
+     visibility: hidden; 
+}
+.app-taobao img{
+    position: relative;
+    height: 70px;
+    width: 70px;
+    left:10px;
+    top:10px;
+}
+.app-taobao p{
+    position: relative;
+    left:15px;
+    font-size: 12px;
+    color: #000;
+    top:10px
+}
+.main1rightbottom .more1{
+    position: relative;
+    left:150px;
 }
 
 
 
 /* 动画区 */
-.tab-1 a:hover{
-    color:rgb(255,66,0);
-    font-weight: 700;
-}
-.main1rightmid li:hover{
-    border-bottom: 2px solid rgb(255,66,0);
-}
-.ul li:hover>containe1{
+.appcode:hover>.app-taobao{
+    visibility: visible;
     z-index: 100;
+}
+
+/* 第一部分主要内容完成
+ */
+
+
+
+
+
+
+
+
+
+ /* 第二部分主要内容 */
+ .main2{
+     position: relative;
+     
+ }
+.main2left{
+    position: relative;
+    width: 744px;
+    height: 690px;
+    float: left;
+}
+.main2left>.itembox{
+    position: relative;
+    width: 440px;
+    height: 362px;
+    margin:  5px;
+    display: inline-block;
+}
+.itembox>*{
+    float:left;
+    width: 340px;
+    height: 362px;
+}
+.ele{
+    border:1px solid rgb(69,154,196);
+}
+.eleleft{
+    width: 100px;
+    height: 362px;
+    position: relative;
+    background-color: rgb(69,154,196);
+}
+.eleleft>img{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+.itembox a{
+    position: relative;
+    float:left;
+    color: #fff;
+    font-size: 12px;
+    padding:5px 10px;
+    background-color: rgba(255,255,255,0.1);
+    margin: 2px;
+}
+
+.itemfu>img{
+    float: left;
+    margin-right: 1px;
+}
+
+
+.itembox a:hover{
+    color: rgb(242,46,0);
+    background-color: rgba(255,255,255,1);
 }

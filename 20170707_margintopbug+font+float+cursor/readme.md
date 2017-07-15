@@ -23,12 +23,14 @@
 <!-- /TOC -->
 # 1. margintop
 ## 1.1. 外边距塌陷
-1、加空div并设置overflow：hidden；  
-2、给父元素添加overflw：hidden；  
-3、给父标签添加1像素padding-top  
-4、给父元素30像素padding-top取代子代margin-top  
-5、子元素加float:left;属性  
-6、添加给父元素伪类::before（推荐） 
+1、加空div并设置overflow：hidden；   
+2、给父元素添加overflw：hidden；   
+3、给父标签添加1像素padding-top   
+4、给父元素30像素padding-top取代子代margin-top   
+5、子元素加float:left;属性   
+6、position:absolute   
+7、display:inline-block   
+8、添加给父元素伪类::before（推荐） 
 # 2. font
 ## 2.1. font-style 
 ## 2.2. font-weight
