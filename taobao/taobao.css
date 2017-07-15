@@ -243,6 +243,9 @@ img[src="./taobao_images/tb_03_03.png"]{
 .hot{
     color:rgb(242,46,0)!important;
 }
+.hot{
+    color:rgb(242,46,0)!important;
+}
 .head2 a{
     color:rgb(108, 108, 108);
     position: relative;
@@ -900,7 +903,10 @@ li img[src="./taobao_images/tb22_22.png"]{
 .main1rightmid>ul{
     position: relative;
     top:15px;
+<<<<<<< HEAD
     padding-left: 10px;
+=======
+>>>>>>> 290858b99373a9f60c74878097d2c67ba0e4b18a
 }
 
 .main1rightmid p{
@@ -915,9 +921,12 @@ li img[src="./taobao_images/tb22_22.png"]{
 
 .main1rightmid a{
     color:rgb(108, 108, 108);
+<<<<<<< HEAD
     line-height: 20px;
     font-size: 12px;
     float:left;
+=======
+>>>>>>> 290858b99373a9f60c74878097d2c67ba0e4b18a
 }
  .main1rightmid .list{
     float:left;
@@ -928,13 +937,27 @@ li img[src="./taobao_images/tb22_22.png"]{
     top:30px;
     left:10px;
     background-color: #fff;
+<<<<<<< HEAD
 }
 
 .main1rightmid .li1>*{
     float: left;
     margin: 5px 10px;
+=======
+    font-size: 12px;
+>>>>>>> 290858b99373a9f60c74878097d2c67ba0e4b18a
 }
 
+.main1rightmid .li1>*{
+        margin: 5px 10px;
+}
+.li1>*{
+    float:left;
+    margin-right: 10px;
+}
+.containe1{
+    z-index: 5;
+}
 
 .containe1{
     z-index: 5;
@@ -954,6 +977,7 @@ li img[src="./taobao_images/tb22_22.png"]{
 
 
 
+<<<<<<< HEAD
 
 .main1rightbottom{
     position: absolute;
@@ -1119,3 +1143,10 @@ li img[src="./taobao_images/tb22_22.png"]{
     color: rgb(242,46,0);
     background-color: rgba(255,255,255,1);
 }
+=======
+.main1rightbottom{
+    position: relative;
+    width: 285px;
+    height: 320px;
+}
+>>>>>>> 290858b99373a9f60c74878097d2c67ba0e4b18a
