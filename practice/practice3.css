@@ -7,7 +7,7 @@ body,html{
 .container{
     width:100px;
     height:100px;
-    background-color: #0af;
+    background-color: #000;
 
     position: relative;
 }
@@ -17,12 +17,13 @@ body,html{
     float:left;
     border:1px solid #000;
     position: absolute;
-    left:-100%;
+    left:0;
     top:0;
     transition:all 1s;
 }
 .item1{
     background-color: #0f0;
+    z-index: 2;
 }
 .item2{
     background-color: #0fa;
@@ -41,8 +42,7 @@ body,html{
 }
 .item7{
     background-color: #aaf;
-    left:100%;
-      z-index: ;
+  
 }
 .container:hover .item7{
    left:0;

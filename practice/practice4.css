@@ -1,0 +1,114 @@
+/* .te{
+    background-color: #000;
+    border:20px solid #ff0;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    padding:20px;
+}
+.text{
+    position: absolute;
+    left:20px;
+    background-color: #000;
+    border:20px solid #ff0;
+    width: 50px;
+    height: 50px;
+    padding:10px;
+} */
+
+
+
+
+
+
+
+
+
+
+ 
+ #login_frame .with-line {
+	width:300px;font-size: 16px;
+	color: #999;
+	margin: 0 auto;
+	position: relative;
+	text-align: center
+}
+
+#login_frame .with-line:before {
+	content: "";
+	border-top: 1px solid #ededed;
+	display: block;
+	position: absolute;
+	width: 60px;
+	top: 10px;
+	left: 0
+}
+
+#login_frame .with-line:after {
+	content: "";
+	border-top: 1px solid #ededed;
+	display: block;
+	position: absolute;
+	width: 60px;
+	top: 10px;
+	right: 0
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .container{
+            width: 1000px;
+            margin: 10px auto;
+            border: 1px solid red;
+        }
+        h3.title {
+            color: #F2AE11;
+            font-size: 1.3em;
+            margin-bottom: 3em;
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.1;
+        }
+        h3.title span {
+            display: block;     /*设置为块级元素会独占一行形成上下居中的效果*/
+            font-size: 3em;
+            color: #212121;
+            position: relative;   /*定位横线（当横线的父元素）*/
+        }
+        h3.title span:before, h3.title span:after {
+            content: '';                 /*CSS伪类用法*/
+            position: absolute;         /*定位背景横线的位置*/
+            top: 52%;
+            background: #494949;       /*宽和高做出来的背景横线*/
+            width: 9%;
+            height: 2px;
+        }
+        h3.title span:before{
+            left: 25%;        /*调整背景横线的左右距离*/
+        }
+        h3.title span:after {
+            right: 25%;
+        }
+
+
+
+        /* 方案三 */
+        ul{ margin:0; padding:0; list-style-type:none;} 
+        #nav{font-size:12px;padding-bottom:15px;}
+        #nav li{width:100%; height:30px;}
+        #nav .item1{width:100%; border-bottom:1px solid #6c6;margin-bottom:-15px;}
+        #nav li a{width:100%; display:block;color:#666;text-decoration:none;padding:6px 5px;text-align:center;}
+        #nav li span{background:#FBFBFB; border:1px solid #eeeeee;padding:6px 5px;}
