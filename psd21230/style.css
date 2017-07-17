@@ -70,6 +70,7 @@ ul{
     padding:10px;
     margin: 5px 5px 0 0;
     font-size: 12px;
+    cursor: default;
 } 
 
 .navtab li:hover>p{
@@ -129,14 +130,20 @@ ul{
 .casebox h6{
     color: rgb(104,187,250);
     border-bottom: 1px solid rgb(100,100,100);
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin:10px 0;
 }
 .casebox img{
     position: relative;
     left:10px;
 }
+.casebox p{
+    margin:10px;
+}
 .casebox a{
     position: absolute;
-    top: 240px;
+    top: 230px;
     left: 140px;
     background-color: rgb(104,187,250);
     color: #fff;
@@ -171,7 +178,7 @@ ul{
 }
 .news>ul{
     list-style-type: square;
-    padding:0;
+    padding-left: 15px;
 }
 
 
@@ -227,6 +234,7 @@ ul{
     font-size: 12px;
     text-align: center;
     padding:5px;
+    color: #fff;
 }
 .bott .text{
     position: relative;
@@ -263,4 +271,5 @@ ul{
     border: 1px solid rgb(100,100,100);
     border-radius: 5px;
     background-color:rgba(0,0,0,0.5); 
+    color: #fff;
 }
