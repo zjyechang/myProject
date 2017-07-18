@@ -23,7 +23,11 @@
 
         var c = prompt ("现在星期二，输入几天后",1);
         c = parseInt(c);
-        alert(c+"天后星期"+(c+2)%7);//第五题？
+        d=(c+2)%7;
+        if (d == 0 ) {
+            d="天";
+        } 
+        alert(c+"天后星期"+d);//第五题？
 
         var d = prompt("请输入一个三位数",222);
         d = parseInt(d);

@@ -60,6 +60,7 @@ ture或false
 
 ## 小程序API
 prompt
+
 ## 字符转数字转换
 ### parseInt()  
 只截取前面部分，不四舍五入  
@@ -69,6 +70,8 @@ prompt
 强制转换成10进制
 
 ### parseFloat()
+
+浮点型
 
 ##数字转字符
 a=123+"";
