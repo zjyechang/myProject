@@ -126,14 +126,22 @@
         
         for (var x = 0 ;x <= 70 ;x++){
             for(var y = 0 ; y <= 100 ;y++){
-                for (var z = 0 ; z <= 200 ; z++){
+                for (var z = 0 ; z <= 100 ; z++){
                     if (x+y+z == 100 && 3*x+2*y+z == 200){
                         console.log("苹果"+x+"个，鸭梨"+y+"个，桃子"+z+"个")
                     }
                 }
             }
         }
-
+        //简化版
+        for (var x =0 ; x <= 50 ; x++){
+            //苹果买了x个，所以鸭梨最多100-x
+            for (var y =0 ; y <= 100-x; y++){
+                if ( 2*x + y == 100){
+                    console.log(x,y,(100-x-y))
+                }
+            }
+        }
 
 
         // 踩地雷

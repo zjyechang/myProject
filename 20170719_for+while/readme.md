@@ -62,7 +62,10 @@
 			}  
 
 # do whihle 循环
-
+        do {  
+            .....;   
+        }while (条件)   
+<!-- 至少执行一次 -->
 
 # while 循环
 		var n = 1;  
@@ -71,7 +74,7 @@
 			n++;   
 			}   
 *步长自己设置*
-## Math.random
+## Math.random 随机数
 (0,1)之间的开区间  
 如果想要在[a,b]闭区间取随机数，能取到a，也能取到b：  
 	parseInt(Math.random() * (b - a + 1)) + a;  
