@@ -34,18 +34,20 @@
                     }
                 }
 
-                //第三题 倒置
+           
+                // 数倒置（正解）
                 function rev(a){
-                    ge = a%10;
-                    shi = parseInt(a/10%10);
-                    bai = parseInt(a/100%10);
-                    qian = parseInt(a/1000);
-                    b = 1000*ge+100*shi+10*bai+qian;
-                    return b;
+                    var b =0;
+                    while(a){
+                        b = b * 10 + a % 10;
+                        a = parseInt(a/10)
+                    }
+                      return b 
                 }
-                var n = parseInt(prompt("请输入一个四位数",1111));
-                alert(rev(n));
+                alert(rev(1234567));
 
+
+              
                 //第四题 亲密数
 
                     //求质数
@@ -75,8 +77,21 @@
                     }
 
 
+                    // for (var i = 1;i <3000 ; i++){
+                    //     for (var j =1 ; j<3000; j++){
+                    //         if(jia(i) == j){
+                    //             if (i == jia(j) && j != i){
+                    //                  console.log(i,j)
+                    //             }
+                    //         }
+                    //     }
+                    // }
 
-
+                        
+                        
+                        // 求亲密数
+                   
+                   
                     for (var i = 1 ; i <=3000 ; i++)
                         if(yue(i)){
                             continue;
@@ -94,6 +109,38 @@
                                 }
                             }
                         }
+                        //求亲密数（正解）
+                         function jia(b){
+                    var sum = 0;
+                        for (var k = 1; k < b ; k++){
+                            if( b % k ==0){
+                                sum +=k;
+                            }
+                        }
+                        return sum;
+                    }
+                        for (i = 1; i <= 3000;i++){
+                            var j = jia(i);
+                            if(i == jia(j) && i!=j){
+                                console.log(i,j)
+                            }
+                        }
+
+
+
+
+
+                        // 无限相加的函数
+                        function sum(){
+                            var s = 0;
+                            a= arguments.length
+                            for (var i=0 ; i < a ; i++){
+                               s += arguments[i];
+                            }
+                            return s ;
+                        }
+                        console.log(sum(1,2,3,4,5,6))
+                        console.log(sum(1,2,3,4,5,6,7))
                     
     </script>
 </body>
