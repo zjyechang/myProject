@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log((123+45*78)/(34+543)-9*(324-34))//第一题
+        
+        var te = prompt("输入摄氏度");
+        te = parseInt(te)
+        alert("华氏度"+(9*te/5+32));//第二题
+
+        var a = Math.pow((23+Math.pow(5,7)/45),2);
+        console.log(a);//第三题
+
+        var b = prompt("输入六边形边长");
+        s = Math.sqrt(3)*3/2*Math.pow(b,2);
+        alert("六边形面积"+s);//第四题
+
+        var c = prompt ("现在星期二，输入几天后",1);
+        c = parseInt(c);
+        d=(c+2)%7;
+        if (d == 0 ) {
+            d="天";
+        } 
+        alert(c+"天后星期"+d);//第五题？
+
+        var d = prompt("请输入一个三位数",222);
+        d = parseInt(d);
+        ge = d%10;
+        shi = parseInt((d/10)%10);
+        bai = parseInt((d/100)%10);
+        console.log(ge+shi+bai);//第六题
+
+ 
+
+
+
+
+    </script>
+</body>
+</html>

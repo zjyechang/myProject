@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        // var a = 5;
+        // var b = "5";
+        // console.log(a==b);
+        // console.log(null && 8 && 7)
+        var str = prompt ("请输入红包口令");
+        if(str == "html"){
+            alert("奖励你一元");
+        }else if(str == "css"){
+            alert("奖你5元");
+        }else if(str == "js"){
+            alert("奖励你100元");
+        }else{
+            alert("没中奖");
+        }
+
+        var t = parseFloat(prompt("请输入你的体重kg"))
+        var s = parseFloat(prompt("请输入你的身高cm"))
+        var x = t/ Math.pow(s/100,2)
+        if(x < 18.5){
+            alert("你过轻了")
+        }else if (x < 25){
+            alert("刚刚好~")
+        }else if (x < 28){
+            alert("你超重了")
+        }else if (x < 32){
+            alert("肥胖的人")
+        }else{
+            alert("我猜你应该是圆的")
+        }
+        var i = 0;
+        i++;
+        var sum = i > 0? 1:2;
+        console.log(sum)
+        switch(i){
+            case 1:
+            i+=7;
+            break
+            case 0:
+            i++;
+            break
+
+        }
+       console.log(i)
+
+
+       if (a>13){
+           alert(">13")
+       }else if (a>4){
+            alert("13到4之间")
+       }else if (a>2){
+           alert("在2与4之间")
+       }
+       else {
+           alert("<2")
+       }
+
+
+      
+    </script>
+</body>
+</html>

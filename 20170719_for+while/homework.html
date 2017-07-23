@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //第一题
+        for(var i = 1 ;i<1000;i++){
+            if(i%5 == 0 && i%6 == 0){
+                console.log(i)
+            }
+        }
+
+
+
+        //第二题 n求和
+        var n = parseInt(prompt("请输入一个数"))
+        var sum = 0 ;
+        for(var  i=1 ; i<=n; i++){
+            sum += i
+        }
+        console.log(sum);
+
+
+
+        //第三题 分数求和
+        var n = parseInt(prompt("请输入一个数"))
+        var sum = 0;
+        for( var i=2 ; i<=n;i++){
+            sum = (i+1)/i+sum;
+        }
+        console.log(sum)
+
+
+        //第四题   求约数
+        var n = parseInt(prompt("请输入一个数"));
+        for (var i=1 ; i<=n ; i++){
+            if(n%i ==0 ){
+                console.log(i)
+            }
+        }
+
+
+
+
+        //第五题  安全数
+        for (var i = 1 ;i <=60 ; i++){
+            if (i % 7 == 0){
+                continue;
+            }else if (i % 10 == 7){
+                continue;
+            }else{
+                console.log(i)
+            }
+        }
+
+
+
+        //第六题  水仙花数
+        var sum =0;
+        for(var i=1000 ; i<9999;i++){
+            var a = Math.pow(parseInt(i/1000)%10,4)
+            var b = Math.pow(parseInt(i/100)%10,4)
+            var c = Math.pow(parseInt(i/10)%10,4)
+            var d = Math.pow(parseInt(i%10),4)
+            if (i == a+b+c+d){
+                console.log(i)
+                sum++;
+            }
+        }
+        console.log("总共"+sum+"个")
+
+
+
+
+        //第七题  完美数
+        
+        for (var i=1 ;i<=10000 ; i++){
+            var sum = 0;
+            for( j = 1 ;j< i ; j++){
+                if(i % j == 0){
+                     sum += j;
+                }
+            }
+            if (i == sum){
+                console.log(i)
+            }
+        }
+
+
+
+
+        //第八题 判断是否质数
+        var t = true;
+        var n = parseInt(prompt("请输入一个数字"))
+            for(var i = 2 ; i <n ; i++){
+                if(n % i == 0){
+                    t = false;
+                    break;
+                }
+            }
+                alert(t?"这个数是质数":"不是质数")
+
+
+
+
+        //第九题 1-10000所有质数
+        for (var i = 1; i<10000  ;i++){
+        var t =0;
+            for (j = 1; j <= i;j++){
+                if(i%j == 0){
+                    t++;
+                }
+            }
+            if (t == 2){
+                console.log(i)
+            }
+        }
+
+
+        //第十题  计算题
+        
+        for (var x = 0 ;x <= 70 ;x++){
+            for(var y = 0 ; y <= 100 ;y++){
+                for (var z = 0 ; z <= 100 ; z++){
+                    if (x+y+z == 100 && 3*x+2*y+z == 200){
+                        console.log("苹果"+x+"个，鸭梨"+y+"个，桃子"+z+"个")
+                    }
+                }
+            }
+        }
+        //简化版
+        for (var x =0 ; x <= 50 ; x++){
+            //苹果买了x个，所以鸭梨最多100-x
+            for (var y =0 ; y <= 100-x; y++){
+                if ( 2*x + y == 100){
+                    console.log(x,y,(100-x-y))
+                }
+            }
+        }
+
+
+        // 踩地雷
+        var poom = parseInt(Math.random()*100+1)
+        var min = 1;
+        var max = 100;
+    while(true){
+        var n = parseInt(prompt("请输入一个数字，在"+min+"到"+max+"之间"));
+        if (n<max && n>min){
+            if (n < poom){
+                min = n;
+            }
+            else if(n > poom){
+                max = n;
+            }
+            else if (n == poom){
+                alert("恭喜你中奖了！唱歌吧")
+                break;
+            }
+        }else{
+            alert("请输入范围内的数")
+        }
+
+    }
+    </script>
+</body>
+</html>

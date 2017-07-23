@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //第一题 10以内的阶乘相加
+             ////求阶乘
+             
+                function jiecheng(n){
+                    var s = 1;
+                    for (var i = 1; i <= n ;i++){
+                        s *= i;
+                    }
+                    return s;
+                }
+
+                var sum =0;
+                for (var i = 1; i <=10; i++){
+                    sum +=jiecheng(i) ;
+                }
+                console.log(sum)
+
+                //第二题 考拉数
+                var sum = 0;
+                for (var i = 100; i <= 999; i++){
+                    sum = jiecheng(parseInt(i/100))+jiecheng(parseInt(i/10)%10)+jiecheng(i%10);
+                    if (sum == i){
+                        console.log(i)
+                    }
+                }
+
+           
+                // 数倒置（正解）
+                function rev(a){
+                    var b =0;
+                    while(a){
+                        b = b * 10 + a % 10;
+                        a = parseInt(a/10)
+                    }
+                      return b 
+                }
+                alert(rev(1234567));
+
+
+              
+                //第四题 亲密数
+
+                    //求质数
+                  
+                    function yue(a){
+                            var t =true ; 
+                        for (var i = 2; i < a; i++){
+                            if (a % i == 0){
+                                t = false;
+                                continue;
+                            }
+                        }
+                        return t;
+                    }
+
+
+
+                    //约数相加
+                    function jia(b){
+                    var sum = 0;
+                        for (var k = 1; k < b ; k++){
+                            if( b % k ==0){
+                                sum +=k;
+                            }
+                        }
+                        return sum;
+                    }
+
+
+                    // for (var i = 1;i <3000 ; i++){
+                    //     for (var j =1 ; j<3000; j++){
+                    //         if(jia(i) == j){
+                    //             if (i == jia(j) && j != i){
+                    //                  console.log(i,j)
+                    //             }
+                    //         }
+                    //     }
+                    // }
+
+                        
+                        
+                        // 求亲密数
+                   
+                   
+                    for (var i = 1 ; i <=3000 ; i++)
+                        if(yue(i)){
+                            continue;
+                        }else{
+                            for (var j = 1 ;j <=3000 ; j++){
+                                if (yue(j)){
+                                    continue;
+                                }else if(i == j){
+                                    continue;
+                                }
+                                else{
+                                    if(jia(i) == j && i == jia(j)){
+                                        console.log(i,j)
+                                    }
+                                }
+                            }
+                        }
+                        //求亲密数（正解）
+                         function jia(b){
+                    var sum = 0;
+                        for (var k = 1; k < b ; k++){
+                            if( b % k ==0){
+                                sum +=k;
+                            }
+                        }
+                        return sum;
+                    }
+                        for (i = 1; i <= 3000;i++){
+                            var j = jia(i);
+                            if(i == jia(j) && i!=j){
+                                console.log(i,j)
+                            }
+                        }
+
+
+
+
+
+                        // 无限相加的函数
+                        function sum(){
+                            var s = 0;
+                            a= arguments.length
+                            for (var i=0 ; i < a ; i++){
+                               s += arguments[i];
+                            }
+                            return s ;
+                        }
+                        console.log(sum(1,2,3,4,5,6))
+                        console.log(sum(1,2,3,4,5,6,7))
+                    
+    </script>
+</body>
+</html>

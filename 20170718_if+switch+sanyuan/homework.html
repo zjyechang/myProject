@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //第一题
+    var a = parseInt(prompt("请输入一个数字"));
+    if (a%5 == 0 && a%6 == 0){
+        alert("能同时被5和6整除");
+    }else if(a%5 != 0 && a%6 ==0){
+        alert("只能被6整除");
+    }else if (a%5 == 0 && a%6 != 0){
+        alert("只能被5整除");
+    }else{
+        alert("既不能被5整除，又不能被6整除")
+    }
+
+    
+
+    
+    
+
+
+    var a = parseInt(prompt("请输入一个数字"));
+    if (a%5 ==0){
+        if(a%6 == 0){
+            alert("能同时被5与6整除");
+        }else{
+            alert("只能被5整除");
+        }
+    }else{
+        if(a%6 == 0){
+            alert("只能被6整除");
+        }else{
+            alert("不能被5或6整除");
+        }
+    }
+
+
+
+
+
+
+      var a = parseInt(prompt("请输入一个数字"));
+    if (a%5 ==0){
+        alert(a%6 == 0?"能同时被5与6整除":"只能被5整除")
+    }else{
+        alert(a%6 == 0?"只能被6整除":"不能被5与6整除")
+    }
+
+
+
+
+
+
+    //第二题
+    var b = parseInt(prompt("请输入一个数"));
+    var c = parseInt(prompt("再输入一个数"));
+    b=b % 2;
+    c=c % 2;
+    alert(b == c? "奇偶性相同":"奇偶性不同");
+
+
+
+
+
+    //第三题
+    var d = parseInt(prompt("请输入年份"));
+    if(d % 100 == 0){
+        if(d % 400 == 0){
+            alert(d+"年是闰年");
+        }else{
+            alert(d+"年不是闰年");
+        }
+    }else{
+        if(d % 4 ==0){
+            alert(d+"年是闰年");
+        }else{
+            alert(d+"年不是闰年");  
+        }
+    }
+
+
+
+
+
+    var d =parseInt(prompt("请输入年份"));
+    if (d % 100 == 0){
+        alert(d % 400 == 0?d+"年是闰年":d+"年不是闰年");
+    }else{
+        alert(d % 4 == 0? d+"年是闰年":d+"年不是闰年")
+    }
+
+
+    //第四题
+    var e = parseInt(prompt("请输入工作几年",0));
+    var f = parseInt(prompt("请输入工资"));
+    switch(e){
+        case 0 :
+            if(f > 8000){
+                alert("年终奖"+12/10*f);
+            }else{
+                alert("年终奖"+f);
+            }
+        break;
+        case 1 :
+            if(f>10000){
+                alert("年终奖"+17/10*f);
+            }else{
+                alert("年终奖"+15/10*f);
+            }
+            break;
+        case 2 :
+            if(f > 12000){
+                alert("年终奖"+32/10*f);
+            }else{
+                alert("年终奖"+3*f);
+            }
+    }
+
+
+
+  
+    </script>
+</body>
+</html>
