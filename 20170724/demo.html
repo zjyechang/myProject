@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 求亲密数复习
+    function yue (a){
+        var sum = 0;
+        for (var j= 1 ;j<a;j++){
+            if(a % j ==0){
+                sum += j;
+            }
+        }
+        return sum
+    }
+
+    function c(){
+        for(var  i =1 ;i<=3000;i++){
+            var b = yue(i);
+            if ( i == yue(b) && i != b){
+                console.log(i)
+            }
+        }
+    }
+    c();
+
+
+        //求倒置数复习
+    function rec(a){
+        var sum =0;
+        while(a){
+            sum = sum*10+a%10
+            a = parseInt(a/10)
+        }
+        return sum;
+    }
+
+    console.log(rec(1234566));
+    console.log(rec(10987654));
+
+
+    // **案例1**
+    alert(a);//function a(){alert(4)}
+    var a =1;
+    alert(a);//1
+    function a(){alert(2)}
+    alert(a);//1
+    var a =3;
+    alert(a);//3
+    function a(){alert(4)}
+    alert(a);//3
+    // 速度太慢啦
+
+
+    // 案例2
+    var o =1;
+    function fun(o){//参数，与全局变量无关
+        alert(o) 
+        var o = 2;
+    }
+    fun(o)//1
+    fun();//未定义
+    alert(o);//1
+
+
+     var o =1;
+    function fun(){
+        alert(o) 
+        o = 2;
+    }
+    fun();//1
+    alert(o);//2
+
+
+
+    //自己探索
+    var a = 1;
+    function func(){
+        alert(a);
+        a =2;
+        function inner(){
+            a++;
+            alert(b);
+            var b = a ;
+            alert(b);
+        }
+        return inner;
+    }
+
+    var inn = func();
+    inn();
+    inn();
+    // 案例3 （高偶合）
+    var b ='';
+    function fun(){
+        var a = "炸鸡吧";
+        b = a ;
+    }
+    fun();
+    alert(b);
+
+
+    //案例4 传参数
+    function fun1(a){
+        var a ="999克拉钻戒";
+        fun2(a);
+
+    }
+    function fun2(a){
+        alert(a);
+    }
+
+
+    //案例5
+    var a =1;
+    function fun3(){
+        var a = 3;
+        console.log(a);
+        function fun4(){
+            a = 2
+            console.log(a);
+        }
+        console.log(a);
+        return fun4();
+    }
+    console.log(a);
+    fun3();
+
+
+
+
+
+    var arr = ["东",'南','西','北'];
+    arr.push("中","发","白");
+
+    arr.pop();
+    arr.unshift( arr.pop() );
+    arr.push ( arr.shift() );
+    console.log(arr);
+    arr1 = ["垃圾","白板"];
+    arr3 = arr.concat(arr1,"妖姬",["九条","二筒"]);
+    console.log(arr3);
+
+    arr = arr.slice(2,4);
+    console.log(arr);
+
+
+    // splice例子
+    var arr = [1,2,3,4,5,6,7,8,9,10];
+    arr.splice(2,4, "5","s");
+    console.log(arr);// [1, 2, "5", "s", 7, 8, 9, 10]
+
+    arr.splice(-2);
+    console.log(arr)//[1, 2, "5", "s", 7, 8]
+
+
+
+    //splice 例子注意
+    var arr = [1,2,3,4,5,6,7,8,9,10];
+    arr= arr.splice(2,4, "5","6");//5,6无效
+    console.log(arr);//[3,4,5,6]
+
+
+
+    // join例子
+    var arr = [1,2,3,4,5,6,7,8,9,10];
+    var str = arr.join ("( • ̀ω•́ )✧");
+    console.log(str);
+
+
+
+    // join 例子
+    var arr = [,,,,,,,,,,];
+    var str = arr.join ("shit");
+    console.log(str);
+
+    //数组颠倒
+    var arr = [1,2,3,4,5,6,7,8,9,10];
+    arr.reverse();
+    console.log(arr);
+
+
+    //sort
+    arr = [11,2,23,411,4,51,231];
+    arr.sort();
+    console.log(arr);//转化成字符串排序
+
+    //字符串属性
+    arr = "我爱你我的祖国的人民币~"
+    console.log(arr.indexOf("的"))//4
+    console.log(arr.replace("爱","恨"))
+    console.log(arr.indexOf("爱"))
+    console.log(arr.slice(-3,1-2));
+    console.log(arr.split("的"))
+    //首字母大写
+    str = "hello";
+    for (i =0; i<str.length;i++)
+        if (i ==0){
+            var a = str.charAt(0)
+            var sum = a.toUpperCase()
+        }else{
+            sum = sum + str.charAt(i)
+        }
+        console.log(sum)
+
+    console.log(str.substr(0,1).toUpperCase()+str.substr(1))
+    //测试.
+     var a =1;
+    function fun3(){
+        console.log(a);//Undefined
+         a = 9;
+        function fun4(){
+            a++;
+            var a = 5;
+            console.log(a)//5
+        }
+        console.log(a);//9
+        return fun4();
+    }
+    console.log(a)//1
+    fun3();//
+    fun3();
+
+
+  
+    function b (){
+        a = 1;
+    }
+    b();
+    console.log(a);
+    
+    </script>
+</body>
+</html>

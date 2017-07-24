@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework1</title>
+    <style>
+    .box{
+        width: 200px;
+        height: 200px;
+        float:left;
+
+    }
+    .box1{
+        background-color: #f00;
+    }
+    .box2{
+        background-color: #ff0;
+    }
+    .box3{
+        background-color: #00f;
+    }
+    .bbox{
+        position: absolute;
+        top:300px;
+        display:block;
+        width: 600px;
+        height: 200px;
+        background-color: #0ff;
+    }
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="bbox"></div>
+    <script>
+        var oBox = document.getElementsByTagName("div")
+        var oBbox = document.getElementsByTagName("div")[3]
+        // alert(typeof oBbox)
+            for (var i = 0; i< 3; i++){
+                oBox[i].onclick = function (){
+                this.style.display="none";
+                oBbox.style.visibility="hidden";
+        }
+        }
+        oBbox.onclick = function (){
+            oBox[0].style.visibility="hidden";
+            oBox[1].style.visibility="hidden";
+            oBox[2].style.visibility="hidden";
+        }
+
+
+    </script>
+</body>
+</html>

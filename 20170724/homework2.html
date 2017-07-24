@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .text{
+        position: absolute;
+        top:100px;
+        left:100px;
+        background-color: #000;
+        color:#fff;
+        padding:10px;
+    }
+    #con{
+        position: absolute;
+        left:200px;
+        top:110px;
+        padding:10ox;
+        background-color: #0ff;
+        border:1px double #000;
+    }
+    #item{
+        position: absolute;
+        top:100px;
+        left:400px;
+        width: 400px;
+        height: 400px;
+        border:1px dashed #000;
+        visibility: hidden;
+    }
+    #xiaobai{
+        position: absolute;
+        top:200px;
+        left:100px;
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        border:1px solid #000;
+    }
+    input{
+       margin:20px;
+    }
+    .form {
+        position: relative;
+        left:20px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="text">(｀・ω・´)</div>
+    <div id="con">我是控制台</div>
+    <div id="item">
+        <div class="form">
+            <label>高度控制</laber>
+            <input type="button" value="200px" >
+            <input type="button" value="400px">
+            <input type="button" value="600px">
+       </div>
+        <div class="form">
+            <label>宽度控制</laber>
+            <input type="button" value="200px" >
+            <input type="button" value="400px">
+            <input type="button" value="600px">
+       </div>
+        <div class="form">
+            <label>颜色控制</laber>
+            <input type="button" value="red" >
+            <input type="button" value="blue">
+            <input type="button" value="yellow">
+        </div>
+
+        <div class="form">
+            <input type="button" value = "重置">
+            <input type="button" value = "关闭">
+           <label>宽度控制</laber>
+            <input type="range" value="100" min="0" mix="500">
+       
+            <label for="">颜色控制</label>
+            <input type="color" id = "color">
+      </div>
+
+    </div>
+    <div id="xiaobai" ></div>
+
+  <script>
+    var con = document.getElementById("con")
+    var item = document.getElementById("item")
+    var xiaobai = document.getElementById("xiaobai")
+    var inp = document.getElementsByTagName("input")
+    con.onclick = function (){
+        item.style.visibility="visible";
+    }
+    // alert(typeof inp)
+
+
+    // for ( var i =0 ; i<3 ;i++){
+    //     inp[i].onclick = function () {
+    //     xiaobai.style.height = (200*i+200)+"px";
+    //     }
+    // }
+       inp[0].onclick = function () {
+            xiaobai.style.height = 200+"px";
+        }
+        inp[1].onclick = function () {
+            xiaobai.style.height = "400px";
+        }
+        inp[2].onclick = function () {
+            xiaobai.style.height = "600px";
+        }
+        inp[3].onclick = function () {
+            xiaobai.style.width = "200px";
+        }
+        inp[4].onclick = function () {
+            xiaobai.style.width = "400px";
+        }
+        inp[5].onclick = function () {
+            xiaobai.style.width = "600px";
+        }
+         inp[6].onclick = function () {
+            xiaobai.style.backgroundColor = "red";
+        }
+        inp[7].onclick = function () {
+            xiaobai.style.backgroundColor = "blue";
+        }
+        inp[8].onclick = function () {
+            xiaobai.style.backgroundColor = "yellow";
+        }
+        inp[9].onclick = function () {
+            xiaobai.style.backgroundColor = "lightblue";
+            xiaobai.style.height = "100px";
+            xiaobai.style.width = "100px";
+        }
+          inp[10].onclick = function () {
+            item.style.display="none";
+        }
+        inp[11].onmouseup = function (){
+             var wid = inp[11].value;
+            xiaobai.style.width = 10*wid+"px"; 
+        }
+        inp[12].onmouseup = function(){
+            //  var co = inp[12].vlaue???????
+             xiaobai.style.backgroundColor=this.value;
+        }
+
+       
+       
+
+  </script>
+</body>
+</html>
