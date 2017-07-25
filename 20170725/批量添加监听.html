@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+p{
+    float:left;
+    width: 100px;
+    height: 100px;
+    background-color: #ff0;
+    margin:20px;
+}
+
+    </style>
+</head>
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+
+
+
+
+    <script>
+    var p = document.getElementsByTagName("p")
+        // 第一种IIFE
+    for (var i =0;i <p.length ;i++){
+        p[i].onclick = function (){
+            this.style.backgroundColor="lightblue";
+            alert("我是老"+i)
+    
+        }(i);
+    }
+
+
+
+    </script>
+</body>
+</html>

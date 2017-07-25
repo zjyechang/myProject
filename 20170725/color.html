@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+
+        body{
+            background-color: rgb(100,100,100);
+        }
+        span{
+            background-color: #fff;
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            top:200px;
+
+        }
+    </style>
+</head>
+<body>
+    <p>
+        r:
+        <input type="button" value="+" id= "rup">
+        <input type="text" value=100 id = "textR">
+        <input type="button" value="-" id = "rdown">
+    </p>
+    <p>
+        g:
+        <input type="button" value="+" id="gup">
+        <input type="text" value=100 id = "textG">
+        <input type="button" value="-"id ="gdown">
+    </p>
+    <p>
+        b:
+        <input type="button" value="+" id =bup>
+        <input type="text" value=100 id = "textB">
+        <input type="button" value="-" id = "bdown">
+    </p>
+    <p>
+        <input type="button" value="go" id = "go">
+    </p>
+
+    <span></span>
+    <script>
+
+        
+    var textR= document.getElementById("textR");
+    var textG= document.getElementById("textG");
+    var textB= document.getElementById("textB");
+    var rup = document.getElementById("rup")
+    var rdown = document.getElementById("rdown")
+    var gup = document.getElementById("gup")
+    var gdown = document.getElementById("gdown")
+    var bup = document.getElementById("bup")
+    var bdown = document.getElementById("bdown")
+    var go = document.getElementById("go")
+    var span = document.getElementsByTagName("span")[0]
+      
+
+        // 信号量
+        var a = 100;
+        var b = 100;
+        var c = 100;
+
+
+
+        // 业务函数
+        rup.onclick = function (){
+            a+=10;
+            if(a>255) a=255;
+            if (a<0) a=0;
+            document.body.style.backgroundColor=
+            "rgb("+a+","+b+","+c+")";
+            textR.value = a;
+        }
+        rdown.onclick = function (){
+            a-=10;
+            if(a>255) a=255;
+            if (a<0) a=0;
+            document.body.style.backgroundColor=
+            "rgb("+a+","+b+","+c+")";
+            textR.value = a;
+        }
+        gup.onclick = function (){
+            b+=10;
+            if(a>255) a=255;
+            if (a<0) a=0;
+            document.body.style.backgroundColor=
+            "rgb("+a+","+b+","+c+")";
+             textG.value = b;
+        }
+        gdown.onclick = function (){
+            b-=10;
+            if(a>255) a=255;
+            if (a<0) a=0;
+            document.body.style.backgroundColor=
+            "rgb("+a+","+b+","+c+")";
+             textG.value = b;
+        }
+        bup.onclick = function (){
+            c+=10;
+            if(a>255) a=255;
+            if (a<0) a=0;
+            document.body.style.backgroundColor=
+            "rgb("+a+","+b+","+c+")";
+             textB.value = c;
+        }
+        bdown.onclick = function (){
+            c-=10;
+            if(a>255) a=255;
+            if (a<0) a=0;
+            document.body.style.backgroundColor=
+            "rgb("+a+","+b+","+c+")";
+             textB.value = c;
+        }
+        
+        go.onclick = function(){
+            a = textR.value;
+            b = textG.value;
+            c = textB.value;
+             document.body.style.backgroundColor=
+            "rgb("+a+","+b+","+c+")";
+        }
+        span.innerHTML =  "rgb("+a+","+b+","+c+")";
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #pic{
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        top:100px;
+        left:100px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <input id ="ip" type="button" value="移动">
+    <img id ="pic" src="./beijing/1.jpeg" alt="">
+    <input id ="bt" type="range" value="1" min =1 max =5>
+
+
+
+
+    <script>
+    var ip = document.getElementById("ip")
+    var pic = document.getElementById("pic")
+    var but = document.getElementById("bt")
+
+    var left = 100;
+    ip.onclick = function (){
+        left -=40;
+        if(left>1000){
+            left = 1000;
+        }else if (left < 0 ){
+            left = 0;
+        }
+        pic.style.left = left+"px";
+    }
+    bt.onmousedown = function (){
+        this.onmousemove = function(){
+        pic.src = "./beijing/"+bt.value+".jpeg"
+        }
+    }
+
+
+
+
+    </script>
+</body>
+</html>

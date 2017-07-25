@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+div{
+    width: 100px;
+    height: 100px;
+    border:1px solid #000;
+}
+
+
+    </style>
+</head>
+<body>
+    <p><input type="checkbox">吃饭</p>
+    <p><input type="checkbox">吃饭</p>
+    <p><input type="checkbox">吃饭</p>
+    <p><input type="checkbox">吃饭</p>
+    <p><input type="checkbox">吃饭</p>
+    <p><input type="checkbox">吃饭</p>
+    <p><input type="checkbox">吃饭</p>
+    <p><input type="checkbox">吃饭</p>
+    <p><input type="button" value = "全选" id ="quan"></p>
+
+    <div></div>
+    <p><input type="button" value = "变色" id = "color"></p>
+
+    <script>
+    var input = document.getElementsByTagName("input");
+    var quan = document.getElementById("quan")
+        var state = true;
+        quan.onclick = function (){
+            state = !state;
+            str = state? "" : "checked";
+            for(var i = 0 ; i < input.length-2 ;i++){
+                input[i].checked = str;
+            }
+            quan.value = state? "全选":"取消全选"
+        }
+        var color = document.getElementById("color")
+        var oDiv = document.getElementsByTagName("div")[0]
+        color.onclick = function(){
+            state = !state;
+            var st = state? "blue":"red";
+            oDiv.style.backgroundColor = st;
+        }
+
+
+    </script>
+</body>
+</html>

@@ -21,10 +21,11 @@
  arr3 = arr.concat(arr1,"妖姬",["九条","二筒"])  
 合并的可以是数组，单独字符串  
 ## slice 拆分
+arr.slice(2,4)
 根据arr.length()的下标  
 前包后不包  
 arr = arr.slice(2,4)  
-## splice 删除 并替换
+## splice 删除 并替换（可单独添加）
 arr.splice(2,4,"a","b")  
 从下标2,开始，删除4位。  并替换成a，b  
 arr.splice(2)如过没指定个数，就从下标2开始（包含），删除后面所有
@@ -38,11 +39,12 @@ arr.splice(-3); 删除最后三个
 # 字符串属性
 ## length
 中文、数字、英语字母、空格，都是1个长度
-## chatAt()
+## chatAt() 截取字符串
 console.log("asdfghjkl",charAt(2)) 输出d
 ## indexOf 检索字符串
 检索然后显示下标数字，没有则为-1，只能检索第一个
 ## replace
+replace("a","b")
 只能替换一个
 ## substr
 str.substr(3,5)从下标为3的地方开始，取5个字符
@@ -57,6 +59,16 @@ str.substring(3,5)从下标为3的地方开始取到下标5个。
 ## 获取对象
 document.getElementById("")
 伪数组 doccument.getElementByTagName("")[0]
+## 监听
+onclick 		单击  
+onmouseover	    鼠标进入  
+onmouseout		鼠标离开  
+ondblclick		双击  
+onfocus			得到焦点  
+onblur			失去焦点  
+onmousedown		鼠标按下  
+onmouseup		鼠标按键抬起  
+
 ## 更改属性
 id.style.backgroundColor = "red";
 document.title = "yechang"

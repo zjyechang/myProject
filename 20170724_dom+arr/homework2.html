@@ -77,10 +77,11 @@
             <input type="button" value = "重置">
             <input type="button" value = "关闭">
            <label>宽度控制</laber>
-            <input type="range" value="100" min="0" mix="500">
+            <input type="range" value="100" min="0" max="500">
        
             <label for="">颜色控制</label>
             <input type="color" id = "color">
+            <input type="button" value = "颜色应用">
       </div>
 
     </div>
@@ -139,13 +140,12 @@
         }
         inp[11].onmouseup = function (){
              var wid = inp[11].value;
-            xiaobai.style.width = 10*wid+"px"; 
+            xiaobai.style.width = wid+"px"; 
         }
-        inp[12].onmouseup = function(){
-            //  var co = inp[12].vlaue???????
-             xiaobai.style.backgroundColor=this.value;
+        inp[13].onclick = function(){
+             co =inp[12].value;
+            xiaobai.style.backgroundColor = co;
         }
-
        
        
 
