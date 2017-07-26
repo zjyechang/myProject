@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    div{
+        border:1px solid #000;
+    }
+    p{
+        display: inline-block;
+        margin:20px;
+        width: 50px;
+        height: 50px;
+        background-color: lightblue;
+        border-radius: 50%;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+
+        <h1>哈哈(｡･ω･｡)</h1>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+   
+
+    <script>
+    var oBox1 = document.getElementsByTagName("div")[0]
+    .getElementsByTagName("p")
+    var h = document.getElementsByTagName("h1")[0]
+        
+
+        for (var i =0 ;i< oBox1.length ;i++){
+            oBox1[i].index = i ;//编号
+            oBox1[i].onmouseover = function(){
+                for(var j =0 ; j< oBox1.length;j++){
+                oBox1[j].style.backgroundColor = "black";
+
+                }
+            this.style.backgroundColor = "red";
+
+                
+            h.innerHTML = this.index;//改变编号
+            }
+        }
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

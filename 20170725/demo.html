@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    .box{
+        background-color: lightblue;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        left:100px;
+        top:100px;
+        font-size: 15px;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- <img id = "img" src="./images" alt="" baidu = "baidu.com"> -->
+    <button>字号+</button>
+    <button>字号-</button>
+    <button>往左边</button>
+    <button>往右边</button>
+    
+    <div class="box">(～￣▽￣)～ </div>
+  
+
+    <script>
+
+          // 冒泡排序优化
+    // var arr = [54,12,3,4,57,6,7,33,44]
+    // var count = 0;
+    // for (j = 0 ; j < arr.length-1-j ; j++)
+    //     for (var i = 0 ; i <arr.length-1-j ;i++){
+    //         if (arr[i]>arr[i+1]){
+    //             var c = arr[i] ;
+    //             arr[i] = arr[i+1];
+    //             arr[i+1] = c;
+    //         }
+    //             count++;
+    //     }
+    //     console.log(arr)
+    //     console.log(count)
+
+        var oImg = document.getElementById ("img")
+        var oBox = document.getElementsByClassName("box")[0]
+        var btn1 = document.getElementsByTagName("button")[0]
+        var btn2 = document.getElementsByTagName("button")[1]
+        var btn3 = document.getElementsByTagName("button")[2]
+        var btn4 = document.getElementsByTagName("button")[3]   
+        
+        
+        var oFontSize = 15;
+        alert(oFontSize)
+        btn1.onclick  = function (){
+            oFontSize+=1;
+            oBox.style.fontSize = oFontSize+"px";
+        }
+        btn2.onclick  = function (){
+            oFontSize-=1;
+            oBox.style.fontSize = oFontSize+"px";
+        }
+
+
+
+        var oLeft = 100;
+        btn3.onclick  = function (){
+            oLeft-=10;
+            oBox.style.left = oLeft+"px";
+        }
+        btn4.onclick  = function (){
+            oLeft+=10;
+            oBox.style.left = oLeft+"px";
+        }
+
+
+
+    </script>
+</body>
+</html>

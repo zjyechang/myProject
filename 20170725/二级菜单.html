@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二级菜单</title>
+    <style>
+        .box{
+            position: absolute;
+            top:200px;
+        }
+
+        
+        ul{
+            position: absolute;
+            padding:0px;
+            margin:20px;
+            bottom:0px;
+            left:250px;
+            list-style: none;
+            width: 300px;
+        }
+        li{
+            display: inline-block;
+            height: 20px;
+            width: 40px;
+            background-color: lightseagreen;
+            cursor:pointer;
+        }
+
+        .content{
+            position: absolute;
+            left:0;
+            top:20px;
+            width: 220px;
+            height: 100px;
+            background-color: lightcoral;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="box" >
+
+        <ul>
+            <li>一
+                <div class="content">盒子一</div>
+            </li>
+            
+            <li>二
+                <div class="content" style="background-color:lightblue;">盒子二</div>
+            </li>
+
+            <li>三
+                <div class="content" style = "background-color: lightgreen">盒子三</div>
+            </li>
+
+            <li>四
+                <div class="content" style = "background-color: lightpink">盒子四</div>
+            </li>
+
+            <li>五
+                <div class="content" style = "background-color: lightgrey">盒子五</div>
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+    var content = document.getElementsByClassName("content");
+    var li = document.getElementsByTagName("li")
+
+        // for(var i =0 ; i <= li.length ;i++){
+        //     (function(i){
+        //         li[i].onclick = function(){
+                    
+        //             for (j = 0 ; j < li.length ;j++){
+        //                 content[j].style.zIndex = 1;
+        //             }
+        //         content[i].style.zIndex=10;
+        //         }
+        //     })(i);
+//  }
+
+        for (var i= 0 ; i<li.length ;i++){
+            li[i].index = i;
+            li[i].onclick = function(){
+                for(var j =0; j< li.length ;j++){
+                    content[j].style.zIndex = 1;
+                }
+                content[this.index].style.zIndex = 10;
+            }
+
+        }
+
+
+
+       
+
+    
+
+
+    </script>
+
+</body>
+</html>
