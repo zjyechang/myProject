@@ -7,7 +7,7 @@
 # margin:0 auto;不能居中问题
 1.没设置宽度
 2.设置了position：static；属性
-3.元素不能浮动
+3.元素浮动
 
 解决方法  
 1.只是在要居中的div外层添加多一个div,并使其居中。
@@ -26,3 +26,8 @@ inset	可选。将外部阴影 (outset) 改为内部阴影。
 # 渐变色
 background: linear-gradient(0deg to bottom, rgb(245,249,252),#fff);   
 to left”实现的效果也可以使用角度值“90deg”和“270deg”：著作权归作者所有。    
+
+
+# 定位问题
+内层模块的最外层margin开始  
+根据有定位的外层元素的*内容*定位

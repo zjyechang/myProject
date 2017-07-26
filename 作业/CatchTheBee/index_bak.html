@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') center;
+        }
+        #Box {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            left: 50%;
+            top: 50%;
+            margin-left: -24px;
+            margin-top: -24px;
+            transition: all 0.2s;
+        }
+        .chat {
+            height: 48px;
+            width: 68px;
+            display: none;
+            background: url('chat.png') no-repeat;
+            position: absolute;
+            top: -48px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 36px;
+        }
+        #Bee {
+            position: relative;
+            animation: move 1s infinite;
+        }
+        @keyframes move {
+            0% {
+                left: 0;
+                top: 0;
+            }
+            25% {
+                left: -12px;
+                top: -12px;
+            }
+            50% {
+                left: 12px;
+                top: -12px;
+            }
+            100% {
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Box">
+        <img id="Bee" src="bee_0.gif" alt="CatchMe">
+        <div class="chat"></div>
+    </div>
+    <script>
+        var BOX = document.querySelector('#Box');
+        var CHAT = document.querySelector('#Box .chat');
+        var BEE = document.querySelector('#Bee');
+        var beeImageArr = ['bee_0.gif', 'bee_1.gif', 'bee_2.gif'];
+        var beeChatArr = ['哈哈哈', '来抓我呀', '我生气了', '666','好险','哎呀妈呀'];
+        var timeout;
+        BOX.onmouseover = function () {
+            var random1 = Math.random() * (document.body.clientWidth - 48);
+            var random2 = Math.random() * (document.body.clientHeight - 48);
+            BOX.style.left = random1 + "px";
+            BOX.style.top = random2 + "px";
+            var indexImage = Math.round(Math.random() * (beeImageArr.length - 1));
+            BEE.setAttribute('src', beeImageArr[indexImage]);
+            var indexChat = Math.round(Math.random() * (beeChatArr.length - 1));
+            CHAT.style.display = 'block';
+            CHAT.innerHTML = beeChatArr[indexChat];
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                CHAT.style.display = "none";
+            }, 3000)
+        }
+    </script>
+</body>
+
+</html>

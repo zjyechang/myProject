@@ -1,0 +1,164 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+         *{
+                margin:0;
+                padding:0;
+            }
+            .box{
+                width: 672px;
+                height: 350px;
+                margin:50px auto;
+                position: relative;
+                overflow: hidden;
+            }
+            .box ul{
+                list-style: none;
+            }
+            .box ul li{
+                display: none;
+            }
+            .box ul li.curtain{
+                display: block;
+            }
+
+            .box span{
+                position:absolute;
+                width: 55px;
+                height:55px;
+                top:130px;
+                cursor: pointer;
+                background-color: rgba(0,0,0,0.5)
+            }
+            .box .leftBtn{
+                left:10px;
+            }
+            .box .rightBtn{
+                right:10px;
+            }
+            .box ol{
+                position:absolute;
+                bottom:0px;
+                width: 200px;
+                height: 17px;
+                left:50%;
+                margin-left:-50px;
+                list-style: none;
+            }
+            .box ol li{
+                display: inline-block;
+                width: 17px;
+                height: 17px;
+                margin-right: 13px;
+                background-color: gold;
+                border-radius: 50%;
+                cursor:pointer;
+            }
+            .box ol li.curtain{
+                background-color: purple;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <ul id="aUl">
+                <li class="curtain">
+                    <a href="#">
+                        <img src="../20170725_DOMpractice/beijing/1.jpeg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../20170725_DOMpractice/beijing/2.jpeg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../20170725_DOMpractice/beijing/3.jpeg" alt="">
+                    </a>
+                </li>
+                <li >
+                    <a href="#">
+                        <img src="../20170725_DOMpractice/beijing/4.jpeg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../20170725_DOMpractice/beijing/5.jpeg" alt="">
+                    </a>
+                </li>
+            </ul>
+            <div class="btns">
+            <span class="leftBtn" id="leftBtn"></span>
+            <span class="rightBtn" id="rightBtn"></span>
+
+
+            <ol id = "ol">
+                <li class="curtain"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+
+
+       
+        </div>
+
+
+        <script>
+        var leftBtn = document.getElementById("leftBtn");
+        var rightBtn = document.getElementById("rightBtn");
+        var list = document.getElementById("aUl").getElementsByTagName("li");  
+        var ol = document.getElementById("ol").getElementsByTagName("li")
+        
+        
+        var num = 0;
+
+        leftBtn.onclick =function(){
+
+            for (var i =0 ;i<list.length ;i++){
+                list[i].className = "";
+            }
+            num--;
+            if(num < 0 )num = 4 ;
+            list[num].className="curtain";
+        }
+
+        rightBtn.onclick =function(){
+             num++;
+            if(num > 4 )num = 0 ;
+            for (var i =0 ;i<list.length ;i++){
+                list[i].className ="";
+            }
+          
+            list[num].className="curtain";
+        }
+
+
+
+        for (var i = 0 ;i <ol.length ;i++){
+            
+            (function(i){
+                 ol[i].onclick = function(){
+                    for (var j =0 ;j<ol.length ; j++){
+                        ol[j].className = "";
+                    }
+                    this.className = "curtain";
+                }
+            })(i);
+        }
+
+
+
+
+        </script>
+    </body>
+    </html>

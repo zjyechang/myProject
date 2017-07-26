@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            position: relative;
+            top:100px;
+            margin:0 auto;
+            width: 800px;
+            height: 140px;
+            border:3px solid #ccc;
+             overflow:hidden; 
+        }
+       
+        ul{
+            width: 1000%;
+            position: absolute;
+            list-style: none;
+        }
+        #box li{
+            position: relative;
+            float:left;
+            margin:5px;
+        }
+        div{
+            position: relative;
+            width: 200px;
+            margin:10px auto;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="button" value="向左">
+        <input type="button" value="向右">
+    </div>
+    
+    
+    
+    <div id="box">
+       
+
+      
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="./shuzi/1.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./shuzi/2.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./shuzi/3.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./shuzi/4.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./shuzi/5.png" alt="">
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+
+
+    <script>
+        var id = document.getElementById("id");
+        var oLis = document.getElementsByTagName("li");
+        var oUl = document.getElementsByTagName("ul")[0];
+        var ipt = document.getElementsByTagName("input")
+
+        oUl.innerHTML += oUl.innerHTML;
+
+
+        var lislength = oLis.length*105
+
+            //信号量
+        var x = 0;
+        var timer = null;
+        var num = 0;
+        ipt[0].onclick = function(){
+     
+            clearInterval(timer);
+
+            timer = setInterval(function (){
+                x-=1;
+                if ( x < -lislength){
+                    x = -1;
+                }
+                oUl.style.left = x+"px"
+            },10);
+        }
+        
+        ipt[1].onclick = function (){
+
+             clearInterval(timer);
+
+            timer = setInterval(function (){
+                x+=1;
+                if ( x > 0){
+                    x = -lislength;
+                }
+                oUl.style.left = x+"px"
+            },10);
+        }
+
+        // function move(){
+
+        //     clearInterval(timer);
+
+        //     timer = setInterval(function(){
+
+        //     },10)
+        // }
+    </script>
+</body>
+</html>

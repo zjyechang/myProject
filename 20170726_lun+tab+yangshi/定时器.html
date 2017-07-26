@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        left: 20px;
+        background-color: #aff;
+        top:100px
+
+    }
+    .odiv{
+        position: relative;
+        margin:0 auto;
+        width: 50px;
+        height: 50px;
+        top:75px;  
+        background-color: #ffa;
+    }
+
+
+    </style>
+</head>
+<body>
+        <div id="odiv">
+            <div class="odiv"></div>
+        </div>
+        <input type="button" value="开始">
+        <input type="button" value="结束">
+        <input type="button" value="(｀・ω・´)">
+
+
+    <script>
+        // setInterval(function(){
+        //     alert(123)
+        // },1000)
+        var btn = document.getElementsByTagName("input")
+            var a =1 ;
+            
+            var timer = null;//重要
+        // btn[0].onclick = function (){
+                //设表先关
+             clearInterval(timer);
+
+            timer = setInterval(function()  {
+                    a+=10
+                    if(a>800) {
+                        a = 800;
+                        clearInterval(timer);
+                    }
+                    odiv.style.left =a+"px";
+                    // odiv.style.top =100+Math.random()*10+"px";
+                   
+                },100);
+            // }
+
+        btn[1].onclick = function(){
+             clearInterval(timer);
+        }
+
+        btn[2].onclick = function(){
+            odiv.style.top =100+"px";
+        }
+    </script>
+</body>
+</html>

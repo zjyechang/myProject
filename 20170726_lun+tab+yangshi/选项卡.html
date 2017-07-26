@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #oDiv{
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            margin:20px auto;
+        }
+        .tab{
+            width: 300px;
+            position: relative;
+            margin:0 auto;
+        }
+        #oDiv>div{
+            height: 200px;
+            width: 300px;
+            display: none;
+            background-color: lightblue;
+            border:1px solid orange;
+        }
+        .current{
+            background-color: lightcyan;
+            color:blueviolet;
+        }
+        #oDiv .show{
+            display: block;
+        }    
+            
+        </style>
+
+
+
+    <script>
+        window.onload = function (){
+            var btn = document.getElementsByTagName("input");
+            var oDiv = document.getElementById("oDiv").getElementsByTagName("div");
+
+            for(var i = 0 ;i <btn.length ;i++){
+                btn[i].index  = i;//编号
+                    
+                btn[i].onclick = function(){
+
+                    for (var j =0 ;j<btn.length ;j++){
+                        btn[j].className = "";
+                        oDiv[j].className = "";
+                    }
+                    this.className = "current";
+                    oDiv[this.index].className ="show";
+                }
+            }
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <div class="tab">
+
+    <input type="button" value="风景" class = "current">
+    <input type="button" value="汽车">
+    <input type="button" value="旅游">
+    </div>
+
+
+    <div id="oDiv">
+        <div class="show">
+            风景风景风景风景风景风景风景风景
+        </div>
+        <div>
+            汽车汽车汽车汽车汽车汽车汽车汽车
+        </div>
+        <div>
+            旅游旅游旅游旅游旅游旅游旅游旅游
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

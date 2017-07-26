@@ -1,0 +1,56 @@
+/* 页面初始化 */
+html,body{
+    margin: 0;
+    padding: 0;
+    background: #eee;
+    height:100%;
+}
+
+/* 定义一种动画  上下移动*/
+@keyframes move {
+    0%{
+       top:0;
+       left:0;
+       transform:rotateZ(0deg);       
+    }
+    25%{
+        left:-65px;
+    }
+    50%{
+       top:10px;
+    }
+    75%{
+        left:65px;
+    }
+    100%{
+       top:0;
+       left:0;
+       transform:rotateZ(-360deg);              
+    }
+}
+
+@keyframes boxRotate{
+    0%{
+        transform:rotateZ(0deg);
+    }
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
+
+/* 把动画设置给 #box 下面的 img*/
+#box {
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-48px;
+    margin-top:-48px;
+    width: 96px;
+    height: 96px;
+    animation: boxRotate 3s linear infinite;
+}
+#box img{
+    position: relative;
+    animation: move 3s cubic-bezier(0.41, 0.04, 0.56, 0.98) infinite;
+}
+

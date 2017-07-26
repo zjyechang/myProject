@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        div{
+            width: 300px;
+            padding:10px 20px 30px 40px;
+            background-color: #ff0;
+            border:10px dashed orange;
+            margin:60px;
+        }
+        span{
+            position: fixed;
+            top:200px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 0.3;
+            filter: alpha(opacity = 30);
+        }
+
+    </style>
+</head>
+<body>
+    <span></span>
+    <div>
+        文字文字文字文字文字文字
+        文字文字文字文字文字文字
+        文字文字文字文字文字文字
+    </div>
+
+    <script>
+        var oDiv = document.getElementsByTagName("div")[0]
+        var oSpan = document.getElementsByTagName("span")[0]
+     
+       //不能得到，只能获取行内样式
+        //alert(oDiv.style.width);
+
+
+        // 获取计算后样式，window可不写，
+        //alert(window.getComputedStyle(oDiv).getPropertyValue("padding-left"));
+        //不能用驼峰命名
+
+
+
+        // 连在一起写，不一定显示在css里面的样式。
+        //alert(getComputedStyle(oDiv)["padding-left"]);
+
+        // 可用驼峰命名
+        //alert(getComputedStyle(oDiv)["paddingLeft"]);
+        
+
+        // 上面写的在ie6,7,8中写都算错误
+        //alert(oDiv.currentStyle.paddingLeft);
+
+        //alert(oDiv.currentStyle.height);//auto
+
+        //alert(oDiv.currentStyle["height"]);
+
+
+        // if (getComputedStyle){  
+        //     alert(getComputedStyle(oDiv)["padding-left"])  
+        // }else{  
+        //     alert(oDiv.cuttentStyle.paddingLeft);  
+        // }
+
+        function fetchComputedStyle(obj,property){
+            if (window.getComputedStyle){  
+               return getComputedStyle(obj)[property];  
+            }else{  
+               return obj.currentStyle[property];  
+            }
+        }
+
+        
+        alert(fetchComputedStyle(oSpan,"opacity"))
+    </script>
+</body>
+</html>
