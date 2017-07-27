@@ -28,6 +28,11 @@ background: linear-gradient(0deg to bottom, rgb(245,249,252),#fff);
 to left”实现的效果也可以使用角度值“90deg”和“270deg”：著作权归作者所有。    
 
 
+<<<<<<< HEAD
 # 定位问题
 内层模块的最外层margin开始  
 根据有定位的外层元素的*内容*定位
+=======
+
+
+>>>>>>> b6bccd6c05ad3d45065bd3dccaf2b92add0f0899
