@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无缝</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            position: relative;
+            top:100px;
+            margin:0 auto;
+            width: 800px;
+            height: 140px;
+            border:3px solid #ccc;
+             overflow:hidden; 
+        }
+       
+        ul{
+            width: 1000%;
+            position: absolute;
+            list-style: none;
+        }
+        #box li{
+            position: relative;
+            float:left;
+            margin:5px;
+        }
+        div{
+            position: relative;
+            width: 200px;
+            margin:10px auto;
+            top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="button" value="向左">
+        <input type="button" value="向右">
+    </div>
+    
+    
+    
+    <div id="box">
+       
+
+      
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="../20170726_lun+tab+yangshi/shuzi/1.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../20170726_lun+tab+yangshi/shuzi/2.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../20170726_lun+tab+yangshi/shuzi/3.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../20170726_lun+tab+yangshi/shuzi/pangzi.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../20170726_lun+tab+yangshi/shuzi/pangzi.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../20170726_lun+tab+yangshi/shuzi/6.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../20170726_lun+tab+yangshi/shuzi/7.png" alt="">
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+
+
+    <script>
+        var id = document.getElementById("id");
+        var oLis = document.getElementsByTagName("li");
+        var oUl = document.getElementsByTagName("ul")[0];
+        var ipt = document.getElementsByTagName("input");
+        var imgs = document.getElementsByTagName("img");
+
+
+        oUl.innerHTML += oUl.innerHTML;
+
+
+
+            //信号量
+        var x = 1;
+        var lislength = 0;
+        var timer = null;
+        var num = 0;
+        var offsetleft = 0;
+        var count = 0;
+        
+
+        ipt[0].onclick = function(){
+     
+            x=-2;
+
+           move();
+        }
+        
+        ipt[1].onclick = function (){
+
+            x=2;
+
+            move();
+        }
+        oUl.onmouseover = function(){
+
+            clearInterval(timer);
+
+        }
+        oUl.onmouseout = function(){    
+            move();
+        }
+
+        // 判断图片是否全部加载完成
+        for (var i = 0 ; i < imgs.length ;i++){
+            imgs[i].onload =function(){
+                count ++;
+                if (count == imgs.length){
+                    lislength =  oLis[oLis.length/2].offsetLeft;
+                }
+            }
+        }
+
+
+
+
+        function move(){
+
+            clearInterval(timer);
+
+            timer = setInterval(function(){
+                    offsetleft += x;
+                if ( offsetleft < -lislength){
+                    offsetleft = -1;
+                }
+                if ( offsetleft > 0){
+                    offsetleft = -lislength;
+                }
+                    oUl.style.left = offsetleft+"px"
+            },10)
+        }
+
+        
+    </script>
+</body>
+</html>

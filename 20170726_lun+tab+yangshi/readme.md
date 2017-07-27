@@ -3,10 +3,10 @@
 
 # 获取样式
 ## 高级浏览器:
-完整:window.getComputerStyle(oDiv).getPropertyvalue("padding-left")  
+完整:window.getComputedStyle(oDiv).getPropertyvalue("padding-left")  
 
-简写getComputerStyle(oDiv)["padding-left"]  
-或getComputerStyle(oDiv)["paddingLeft"]
+简写getComputedStyle(oDiv)["padding-left"]  
+或getComputedStyle(oDiv)["paddingLeft"]
 
 ## 低级浏览器 
 oDiv.currentStyle.paddingLeft  
@@ -28,3 +28,8 @@ if (getComputedStyle){
         }  
 # 透明度 opacity
 
+# offset
+
+# 定时器
+单位：毫秒    
+设表先关

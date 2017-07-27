@@ -121,13 +121,18 @@
                 oUl.style.left = x+"px"
             },10);
         }
+        oUl.onmouseover = function(){
+            clearInterval(timer)
+        }
+        oUl.onmouseout = function(){
 
+        }
         // function move(){
 
         //     clearInterval(timer);
 
         //     timer = setInterval(function(){
-
+                    if( x )
         //     },10)
         // }
     </script>

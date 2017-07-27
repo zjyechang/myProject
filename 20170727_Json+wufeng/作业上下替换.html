@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0 ;
+            padding:0;
+        }
+    a{
+        text-decoration: none;
+        font-size: 15px;
+        color:black;
+        font-size: bold;
+        
+    }
+    #tab{
+        position: relative;
+        margin:0 auto;
+        width: 70px;
+        height: 20px;
+        background-color: lightseagreen
+    }
+    #odiv{
+        position: relative;
+        
+        width: 70px;
+        margin:0 auto;
+        background-color: lightcoral;
+        display: none;
+
+    }
+
+
+    </style>
+    <script>
+        window.onload = function (){
+            var oP = document.getElementsByTagName("p");
+            
+            var a = null;
+           
+            oP[0].onmouseout = function(){
+                odiv.style.display = "none";
+            }
+
+
+            for(var i = 0 ;i< oP.length ;i++){
+
+                (function(i){
+
+                    oP[i].onmouseover = function(){
+                        odiv.style.display = "block";
+                    }
+
+
+                    oP[i].onclick = function (){
+                        a =  oP[0].innerHTML;
+                        oP[0].innerHTML = oP[i].innerHTML;
+                        oP[i].innerHTML = a;
+                    }
+                })(i);
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    <div id="tab">
+        <p><a href="#">找图片</a></p>
+
+    </div>
+    <div id="odiv">
+        <p><a href="#">找图集</a></p>
+        <p><a href="#">找案例</a></p>
+        <p><a href="#">找设计师</a></p>
+    </div>
+
+
+</body>
+</html>

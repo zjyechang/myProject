@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标划过放大</title>
+    <style>
+    div{
+        position: relative;
+        top:100px;
+        width: 400px;
+        margin:0 auto;
+    }
+    ul{
+        position: relative;
+        list-style: none;
+        width: 400px;
+        height: 400px;
+    }
+    li {
+        position: relative;
+        float:left;
+        width: 100px;
+        height: 100px;
+        background-color: lightgreen;
+        margin:10px;
+        border:1px solid black;
+    }
+
+    </style>
+
+
+    <script>
+    window.onload = function(){
+        var oLis =document.getElementsByTagName("li")
+
+
+        var arrle = [];
+        var arrto = [];
+        // 使得方块的位置变成绝对定位
+        for (var i =0 ; i<oLis.length ; i++){
+            arrle[i] =  oLis[i].offsetLeft;
+            arrto[i] = oLis[i].offsetTop;
+            oLis[i].style.left = arrle[i] + "px";
+            oLis[i].style.top = arrto[i] + "px";
+        }
+        for (var i =0 ; i<oLis.length ; i++){
+            oLis[i].style.position = "absolute";
+
+        }
+
+        for (var i =0 ; i<oLis.length ; i++){
+            
+            (function(i){
+
+                oLis[i].onmouseover = function (){
+                    this.style.width = 200+"px";
+                    this.style.height = 200+"px";
+                    this.style.marginLeft = -40+"px";
+                    this.style.marginTop = -40+"px";
+                    this.style.zIndex = 10;
+                }
+            })(i);
+        }
+
+        for (var i =0 ; i<oLis.length ; i++){
+            (function(i){
+                oLis[i].onmouseout = function (){
+                    this.style.width = 100+"px";
+                    this.style.height = 100+"px";
+                    this.style.marginLeft = 10+"px";
+                    this.style.marginTop = 10+"px";
+                    this.style.zIndex = 1
+                }
+            })(i);
+        }
+
+    }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

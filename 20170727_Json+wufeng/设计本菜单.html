@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .clearfloat{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        p{
+            font-size: 15px;
+            color: #555;
+            
+        }
+        ul{
+            list-style: none;
+        }
+        ul li{
+            height: 80px;
+            width: 160px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 80px;
+            cursor: pointer;
+        }
+        .content{
+            width: 1040px;
+            height: 327px;
+            border: 1px solid #ccc;
+            position: absolute;
+            left:160px;
+            top:0;
+            background-color: #fff;
+            display: none;  
+            cursor: auto;
+        }
+          .content.show{
+            display:block;
+        }  
+        .dto{   
+            width: 5000px;
+            position: relative;
+        }
+        .dbt{
+            width: 5000px;
+            position: relative;
+            /* left:-10px; */
+        }
+        .dto>img{
+            width: 184px;
+            height: 184px;
+            float: left;
+             margin:10px; 
+        }
+
+        .dbt>img{
+            width: 80px;
+            height: 80px;
+            float:left;
+            margin:0 12px;
+            
+        }
+    </style>
+
+
+    <script>
+        window.onload = function (){
+            var oUl = document.getElementsByTagName("ul")[0];
+            var oLis = oUl.getElementsByTagName("li");
+            var oDiv = oUl.getElementsByClassName("content")
+            var oP = oUl.getElementsByTagName("p")
+            var dto = document.getElementsByClassName("dto")[0];
+            var dbt = document.getElementsByClassName("dbt")[0];
+            var btn = document.getElementsByTagName("input");
+            var img1 = dto.getElementsByTagName("img")
+            var img2 = dbt.getElementsByTagName("img")
+            
+
+
+            for (var i = 0;i<oLis.length ;i++){
+                (function(i){
+
+                        oLis[i].onmouseover = function(){
+
+                        for (var j = 0;j<oLis.length ;j++){
+                            oP[j].style.color = "#555";
+                            oDiv[j].className = "content";
+                            oLis[j].style.borderLeft = "none";
+                        }
+                        oP[i].style.color = "red";
+                        oDiv[i].className = "content show";
+                        this.style.borderLeft = "3px solid orange"
+                    }
+                })(i);
+            }
+
+
+            dto.innerHTML +=dto.innerHTML;
+            dbt.innerHTML +=dbt.innerHTML;
+            alert(img1.length)
+
+            var a = 0;
+            var b = 0;
+            btn[0].onclick = function(){
+                a -=204;
+                b -=204;
+                if(a <-102*img1.length){
+                    a = -204
+                }
+                 if(b <-102*img2.length){
+                    b = -204
+                }
+
+                dto.style.left=a+"px";
+                dbt.style.left=b+"px";
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li><p>实力推荐&nbsp; ></p></li>
+        <div class="content show">
+            <input type="button" value= "<">
+            <input type="button" value= ">">
+           <div class="dto clearfloat">
+                <img src="./img/1.jpg" alt="">
+                <img src="./img/110.jpg" alt="">
+                <img src="./img/42.jpg" alt="">
+                <img src="./img/73.jpg" alt="">
+                <img src="./img/67.jpg" alt="">
+                <img src="./img/97.jpg" alt="">
+                <img src="./img/32.jpg" alt="">
+                <img src="./img/119.jpg" alt="">
+                <img src="./img/109.jpg" alt="">
+                <img src="./img/128.jpg" alt="">
+
+           </div>
+            <div class="dbt clearfloat">
+                <img src="./img/386_9416.jpg" alt="">
+                <img src="./img/sjb_headphoto_5564567.jpg" alt="">
+                <img src="./img/387_9009.jpg" alt="">
+                <img src="./img/386_9360.jpg" alt="">
+                <img src="./img/headphoto_4867.jpg" alt="">
+                <img src="./img/headphoto_4693.jpg" alt="">
+                <img src="./img/sjb_headphoto_995291.jpg" alt="">
+                <img src="./img/387_9104.jpg" alt="">
+                <img src="./img/sjb_headphoto_6574789.jpg" alt="">
+                <img src="./img/119.jpg" alt="">
+                <img src="./img/1.jpg" alt="">
+                <img src="./img/110.jpg" alt="">
+                <img src="./img/42.jpg" alt="">
+                <img src="./img/73.jpg" alt="">
+                <img src="./img/67.jpg" alt="">
+                <img src="./img/97.jpg" alt="">
+                <img src="./img/32.jpg" alt="">
+
+
+            </div>
+        </div>
+         <li><p>最新签单&nbsp; ></p></li>
+        <div class="content">
+             内容二
+        </div>
+         <li><p>行业大腕&nbsp; ></p></li>
+        <div class="content">
+             内容三
+        </div>
+         <li><p>知名机构&nbsp; ></p></li>
+        <div class="content">
+             内容四
+        </div>
+    </ul>
+
+</body>
+</html>

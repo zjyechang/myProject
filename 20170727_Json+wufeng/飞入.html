@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 300px;
+        height: 0;
+        position: absolute;
+        opacity: 0;
+
+    }
+    #div1{
+        top:100px;
+        left:100px;
+        background-color: lightblue;
+    }
+    #div2{
+        top:200px;
+        left:1000px;
+        background-color: lightcoral;
+    }
+    #div3{
+        top:300px;
+        left:100px;
+        background-color: lightgreen;
+    }
+
+</style>
+
+    <script src = "./animate.js"></script>
+    <script>
+        window.onload = function(){
+
+            var oDiv1 = document.getElementById("div1");
+            var oDiv2 = document.getElementById("div2");
+            var oDiv3 = document.getElementById("div3");
+            animate(oDiv1,{"width":300 ,"height":90,"left":500,"top":300,"opacity":1},2000)
+            animate(oDiv2,{"width":200 ,"height":30,"left":400,"top":450,"opacity":1},2000)
+            animate(oDiv3,{"width":300 ,"height":30,"left":600,"top":500,"opacity":1},2000)
+                
+
+
+
+
+
+
+        }
+    
+
+
+
+
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <h1>好消息！好消息</h1>
+    </div>
+    <div id=div2>
+        老板带这小姨子跑了
+    </div>
+    <div id="div3">
+        原价100多200多的，现在统统20块
+    </div>
+
+</body>
+</html>

@@ -24,7 +24,7 @@ input( type = "range" )
     用.value取值，再应用  
 即时反馈的方式详见20170725里面的if.html  
     bt.onmousedown = function (){  
-        this.onmousemove = function(){  
+        this.onmousemove = function(){  j
         <!-- pic.src = "./beijing/"+bt.value+".jpeg" -->
         }  
     }  

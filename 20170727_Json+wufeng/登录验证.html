@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>登录表单</h1>
+    <form action="">
+        <p>账号： <input type="text" name="un" placeholder = "请输入账号" required></p>
+        <p>密码： <input type="password" name ="mi1" placeholder = "请输入密码" required></p>
+        <p>重复密码： <input type="password" name ="mi2" placeholder = "请再次输入密码" required></p>
+        <input type="button" value = "提交" name="submit">
+        <input type="reset" value ="重置">
+
+    </form>
+
+
+    <script>
+        var f1 = document.getElementsByTagName("form")[0];
+
+        f1.submit.onclick = function (){
+            if (f1.un.value = ""){
+                alert("请输入账号")
+            }
+            if (f1.mi1.value = ""){
+                alert("请输入密码")
+            }
+            if (f1.mi2.value = ""){
+                alert("请再次输入密码")
+            }else if(fi.mi1.value != fi.mi2.value ){
+                alert("两次密码不一致，请重新输入！")
+            }
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>
