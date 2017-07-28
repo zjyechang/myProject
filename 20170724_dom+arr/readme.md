@@ -27,7 +27,7 @@ arr.slice(2,4)
 arr = arr.slice(2,4)  
 ## splice 删除 并替换（可单独添加）
 arr.splice(2,4,"a","b")  
-从下标2,开始，删除4位。  并替换成a，b  
+**从下标2,开始，删除4位**。  并替换成a，b  
 arr.splice(2)如过没指定个数，就从下标2开始（包含），删除后面所有
 arr.splice(-3); 删除最后三个  
 ## join

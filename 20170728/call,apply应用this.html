@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            position: relative;
+            top:100px;
+        }
+
+    </style>
+    <script src = "./animate.js"></script>
+    <script src = "./tween2.js"></script>
+
+    <script>
+        window.onload = function(){
+            var odiv = document.getElementsByTagName("div")[0];
+               
+            odiv.onclick = function (){
+                animate(odiv,{"left":900},2000,function (){
+                    this.style.width= "200px" ;
+                    
+                })
+            }
+
+
+            
+        // function liner (t, b, c, d) {
+        // return c * (t /= d) * t + b;}
+
+
+        // function fun(t, b, c, d, a, p) {
+        // if (t == 0) return b;
+        // if ((t /= d / 2) == 2) return b + c;
+        // if (!p) p = d * (.3 * 1.5);
+        // if (!a || a < Math.abs(c)) {
+        //     a = c;
+        //     var s = p / 4;
+        // } else var s = p / (2 * Math.PI) * Math.asin(c / a);
+        // if (t < 1) return -.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+        // return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * .5 + c + b;
+        // }
+
+
+
+        // function fun2(t, b, c, d, s) {
+        // if (s == undefined) s = 1.70158;
+        // return c * (t /= d) * t * ((s + 1) * t - s) + b;
+        // }
+
+
+
+        // console.log(Tween.CubicEaseIn)
+
+        //     var frame =0;
+        //     var timer = setInterval(function(){
+        //         frame ++ ;
+        //         if (frame == 250){
+        //             clearInterval(timer)
+        //         }
+        //         // odiv.style.left = Tween.CubicEaseIn (frame, 100 ,600, 250 )+"px"
+
+
+
+        //     },50)
+             
+
+
+
+        }
+              
+    </script>
+</head>
+<body>
+    
+
+    <div></div>
+</body>
+</html>

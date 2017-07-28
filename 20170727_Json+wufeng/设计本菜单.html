@@ -41,6 +41,7 @@
             background-color: #fff;
             display: none;  
             cursor: auto;
+            overflow:hidden;
         }
           .content.show{
             display:block;
@@ -52,7 +53,6 @@
         .dbt{
             width: 5000px;
             position: relative;
-            /* left:-10px; */
         }
         .dto>img{
             width: 184px;
@@ -105,24 +105,36 @@
 
             dto.innerHTML +=dto.innerHTML;
             dbt.innerHTML +=dbt.innerHTML;
-            alert(img1.length)
+       
 
             var a = 0;
             var b = 0;
             btn[0].onclick = function(){
                 a -=204;
-                b -=204;
+                b -=184;
                 if(a <-102*img1.length){
                     a = -204
                 }
-                 if(b <-102*img2.length){
-                    b = -204
+                 if(b <-48*img2.length){
+                    b = -184
                 }
 
                 dto.style.left=a+"px";
                 dbt.style.left=b+"px";
             }
-
+            btn[1].onclick = function(){
+                a +=204;
+                b +=184;
+                if(a >0){
+                    a = -102*img1.length
+                }
+                 if(b >0){
+                    b = -48*img2.length
+                }
+                
+                dto.style.left=a+"px";
+                dbt.style.left=b+"px";
+            }
 
         }
 
