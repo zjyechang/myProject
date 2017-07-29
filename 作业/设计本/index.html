@@ -6,6 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>设计本</title>
     <link rel="stylesheet" href="./style.css">
+    <script>
+    window.onload=function(){
+        var serchtitle = document.getElementById("serchtitle");
+        var serchlist = document.getElementsByClassName("serchlist")[0]
+        .getElementsByTagName("li");
+        
+        for(var i=0; i<serchlist.length;i++){
+            (function(i){
+                var change = null;
+                serchlist[i].onclick =function(){
+                    change=serchlist[i].innerHTML;
+                    serchlist[i].innerHTML=serchtitle.innerHTML;
+                    serchtitle.innerHTML=change;
+                }
+            })(i);
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+    </script>
 </head>
 <body>
     <div class="topbar">
@@ -14,23 +52,107 @@
                 <span class = "ico code"></span>
                 <a class=" ahover" href="#">设计本官方微信</a>
                 <!-- 滑动弹出二维码 -->
-                <!-- <div class="codecon">
+                 <div class="codecon">
                     <img src="./images/code1.png" alt="">
                     <a class="ahover" href="#">扫一扫，加微信<br/>更多金币等你拿</a>
 
-                </div> -->
+                </div> 
             </div>
+                &nbsp;&nbsp;<div class="line"></div>&nbsp;&nbsp;
             <div class="tphone ahover">
                 <span class="ico phone"></span>
-                <a href="#">设计本手机版</a>
+                <a class="ahover" href="#">设计本手机版</a>
             </div>
         </div>
 
-        <div class="topbarright">
 
+
+
+        <div class="topbarright">
+            <a href="#">登录</a>
+            <a href="#">注册</a><div class="line"></div>
+            <a class="aspecial" href="#">申请定制设计</a><div class="line"></div>
+            
+            <div class="litbox">
+                <a href="#">客户服务 </a><div class="arrow"></div>
+                <div class="content ser">
+                    <a href="#">在线客服</a>
+                    <a href="#">意见反馈</a>
+                    <a href="#">帮助中心</a>
+
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="litbox">
+                <a href="#">设计师中心 </a><div class="arrow"></div>
+                <div class="content des">
+                    <a href="#">接单大厅</a>
+                    <a href="#">社交广场</a>
+                    <a href="#">模型下载</a>
+                    <a href="#">推广中心</a>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="litbox">
+                <a href="#">网站导航 </a><div class="arrow"></div>
+                <div class="content nav">
+                    <a href="#">东西太多</a>
+                    <a href="#">懒得做了</a>
+                </div>
+            </div>
+
+            <div class="line"></div>
 
         </div>
 
+
+
+        <div class="toplog">
+            <a href="#" title = "美国著名风险投资机构投资的设计交易平台-设计本">
+                <div class="log"></div>
+            </a>
+            <form action="get" class="clearfloat">
+
+                    <div class="arrow"></div>
+                    
+                <div id="serchtitle">
+                    <a href="#">找图片</a>
+
+                    <ul class = "serchlist">
+                        <li><a href="#">找图集</a></li>
+                        <li><a href="#">找案例</a></li>
+                        <li><a href="#">找设计师</a></li>
+                        <li><a href="#">找问答</a></li>
+                        <li><a href="#">找模型</a></li>
+                    </ul>
+                </div>
+
+                <input type="text" class="search" placeholder="       请输入关键词">
+                <input type="button" value="搜索" class="button">
+                <em></em>
+                <span>或</span>
+                <input type="button" value="提交设计需求" class="button">      
+            </form>
+        </div>
     </div>
+
+
+    <div class="main nav">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">设计案例</a></li>
+            <li><a href="#">装修图库</a></li>
+            <li><a href="#">有问必答</a></li>
+            <li><a href="#">找设计师</a></li>
+
+
+        </ul>
+        
+    </div>
+
 </body>
 </html>
