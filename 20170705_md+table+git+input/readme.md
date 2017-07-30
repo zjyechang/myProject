@@ -69,9 +69,9 @@ git commit -m "tianjia"
 git pull origin master
 ## 2.5. 推送
 git push origin master
-## 2.6. git config.name ""
+## 2.6. git config user.name ""
 添加用户名
-## 2.7. git reflog
+## 2.7. git reflogs
 查看以前的提交修改记录，所有版本改动都有
 ## 2.8. git log
 只能看到以前版本，之后修改的看不到

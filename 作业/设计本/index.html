@@ -6,33 +6,152 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>设计本</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./animate-2.0.1.js"></script>
     <script>
     window.onload=function(){
-        var serchtitle = document.getElementById("serchtitle");
+        var serchtitle = document.getElementById("serchtitle")
+        .getElementsByTagName("p")[0];
         var serchlist = document.getElementsByClassName("serchlist")[0]
         .getElementsByTagName("li");
+
+        var curul = document.getElementsByClassName("contain")[0]
+        .getElementsByTagName("ul")[0];
+        var curtainli = document.getElementsByClassName("column")[0]
+        .getElementsByTagName("li");
+        
+
         
         for(var i=0; i<serchlist.length;i++){
             (function(i){
                 var change = null;
                 serchlist[i].onclick =function(){
                     change=serchlist[i].innerHTML;
+                    console.log(change);
                     serchlist[i].innerHTML=serchtitle.innerHTML;
+                    console.log( serchlist[i].innerHTML);
                     serchtitle.innerHTML=change;
+                }
+            })(i);
+        };
+
+
+        
+        
+        var idx = 0;
+        var lef = 0;
+
+        var timer = setInterval(move,3000);
+
+        function move(){
+            idx++;
+            if(idx >4) {
+                idx =1;
+                curul.style.left = -270+"px"
+                animate(curul,{"left":-2270},1000);
+            }else{
+            lef = -idx*2000-270;
+            animate(curul,{"left":lef},1000);
+            }
+
+        }
+
+        var col = document.getElementsByClassName("column-index")[0];
+        var oUl = col.getElementsByTagName("ul")[0];
+        var oLis = oUl.getElementsByTagName("li");
+        var oDiv = oUl.getElementsByClassName("content");
+        var oP = oUl.getElementsByTagName("p");
+        var dto = col.getElementsByClassName("dto")[0];
+        var dbt = col.getElementsByClassName("dbt")[0];
+        var btn = col.getElementsByTagName("span");
+        var img1 = dto.getElementsByTagName("img");
+        var img2 = dbt.getElementsByTagName("img");
+
+
+        for (var i = 0;i<oLis.length ;i++){
+            (function(i){
+
+                    oLis[i].onmouseover = function(){
+
+                    for (var j = 0;j<oLis.length ;j++){
+                        oP[j].style.color = "#555";
+                        oDiv[j].className = "content";
+                        oLis[j].style.borderLeft = "none";
+                    }
+                    oP[i].style.color = "red";
+                    oDiv[i].className = "content show";
+                    this.style.borderLeft = "3px solid orange"
                 }
             })(i);
         }
 
-        
+
+        dto.innerHTML +=dto.innerHTML;
+        dbt.innerHTML +=dbt.innerHTML;
+    
+
+        var a = 0;
+        btn[0].onclick = function(){
+            a -=204;
+            slide();
+        }
+        btn[1].onclick = function(){
+            a +=204;
+            slide();      
+        }
+
+        function slide(){
+           
+
+            if(a >0){
+                a = -102*img1.length
+            }
+            if(a <-102*img1.length){
+                a = -204
+            }
+            dto.style.left=a+"px";
+            dbt.style.left=a+"px";
+        }
 
 
+    
+        var shit = document.getElementsByClassName("design-mechanism")[0];
+        var hua = shit.getElementsByTagName("img");
+        var numleft;
 
 
+        for (var i=1; i< hua.length;i++){
+            var count =0;
+            for (var k =0;k<hua.length;k++){
+                count++;
+                if(count == hua.length){
+                    break;
+                }
+            }
+            (function(i){
+                hua[i].onmouseover =function(){
+                    for (var j =1 ;j<hua.length;j++){
+                        if(j<=i){
+                            numleft = 210*j;
+                            hua[j].style.left = numleft+"px";
+                        }
+                    }
+                }
 
+            })(i);
+        }
 
-
-
-
+        for (var i=0; i< hua.length-1;i++){
+            (function(i){
+                hua[i].onmouseover =function(){
+                    for(var j =1;j<hua.length;j++){
+                        if(j>i){
+                            numleft = 210*j+340;
+                            hua[j].style.left =numleft+ "px";
+                        }
+                    }   
+                }
+            })(i);
+        }
 
 
 
@@ -120,7 +239,7 @@
                     <div class="arrow"></div>
                     
                 <div id="serchtitle">
-                    <a href="#">找图片</a>
+                    <p><a href="#">找图片</a></p>
 
                     <ul class = "serchlist">
                         <li><a href="#">找图集</a></li>
@@ -131,7 +250,7 @@
                     </ul>
                 </div>
 
-                <input type="text" class="search" placeholder="       请输入关键词">
+                <input type="text" class="search" placeholder="         请输入关键词">
                 <input type="button" value="搜索" class="button">
                 <em></em>
                 <span>或</span>
@@ -140,19 +259,232 @@
         </div>
     </div>
 
+    <div class="wrap-top-menu">
+        <div class="top-menu">
+            <ul>
+                <li><a href="#" class="backselect">首页</a></li>
+                <li><a href="#">设计案例</a>
+                    <div class="content">
+                        <a href="#">家装案例</a>
+                        <a href="#">工装案例</a>
+                        <a href="#">案例解析</a>
+                    </div>
+                </li>
 
-    <div class="main nav">
-        <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">设计案例</a></li>
-            <li><a href="#">装修图库</a></li>
-            <li><a href="#">有问必答</a></li>
-            <li><a href="#">找设计师</a></li>
+                <li><a href="#">装修图库</a>
+                    <div class="content">
+                        <a href="#">家装图库</a>
+                        <a href="#">工装图库</a>
+                        <a href="#">图库专题</a>
+                    </div>
+                </li>
 
+                <li><a href="#">有问必答</a></li>
+                <li><a href="#">找设计师</a></li>
+                <li class="lastli"><a href="#">设计师专区</a>
+                    <div class="content">
+                        <a href="#">3DMAX模型下载</a>
+                        <a href="#">设计资讯</a>
+                        <a href="#">人物访问</a>
+                        <a href="#">人脉广场</a>
+                        <a href="#">空间谈</a>
+                    </div>
+                </li>
+            </ul> 
+        </div>
+    </div>
+    <div class="contain">
 
-        </ul>
-        
+        <div class="column">
+            <div class="ahover">
+                <p>家装设计</p>
+                <a href="#" class="hot">三居</a>
+                <a href="#">复试</a>
+                <a href="#" class="hot">别墅豪宅</a>
+                <a href="#">样板房</a>
+                <a href="#">田园</a>
+                <a href="#" class="hot">欧式</a>
+                <a href="#" class="hot">中式</a>
+                <a href="#">新古典</a>
+                <a href="#" class="hot">美式</a>
+                <a href="#">地中海</a>
+                <a href="#" class="hot">现代</a>
+                <a href="#">混搭</a>
+            </div>
+            <div class="ahover">
+                <p>工装设计</p>
+                <a href="#" class="hot">餐厅设计</a>
+                <a href="#">售楼处设计</a>
+                <a href="#" class="hot">办公室设计</a>
+                <a href="#" class="hot">主题酒店</a>
+                <a href="#" class="hot">酒吧/ktv</a>
+                <a href="#">会所</a>
+                <a href="#">商业展示</a>
+                <a href="#">购物中心</a>
+                <a href="#" class="hot">咖啡店</a>
+            </div>
+            <div class="ahover">
+                <p>室内设计师</p>
+                <a href="#" class="hot">三居</a>
+                <a href="#">北京</a>
+                <a href="#">上海</a>
+                <a href="#">深圳</a>
+                <a href="#" class="hot">台湾</a>
+                <a href="#" class="hot">别墅</a>
+                <a href="#" class="hot">会所</a>
+                <a href="#">酒店</a>
+                <a href="#" class="hot">餐厅</a>                <a href="#" class="hot">餐厅</a>
+            </div>
+        </div>
+
+            <ul class="clearfloat">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
     </div>
 
+
+
+        <ul class="modele ahover">
+            <li>
+                <a href="#">浏览真实案例设计</a>
+                <p>百万设计师的原创作品</p>
+            </li>
+            <li>
+                <a href="#">浏览真实案例设计</a>
+                <p>百万设计师的原创作品</p>
+            </li>
+        
+            <li>
+                <a href="#">浏览真实案例设计</a>
+                <p>百万设计师的原创作品</p>
+            </li>
+        
+            <li>
+                <a href="#">浏览真实案例设计</a>
+                <p>百万设计师的原创作品</p>
+            </li>  
+        </ul>
+
+
+        <h2 class="title">找设计师</h2>
+        <div class="column-index">
+             <ul>
+        <li><p>实力推荐&nbsp; ></p></li>
+        <div class="content show">
+
+            <span> < </span>
+            <span> > </span>
+           <div class="dto clearfloat">
+                <img src="./images/1.jpg" alt="">
+                <img src="./images/110.jpg" alt="">
+                <img src="./images/42.jpg" alt="">
+                <img src="./images/73.jpg" alt="">
+                <img src="./images/67.jpg" alt="">
+                <img src="./images/97.jpg" alt="">
+                <img src="./images/32.jpg" alt="">
+                <img src="./images/119.jpg" alt="">
+                <img src="./images/109.jpg" alt="">
+                <img src="./images/128.jpg" alt="">
+
+           </div>
+
+            <div class="dbt clearfloat">
+                <img src="./images/386_9416.jpg" alt="">
+                <img src="./images/sjb_headphoto_5564567.jpg" alt="">
+                <img src="./images/387_9009.jpg" alt="">
+                <img src="./images/386_9360.jpg" alt="">
+                <img src="./images/headphoto_4867.jpg" alt="">
+                <img src="./images/headphoto_4693.jpg" alt="">
+                <img src="./images/sjb_headphoto_995291.jpg" alt="">
+                <img src="./images/387_9104.jpg" alt="">
+                <img src="./images/sjb_headphoto_6574789.jpg" alt="">
+                <img src="./images/119.jpg" alt="">
+                <img src="./images/1.jpg" alt="">
+                <img src="./images/110.jpg" alt="">
+                <img src="./images/42.jpg" alt="">
+                <img src="./images/73.jpg" alt="">
+                <img src="./images/67.jpg" alt="">
+                <img src="./images/97.jpg" alt="">
+                <img src="./images/32.jpg" alt="">
+
+
+            </div>
+        </div>
+         <li><p>最新签单&nbsp; ></p></li>
+        <div class="content">
+             内容二
+        </div>
+         <li><p>行业大腕&nbsp; ></p></li>
+        <div class="content">
+             内容三
+        </div>
+         <li><p>知名机构&nbsp; ></p></li>
+        <div class="content">
+             内容四
+        </div>
+    </ul>
+    </div>
+
+
+    <h2 class="title">设计案例</h2>
+    <div class="designcase">
+        
+    </div>
+        <div class="designcase">
+
+            <div class="casebox">
+                <a href="#">
+                <img src="./images/a1.jpg" alt="">
+                </a>
+                <a href="#">小春日和铺</a>
+                <p>Mur-Mur-lab</p>
+            </div>
+
+            <div class="casebox">
+                <a href="#">
+                <img src="./images/a2.jpg" alt="">
+                </a>
+                <a href="#">花纹空间</a>
+                <p>韩文强</p>
+            </div>
+
+            <div class="casebox">
+                <a href="#">
+                <img src="./images/a3.jpg" alt="">
+                </a>
+                <a href="#">杭州径山精品酒店</a>
+                <p>就射营造工作室</p>
+            </div>
+
+            <div class="casebox">
+                <a href="#">
+                <img src="./images/a1.jpg" alt="">
+                </a>
+                <a href="#">“白”设计</a>
+                <p>李宝龙</p>
+            </div>
+  
+    </div>
+    <h2 class="title">设计机构</h2>
+    <div class="design-mechanism">
+        <img src="./images/b1.jpg" alt="">
+        <img src="./images/b2.jpg" alt="">
+        <img src="./images/b3.jpg" alt="">
+        <img src="./images/b4.jpg" alt="">                        
+    </div>
+    <h2 class="title hot">家装图库</h2>
+    <h2 class="title">工装图库</h2>
+    <div class="pictures">
+        <img src="./images/c1.png" alt="">
+        <img src="./images/c2.jpg" alt="">
+        <img src="./images/c3.jpg" alt="">
+        <img src="./images/c4.jpg" alt="">
+        <img src="./images/c5.jpg" alt="">
+        <img src="./images/c6.jpg" alt="">   
+    </div>
 </body>
 </html>

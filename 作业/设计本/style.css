@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
 }
-body, button, input, select, textarea,p,span {
+button, input, select, textarea, p, span {
     font-size: 12px;
     font-family: Arial,Helvetica,sans-serif;
     color: #888;
@@ -40,8 +40,8 @@ a{
 }
 .arrow{
     position: relative;
-    border:4px solid rgb(221,221,221);
-    border-top-color:#888;
+    border:4px solid rgb(239,239,239);
+    border-top-color:rgb(221,221,221);
     top:2px;
 }
 .button{
@@ -51,6 +51,7 @@ a{
     padding:0 25px;;
     line-height: 30px;
     border:none;
+    font-size: 14px;
 }
 
 
@@ -62,7 +63,7 @@ a{
     position: relative;
     width: 1366px;
     height: 32px;
-    background-color: rgb(221,221,221);
+    background-color: rgb(239,239,239);
 }
 
     /* 左侧 */
@@ -124,24 +125,25 @@ a{
     left:595px;
 }
 .topbarright .litbox{
-    padding:5px;
+    padding:7px;
 }
 .topbarright>a{
-    margin:5px;
+    margin:0 7px;
 }
 .aspecial{
     background-color: rgb(221,79,80);
     color: #fff;
     border-radius: 5px;
-    padding:5px;
+    padding:5px 10px;
 }
 .topbarright .content{
     position: absolute;
-    top:31px;
+    top:28px;
     background-color: #fff;
     border:1px solid rgb(221,221,221);
     border-top-color: #fff;
     display: none;
+    z-index: 10;
 }
 .content a{
     padding:8px 0;
@@ -151,16 +153,16 @@ a{
     text-align: center;
 }
 .content.ser{
-    width: 70px;
-    left:175px;
+    width: 73px;
+    left:191px;
 }
 .content.des{
-    left:255px;
-    width:81px;
+    left:272px;
+    width:84px;
 }
 .content.nav{
     left:0;
-    width: 416px;
+    width: 440px;
 }
 
 /* 动画区 */
@@ -188,9 +190,9 @@ a{
     margin:0 auto;
     padding:30px 0;
     width: 1180px;
-    height: 96px;
+    height: 36px;
     background-color: #fff;
-    display: block;
+    left:90px;
 }
 .toplog>*{
     position: relative;
@@ -237,14 +239,13 @@ a{
     width: 80px;
     height: 32px;
     border: 2px solid rgb(221,79,80);
-    border-right: 1px solid rgb(221,221,221);
+    border-right: 1px solid rgb(239,239,239);
 }
 .toplog form>*{
     float:left;
 }
 .toplog .serchlist{
-    display: none;
-    margin-left: 10px;    
+    display: none;   
 }
 
 #serchtitle:hover,#serchtitle:hover>.serchlist{
@@ -254,4 +255,313 @@ a{
 .toplog span{
     line-height: 35px;
     padding:0 20px;
+}
+
+
+
+/* 中心导航 */
+.wrap-top-menu{
+    position: relative;
+    height: 40px;
+    width: 1344px;
+    background-color: rgb(51,51,51);
+    display: block;
+}
+.top-menu{
+    position: relative;
+    height: 40px;
+    width: 1180px;
+    margin:0 auto;
+    display: block;
+}
+.top-menu ul{
+    position: relative;
+    left:40px;  
+}
+.top-menu li{
+    position: relative;
+    height: 40px;
+    float:left;
+    padding:0 35px;
+    color: #fff;
+    line-height: 40px;  
+    text-align: center;
+}
+.top-menu li a{
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+}
+.top-menu .lastli{
+    position: relative;
+    left:400px;
+}
+.top-menu .content{
+    position:absolute;
+    width: 100%;
+    text-align: center;
+    top:40px;
+    left:0;
+    background-color: rgb(221,79,80);
+    z-index: 10;
+    line-height: 10px;
+    display: none;
+}
+.backselect{
+    background-color: rgb(221,79,80);
+}
+
+/* 动画区 */
+.top-menu li:hover{
+    background-color: rgb(221,79,80);
+}
+ .top-menu li:hover>.content{
+    display: block;
+} 
+
+
+/* 轮播图 */
+.contain{
+    position: relative;
+    width: 1344px;
+    height: 420px;
+    overflow: hidden;
+}
+.contain .column{
+    position: absolute;
+    width: 280px;
+    height: 420px;
+    left:90px;
+    padding:10px 30px;
+    z-index: 10;
+    background-color: #fff;
+}
+.contain ul{
+    position: absolute;
+    left:-270px;
+    width: 1000%;
+    height: 420px;
+}
+.contain .column a{
+    display: inline-block;
+    line-height: 20px;
+    margin:5px 15px;
+}
+.contain .column p{
+    color: #000;
+    font-size: 14px;
+    margin:15px;
+}
+.contain li{
+    width: 2000px;
+    height: 420px;
+    float:left;
+}
+ .contain li:first-of-type{
+    background-image: url(./images/389_9063.jpg);
+} 
+.contain li:nth-of-type(2){
+    background-image: url(./images/389_9267.jpg);
+}
+.contain li:nth-of-type(3){
+    background-image: url(./images/389_9474.jpg);
+}
+.contain li:nth-of-type(4){
+    background-image: url(./images/389_9308.jpg);
+}
+.contain li:last-of-type{
+    background-image: url(./images/389_9063.jpg);
+}
+
+
+
+
+
+/* 中途 */
+.modele{
+    position: relative; 
+    width: 1180px;
+    height: 161px;
+    margin: 0 auto;
+    border-top: 1px #eee solid;
+    border-left: 1px #eee solid;
+}
+.modele li{
+    width: 294px;
+    height: 42px;
+    overflow: hidden;
+    padding: 60px 0;
+    float: left;
+    border-right: 1px #eee solid;
+    border-bottom: 1px #eee solid;
+}
+.modele a{
+    color:#000;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 500;
+}
+
+
+
+
+.title{
+    position: relative;
+    margin-top:60px;
+    left:90px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+
+/* 找设计师 */
+.column-index{
+    position: relative;
+    width: 1180px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: block;
+}
+.column-index p{
+    font-size: 15px;
+    color: #888; 
+}
+.column-index ul{
+    list-style: none;
+}
+.column-index ul li{
+    height: 80px;
+    width: 160px;
+    border: 1px solid rgb(221,221,221);
+    text-align: center;
+    line-height: 80px;
+    cursor: pointer;
+}
+.column-index .content{
+    width: 1040px;
+    height: 327px;
+    border: 1px solid rgb(221,221,221);
+    position: absolute;
+    left:160px;
+    top:0;
+    background-color: #fff;
+    display: none;  
+    cursor: auto;
+    overflow:hidden;
+}
+.content.show{
+    display:block;
+}  
+.column-index .dto{   
+    width: 5000px;
+    position: relative;
+}
+.column-index .dbt{
+    width: 5000px;
+    position: relative;
+}
+.dto>img{
+    width: 184px;
+    height: 184px;
+    float: left;
+    margin:10px; 
+}
+
+.dbt>img{
+    float:left;
+    width: 82px;
+    height: 82px;
+    margin:0 10px;
+}
+.content.show span{
+    position: absolute;
+    top:100px;
+    background-color: rgba(0,0,0,0.3);
+    display: block;
+    font-size: 20px;
+    padding:10px;
+    z-index: 10;
+    color: #fff;
+    cursor: pointer;
+}
+.content.show span:first-of-type{
+   left:10px;
+}
+.content.show span:last-of-type{
+   right:10px;
+}
+.content.show span:hover{
+    background-color: rgba(0,0,0,0.5)
+}
+
+
+
+
+
+/* 设计案例 */
+.designcase{
+    position: relative;
+    width: 1180px;
+    margin:30px auto;
+    display: block;
+}
+.designcase .casebox{
+    position: relative;
+
+    text-align: center;
+}
+.designcase img{
+    width: 280px;
+    height: 280px;
+}
+.designcase img:hover{
+    opacity: 0.7;
+    filter:opacity(7);
+}
+.designcase a{
+     margin:0 5px 5px 0; 
+    display: block;
+    font-size: 15px;
+    color:#000;
+}
+
+.design-mechanism{
+    position: relative;
+    width: 1180px;
+    margin:30px auto;
+    display: block;
+    overflow: hidden;
+    height: 174px;
+}
+.design-mechanism img{
+    position: absolute;
+    transition: 1s;
+}
+.design-mechanism img:nth-child(2){
+    left:550px;   
+    z-index: 2;
+}
+.design-mechanism img:nth-child(3){
+    left:760px;
+    z-index: 3;
+}
+.design-mechanism img:nth-child(4){
+    left:970px; 
+    z-index: 4;
+}
+.pictures{
+     position: relative;
+    width: 1180px;
+    margin:30px auto;
+    display: block;
+}
+.pictures img{
+    float:left;
+    margin:0 10px 10px 0;
+}
+.pictures img:hover{
+    opacity: 0.7;
+    filter:opacity(7);
 }
