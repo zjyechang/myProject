@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .choose{
+        background-color: orange;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>
+                <input type="checkbox">吃饭
+            </li>
+            <li>
+                <input type="checkbox">睡觉
+            </li>
+            <li>
+                <input type="checkbox">打东东
+            </li>
+
+        </ul>
+    </div>
+    <script>
+        var inputs = document.getElementsByTagName("input");
+
+
+        for (var i =0;i<inputs.length ;i++){
+            inputs[i].onclick = function(){
+                this.parentNode.className = this.checked? "choose":"";
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

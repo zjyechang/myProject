@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>哈哈</li>
+        <li>嘻嘻</li>
+        <li>呵呵</li>
+        <li>桀桀</li>
+        
+    </ul>
+</body>
+<script>
+    var oUl = document.getElementsByTagName("ul")[0];
+    var oLi = document.getElementsByTagName("li");
+
+    oUl.appendChild( oLi[0].cloneNode(true));
+    oUl.appendChild( oLi[0].cloneNode(false));
+
+
+
+
+
+</script>
+</html>

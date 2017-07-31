@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.carousel{
+			width: 560px;
+			height: 300px;
+			margin: 100px auto;
+			border: 1px solid #333;
+			position: relative;
+		}
+		.carousel ul{
+			list-style: none;
+		}
+		.carousel ul li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			filter:alpha(opacity = 0);
+		}
+		.carousel ul li.first{
+			opacity: 1;
+			filter:alpha(opacity = 100);
+		}
+		.btns a{
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 50%;
+			margin-top: -20px;
+			background-color: orange;
+			font-size: 30px;
+			line-height: 40px;
+			text-align: center;
+			border-radius: 50%;
+			font-weight: bold;
+			cursor: pointer;
+			z-index: 999;
+		}
+		.btns a:hover{
+			background-color: gold;
+		}
+		.leftBtn{
+			left: 10px;
+		}
+		.rightBtn{
+			right: 10px;
+		}
+		.circles{
+			position: absolute;
+			width: 150px;
+			height: 16px;
+			bottom: 10px;
+			right: 10px;
+		}
+		.circles ol{
+			list-style: none;
+		}
+		.circles ol li{
+			float: left;
+			width: 16px;
+			height: 16px;
+			background-color: orange;
+			margin-right: 6px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.circles ol li.cur{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel" id="carousel">
+		<div class="btns">
+			<a class="leftBtn"  id="leftBtn"></a>
+			<a class="rightBtn" id="rightBtn"></a>
+		</div>
+		<div class="imageslist" id="imageslist">
+			<ul>
+				<li class="first"><a><img src="images/0.jpg" alt="" /></a></li>
+				<li><a><img src="images/1.jpg" alt="" /></a></li>
+				<li><a><img src="images/2.jpg" alt="" /></a></li>
+				<li><a><img src="images/3.jpg" alt="" /></a></li>
+				<li><a><img src="images/4.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div class="circles" id="circles">
+			<ol>
+				<li class="cur"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="animate-2.0.1.js"></script>
+	<script type="text/javascript">
+		var leftbtn = document.getElementById("leftBtn");
+		var rightbtn = document.getElementById("rightBtn");
+		var imglis = document.getElementById("imageslist");
+		var circles = document.getElementById("circles");
+		var img = imglis.getElementsByTagName("li");
+		var cir = circles.getElementsByTagName("li");
+		var idx = 0;
+		
+
+		var timer = setInterval(function(){
+			idx++;
+			move();
+		},2000);
+		
+
+		leftbtn.onclick =function(){
+			idx--;
+			move();
+		}
+		rightbtn.onclick =function(){
+			idx++;
+			move();
+		}
+
+
+		function move(){
+			if(idx<0)idx=img.length-1;
+			if(idx>=img.length)idx = 0;
+
+			for (var i=0;i<img.length ; i++){
+				cir[i].className ="";
+				animate(img[i],{"opacity":0},1000)
+			}
+				animate(img[idx],{"opacity":1},1000)
+				cir[idx].className = "cur";
+
+		}
+
+		
+
+			for(var i =0 ;i<cir.length ;i++){
+
+				(function(i){
+					cir[i].onclick = function(){
+						for(var j =0;j<cir.length;j++){
+							cir[j].className = "";	
+							animate(img[j],{"opacity":0},1000)
+						}
+						idx = i;
+						cir[idx].className ="cur";
+						animate(img[idx],{"opacity":1},1000);
+					}
+				})(i);
+			}
+		
+
+
+
+	</script>
+</body>
+</html>

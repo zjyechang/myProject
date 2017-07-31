@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    window.onload=function(){
+        var btn = document.getElementsByTagName("button")[0];
+        var r = Math.random()*100;
+        var r1 = Math.floor(r);
+        var r2 = Math.ceil(r);
+
+        console.log(typeof btn)
+
+        function getRandom(n){
+            var a =Math.floor(Math.random()*n);
+            return a;
+        }
+        btn.onclick=function(){
+        var food = ["蚂蚁上树","大盘鸡","馒头","尖椒肉丝","麻婆鸡丝","鱼香肉丝","爆炒腰花","炒肝","糖醋排骨","地三鲜"];
+            var str = getRandom(food.length);
+            document.write(food[str]);
+        }
+
+        
+
+
+
+
+
+    }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <button>点餐器</button>
+</body>
+</html>

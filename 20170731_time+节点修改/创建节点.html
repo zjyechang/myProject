@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value ="点我" > 
+    <input type="text" id ="txt">
+
+    <ul>
+        <li>aaaa</li>
+        <li>bbbb</li>
+        <li>cccc</li>
+        <li>dddd</li>
+
+    </ul>
+</body>
+<script>
+    var btn = document.getElementsByTagName("input")[0];
+    var txt =document.getElementById("txt");
+    var li = document.getElementsByTagName("li");
+    var oUl = document.getElementsByTagName("ul")[0];
+
+
+    btn.onclick =function (){
+        var oLi = document.createElement("li");
+
+        oLi.innerHTML = txt.value;
+
+        oUl.appendChild(oLi);//添加进去
+    }
+
+</script>
+</html>

@@ -92,6 +92,7 @@ a{
     background-color: #fff;
     border:1px solid rgb(221,221,221);
     display: none;
+    z-index:100;
 }
 .codecon>img{
     position: relative;
@@ -154,15 +155,15 @@ a{
 }
 .content.ser{
     width: 73px;
-    left:191px;
+    left:197px;
 }
 .content.des{
-    left:272px;
+    left:281px;
     width:84px;
 }
 .content.nav{
     left:0;
-    width: 440px;
+    width: 450px;
 }
 
 /* 动画区 */
@@ -317,6 +318,7 @@ a{
 }
  .top-menu li:hover>.content{
     display: block;
+    z-index:100;
 } 
 
 

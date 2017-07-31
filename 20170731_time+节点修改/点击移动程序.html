@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 200px;
+        height: 400px;
+        float:left;
+        border:1px solid #000;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="box1">
+    <ul>
+        <li><input type="checkbox">牛肉</li>
+        <li><input type="checkbox">羊肉</li>
+        <li><input type="checkbox">猪肉</li>
+        <li><input type="checkbox">白菜</li>
+        <li><input type="checkbox">生菜</li>
+        <li><input type="checkbox">黄油</li>
+        <li><input type="checkbox">沙拉</li>
+        <li><input type="checkbox">屎</li>
+        <li><input type="checkbox">甜点</li>
+        <li><input type="checkbox">鹤顶红</li>
+        <li><input type="checkbox">菜单</li>
+    </ul>
+    </div>
+
+    <div>
+        <input type="button" value=">>>>>" id ="btn1">
+        <input type="button" value="<<<<<" id ="btn2">
+        
+    </div>
+    <div id="box2">
+        <ul>
+            
+        </ul>
+
+    </div>
+</body>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+    var input1 = box1.getElementsByTagName("input");
+    var input2 = box2.getElementsByTagName("input");
+    var ul1 = box1.getElementsByTagName("ul")[0];
+    var ul2 = box2.getElementsByTagName("ul")[0];
+    console.log(ul2)
+
+    btn1.onclick =function(){
+        var checkarr =[];
+        for(var i =0; i<input1.length;i++){
+            if(input1[i].checked){
+                checkarr.push(input1[i].parentNode);
+
+            }
+        }
+
+        for (var i =0 ; i<checkarr.length; i++){
+            ul2.appendChild(checkarr[i]);
+        }
+    }
+
+    btn2.onclick =function(){
+        var checkarr =[];
+        for(var i =0; i<input2.length;i++){
+            if(input2[i].checked){
+                checkarr.push(input2[i].parentNode);
+
+            }
+        }
+
+        for (var i =0 ; i<checkarr.length; i++){
+            ul1.appendChild(checkarr[i]);
+        }
+    }
+    
+
+</script>
+</html>

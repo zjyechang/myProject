@@ -189,13 +189,31 @@
 
 			circles[idx].className = "cur";
 		}
+		
 
-		for(var i =0 ;i< circles.length ;i++){
-			circles[i].className = "";
-			(function(i){
+			for(var i =0 ;i< circles.length ;i++){
 				
-			})
-		};
+				(function(i){
+
+				
+					circles[i].onclick = function(){
+
+						for(var j=0 ;j<circles.length ;j++){
+
+							circles[j].className = "";
+
+							animate(lis[j],{"opacity":0},1000);
+						}
+						idx = i;
+
+						circles[idx].className = "cur";
+
+						animate(lis[idx],{"opacity":1},1000);
+					}
+				})(i);
+					
+				
+			};
 
 
 

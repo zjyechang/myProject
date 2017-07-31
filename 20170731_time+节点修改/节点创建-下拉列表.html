@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="year" value ="">
+
+    </select>
+    <input type="select">
+</body>
+<script>
+    var year = document.getElementById("year");
+    // for (var i =1950 ;i<2017 ;i++){
+    //     var op = document.createElement("option");
+    //     op.value = i;
+    //     op.innerHTML = i ;
+    //     year.appendChild(op);
+    // }
+
+
+    for (var i =1950 ;i<2017 ;i++){
+        year.innerHTML +=
+        "<option value="+i+">"+i+"年"+"</option>"
+    }
+    
+</script>
+</html>

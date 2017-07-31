@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    img{
+        width: 40px;
+    }
+
+
+    </style>
+    <script>
+    window.onload =function(){
+        var img = document.getElementsByTagName("img");
+        var btn = document.getElementsByTagName("button")[0];
+
+
+
+
+        function toStr(n){
+            if(n<10){
+                return "0"+n;
+            }else return ""+n;
+        }
+
+        function fun(){
+            var oDate =new Date();
+            var timeStr = toStr(oDate.getHours())+
+            toStr(oDate.getMinutes())+ toStr(oDate.getSeconds());
+
+            console.log(timeStr.length)
+                    for (var i=0 ;i<img.length ;i++){
+                    img[i].src = "./image/"+timeStr[i]+".png";
+                }
+               
+
+            
+        }
+
+           setInterval(fun,1000);
+        btn.onclick =function (){
+           setInterval(fun,1000);
+        }
+    }
+
+    </script>
+</head>
+<body>
+    <img src="./image/0.png" alt="">
+    <img src="./image/0.png" alt="">
+    :
+    <img src="./image/0.png" alt="">
+    <img src="./image/0.png" alt="">
+    :
+    <img src="./image/0.png" alt="">
+    <img src="./image/0.png" alt=""> 
+
+    <button>lllll</button>
+</body>
+</html>

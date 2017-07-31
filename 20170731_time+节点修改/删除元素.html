@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id ="txt">
+    <input type="botton" id ="btn">
+    <ul>
+        <li>我第一个<a href="#">删除</a> </li>
+        <li>我第二个<a href="#">删除</a></li>
+        <li>我第三个<a href="#">删除</a></li>
+        <li>我第四个<a href="#">删除</a></li>
+
+    </ul>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var txt = document.getElementById("txt");
+    var oUl = document.getElementsByTagName("ul")[0];
+    var oLi = document.getElementsByTagName("li");
+    var a = document.getElementsByTagName("a");
+
+    //删除自身所在父元素
+    // for( var i=0 ;i<a.length ;i++){
+    //     a[i].onclick = function(){
+    //         oUl.removeChild(this.parentNode)
+    //     }
+    // }
+    // 删除自身
+    for( var i=0 ;i<a.length ;i++){
+        a[i].onclick = function(){
+            this.parentNode.removeChild(this);
+        }
+    }
+
+
+
+</script>
+</html>

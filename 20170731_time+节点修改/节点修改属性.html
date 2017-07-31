@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: lightcoral;
+            width: 50px;
+            height: 50px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p id ="xiaoming">?</p>
+        <p></p>
+        <p></p>
+        
+
+    </div>
+    
+
+</body>
+<script>
+    var oDiv = document.getElementsByTagName("div")[0];
+
+    // function children(obj,num){
+
+    //         var arr =[];
+            
+    //     for (var i =0; i<obj.childNodes.length ;i++){
+    //         if  (obj.childNodes[i].nodeType ===1){
+    //             arr.push(obj.childNodes[i]);
+    //         }
+            
+    //     }
+    //     return num?arr[num]:arr;
+    // }
+    // children(oDiv,3).style.backgroundColor = "red";
+    // children(oDiv)[2].style.backgroundColor = "blue";
+
+
+        var oDiv = document.getElementsByTagName("div")[0];
+        var xiaoming = document.getElementById("xiaoming");
+
+
+        // 返回一个对象的兄弟节点
+    //     function shit(obj){
+    //         var prev = obj;
+    //         while( prev = prev.previousSibling){
+    //             if (prev.nodeType == 1){
+    //                 return prev;
+    //             }
+    //         }
+    //         return null;//?
+    //     }
+    // shit(xiaoming).style.backgroundColor = "red";
+
+
+
+        // 返回对象前面的所有节点
+        function shit(obj){
+            var arr = [];
+            var prev = obj;
+           
+            while( prev = prev.previousSibling){
+                if (prev.nodeType == 1){
+                    arr.push(prev);
+                }
+            }
+            return arr;//?
+        }
+        console.log(shit(xiaoming));
+        for (var i =0;i<shit(xiaoming).length;i++){
+            shit(xiaoming)[i].style.backgroundColor = "red";
+
+        }
+        
+</script>
+</html>

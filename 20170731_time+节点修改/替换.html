@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+        <p>学习</p>
+        <p>笑笑</p>
+        <p id ="op">凛冽</p>
+        <p>芊芊</p>
+    </div>
+</body>
+<script>
+    var op =document.getElementById("op");
+    var oDiv = document.getElementsByTagName("div")[0];
+
+
+    var op1 = document.createElement("p");
+    op1.innerHTML = "小黄";
+    
+
+    oDiv.replaceChild(op1,op);
+
+
+
+</script>
+</html>

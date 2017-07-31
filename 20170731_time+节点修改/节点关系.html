@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li{
+            background-color: lightblue;
+            margin:5px;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <span>  </span>     </div>
+
+    <ul id ="oUl">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        
+    </ul>
+
+</body>
+<script>
+    var oDiv = document.getElementsByTagName("div")[0];
+    console.log(oDiv.nodeType);
+    console.log(oDiv.childNodes.length);
+    console.log(oDiv.childNodes[0].nodeType);
+    
+
+
+    var oUl = document.getElementById("oUl");
+    var oLi = document.getElementsByTagName("li");
+    var lis = oUl.childNodes;
+    var li = oUl.children;//找到所有的元素节点
+        document.onclick = function(){
+            for (var i =0 ;i<lis.length ;i++){
+                if(lis[i].nodeType ===1){//1筛选类型为元素节点
+                    lis[i].style.width = "100px";
+                }
+            }
+        }
+
+        oUl.onclick =function(){
+            for (var i=0; i<li.length;i++){
+                li[i].style.backgroundColor = "lightgreen";
+
+            }
+        }
+</script>
+</html>
