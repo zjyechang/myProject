@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 找数字
+    // var str = "d43sdasdsagfggs21hdrsadg2rdsewax"
+    //     function pd(s){
+    //         var arr = [];
+    //         for(var i=0 ;i<s.length ;i++){
+    //             if(s.charAt(i)>=0 && s.charAt(i)<=9){
+    //                 arr.push(s.charAt(i))
+    //             }
+    //         }
+    //         return arr;
+    //     }
+    //     alert( pd(str) )
+
+
+
+            // 将数字连着输出
+    var str = "ds321dsa331ggs453hdr543sard665swax32"
+        // function pd(s){
+        //     var arr = [];
+        //     var newarr = [];
+        //     for(var i=0 ;i<s.length ;i++){
+        //         if(s.charAt(i)>=0 && s.charAt(i)<=9){
+        //            newarr+=(s.charAt(i));
+        //         }else {
+        //             if(newarr){
+        //             arr.push(newarr);
+        //             newarr = "";
+        //         }
+        //     }}
+        //     if (newarr) arr.push(newarr);
+        //     return arr;
+        // }
+        // alert( pd(str) )
+
+
+            // 正则表达式
+            function findNamber(str){
+                return str.match(/\d+/g)
+            }
+
+            alert(findNamber(str))
+
+             
+
+
+</script>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+    }
+
+</style>
+</head>
+<body>
+    <a href=""><div></div></a>
+</body>
+</html>

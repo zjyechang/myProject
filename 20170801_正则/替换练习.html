@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        // replace练习
+        var str = "张三学会了正则，张三好厉害啊~~"
+        // 只替换第一个
+        console.log(str.replace("张三","李四"))
+
+        // replace第一个参数是正则，加g全局匹配
+        console.log(str.replace(/张三/g,"李四"))
+
+        // 如果第二个参数是一个函数，每次匹配都会调用函数，return替换内容。
+
+
+        var str = "张三学会了正则，张三好厉害啊~~"
+        console.log(str.replace(/张三/g,function(a,b,c){
+        //    a是张三,匹配的内容
+        //    b是张三所在位置，下标
+        //    c是原来的字符串
+           
+            console.log(a,b,c);
+            return "李四";
+        }))
+
+
+
+
+        // replace动态替换
+        var str ="我每天赚200元，饭钱40元";
+        console.log( str.replace(/\d+元/g,function(a){
+            console.log(a);
+            // 乘100再除100保留2位小数.
+            return "$"+Math.round(parseInt(a)/6*100)/100;
+        }))
+
+
+
+        // 用分组
+        var str ="red blue";
+
+        var re = /(\w+)\s(\w+)/;
+
+        console.log( str.replace(re,"$2 $1"))
+
+        console.log( str.replace(re,function(match,$1,$2,idx,str){
+            console.log("match 是"+match);
+            console.log("$1 是"+$1);
+            console.log("$2 是"+$2);
+            console.log("idx 是"+idx);
+            console.log("str 是"+str);
+                return $2+" "+$1;
+        }))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

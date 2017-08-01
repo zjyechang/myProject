@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        var str = "今年涨工资！现在工资20000元。还房贷还有-5.3万，今年大了一岁，现在29岁";
+
+
+        //获取负数，？代表可能有可能没有,出现 了一次或0次
+        var re = /-?\d+\.?\d?/g;
+
+        console.log( str.match(re));
+
+
+
+        // 没有g修饰的match和exec一样
+        // 有g修饰match全部输出，exec只输出一个
+        var str = "ASDFGHJKL"
+        var re = /[A-Z]/;
+        console.log(str.match(re));
+        console.log(re.exec(str));
+
+
+
+
+        // 寻找连续相同的
+        var str = "aaabbbbfffdddddccccccghhh";
+        var re = /(\w)\1+/g;//多次调用复制
+
+        console.log(str.match(re));
+
+        var str = "abc";
+        var re = /A/i;
+        console.log( re.test(str) );
+
+
+        // 寻找最长的字符
+        var str = "aaabbbbfffdddddccccccggggggghhhhhhhhhhhh";
+
+        var re = /(\w)\1+/g;//多次调用复制
+
+        var arr = (str.match(re));//找到连续的字符串
+
+        var maxlength = 0;
+        var maxstr = null;
+        for(var i =1; i<arr.length ;i++){
+            if(arr[i].length>arr[i-1].length){
+                maxstr = arr[i];
+            }
+        }
+            console.log(maxstr);
+
+        // 找到第一个连续的
+        var str = "dsawefsfff22134fa";
+
+        var re = /(\w)\1+/;
+
+        console.log( str.match(re));
+        console.log( str.search(re));
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

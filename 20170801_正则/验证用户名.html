@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var str="小米";
+
+        alert(/^[\u4e00-\u9fa5]{0,}$/.test(str));
+        alert(/^[\u4e00-\u9fa5]+$/.test(str));
+
+        alert( /a|b/.test("b"));//true
+        alert( /blue|green/.test("gree"));//false
+
+
+
+        // 只能在正则内部使用
+        var re = /ab(cd)\1\1efg/;//cd复制了两遍
+
+        alert(re.test("abcdcdefg"));//t
+       
+        var re = /ab(cd)\1(ef)g\2/;
+
+        alert(re.test("abcdcdefgef"));//t
+        
+        
+
+        // 在正则表达式外用$1表示复制一遍,不包括自身
+        var str = "abcdfg";
+        console.log(str.replace(/ab(cd)fg/,"ab$1$1$1e"))
+
+
+        console.log(str.replace(/abc(df)g/,function(match,$1){
+            console.log("第一个参数"+match);
+            console.log("第二个参数"+$1);
+            
+            return "ab"+$1+$1+"e";
+        }))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

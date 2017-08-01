@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body> 
+    <script>
+
+        // 拆分
+        var str = "a   b       c";
+            console.log(str.split(""));
+            console.log(str.split(/\s+/));
+        var str1 = "sadaaaaabadfdabadadf"
+        console.log(str1.split(/a+/))
+
+        // 检索
+        var str = "abcdefghijklmnopqrstuvwxyz"
+        console.log(str.indexOf("ef"));//不能用正则找
+        console.log(str.search("ef"));
+        console.log(str.search(/ef/));//可以用正则
+        
+        // 查找
+        var str = "abbbcdefghijkbblmnopqrsbbbbtuvwxyz";
+        console.log(str.match(/b+/g));
+        console.log(str.match(/bb/g));
+        
+        // 替换
+        var str = "www.ucai.cn";
+        console.log(str.replace(/ucai\.cn/,"ucai.com"))
+         console.log(str.replace(/ucai\.cn/,function(){
+             return "ucai.com"
+         }))
+</script>
+    <img src="./1.png" alt="">
+</body>
+</html>

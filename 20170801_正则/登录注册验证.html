@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    form{
+        width: 500px;
+        height: 400px;
+        margin:0 auto;
+        border:1px double #afa;
+        padding:30px;
+        text-align: center;
+    }
+    div{
+        width: 500px;
+        height: 400px;
+        margin:0 auto;
+    }
+    .register{
+        display: none;
+    }
+
+    </style>
+
+    <script>
+    window.onload =function(){
+        var btnsi = document.getElementsByClassName("si");
+        var btnre = document.getElementsByClassName("re");
+        var signin = document.getElementsByClassName("signin")[0];
+        var register = document.getElementsByClassName("register")[0];
+        
+
+
+       btnsi[1].onclick = function(){
+            signin.style.display = "block";
+            register.style.display = "none";
+        }
+        btnre[0].onclick = function(){
+            signin.style.display = "none";
+            register.style.display = "block";
+        }
+
+        var pass;
+        var acc;
+        var accre = /^[a-zA-Z][a-zA-Z0-9]{5,9}$/;
+        var passre = /^\S{6,10}$/;
+        var phonere = /^1[358]\d{9}$/;
+        var emailre = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.com$/
+        
+        btnre[1].onclick = function(){
+ 
+            if(!accre.test(accont1.value)){
+                alert("账号格式错误");
+                
+            }else{
+                acc = accont1.value;
+                if(!passre.test(password1.value)){
+                    alert("密码格式错误");
+                  
+                }else{
+                    pass = password1.value;
+                    if(password1.value !=password2.value){
+                        alert("两次密码不相同");
+                       
+                    }else{
+                        if(!phonere.test(phone.value)){
+                            alert("手机格式错误");
+                           
+                        } else{
+                            if(!emailre.test(email.value)){
+                                alert("邮箱格式错误");
+                             
+                            }else{
+                                alert("注册成功");
+                                signin.style.display = "block";
+                                register.style.display = "none";
+                                }
+                        }
+                    }
+                }
+            }
+            
+        }
+        btnsi[0].onclick = function(){
+            if(accont.value != acc){
+                alert("账号错误");
+            }else if(password.value != pass){
+                alert("密码错误");
+            }else {alert("登录成功")}
+
+
+        }
+        
+
+    }
+
+    </script>
+</head>
+<body>
+    <div class="signin">
+        <form action="get">
+            <h1>登录</h1>
+            <p><label for="accont">账号</label>
+            <input type="text" id="accont" placeholder ="请输入账号" required></p>
+            
+            <p><label for="password">密码</label>
+            <input type="password" id="password" placeholder ="请输入密码" required></p>
+
+            <p><label for="accont">验证码</label>
+            <input type="text" id="code" placeholder ="请输入验证码" required pattern="/^[a-zA-Z0-9]{4}$/"></p>
+
+            <input type="button" value ="登录" class="si">
+            <input type="button" value ="注册" class="re">
+        </form> 
+
+    </div>
+    <div class="register">
+        <form action="get">
+            <h1>注册</h1>
+            <p><label for="accont">账号</label>
+            <input type="text" id="accont1" placeholder ="请输入6-10位账号" required>账号由字母与数字组成</p>
+            
+            <p><label for="password">密码</label>
+            <input type="password" id="password1" placeholder ="请输入6-10位密码" required>密码必须以字母开头</p>
+
+            <p><label for="password">确认密码</label>
+            <input type="password" id="password2" placeholder ="请再次输入密码" required></p>
+
+            <p><label for="phone">手机</label>
+            <input type="text" id="phone" placeholder ="请输入11位手机号" required></p>
+            
+            <p><label for="phone">邮箱</label>
+            <input type="text" id="email" placeholder ="请输入邮箱" required></p>
+
+            <input type="button" value ="返回登录" class="si">
+            <input type="button" value ="注册" class="re">            
+
+
+        </form>
+
+    </div>
+</body>
+</html>

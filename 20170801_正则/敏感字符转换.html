@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+
+    <input type="button" value ="点击转换">
+
+    <input type="text">
+
+
+    
+</body>
+    <script>
+    var txt1 = document.getElementsByTagName("input")[0];
+    var txt2 = document.getElementsByTagName("input")[2];
+    var btn = document.getElementsByTagName("input")[1];
+    
+        btn.onclick = function(){
+            var reg = /借|块钱|什么时候/g;
+            txt2.value=txt1.value.replace(reg ,function(str){
+                var res ="";
+                for (var i =0;i<str.length;i++){
+                    res +="*";
+                }
+                return res;
+            });
+        }
+
+
+    </script>
+</html>

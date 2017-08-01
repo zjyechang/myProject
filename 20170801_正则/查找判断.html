@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        // 判断以abcd开头
+    var re =  /^abcd/;
+    console.log (re.test("abcdefg"));//t
+    console.log (re.test("dsada"));//f
+    
+
+        // 判断以xyz结尾
+    var re =  /xyz$/;
+    console.log (re.test("sdadxyz$"));//t
+    console.log (re.test("dsadfsa"));//f
+
+
+
+        // 切割成单词
+    var str = "how old are       you |abc";
+    console.log( str.match(/[a-zA-Z]+/g));
+    console.log( str.match(/\b[a-zA-Z]+\b/g));
+
+
+    var str = "xiaoxshi";
+    console.log(str.match(/\bx/g));//匹配x开头的
+    console.log(str.match(/i\b/g));//匹配i结尾的
+    
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

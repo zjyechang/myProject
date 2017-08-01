@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // exec按次序找，直到null再次循环
+        //不加g就一直是第一个个
+        var str ="aabcdddabcffabcfadsaabc";
+        var re = /abc/g;
+        console.log(re.exec(str));//1
+        console.log(re.exec(str));//7
+        console.log(re.exec(str));//12
+        console.log(re.exec(str));//20
+        console.log(re.exec(str));//null
+        console.log(re.exec(str));//1
+        console.log(re.exec(str));//7
+
+
+        var str ="hello ucai";
+        var re =/hello/;
+        // 判断str字符串是否匹配
+        console.log(re.test(str));//找到true
+        rw = /Hello/;
+        console.log(rw.test(str));//找不到false
+
+
+        // 不能输入空格
+        var str1 = prompt("不能输入空格");
+        alert(!/\s/.test(str1))
+
+
+        var str = /[nba]/;
+        console.log(re.test("ajkl"));//ture
+
+
+
+        // 范围a-z小写字母集合
+        var re=/[a-z]/;
+        consolw.log(re.test('a'));//true
+
+
+        //负向类
+        var re =/[^9]/;
+        console.log(re.test("9"));//false
+
+        //组合类
+        var re = /[0-9a-zA-Z]/;
+        console.log(re.test("a"))//t
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

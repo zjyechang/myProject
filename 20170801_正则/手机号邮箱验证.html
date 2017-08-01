@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 手机验证
+        // var re = /^1[358]\d{9}$/;
+
+        // var str = prompt("请输入手机号");
+
+        // if(re.test(str)){
+        //     alert("输入的是一个手机号")
+        // }else{
+        //     alert("重新输入")
+        // }
+
+
+        // 邮箱验证
+        // @不需要转义
+        var re = /^\w+@\w+\.[a-zA-Z]{2,3}$/;
+
+        var str = prompt("请输入邮箱");
+
+        if(re.test(str)){
+            alert("输入的是一个邮箱")
+        }else{
+            alert("重新输入")
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
