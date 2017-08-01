@@ -48,8 +48,10 @@
         var accre = /^[a-zA-Z][a-zA-Z0-9]{5,9}$/;
         var passre = /^\S{6,10}$/;
         var phonere = /^1[358]\d{9}$/;
-        var emailre = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.com$/
-        
+        var emailre = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.com$/;
+        var birthdayre = /^\d{4}-\d{1,2}-\d{1,2}$/;
+        var idre =/^([0-9]){7,18}(x|X)?$/;
+
         btnre[1].onclick = function(){
  
             if(!accre.test(accont1.value)){
@@ -74,6 +76,12 @@
                                 alert("邮箱格式错误");
                              
                             }else{
+                                if(!birthdayre.test(birthday.value)){
+                                    alert("生日格式错误")
+                                }else
+                                if(!idre.test(id.value)){
+                                    alert("身份证号错误")
+                                }
                                 alert("注册成功");
                                 signin.style.display = "block";
                                 register.style.display = "none";
@@ -86,9 +94,9 @@
         }
         btnsi[0].onclick = function(){
             if(accont.value != acc){
-                alert("账号错误");
+                alert("您的账号错误");
             }else if(password.value != pass){
-                alert("密码错误");
+                alert("您的密码错误");
             }else {alert("登录成功")}
 
 
@@ -114,6 +122,7 @@
 
             <input type="button" value ="登录" class="si">
             <input type="button" value ="注册" class="re">
+            <input type="reset" value="重置">
         </form> 
 
     </div>
@@ -121,10 +130,12 @@
         <form action="get">
             <h1>注册</h1>
             <p><label for="accont">账号</label>
-            <input type="text" id="accont1" placeholder ="请输入6-10位账号" required>账号由字母与数字组成</p>
-            
+            <input type="text" id="accont1" placeholder ="请输入6-10位账号" required></p>
+                <span>账号由6-10位字母与数字组成</span>
+
             <p><label for="password">密码</label>
-            <input type="password" id="password1" placeholder ="请输入6-10位密码" required>密码必须以字母开头</p>
+            <input type="password" id="password1" placeholder ="请输入6-10位密码" required></p>
+                <span>密码必须以字母开头</span>
 
             <p><label for="password">确认密码</label>
             <input type="password" id="password2" placeholder ="请再次输入密码" required></p>
@@ -132,11 +143,19 @@
             <p><label for="phone">手机</label>
             <input type="text" id="phone" placeholder ="请输入11位手机号" required></p>
             
-            <p><label for="phone">邮箱</label>
+            <p><label for="email">邮箱</label>
             <input type="text" id="email" placeholder ="请输入邮箱" required></p>
 
+            <p><label for="birthday">生日</label>
+            <input type="text" id="birthday" placeholder ="请输入你的生日" required></p>
+            <span>例如:1990-9-7</span>
+
+            <p><label for="id">身份证号</label>
+            <input type="text" id="id" placeholder ="请输入身份证号" required></p>
+
             <input type="button" value ="返回登录" class="si">
-            <input type="button" value ="注册" class="re">            
+            <input type="button" value ="注册" class="re">  
+            <input type="reset" value="重置">          
 
 
         </form>
