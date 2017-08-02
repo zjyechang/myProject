@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+        }
+            </style>
+</head>
+<body>
+    <span>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</span>
+    <div></div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <script>
+    var oDiv =document.getElementsByTagName("div")[0];
+        // oDiv.onmousedown = function (event){
+        //     var disX = event.clientX-oDiv.offsetLeft;
+        //     var disY = event.clientY-oDiv.offsetTop;
+        //     document.onmousemove = function(event){
+
+        //         oDiv.style.left = (event.clientX-disX)+"px";
+        //         oDiv.style.top = (event.clientY-disY)+"px";
+        //     }
+        //     // 清空事件
+        //     document.onmouseup = function (){
+        //         document.onmousemove = document.onmouseup= null;
+        //     }
+        //     // return false;
+        // }
+
+
+        function move(obj){
+            obj.onmousedown = function (event){
+                var disX = event.clientX-obj.offsetLeft;
+                var disY = event.clientY-obj.offsetTop;
+                document.onmousemove = function(event){
+
+                    obj.style.left = (event.clientX-disX)+"px";
+                    obj.style.top = (event.clientY-disY)+"px";
+                }
+                // 清空事件
+                document.onmouseup = function (){
+                    document.onmousemove = document.onmouseup= null;
+                }
+                return false;
+            }
+        }
+        move(oDiv);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 300px;
+        height: 300px;
+        background-color: lightcyan;
+    }
+
+</style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    var oDiv = document.getElementsByTagName("div")[0];
+
+    // 鼠标移动的时候
+    oDiv.onmouseover = function(){
+        console.log(event.clientX,event.clientY);//到浏览器窗口的x，y位置
+        console.log(screen.clientX,screen.clientY);//到电脑屏幕的x，y位置
+    
+    }
+
+</script>
+</html>

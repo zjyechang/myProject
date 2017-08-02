@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box{
+        position: relative;
+        width: 700px;
+        height: 400px;
+        border:2px double #000;
+        margin:0 auto;
+        padding:20px;
+    }
+    #box>ul{
+        position: relative;
+        background-color: lightcyan;
+        height: 300px;
+        width: 200px;
+    }
+     span{
+        position: absolute;
+        background-color: rgba(0,0,0,0.3);
+        cursor:help;
+        top:50px;
+        width: 25px;
+        height: 35px;
+        font:35px SimSun ;
+        color: #fff;
+        z-index: 2;
+    }
+    span:first-child{
+        left:10px;
+    }
+    span:last-child{
+        right:10px;
+    }
+    #img{
+        position: absolute;
+        height: 130px;
+        width: 300px;
+        top:100px;
+        left:270px;
+         overflow: hidden; 
+    }
+    #img>div{
+        position: absolute;
+        left:0px;
+        width: 1000%;
+
+    }
+    img{
+        margin:0 50px;
+    }
+    #circle{
+        position: absolute;
+        top:20px;
+        right:35px;
+        list-style: none;
+    }
+    #circle>li{
+        border-radius: 50%;
+        background-color: #aaa;
+        width: 10px;
+        height: 10px;
+        margin:2px;
+        cursor: pointer;
+    }
+    .orange{
+        background-color: orange!important;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="text" placeholder="请输入想添加的字符">
+        <input type="button" value ="点击添加" id ="btn">
+
+        <ul id ="item">
+
+        </ul>
+
+        <div id="img">
+            <span><</span>
+            <div id ="imgli">
+                <img src="./shuzi/0.png" alt="">
+                <img src="./shuzi/1.png" alt="">
+                <img src="./shuzi/2.png" alt="">
+                <img src="./shuzi/3.png" alt="">
+                <img src="./shuzi/4.png" alt="">
+                <img src="./shuzi/5.png" alt="">
+
+            </div>
+            <ul id ="circle">
+                <li class="orange"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+             
+            </ul>
+            <span>></span>
+        </div>
+    </div>
+    <script>
+    var box = document.getElementById("box");
+    var circle = document.getElementById("circle");
+    var item = document.getElementById("item");
+    var btn =document.getElementById("btn");
+    var txt = document.getElementsByTagName("input")[0];
+    var imgs = document.getElementsByTagName("img");
+    var span = document.getElementsByTagName("span");
+    var imgli =document.getElementById("imgli");
+    var cirlis = document.getElementById("circle")
+    .getElementsByTagName("li");
+
+    var idx = 0;
+    var left = 0;
+
+
+    btn.onclick =function(){
+            // var arr = "<li>"+txt.value+"</li>";
+            // item.innerHTML += arr
+        var li = document.createElement("li");
+        li.innerHTML = txt.value;
+        item.appendChild (li)
+    }
+
+
+    var timer = setInterval(move,2000);
+
+
+    span[0].onclick=function(){
+        idx -=2;
+        move();
+       
+    }
+    span[1].onclick=move;
+
+   
+    img.onmouseover=function(){
+        clearInterval(timer);
+
+    }
+    img .onmouseout=function(){
+       timer = setInterval(move,2000);
+
+    }
+
+ 
+    function move(){
+        idx++;
+        if(idx<0) idx = imgs.length-1;
+        if(idx >= imgs.length) idx = 0;
+        left = -idx*305;
+        
+        imgli.style.left =  left+"px";
+
+        changecir();
+    }
+
+    function changecir(){
+        for(var j=0 ;j<cirlis.length ;j++){
+            cirlis[j].className = "";
+        }
+        cirlis[idx].className = "orange";
+    }
+
+   
+        for (var i=0 ;i<cirlis.length ;i++){
+
+            (function(i){
+                cirlis[i].onclick = function(){
+                    for(var j=0 ;j<cirlis.length ;j++){
+                        cirlis[j].className = "";
+                    }
+                    idx = i;
+
+                    cirlis[idx].className ="orange"
+
+
+                    left = -idx*305;
+        
+                     imgli.style.left =  left+"px";
+                }
+
+            })(i);
+        
+        }
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        height: 8000px;
+        height: 1000px;
+    }
+   
+    p{
+        height: 100px;
+        width: 100px;
+        background-color: lightblue;
+    }
+
+    #box1{
+        background-color: aqua;
+        height: 400px;
+        width: 400px;
+    }
+    #box2{
+        background-color: forestgreen;
+        height: 200px;
+        width: 200px;
+    }
+    #box3{
+        background-color: darkorange;
+        width: 100px;
+        height: 100px;
+    }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+        <ul>
+            <li>
+                <ul>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+var box1 = document.getElementById("box1");
+var box2 = document.getElementById("box2");
+var box3 = document.getElementById("box3");
+var body = document.body;
+    box1.onclick=function(){
+        alert("我是box1，点我干嘛~")
+ 
+    }
+    // box2.onclick=function(){
+    //     alert("我是box2，点我干嘛~")
+    // }
+    // box3.onclick=function(){
+    //     alert("我是box3，点我干嘛~")
+    // }
+    // window.onclick=function(){
+    //     alert("我是WINDOW，点我干嘛~")
+    // }
+    // document.onclick=function(){
+    //     alert("我是document，点我干嘛~")
+    // }
+    // body.onclick=function(){
+    //     alert("我是body，点我干嘛~")
+    // }
+    box1.onmouseover = change
+
+    function change(){
+        this.style.backgroundColor = "black";
+    }
+</script>
+</html>

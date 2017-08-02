@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box1{
+        background-color: aqua;
+        height: 400px;
+        width: 400px;
+    }
+    #box2{
+        background-color: forestgreen;
+        height: 200px;
+        width: 200px;
+    }
+    #box3{
+        background-color: darkorange;
+        width: 100px;
+        height: 100px;
+    }
+
+
+
+    </style>
+</head>
+<body>
+     <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+
+    </div>
+
+    <a href="http://www.baidu.com" id ="a">百度</a>
+</body>
+<script>
+var box1 = document.getElementById("box1");
+var box2 = document.getElementById("box2");
+var box3 = document.getElementById("box3");
+
+
+     box1.addEventListener("click",function(){
+        alert("box1点击冒泡阶段")
+        },false);
+        box2.addEventListener("click",function(){
+            alert("box2点击冒泡阶段")
+        },false);
+        box3.addEventListener("click",function(){
+            alert("box3点击冒泡阶段")
+        },false);
+
+        box2.addEventListener("click",function(event){
+            event.stopPropagation();
+            alert("啦啦啦")
+        },true)
+
+        box1.addEventListener("click",function(){
+            alert("box1点击捕获阶段")
+        },true);
+        box2.addEventListener("click",function(){
+            alert("box2点击捕获阶段")
+        },true);
+        box3.addEventListener("click",function(){
+            alert("box3点击捕获阶段")
+        },true);
+
+        // 取消右键菜单
+        document.oncontextmenu=function(){
+            event.preventDefault();
+        }
+        //取消a链接
+        var oA =document.getElementById("a");
+        oA.onclick = function(){
+            event.preventDefault();
+        }
+
+        box1.onmousewheel = function(){
+            alert("滚轮");
+            event.preventDefault();
+        }
+</script>
+</html>

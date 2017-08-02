@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        function addEvent( obj,eventType,fn){
+            if(  obj.addEventListener){
+                obj.addEventListener( eventType,fn,false )
+            }else if(obj.attachEvent){
+                obj.attachEvent("on"+eventType,function(){
+                        fn.call ( obj );
+
+                })
+
+            }else{
+                obj["on"+eventType]=fn;
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

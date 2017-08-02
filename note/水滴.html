@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+            border:1px solid #000;
+            width: 70%;
+            height: 70%;
+            /* margin:0 auto;
+            margin-top:15%; */
+            border-radius: 50%;
+            transition: 0.3s;     
+            position: absolute;
+            transform: translateX(19%) translateY(19%);  
+        }
+    
+    #box{
+        width: 200px;
+        height: 200px;
+        left:100px;
+        top:100px;
+
+    }
+
+</style>
+
+<script src = "./animate-2.0.1.js"></script>
+<script src = "./tween2.js"></script>
+    <script>
+    window.onload = function(){
+        var oDiv = document.getElementsByTagName("div");
+        var idx = 0;
+        var timer = null;
+        
+            oDiv[0].onmouseover = function(){
+            timer = setInterval(function move(){
+                        idx++;
+                       if(idx > oDiv.length-1) {
+                           clearInterval(timer)};
+                        oDiv[idx].style.width ="80%";
+                        oDiv[idx].style.height = "80%";
+                        oDiv[idx].style.transform = "translateX(11%) translateY(11%)";
+  
+                    },1000);
+            }
+
+        
+            
+
+        
+    }
+
+    </script>
+</head>
+<body>
+    <div id = "box">
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
