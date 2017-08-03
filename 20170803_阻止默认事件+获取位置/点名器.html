@@ -44,9 +44,16 @@
 
     btn.addEventListener("click",function(){
         var x = parseInt(Math.random()*arr.length);
+        if( arr.length == 0 ){
+            btn.style.display = "none";
+            alert("点名完成");
+            return;
+        }
         h1.style.display = "inline-block";
         h1.innerText = "";
         h1.innerText = arr[x];   
+        arr.splice(x,1);
+        
     },true)
 
 
