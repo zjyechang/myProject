@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    div{
+        background-color: skyblue;
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        left:200px;
+        top:100px;
+    }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    var oDiv =document.getElementsByTagName("div")[0];
+
+
+
+     function getAllTop(obj){
+            // 累加器，以自己offsetTop开始累加
+
+            var allTop = obj.offsetTop;
+            var currentObj = obj;
+            while(currentObj = currentObj.offsetParent){
+                console.log(currentObj)
+                allTop += currentObj.offsetTop;
+            }
+
+            alert(allTop);
+        }
+
+
+
+
+    oDiv.onmousemove = function(event){
+        event = event ||window.event;
+        // var x = event.offsetX;
+        // var y = event.offsetY;
+
+        var scroll = document.documentElement.scrollTop
+        var x = event.clientX - getAllLeft(oDiv);
+        var y = event.clientY - (getAllTop(oDiv)-scroll);
+
+
+
+
+
+
+        oDiv.innerHTML = x+","+y;
+    }
+
+
+</script>
+</html>

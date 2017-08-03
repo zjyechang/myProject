@@ -3,7 +3,9 @@
     if(mymessage==true)  
     {   document.write("很好,加油!");   }  
     else  
-    {  document.write("JS功能强大，要学习噢!");   }  
+    {  document.write("JS功能强大，要学习噢!");   } 
+    
+     
 # window.open
 window.open([URL], [窗口名称], [参数字符串])  
  1.该名称由字母、数字和下划线字符组成。  

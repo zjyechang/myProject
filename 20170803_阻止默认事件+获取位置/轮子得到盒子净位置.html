@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    #box1{
+        /* position: absolute; */
+        background-color: aqua;
+        height: 400px;
+        width: 400px;
+        margin:10px;
+        float:left;
+        border:10px solid #000; 
+    }
+    #box2{
+        /* position: relative; */
+        background-color: forestgreen;
+        height: 200px;
+        width: 200px;
+        margin:50px;
+    }
+    #box3{
+        background-color: darkorange;
+        width: 100px;
+        height: 100px;
+        /* position: relative; */
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <p>我是文字，文字也会挤走盒子</p>
+            <div id="box3"></div>
+        </div>
+    </div>
+    <script>
+    var box1 = document.getElementById("box1");
+    var box2 = document.getElementById("box2");
+    var box3 = document.getElementById("box3");
+
+        // 返回这个元素在页面中的净位置
+        // 就是这个元素所有的offsetParent 的 offsetTop的值的和
+
+
+        //box1的边框的不包含
+        function getAllTop(obj){
+            // 累加器，以自己offsetTop开始累加
+
+            var allTop = obj.offsetTop;
+            var currentObj = obj;
+            while(currentObj = currentObj.offsetParent){
+                console.log(currentObj)
+                allTop += currentObj.offsetTop;
+            }
+
+            return allTop;
+        }
+
+       
+
+
+
+         function getAllLeft(obj){
+
+            var allLeft = obj.offsetLeft;
+            var currentObj = obj;
+            while(currentObj = currentObj.offsetParent){
+                console.log(currentObj)
+                allLeft += currentObj.offsetLeft;
+            }
+
+            return allLeft;
+        }
+
+        getAllLeft(box1)
+        getAllTop(box2);
+    </script>
+</body>
+</html>

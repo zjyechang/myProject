@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    a{
+        position: fixed;
+        width: 50px;
+        height: 300px;
+        background-color: orangered;
+        right:10px;
+        top:100px;
+        text-align: center;
+        text-decoration: none;
+        color:antiquewhite;
+    }
+    a>div{
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        transition: all 1s;
+        background-color: orange;
+    }
+
+    .div{
+        height: 1000px;
+        width: 1000px;
+        background-color: lightblue;
+        margin:20px;
+    }
+    .div.a{
+        background-color: violet;
+    }
+    .div.b{
+        background-color: lightcyan;
+    }
+    .div.c{
+        background-color: lightgreen;
+    }
+    .div.d{
+        background-color: lightslategray;
+    }
+    
+    </style>
+    <script>
+    window.onload = function(){
+        var oa = document.getElementById("back");
+        var floor = oa.getElementsByTagName("div");
+        var arr=["男装","女装","童装","家装","电子","回到顶部"];
+
+        var st = document.body.scrollTop || 
+        document.documentElement.scroll;
+
+        // if(st>500){
+        //     oa.style.display ="none";
+        // }else{
+        //     oa.style.display = "block";
+        // }
+            for (var i = 0; i<floor.length ;i++){
+                (function(i){
+                    floor[i].onclick = function(){
+                         if (i>=floor.length-1)i=0;
+                         document.body.scrollTop = document.documentElement.scrollTop =
+                         i*2040;
+                    }
+                     floor[i].onmouseover = function(){
+                         this.style.backgrounColor = "blue";
+                         this.innerText = arr[i];
+                         this.style.transform = "rotateY(360deg)";
+                     }
+                    floor[i].onmouseout = function(){
+                         this.style.backgrounColor = "orangered";
+                         this.innerText = i+1;
+                         this.style.transform = "rotateY(0deg)";
+                         
+                     }
+                })(i);
+        }
+    }
+
+    </script>
+</head>
+<body>
+    <a href="javascript:;" id="back">
+        <div id="floor1">1</div>
+        <div id="floor2">2</div>
+        <div id="floor3">3</div>
+        <div id="floor4">4</div>
+        <div id="floor5">5</div>
+        <div id="floor6">6</div>
+    </a>
+    <div class="div">欢迎回来</div>
+    <div class="div"></div>
+    <div class="div a">欢迎来到第二层</div>
+    <div class="div a"></div>
+    <div class="div b">欢迎来到第三层</div>
+    <div class="div b"></div>
+    <div class="div c">欢迎来到第四层</div>
+    <div class="div c"></div>
+    <div class="div d">欢迎来到第五层</div>
+    <div class="div d"></div>
+    
+</body>
+</html>

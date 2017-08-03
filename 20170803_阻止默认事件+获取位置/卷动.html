@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    h1{
+        position: fixed;
+    }
+    div{
+        height: 5000px;
+        width: 1px;
+    }
+
+</style>
+<script>
+    window.onload = function(){
+        var oh = document.getElementsByTagName("h1")[0];
+
+
+        window.onscroll = function(){
+            // 高级浏览器觉得卷动是body属性
+            // IE6,7,8认为卷动是html标签的属性
+
+            var scroll = document.body.scrollTop || 
+            document.documentElement.scrollTop;//兼容垃圾ie用
+            oh.innerText = scroll;
+            if(scroll > 1500){
+                alert("( • ̀ω•́ )✧" +scroll)
+            }
+
+        }
+
+    }
+
+
+
+</script>
+</head>
+<body>
+    <h1></h1>
+    <div></div>
+</body>
+</html>

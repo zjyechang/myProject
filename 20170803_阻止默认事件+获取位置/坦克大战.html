@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    #box{
+        width: 1000px;
+        height: 500px;
+        background-color: lightseagreen;
+        position: absolute;
+        left:100px;
+        top:100px;
+    }
+    #tank{
+        position: absolute;
+        left:30px;
+        top:30px;
+        width: 20px;
+        height: 20px;
+        background-color: burlywood;
+        border:1px solid #000;
+    }
+    .top{
+        position: absolute;
+        top:-10px;
+        left:8px;
+        height: 15px;
+        width: 2px;
+        background-color: orange;
+        border:1px solid #000;
+        display: none;
+    }
+    .right{
+        position: absolute;
+        top:8px;
+        left:15px;
+        height: 2px;
+        width: 15px;
+        background-color: orange;
+        border:1px solid #000;
+        display: none;
+    }
+    .bottom{
+        position: absolute;
+        top:15px;
+        left:8px;
+        height: 15px;
+        width: 2px;
+        background-color: orange;
+        border:1px solid #000;
+        display: block;
+    }
+    .left{
+        position: absolute;
+        top:8px;
+        left:-10px;
+        height: 2px;
+        width: 15px;
+        background-color: orange;
+        border:1px solid #000;
+        display: none;
+    }
+
+  .bullet{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #000;
+      position: absolute;
+      display: none;
+  }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="tank">
+            <div class="left ">
+                <div class="bullet"></div>
+            </div>
+            <div class="top">
+                <div class="bullet"></div>
+                
+            </div>
+            <div class="right">
+                <div class="bullet"></div>
+                
+            </div>
+            <div class="bottom">
+                <div class="bullet"></div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var box = document.getElementById("box");
+    var tank = document.getElementById("tank");
+    var head = tank.getElementsByTagName("div");
+    var bullet = document.getElementsByClassName("bullet");
+    var tankLeft = 0;
+    var tankTop = 0;
+    var keyCode;
+
+    document.onkeydown = function(event){
+        // head.display = "none";
+        for(var i= 0 ;i< 4 ;i++){
+            head[i].style.display = "none";
+        }
+        event = event || window.event;
+        keyCode = event.keyCode;
+
+
+        if(keyCode == 37){
+            tankLeft -=10;
+            head[0].style.display = "block";
+        }else if(keyCode ==38){
+            tankTop -=10;
+            head[1].style.display = "block";
+            // if((keyCode == 88)){
+            //     bullet[1].display = "block";
+
+            // }
+        }else if(keyCode ==39){
+            tankLeft +=10;
+            head[2].style.display = "block";
+        }else if(keyCode ==40){
+            tankTop +=10;
+            head[3].style.display = "block";
+        }else if (keyCode == 88){
+            for(var j=0; j<100 ;j++){
+                 for(var i= 0 ;i< 4 ;i++){
+            head[i].style.left =j*10;
+        }
+            }
+        }
+        if(tankLeft < 20)tankLeft = 20;
+        if(tankLeft > box.clientWidth-tank.offsetWidth){
+            tankLeft = box.clientWidth-tank.offsetWidth;}
+        if(tankTop < 20)tankTop = 20;
+        if(tankTop > box.clientHeight-tank.offsetHeight-20){
+            tankLeft = box.clientHeight-tank.offsetHeight-20;}
+
+
+
+        tank.style.left = tankLeft+"px";
+        tank.style.top = tankTop+"px";
+        return false;
+    }
+
+
+</script>
+</html>

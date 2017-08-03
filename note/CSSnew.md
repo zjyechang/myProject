@@ -28,11 +28,22 @@ background: linear-gradient(0deg to bottom, rgb(245,249,252),#fff);
 to left”实现的效果也可以使用角度值“90deg”和“270deg”：著作权归作者所有。    
 
 
-<<<<<<< HEAD
 # 定位问题
 内层模块的最外层margin开始  
 根据有定位的外层元素的*内容*定位
-=======
+# 删除线
+text-decoration:line-through
+# 间隔
+## 开头空两格p{text-indent:2em;}
 
+　　*任意浏览器的默认字体高度16px（16像素）。  
 
->>>>>>> b6bccd6c05ad3d45065bd3dccaf2b92add0f0899
+　　*所有未经调整的浏览器都符合:1em=16px。  
+
+　　*那么12px=0.75em,10px=0.625em。  
+
+　　为了简化font-size的换算，需要在css中的body选择器中声明font-size=62.5%，这就使em值变为16px*62.5%=10px,这样12px=1.2em,10px=1em,也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。  
+
+　　注：建议不要使用em作为中文站点的文字单位，会导致文字变形十分严重的。  
+##  letter-spacing 英文的字母间距 可以为负数
+##  word-spacing 英文单词间距 可以为负数

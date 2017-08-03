@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .odiv{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+            border: 10px solid #000;
+        }
+        span{
+            position: relative;
+        }
+        .lll{
+            position: absolute;
+            left: 100px;
+            top:100px;
+            border:2px solid #000;
+            width: 1000px;
+            height: 500px;
+
+        }
+</style>
+
+</head>
+<body>
+    <div class="lll">
+
+        <div class="odiv"></div>
+
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <script>
+
+
+    var oDiv =document.getElementsByTagName("div")[1];
+    var lll =document.getElementsByTagName("div")[0];
+    
+       
+
+        function move(obj){
+            obj.onmousedown = function (event){
+                event = event || window.event;
+                var disX = event.clientX-obj.offsetLeft;
+                var disY = event.clientY-obj.offsetTop;
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    var Left = event.clientX-disX;
+                    var Top = event.clientY-disY;
+                    if(Left<0){
+                        Left = 0;
+                    }else if(Left>lll.clientWidth-oDiv.offsetWidth){
+                        Left = lll.clientWidth-oDiv.offsetWidth;
+                    };
+                    if(Top<0){
+                        Top = 0;
+                    }else if(Top>lll.clientHeight-oDiv.offsetHeight){
+                        Top = lll.clientHeight-oDiv.offsetHeight;
+                    };
+                        
+
+                    obj.style.left =Left+"px";  
+                    obj.style.top = Top+"px";
+                }
+                // 清空事件
+                document.onmouseup = function (){
+                    document.onmousemove = document.onmouseup= null;
+                }
+                return false;
+            }
+        }
+        move(oDiv);
+    </script>
+</body>
+</html>

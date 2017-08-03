@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+
+
+    <input type="text" id = "txt">
+    <script>
+
+
+
+
+    var h1 = document.getElementsByTagName("h1")[0];
+    var txt = document.getElementById("txt");
+
+    document.onmousemove = function(event){
+        // 兼容大坑
+        event = event || window.event;
+        h1.innerHTML = "当前鼠标坐标"+event.clientX+","+event.clientY
+    }
+
+    txt.onkeydown = function(event){
+        console.log("键码"+event.keyCode);
+        txt.value = "";
+    }
+    </script>
+</body>
+</html>

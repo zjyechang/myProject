@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        height: 300px;
+        width: 400px;
+        position: relative;
+        margin:0 auto;
+        text-align: center;
+
+    }
+    h1{
+        position: absolute;
+        display: none;
+        top:110px;
+        left: 150px;
+        color: white;
+    }
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="button" value="随机点名GO">
+        <h1></h1>
+        <img src="./img/1.jpg" alt="">
+    </div>
+    <script>
+    var btn =document.getElementsByTagName("input")[0];
+    var h1 = document.getElementsByTagName("h1")[0];
+    var arr=["叶昶","马冬冬","周鹏","温鹏辉","李明","黄祥和"]
+
+    btn.addEventListener("click",function(){
+        var x = parseInt(Math.random()*arr.length);
+        h1.style.display = "inline-block";
+        h1.innerText = "";
+        h1.innerText = arr[x];   
+    },true)
+
+
+
+    </script>
+</body>
+</html>
