@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <input type="button" value="添加" id ="add">
+        <input type="button" value="删除" id ="delete">
+        <input type="button" value="移动" id ="move">
+        <input type="button" value="选择" id ="select">
+        
+    </div>
+</body>
+<script>
+
+    // add.onclick = function(){
+    //     alert("添加");
+    // }
+    // delete.onclick = function(){
+    //     alert("删除");
+    // }
+    // move.onclick = function(){
+    //     alert("移动");
+    // }
+    // select.onclick = function(){
+    //     alert("选择");
+    // }
+
+
+
+    box.onclick = function(av){
+        av = av || window.event;
+
+        var target = av.target || av.srcElement;
+
+            console.log(target.nodeName)
+        if( target.nodeName.toLowerCase() == "input"){
+            switch(target.id){
+                case "move":
+                alert("move");
+                break;
+                case "select":
+                alert("选择")
+                case "add":
+                alert("add")
+            }
+
+        }
+    }
+</script>
+</html>

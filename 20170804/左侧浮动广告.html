@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src= "../JS框架/animate-2.0.2.js"></script>
+    <style>
+div{
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    background-color: lightblue;
+    top:0;
+    left:0;
+}
+body{
+    height: 5000px;
+}
+
+    </style>
+</head>
+<body>
+    <div></div>
+   
+</body>
+<script>
+    var oDiv = document.getElementsByTagName("div")[0];
+    var C = oDiv.offsetHeight;
+
+
+
+    move();
+    window.onscroll = move;
+    window.onresize = move; 
+     function move(event){
+        event = event || window.event;
+
+        var A =document.documentElement.clientHeight;
+
+        var B = document.body.scrollTop || document.documentElement.scrollTop ;
+       
+
+        var D = (A-C)/2 + B;
+        console.log(A);
+        console.log(B);
+        console.log(C);
+        console.log(D);
+        
+        animate(oDiv,{"top":D},2000)
+        // oDiv.style.top = A/2+B +"px";
+    }
+</script>
+</html>

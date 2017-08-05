@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    *{
+        margin:0;
+        padding:0;
+    }
+    #content{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* overflow: hidden; */
+    }
+    .box{
+        width: 100%;
+        height: 100%;
+    }
+    .box1{background-color: lightblue}
+    .box2{background-color: lightcoral}
+    .box3{background-color: darkseagreen}
+    .box4{background-color: greenyellow}
+    .box5{background-color: darkgoldenrod}
+    
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="box box1"><h1>0</h1></div>
+        <div class="box box2"><h1>1</h1></div>
+        <div class="box box3"><h1>2</h1></div>
+        <div class="box box4"><h1>3</h1></div>
+        <div class="box box5"><h1>4</h1></div>
+    </div>
+
+
+    <script>
+    var content = document.getElementById("content");
+    var box = document.getElementsByClassName("box");
+    
+    var idx = 0;
+
+        function mousewheel(event){
+            event = event ||window.event;
+            
+            // 阻止默认事件兼容
+            if(event.preventDefault){//??
+                event.preventDefault()
+            }else{
+                event.returnvalue = false;
+            }
+
+            // IE,chrome用的是wheelDelta
+            if (event.wheelDelta){
+                var direction = event.wheelDelta>0? 1:-1;
+            }else{
+                // 火狐用的event.detail
+                var direction = event.detail>0? -1:1;
+            }
+            idx -= direction;
+
+            if(idx<=0)idx = 0;
+            if(idx>=4)idx = 4;
+            // console.log(content);//搞不懂就调试
+
+            content.style.top = -idx *100+"%";
+        }
+        // 给谷歌，ie添加事件
+        document.onmousewheel = mousewheel;
+        //给火狐添加事件
+        try{
+            document.addEventListener("DOMMouseScroll",mousewheel,false)
+        }catch(err){
+            console.log(err)
+        }
+
+
+
+    </script>
+</body>
+</html>

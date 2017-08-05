@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="点击" id="btn">
+    <ul>
+        <li>111111</li>
+        <li>222222</li>
+        <li>333333</li>
+        <li>444444</li>
+        <li>555555</li>
+    </ul>
+</body>
+<script>
+var ul= document.getElementsByTagName("ul")[0];
+var oLi= document.getElementsByTagName("li");
+var btn = document.getElementById("btn");
+
+
+// 原本的方法dom节点太多，速度慢
+// for(var i =0 ;i<oLi.length ;i++){
+//     oLi[i].onclick = function(){
+//         alert(i)
+//     }
+// }
+
+
+// oUl.onclick = function(){
+//     alert(123);
+// }
+
+
+
+// 事件委托方法
+// oUl.onclick = function(ev){
+//     ev = ev || window.event;
+//     var target = ev.target || ev.srcElement;
+
+//     // alert(target.nodeName.toLowerCase());
+//     if(target.nodeName.toLowerCase() == "li"){
+//         alert(target.innerHTML);
+//     }
+// }
+
+
+var num = 4;
+btn.onclick = function(ev){
+    ev = ev || window.event;
+    var target = ev.target || ev.srcElement;
+
+    num++;
+    var oLi = document.createElement("li");
+
+    oLi.innerHTML = 111*num;
+
+    ul.appendChild(oLi)
+}
+
+   
+    ul.onmouseover = function(ev){
+        ev = ev || window.event;
+        var target = ev.target || ev.srcElement;
+        if(target.nodeName.toLowerCase() == "li"){
+            target.style.backgroundColor = "red";
+        }
+    }
+    ul.onmouseout = function(ev){
+        ev = ev || window.event;
+        var target = ev.target || ev.srcElement;
+        if(target.nodeName.toLowerCase() == "li"){
+            target.style.backgroundColor = "white";
+        }
+    }
+</script>
+</html>

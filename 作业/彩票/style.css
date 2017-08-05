@@ -1,0 +1,509 @@
+    body,ul,p,span,h1,h2,h3,h4,h5,h6{
+    margin:0;
+    padding:0;
+    font-size: 12px;
+}
+.yechang::before,.yechang:before{
+    content: " ";
+    display: table;
+}
+.clearfloat:after,.clearfloat::after{
+    content : "";
+    display: block;
+    clear: both;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.ahover{
+    color: #333;
+}
+.atextdeco{
+    color: #888;
+}
+.ahover:hover,.ahover a:hover{
+    color: #DB1D3F;
+}
+.main .ahover:hover,.main .ahover a:hover{
+    text-decoration: underline;
+}
+.atextdeco:hover,.atextdeco a:hover{
+    text-decoration: underline;    
+}
+/* 顶部导航 */
+.top{
+    /* position: relative; */
+    width: 100%;
+    height: 50px;
+    background-color: #DB1D3F;
+}
+.wrapperTop{
+    width: 990px;
+    height: 50px;
+    margin:0 auto;
+    position: relative;
+}
+
+.logo{
+    height: 50px;
+    width: 135px;
+}
+.logo a{
+    color: white;
+    font-size:30px;
+    font-weight: 700;
+    font-family: 'microsoft yahei';
+}
+.top ul{
+    position: absolute;
+    left:130px;
+    top:0;
+}
+.top ul>li{
+    position: relative;
+    float:left;
+    height: 50px;
+    padding:0 15px;
+}
+.top ul>li a{
+    color: #fff;
+    font-size: 16px;
+    line-height: 50px;
+}
+.arrow{
+    width: 0;
+    height: 0;
+    border:6px solid #DB1D3F;
+    border-top-color: #fff;
+    position: relative; 
+    display: inline-block;
+    top:5px;
+}
+.top ul li .content{
+    position: absolute;
+    width: 105px;
+    left: 0px;
+    background-color: #fff;
+    border:2px solid #DB1D3F;
+    text-align: center;
+    display: none;
+}
+.top ul li .content a{
+    color: #000;
+    font-size: 14px;
+    display: block;
+    line-height: 30px;
+}
+.top .hovered{
+    background-color: rgb(172,22,46);    
+}
+
+.top .user{
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 50px;
+    color: #fff;
+}
+.top .user a{
+    color: #fff;
+    font-size: 14px;
+}
+
+
+/* 动画区 */
+.top ul>li:hover{
+    background-color: rgb(172,22,46);
+}
+.top .user a:hover{
+    text-decoration: underline;
+}
+.top ul>li:hover>.arrow{
+    border-color: rgb(172,22,46);
+    border-top-color: #fff;
+    transform-origin: 50% 25%;
+    transition-property:transform;
+    transition-duration: 0.2s;
+    transform: rotate(180deg);
+}
+.top ul>li:hover>.content{
+    display: block;
+}
+
+
+
+/* 顶部位置导航 */
+.wrapperPath{
+    width: 990px;
+    height: 40px;
+    line-height: 40px;
+    font-family: simsun;
+    margin: 0 auto;
+     /* position: relative;  */
+}
+.wrapperPath a{
+    color: #00f;
+}
+.wrapperPath a:hover{
+    text-decoration: underline;
+}
+
+
+/* 正文分区导航 */
+.main-nav{
+    width: 990px;
+    /* 不写高度就有裂缝 */
+    height: 39px;
+    margin: 5px auto 0;
+    font-family: 'microsoft yahei';
+    border-bottom: 3px solid #DB1D3F;
+}
+
+.main-nav li{
+    float:left;
+}
+.main-nav .nav-item.onclick a{
+    background-color: #DB1D3F;
+    color: #fff;
+}
+.main-nav .nav-item a{
+    color: #000;
+    font-size: 18px;
+    font-family: 'microsoft yahei';
+    width: 120px;
+    height: 39px;
+    line-height: 39px;
+    display: inline-block;
+    text-align: center;
+}
+.main-nav .sub-nav-item{
+    padding-top: 10px;
+}
+.main-nav .sub-nav-item a{  
+    margin-right: 10px;
+    color: #888;
+    font-size: 16px;
+}
+/* 动画区 */
+ .main-nav a:hover {
+     color: #DB1D3F;
+ }
+
+
+
+
+ /* 新闻开奖区 */
+ .main-news{
+     width: 988px;
+     height: 90px;
+     background-color: rgb(247,247,247);
+     border:1px solid #ddd;
+     margin:0 auto;
+ }
+.cz-bet{
+    position: relative;
+    margin-left:20px;
+    width: 385px;
+    height: 66px;
+    float: left;
+}
+.main-news .cz-bet p{
+    margin: 10px 0;
+}
+.main-news li{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #DB1D3F;
+    font-size: 16px;
+    color: #fff;
+    float: left;
+    margin-right:5px;
+    line-height: 32px;
+    text-align: center;
+}
+.main-news li.blue{
+    background-color: rgb(69,126,210);
+}
+.main-news .change{
+    position: absolute;
+    left:310px;
+    top:15px;
+}
+.main-news .bet-btn{
+    position: absolute;
+    width: 105px;
+    height: 32px;
+    left:270px;
+    top:37px;
+    background: #DB1D3F;
+    color: #fff;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+}
+.main-news .award{
+    float: left;
+    width: 150px;
+    height: 73px;
+    padding-top: 15px;
+    padding-left: 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.main-news .award a{
+    color: #888;
+    margin:5px 10px 0 0;
+}
+.main-news .game-item{
+    margin-top:10px;
+    float:left;
+    height: 73px;
+}
+
+/* 动画区 */
+.main-news .award a:hover{
+    text-decoration: underline;
+}
+
+
+
+/* 新闻列表 */
+.main{
+    width: 988px;
+    height: 1220px;
+    border: 1px solid #ddd;
+    border-top: none;
+    margin:0 auto;
+}
+.main>*{
+    float:left;
+}
+.leftnew{
+    width: 355px;
+    height: 531px;
+    margin-left: 20px;
+}
+.listnew {
+     margin-top: 30px; 
+}
+.listnew h2{
+    margin:15px 0;
+    font-size: 16px;
+}
+.listnew .hot{
+    color: #DB1D3F;
+    font-size:16px;
+}
+.listnew li{
+    margin: 10px;
+}
+.listnew li a{
+    margin-top:10px;
+    font-size: 14px;
+    color: #000;
+}
+
+
+/* 动画区 */
+.listnew li a:hover{
+    text-decoration: underline;
+    color: #DB1D3F;
+}
+
+
+
+.rightnew{
+    width: 580px;
+    height: 538px;
+    margin-left: 30px;
+    overflow: hidden;
+}
+.rightnew .curtain{
+    width: 580px;
+    height: 270px;
+    margin-top:30px;
+    /* overflow: hidden; */
+}
+.rightnew .imgbox{
+    width:500%;
+    height:270px;   
+}
+.rightnew li{
+    float: left;
+    width: 580px;
+    overflow: hidden;
+}
+.rightnew ol>li{
+    position: absolute;
+    bottom: 10px;
+    right:10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #ddd;
+    z-index: 9;
+}
+.main-expert {
+    margin-top: 10px;
+    height: 228px;
+    margin-right: 10px;
+    overflow: hidden;
+    float: left;
+}
+.main-expert-f1{
+    height: 86px;
+    width: 280px;
+    margin-bottom: 10px;
+    line-height: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.main-expert-f1.noborder{
+    border: none;
+}
+.rightnew .smalltitle{
+    font-weight: 700;
+    font-size: 14px;
+}
+.main-expert-f1 img{
+    position: absolute;
+    border-radius: 50%;
+}
+.main-expert-f1 p{
+    margin-left: 70px;
+}
+.main-expert-f1 a{
+    color: #00f;
+}
+
+
+.t3{
+    font: 700 15px/30px 'microsoft yahei';
+    color: #333;
+    margin-bottom: 5px;
+}
+
+
+
+
+/* 中部资讯 */
+.wrapper.middle>*{
+    float:left;
+}
+.middlenew.fr{
+    width: 360px;
+    height: 218px;
+    border-top: 2px solid #333;
+    position: relative;
+    margin-left: 15px;
+}
+.main .t1{
+    height: 48px;
+    line-height: 48px;
+    font-size: 20px;
+    font-family: 'microsoft yahei';
+    color: #333;
+    padding-left: 5px;
+    font-weight: 500;
+}
+.middlenew .ahover{
+    font-size: 14px;
+}
+
+.middlenew p{
+    position: absolute;
+    left:160px;
+    top:20px;
+}
+.middlenew li{
+    margin:10px 0 10px 20px;
+    list-style: disc;
+}
+.middlenew.fl img{
+    margin:10px;
+}
+
+
+
+
+.middlenew.fl{
+    width: 285px;
+    height: 218px;
+    border-top: 2px solid #ddd;
+    position: relative;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+.middlenew.fl p{
+    left:100px;
+}
+.middlenew.fl p a{
+    color: #00f;
+}
+.middlenew.fl span:last-of-type{
+    display: block;
+    background-color: #ddd
+}
+
+
+
+
+
+
+
+/* 底部 */
+.bottom{
+    width: 100%;
+    height: 415px;
+    padding-top:20px;
+    margin-top: 20px;
+    background-color: #eee;
+    position: absolute;
+}
+.bottom .guide-link{
+    width: 990px;
+    height: 145px;
+    margin:10px auto;
+}
+.bottom .guide-link>*{
+    float: left;
+}
+
+.bottom .guide-link li{
+    float: left;
+    width: 145px;
+    height: 140px;
+    padding: 5px 80px 0 20px;
+    border-left: 1px solid #D7D7D7;
+}
+.guide-link .t3{
+    border-left: 3px solid #DB1D3F;
+}
+.bottom .guide-link li a{
+    color: #333;
+    display: block;
+    margin:10px;
+}
+
+
+.about-us{
+    width: 990px;
+    height: 157px;
+    margin:50px auto 0;
+    text-align: center;
+}
+.blue{
+    color: #00f;
+}
+.about-us img{
+    margin:0 10px;
+}
+.about-us p:last-child{
+    color: #888;
+}
+.about-us p{
+    margin:20px 0;
+}

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>坦克大战</title>
+    <script src ="../JS框架/animate-2.0.2.js"></script>
     <style>
         *{
             margin:0;
@@ -15,13 +16,13 @@
         height: 500px;
         background-color: lightseagreen;
         position: absolute;
-        left:100px;
-        top:100px;
+        left:50px;
+        top:50px;
     }
     #tank{
         position: absolute;
-        left:30px;
-        top:30px;
+        left:20px;
+        top:20px;
         width: 20px;
         height: 20px;
         background-color: burlywood;
@@ -69,32 +70,28 @@
     }
 
   .bullet{
-      width: 10px;
-      height: 10px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background-color: #000;
       position: absolute;
-      display: none;
+      display: none;  
   }
     </style>
 </head>
 <body>
     <div id="box">
+
+        <div class="bullet"></div>
+
         <div id="tank">
             <div class="left ">
-                <div class="bullet"></div>
             </div>
-            <div class="top">
-                <div class="bullet"></div>
-                
+            <div class="top">             
             </div>
-            <div class="right">
-                <div class="bullet"></div>
-                
+            <div class="right">               
             </div>
-            <div class="bottom">
-                <div class="bullet"></div>
-                
+            <div class="bottom">      
             </div>
         </div>
     </div>
@@ -107,6 +104,8 @@
     var tankLeft = 0;
     var tankTop = 0;
     var keyCode;
+    var num = 140;
+    var flag;
 
     document.onkeydown = function(event){
         // head.display = "none";
@@ -117,40 +116,80 @@
         keyCode = event.keyCode;
 
 
+
         if(keyCode == 37){
             tankLeft -=10;
             head[0].style.display = "block";
+            flag = 37;
+            
         }else if(keyCode ==38){
             tankTop -=10;
             head[1].style.display = "block";
-            // if((keyCode == 88)){
-            //     bullet[1].display = "block";
-
-            // }
+            flag = 38;
+            
         }else if(keyCode ==39){
             tankLeft +=10;
             head[2].style.display = "block";
+            flag = 39;
+            
         }else if(keyCode ==40){
             tankTop +=10;
             head[3].style.display = "block";
-        }else if (keyCode == 88){
-            for(var j=0; j<100 ;j++){
-                 for(var i= 0 ;i< 4 ;i++){
-            head[i].style.left =j*10;
+            flag = 40 ;
+
         }
-            }
-        }
+
+
+
         if(tankLeft < 20)tankLeft = 20;
         if(tankLeft > box.clientWidth-tank.offsetWidth){
             tankLeft = box.clientWidth-tank.offsetWidth;}
         if(tankTop < 20)tankTop = 20;
         if(tankTop > box.clientHeight-tank.offsetHeight-20){
-            tankLeft = box.clientHeight-tank.offsetHeight-20;}
+            tankTop = box.clientHeight-tank.offsetHeight-20;}
 
 
 
         tank.style.left = tankLeft+"px";
         tank.style.top = tankTop+"px";
+
+        if(keyCode == 88){
+            bullet[0].style.left = 10+tankLeft+"px";
+            bullet[0].style.top = 10+tankTop+"px";
+
+
+            switch(flag){
+            case 37:
+                head[0].style.display = "block";
+                bullet[0].style.display = "block";
+                animate(bullet[0],{"left":tankLeft-790},2000,function(){
+                      bullet[0].style.display = "none";
+                });
+                break;
+            case 38:
+                head[1].style.display = "block";
+                bullet[0].style.display = "block";
+                animate(bullet[0],{"top":tankTop-790},2000,function(){
+                      bullet[0].style.display = "none";
+                });
+                break;
+            case 39:
+                 head[2].style.display = "block";
+                 bullet[0].style.display = "block";
+                 animate(bullet[0],{"left":tankLeft+800},2000,function(){
+                       bullet[0].style.display = "none";
+                 });
+                 break;
+            case 40:
+                head[3].style.display = "block";
+                bullet[0].style.display = "block";
+                animate(bullet[0],{"top":tankTop+810},2000,function(){
+                    bullet[0].style.display = "none";
+                });
+                break;
+            }
+        }
+
         return false;
     }
 

@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+    }
+
+
+
+    </style>
 </head>
 <body>
     <div>
@@ -21,6 +31,15 @@
         console.log(event.target);//div
         console.log(event.type);//click
     }
-
+function testCallback(){  
+        if(this === window){  
+            console.log("this === window");  
+        }else if(this === document){  
+            console.log("this === document");  
+        }else if(this === oDiv){  
+            console.log("this === oDiv");  
+        }  
+    }  
+    oDiv.addEventListener("click",testCallback,true)
 </script>
 </html>

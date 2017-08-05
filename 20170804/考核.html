@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="oDiv"></div>
+
+
+
+    <form action="">
+        <h1>登录</h1>
+        账号<input type="text" id = "acc" >
+        密码<input type="password" id ="password">
+        确认密码<input type="password" id ="password1">
+        <input type="button" value="点击提交" id="submit">
+    </form>
+</body>
+<script>
+    var oDiv = document.getElementById("oDiv");
+    var acc = document.getElementById("acc");
+    var password = document.getElementById("password");
+    var password1 = document.getElementById("password1");
+    var submit = document.getElementById("submit");
+    
+
+
+   
+            oDiv.onmousedown = function (event){
+                var disX = event.clientX-oDiv.offsetLeft;
+                var disY = event.clientY-oDiv.offsetTop;
+                document.onmousemove = function(event){
+                    var newLeft = event.clientX-disX;
+                    var newTop = event.clientY-disY;
+                    oDiv.style.left = newLeft+"px";
+                    oDiv.style.top = newTop+"px";
+                }
+                document.onmouseup = function (){
+                    document.onmousemove = document.onmouseup= null;
+                }
+                return false;
+            }
+
+    
+        submit.onclick = function(){
+
+            if(acc.value == "" )alert("账号不能为空");
+            if(password.value == "" )alert("密码不能为空");
+            if(password.value != password1.value )alert("两次密码不相同");
+            if(acc.value == "admin" && password.value == password1.value
+            && password.value == 123){
+            alert("登录成功");
+            window.location = "index.html";
+        }
+        }
+
+
+</script>
+</html>

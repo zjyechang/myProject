@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: lightcyan;
+        }
+
+        body{
+            height: 1000px;
+        }
+
+
+    </style>
+    <script>
+    window.onload = function(){
+
+        // // 尝试并捕捉错误
+        // try{
+        //     console.log(1111);
+        //     var a = b;
+        //     console.log(2222);
+        // }catch(arr){
+        //     console.log(3333);
+        // }
+        
+
+
+
+        var  oDiv = document.getElementsByTagName("div")[0];
+
+        function mousewheel(event){
+            event = event ||window.event;
+            
+            // 阻止默认事件兼容
+            if(event.preventDefault){//??
+                event.preventDefault()
+            }else{
+                event.returnvalue = false;
+            }
+
+            // IE,chrome用的是wheelDelta
+            if (event.wheelDelta){
+                var direction = event.wheelDelta>0? 1:-1;
+            }else{
+                // 火狐用的event.detail
+                var direction = event.detail>0? -1:1;
+            }
+  
+            oDiv.innerHTML = direction;
+            // return diraction;
+
+        }
+        // 给谷歌，ie添加事件
+        oDiv.onmousewheel = mousewheel;
+        //给火狐添加事件
+        try{
+            oDiv.addEventListener("DOMMouseScroll",mousewheel,false)
+        }catch(err){
+            console.log(err)
+        }
+
+
+
+
+
+
+
+
+    }
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

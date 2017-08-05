@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+*{
+    margin:0;
+    padding:0;
+}
+#box{
+    height: 400px;
+    width: 400px;
+    left:100px;
+    top:100px;
+    background-color: lightblue;
+    position: relative;
+    overflow: hidden;
+}
+#content{
+    line-height: 150%;
+    width: 740px;
+    position: absolute;
+    left:0;
+    top:0;
+    padding:20px;
+
+}
+p{
+    margin-bottom: 20px;
+
+}
+#bar{
+    height: 400px;
+    width: 20px;
+    background-color: lightgray;
+    cursor: default;
+    position: absolute;
+    right:0;
+}
+#barb{
+    width: 20px;
+    
+    background-color: orange;
+    position: absolute;
+    z-index: 2;
+}
+    </style>
+</head>
+<script>
+    window.onload = function(){
+        var barb = document.getElementById("barb");
+
+      var rate = box.clientHeight/content.clientHeight;
+        rate = rate>1 ? 1 :rate;//设置滑块初始高度
+        barb.style.height = rate*box.clientHeight+"px";
+
+        barb.onmousedown = function(event){
+              
+        event = event || window.event;
+        var disy = event.clientY - barb.offsetTop;
+            
+            barb.onmousemove =function(event){
+
+            event = event || window.event;
+
+               var y = event.clientY - disy;
+           
+                if(y<0){
+                    y=0;
+                }else if(y > box.clientHeight-barb.offsetHeight){
+                    y = box.clientHeight-barb.offsetHeight;   
+                }
+               
+                // 计算比例
+
+                var rate = box.clientHeight/content.clientHeight;
+
+                    rate = rate>1 ? 1 :rate;//设置滑块初始高度
+
+                barb.style.height = rate*box.clientHeight+"px";
+                
+                barb.style.top = y+"px";
+
+                content.style.top = -y/rate+"px";
+
+                return false;//终止默认事件，不能选择文字了；
+            }
+
+            barb.onmouseup = function(){
+                barb.onmousemove =null;
+            }
+        }
+
+
+
+
+    }
+
+
+
+</script>
+<body>
+    <div id="box">
+        <div id="bar">
+            <b id="barb"></b>
+        </div>
+        <div id="content">
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            <p>10岁男孩王者打野 离家出走荒野生存24天</p>
+            
+        </div>
+    </div>
+</body>
+</html>

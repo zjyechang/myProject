@@ -82,7 +82,8 @@ function animate(elem , targetJSON , time , tweenString , callback){
 	//这是一个临时变量一会儿用	
 	var n;
 	//定时器
-	var timer = setInterval(function(){
+	clearInterval(elem.timer);
+	elem.timer = setInterval(function(){
 		//要让所有的属性发生变化
 		for(var k in originalJSON){
 			//动：
@@ -111,7 +112,7 @@ function animate(elem , targetJSON , time , tweenString , callback){
 				}
 			}
 			//停表
-			clearInterval(timer);
+			clearInterval(elem.timer);
 			//拿掉是否在动属性，设为false
 			elem.isanimated = false;
 			//调用回调函数，并且让回调函数中的this表示运动的对象
