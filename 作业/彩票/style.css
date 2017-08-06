@@ -22,7 +22,7 @@ a{
     color: #333;
 }
 .atextdeco{
-    color: #888;
+    color: #888!important;
 }
 .ahover:hover,.ahover a:hover{
     color: #DB1D3F;
@@ -88,6 +88,7 @@ a{
     left: 0px;
     background-color: #fff;
     border:2px solid #DB1D3F;
+    border-top: none;
     text-align: center;
     display: none;
 }
@@ -225,8 +226,8 @@ a{
     line-height: 32px;
     text-align: center;
 }
-.main-news li.blue{
-    background-color: rgb(69,126,210);
+ li.blueback{
+    background-color: rgb(69,126,210)!important;
 }
 .main-news .change{
     position: absolute;
@@ -326,26 +327,49 @@ a{
     width: 580px;
     height: 270px;
     margin-top:30px;
-    /* overflow: hidden; */
+    position: relative;
 }
 .rightnew .imgbox{
     width:500%;
-    height:270px;   
+    height:270px;
+    position: relative;
+    transition: 1s;  
+    left:0;
+}
+.rightnew .imgbox span{
+    position: absolute;
+    width: 580px;
+    height: 35px;
+    background-color: rgba(0,0,0,0.5);
+    bottom: 0;
+    color: #fff;
+    line-height: 32px;
+    font-size: 13px;
 }
 .rightnew li{
     float: left;
     width: 580px;
     overflow: hidden;
 }
-.rightnew ol>li{
+.rightnew ol{
     position: absolute;
-    bottom: 10px;
-    right:10px;
-    width: 5px;
-    height: 5px;
+     bottom: 0;     
+    right:20px;
+
+}
+.rightnew ol li.white{
+    background-color: #fff;
+}
+.rightnew ol>li{
+    position: relative;
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;  
     border-radius: 50%;
-    background-color: #ddd;
+    background-color: #888;
     z-index: 9;
+    cursor: pointer;
 }
 .main-expert {
     margin-top: 10px;
@@ -445,11 +469,116 @@ a{
 }
 .middlenew.fl span:last-of-type{
     display: block;
-    background-color: #ddd
+    background-color: #eee;
+}
+.middlenew.fr.sp{
+    width: 580px;
+    overflow: hidden;
+}
+.activebox{
+    width: 600px;
+    height: 145px;
 }
 
 
 
+.middlenew.fl .littletab{
+    position: absolute;
+    left:85px;
+    top:5px;
+}
+.middlenew.fl .littletab li{
+     position: relative; 
+    float: left;
+    border-bottom: 2px solid #ddd;
+    padding: 8px;
+    color: #888;
+    list-style: none;
+    margin: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.middlenew.fl .littletab .arrowsp{
+    border: 5px solid rgba(0,0,0,0);
+    border-bottom: 5px solid #ddd;
+    position: absolute;
+    left:20px;
+    top:20px;
+}
+.middlenew.fl .item{
+    position: absolute;
+    width: 290px;
+    height: 153px;
+    top:40px;
+    left:0;
+    padding:10px 0 0 7px;
+    background-color: #fff;
+    display: none;
+}
+.middlenew.fl .item>*{
+    left:0;
+    top:0;
+    position: relative;
+    margin-top:10px;
+}
+.middlenew.fl .item p{
+    color: #333;
+}
+.middlenew.fl .item p:last-of-type{
+    left:20px;
+}
+.middlenew.fl .item li{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #DB1D3F;
+    font-size: 16px;
+    color: #fff;
+    float: left;
+    margin:0 0 0 5px;
+    line-height: 32px;
+    text-align: center;
+    list-style: none;
+}
+.middlenew.fl .item li input{
+    width: 20px;
+    position: relative;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.middlenew.fl .item button{
+    background-color: #ff9228;
+    border: none;
+    width: 282px;
+    height: 32px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 32px;
+    transition: 1s;
+}
+.middlenew.fl .item span{
+    color: #DB1D3F;
+    background-color: #fff;
+    display: inline;
+}
+
+.middlenew.fl .littletab li.active{
+    border-bottom: 2px solid #DB1D3F!important;
+}
+.middlenew.fl .littletab li.active>.arrowsp{
+    border-bottom: 5px solid #DB1D3F!important;    
+}
+/* 动画区 */
+.middlenew.fl .littletab li:hover>.arrowsp{
+    border-bottom: 5px solid #ff9228;
+}
+.middlenew.fl .littletab li:hover{
+    border-bottom: 2px solid #ff9228;
+}
 
 
 
@@ -461,7 +590,6 @@ a{
     padding-top:20px;
     margin-top: 20px;
     background-color: #eee;
-    position: absolute;
 }
 .bottom .guide-link{
     width: 990px;
@@ -494,6 +622,9 @@ a{
     height: 157px;
     margin:50px auto 0;
     text-align: center;
+}
+.about-us .blue:hover{
+    text-decoration: underline;
 }
 .blue{
     color: #00f;
