@@ -568,6 +568,7 @@ a{
 
 .middlenew.fl .littletab li.active{
     border-bottom: 2px solid #DB1D3F!important;
+    color: #DB1D3F!important;
 }
 .middlenew.fl .littletab li.active>.arrowsp{
     border-bottom: 5px solid #DB1D3F!important;    
@@ -578,6 +579,7 @@ a{
 }
 .middlenew.fl .littletab li:hover{
     border-bottom: 2px solid #ff9228;
+    color: #ff9228;
 }
 
 
