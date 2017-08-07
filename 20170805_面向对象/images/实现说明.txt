@@ -1,0 +1,35 @@
+/**
+   * 气球对象
+   * 属性：dom, left, top, score, timer
+   * 方法：init, bomb, fly
+   * dom绑定点击事件
+   * init(){
+   *  创建一个div元素
+   *  把ballon给创建的div元素
+   *  把div元素追加到body里面
+   *  设置div元素的left值和top值
+   *  给div元素添加点击事件 = function(){
+   *    气球爆炸
+   *    加分，改变分数所在的h1标签的内容
+   *    音效
+   *    特效，自己加
+   *  }
+   * }
+   * fly(){
+   *  timer = setInterval(function(){
+   *    修改top的信号量
+   *    if (top < -100){
+   *      self.bomb();
+   *    }
+   *    self.dom.style.top = self.top + "px";
+   *  });
+   * }
+   * bomb() {
+   *  移除div气球
+   *  清除点中的计时器
+   * }
+   *
+   * var timer = setInterval(function(){
+   *  new Ballon();
+   * });
+   */

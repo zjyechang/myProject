@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    function People(){
+        for(var i=0,sum =0;i<=100 ;i++){
+            sum+=i;
+        }
+        alert(sum);
+    }
+    var xiaohong = new People();
+    console.log(xiaohong)
+
+
+
+    function People (name,age){
+        this.name = name;
+        this.age = age;
+         if(this.age>=18){
+             this.stste = "成年人";
+        }else{
+            this.state = "未成年";
+        }
+    }
+    
+
+        var xiaoming = new People("小明",24);
+        alert(xiaoming.state);
+    </script>
+</body>
+</html>

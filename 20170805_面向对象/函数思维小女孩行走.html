@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .girl{
+            width: 80px;
+            height: 108px;
+            background-image: url(./img/girl.png) no-repeat;
+            background-position: 0 -223px;
+            position: absolute;
+            top:100px;
+            left:0;
+            
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+     <div class="girl">
+
+    </div> 
+
+
+
+
+    <script>
+
+    var oDiv = document.getElementsByClassName("girl")[0];
+    var idx = 0;
+    var newLeft = 0;
+
+    var timer = setInterval(function(){
+        newLeft+=4;
+        idx ++;
+        if(idx>7)idx = 0;
+        oDiv.style.left = newLeft+"px";
+        oDiv.style.backgroundPositionX = -79*idx +"px";
+    },50)
+
+
+
+
+    </script>
+</body>
+</html>

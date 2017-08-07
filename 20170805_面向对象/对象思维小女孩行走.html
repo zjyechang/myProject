@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 80px;
+            height: 108px;
+            background-image: url(./img/girl.png);
+            background-position: 0 -223px;
+            position: absolute;
+            top:100px;
+            left:0;
+            
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+     <!-- <div class="girl">
+
+    </div>  -->
+
+
+
+
+    <script>
+    function Girl (top,left,speed){
+        this.top = top;
+        this.left = left;
+        this.speed = speed;
+        this.timer = null;
+        this.buzi = 0;
+        this.dom = null;
+        this.die = null;
+    
+
+        // 初始化
+        this.init = function(){
+
+            this.dom = document.createElement("div");
+            document.body.appendChild(this.dom);
+
+            // 初始值
+            this.dom.style.left = this.left+"px";
+            this.dom.style.top = this.top+"px";
+            
+        }
+
+            // 行走
+        this.xingdong = function(){
+            // 防止在定时器中this指向wiindow
+            var self = this;
+
+            this.timer = setInterval(function(){
+                self.left++;
+                self.buzi++;
+
+                if( self.buzi > 7 ){
+                    self.buzi = 0;
+                }
+                if( self.left > 1000 ){
+                    self.die();
+                }
+                self.dom.style.left = self.left+"px";
+                self.dom.style.backgroundPositionX = -self.buzi*79+"px";
+        
+
+            },this.speed)
+
+        }
+
+            // 删除
+            this.die = function (){
+                // clearInterval(timer);
+                document.body.remove(this.dom)
+            }
+
+        this.init();
+        this.xingdong();
+    }
+
+
+
+        // setInterval(function(){
+            new Girl(Math.random()*400,Math.random()*100,Math.random()*100);
+
+            //  },1000)
+
+    </script>
+</body>
+</html> 

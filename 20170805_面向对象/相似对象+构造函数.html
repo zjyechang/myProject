@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var xiaohong = {
+        name: "小红",
+        age:"13",
+        sex:"男",
+        zhangda:function(){
+            age++;
+        },
+        intro: function(){
+            alert("我是"+this.name);
+            alert("我今年"+this.age+"岁")
+        },
+    }
+
+
+
+
+    // 构造函数
+    function People(){
+        this.name = "小红";
+        this.age = 18 ;
+        this.sex = "男";
+    }
+
+    var xiaohong = new People();
+    console.log(xiaohong.name);
+
+
+
+    function People(name,age,sex){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.sayHello = function(){
+            alert("你好，我是"+this.name+",nice to meet you")
+        }
+    }
+
+    var xiaoming = new People("小明",18,"男");
+
+    console.warn(xiaoming);
+
+    function Dog (){
+        
+    }
+    </script>
+</body>
+</html>

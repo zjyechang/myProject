@@ -93,12 +93,13 @@ window.onload =function(){
     for(var i = 0; i<ignore.length;i++){
         (function(i){
             ignore[i].onclick = function(){
-                ignore[0].style.display = "none";
-                ignore[1].style.display = "none";
-                ignore[2].style.display = "none";
-                button[0].style.top = "-20px";
-                button[2].style.top = "-20px";
-                button[3].style.top = "-20px";
+                console.log( ignore[0].parentNode)
+                ignore[0].parentNode.style.visibility = "visiable";
+                ignore[1].parentNode.style.visibility = "visiable";
+                ignore[2].parentNode.style.visibility = "visiable";
+                button[0].style.top = "-23px";
+                button[1].style.top = "-23px";
+                button[2].style.top = "-23px";
             }
 
         })(i);
