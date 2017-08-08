@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .boy{
+        width: 200px;
+        height: 180px;
+        background: url(./img/jian.png) no-repeat;
+        background-position: 10 -95px;
+        position: absolute;
+        top:100px;
+        left:0;
+        z-index: 10;
+    }
+
+
+
+
+
+    </style>
+</head>
+<body>
+     <!-- <div class="boy"></div>  -->
+
+
+
+    <script>
+
+
+
+        function BoySword(left,top,speed){
+            this.top = top;
+            this.left = left;
+            this.speed = speed;
+            this.timer = null;
+            this.action = 0;
+            this.idx = -1;
+            this.x =0;
+            this.y =0;
+  
+            this.init();
+            // this.move();
+            
+        }
+        
+
+        // 创建与初始化
+        BoySword.prototype.init = function (){
+  
+            this.boy = document.createElement("div");
+        //    alert(this.boy)
+            document.body.appendChild(this.boy);
+            // var oDiv = document.getElementsByClassName("boy")[0];
+            this.boy.className = "boy"
+
+            this.boy.style.top = this.top +"px";
+            this.boy.style.left = this.left +"px";
+                    console.log(this)
+            
+        }
+
+
+        // 自动运动部分
+            // BoySword.prototype.move = function(){
+            //     var self = this;
+            //     this.timer = setInterval(function(){
+            //         self.left++;
+            //         self.action ++;
+
+            //         if(self.action>4) self.action = 0;
+            //         if(self.left>1000){
+            //             self.die();
+            //         }
+
+            //         self.boy.style.backgroundPositionX = -self.action*185-30 +"px";
+
+            //     },200)
+            // }
+
+
+
+            // 按键运动部分
+        document.onkeydown = function(event){
+            event = event ||window.event;
+
+            var self = special;
+
+            self.timer = setInterval(function(){
+                    self.action ++;
+
+                    
+            switch(event.keyCode){
+                case 90 ://z
+                    self.left+=20;
+                    break;
+                case 88 ://x
+                    self.left-=20;                
+                    self.boy.style.backgroundPositionY = -200 +"px";                
+
+                    break;
+                case 67 ://c
+                    self.top+=20;
+                    self.boy.style.backgroundPositionY = -390 +"px";                
+
+                    break;
+                case 65 : //a
+                    self.left+=20;                
+                    self.boy.style.backgroundPositionY = -570 +"px";  
+                    break;
+                case 83 : //s
+                    self.left+=20;                
+                    self.boy.style.backgroundPositionY = -960 +"px";  
+                    break;
+                case 68 : //d
+                    
+                    self.idx ++;
+                    
+                    self.boy.style.backgroundPositionX = -(self.idx%5)*190 +"px";
+                    self.boy.style.backgroundPositionY = -190*parseInt((self.idx+1)/5) +"px"; 
+                    if(self.idx >=50){
+                        self.idx = 0;
+                        clearInterval(self.timer);
+                        self.boy.style.backgroundPositionY = 0 +"px";                
+                        self.boy.style.backgroundPositionX = 0 +"px";
+                    }
+                    break;
+                }
+
+
+                self.boy.style.backgroundPositionX = -self.action*190 +"px";
+                self.boy.style.left = self.left+"px";
+
+                if(self.action>4){
+                        self.action = 0;
+                        clearInterval(self.timer);
+                        self.boy.style.backgroundPositionY = 0 +"px";                
+                        self.boy.style.backgroundPositionX = 0 +"px";
+                    };
+                    if(self.left>1000){
+                        self.die();
+                    }
+                   
+            },150)
+        }
+
+
+
+            // 消失
+        BoySword.prototype.die = function(){
+            clearInterval(this.timer);
+            document.body.removeChild(this.boy);
+        }
+
+
+        var special = new BoySword(Math.random()*100,Math.random()*100,Math.random()*10+10);
+
+    </script>
+</body>
+</html>

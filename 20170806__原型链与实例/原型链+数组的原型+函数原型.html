@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function Dog(){
+
+        }
+        console.log(Dog.prototype.constructor);
+        var xiaobai = new Dog
+        console.log(xiaobai);
+        console.log(xiaobai.__proto__);
+        console.log(xiaobai.__proto__.__proto__.constructor);
+        
+
+
+        Object.prototype.haha = function(){
+            alert("哈哈")
+        }
+
+
+        // 函数原型函数
+        Function.prototype.erha = function(){
+            alert("喵喵喵");
+        }
+        Dog.erha(); 
+
+
+        // 数组的原型函数
+        Array.prototype.max = function(){
+            var max = 0;
+            for (var i = 0;i<this.length ;i++){
+                if(this[i]>max){
+                    max = this[i];
+                }
+            }
+            return max;
+        }
+
+        arr = [43,123,5,24,6,312];
+        console.log(arr.max());
+
+        console.log(arr.__proto__.__proto__)
+    </script>
+</body>
+</html>

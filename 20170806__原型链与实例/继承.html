@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function People(){
+//				this.age = 19;   //4
+			}
+			
+			People.prototype.age = 30;  //5
+			
+			var xiaohong = new People();
+			
+			console.log(xiaohong.age)
+			xiaohong.age= 17;   //3
+			function Student(){
+				
+				this.age = 10;  //2
+			}
+			Student.prototype = xiaohong;  //继承
+			
+			var xiaoming = new Student();
+			xiaoming.age = 7;   // 1
+			
+			// console.log(xiaoming.prototype.age);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

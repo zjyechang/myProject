@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+//			1.字面量
+			function checkName(){
+				
+			}
+			function checkEmail(){
+				
+			}
+			function checkPassword(){
+				
+			}
+			checkName();
+			
+			
+//			2.函数的另一种形式 函数表达式
+			var checkName = function(){};
+			var checkEmail = function(){};
+			var checkPassword = function(){};
+			
+			checkName();
+			
+//			3.用对象收编变量
+			var checkObject = {
+				checkName : function(){},
+				checkEmail : function(){},
+				checkPassword : function(){}
+			};
+			checkObject.checkName();
+			
+			
+//			4.对象的另一种形式
+			var checkObject = function(){};
+			checkObject.checkName = function(){};
+			checkObject.checkEmail = function(){};
+			checkObject.checkPassword = function(){};
+			
+			checkObject.checkName();
+			
+//			5. 真假对象
+			var checkObject = function(){
+				return {
+					checkName : function(){},
+					checkEmail : function(){},
+					checkPassword : function(){}
+				}
+				
+			}
+			var a = checkObject();
+			a.checkName();
+			
+//			6.类也可以
+			var CheckObject = function(){
+				this.checkName = function(){};
+				this.checkEmail = function(){};
+				this.checkPassword = function(){};
+			}
+			var a = new CheckObject();
+			a.checkName();
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

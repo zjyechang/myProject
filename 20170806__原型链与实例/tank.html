@@ -28,6 +28,16 @@
         background-color: burlywood;
         border:1px solid #000;
     }
+    .tank{
+        position: absolute;
+        left:20px;
+        top:20px;
+        width: 20px;
+        height: 20px;
+        background-color: limegreen;
+        border:1px solid #000;
+    }
+    
     .top{
         position: absolute;
         top:-10px;
@@ -85,6 +95,7 @@
         <div class="bullet"></div>
 
 
+
         <div id="tank">
             <div class="left ">
             </div>
@@ -98,10 +109,72 @@
     </div>
 </body>
 <script>
+
     var box = document.getElementById("box");
     var tank = document.getElementById("tank");
     var head = tank.getElementsByTagName("div");
     var bullet = document.getElementsByClassName("bullet");
+
+    // 坦克函数
+    function Tank (){
+        this.to = Math.random()*600;
+        this.left = Math.random()*1000;
+        this.timer = null;
+        this.speed = 10+Math.random()*10;
+        this.step = 0;
+        
+        this.init();
+        this.move();
+    }
+
+    // 坦克创建
+    Tank.prototype.init = function(){
+
+         this.enenmy = document.createElement("div");
+
+         this.enenmy.className = "tank";
+
+         box.appendChild(this.enenmy);
+         
+
+    }
+
+    //坦克移动
+    Tank.prototype.move = function(){
+        var self = this;
+
+        this.lock = false;
+
+        this.timer = setInterval(function(){
+
+            
+                if(!self.lock){
+                    this.type = Math.random()*4;
+                }
+
+                
+                if(this.type<1){
+                    self.to ++;
+                }else if(this.type<2){
+                    self.to --;
+                }else if(this.type<3){
+                    self.left ++;
+                }else if(this.type<4){
+                    self.left--;
+                }
+                
+            self.enenmy.style.left = self.left+"px";
+            self.enenmy.style.top = self.to+"px";            
+
+
+            setTimeout(function(){
+                self.lock = false;
+            },2000)
+        },100)
+    }
+
+
+
     var tankLeft = 0;
     var tankTop = 0;
     var keyCode;

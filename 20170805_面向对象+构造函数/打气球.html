@@ -14,6 +14,7 @@
         background-image: url(./images/bg.jpg);
         background-size: cover;
         background-position-y: center;  
+        overflow: hidden;
     }
     .background>div{
         position: absolute;
@@ -21,19 +22,26 @@
         height: 122px;
         background-image: url(./images/balloon.png);
         background-position-x:-2px;
+        cursor:crosshair;
         z-index:10;
     }
     audio{
         visibility: hidden;
     }
-
-
+    span{
+        font-size: 60px;
+        color:#fff;
+    }
+    p{
+        font-size: 60px;
+        color:lightcoral;
+    }
     </style>
 </head>
 <body>
     <div class="background">
-    <h1>0</h1>
-    <p>倒计时:<h1>100</h1></p>
+    <p>分数: <span>0</span> </p>
+    <p>倒计时: <span>100</span> </p>
      <audio src="./images/bgm.mp3" autoplay = "autoplay" loop = "loop"></audio> 
     <audio src="./images/c.wav" preload="preload">
 
@@ -45,20 +53,20 @@
 
 
     <script>
-        var score = document.getElementsByTagName("h1")[0];
-        var time = document.getElementsByTagName("h1")[1];
+        var score = document.getElementsByTagName("span")[0];
+        var time = document.getElementsByTagName("span")[1];
         var background = document.getElementsByClassName("background")[0];
         var boom = document.getElementsByTagName("audio")[1];
 
         
 
 
-    function BitBalloon(left,speed){
-        this.left = left;
-        this.speed = speed;
+    function BitBalloon(){
+        this.left = Math.random()*1000;
+        this.speed =  0;
         this.score = 0;
         this.timer = null;
-        this.to = 540;
+        this.to = 510;
         this.type = 0;
         this.countDown = null;//倒计时
         this.die = null;
@@ -68,13 +76,15 @@
             this.type = parseInt(Math.random()*11);
 
             this.score =( this.type+1);
+
+            this.speed =  -this.score*1.7;
   
             this.balloon = document.createElement("div");
             
             background.appendChild(this.balloon);
 
             // 初始属性设置
-            this.balloon.style.left = left+"px";
+            this.balloon.style.left = this.left+"px";
             this.balloon.style.top = this.to+"px";
             if(this.type <4){
                 this.balloon.style.backgroundPositionX = -this.type*95 +"px";
@@ -93,10 +103,9 @@
                 // 移动部分
             this.move = function(){
                 var self = this;
-                
                 this.timer = setInterval( function(){
 
-                    self.to-=10;
+                    self.to += self.speed;
       
                     if(self.balloon.style.top<-100){
                         self.die();
@@ -104,7 +113,7 @@
 
                     self.balloon.style.top = self.to+"px";
                     
-                },this.speed)
+                },30)
             }
 
 
@@ -140,8 +149,8 @@
 
 
 
-    setInterval(function(){
-        new BitBalloon(Math.random()*1000,Math.random()*50+20)
+    var start = setInterval(function(){
+        new BitBalloon();
     },500)
 
 
@@ -152,16 +161,20 @@
             time.innerText = parseInt(time.innerText)-1;
 
                 if(parseInt(time.innerText) == 0){
-                    score.innerText = 0;
-                    time.innerText = 100;
-                    background.removeChild(background.balloon);
                     alert("游戏结束，你的得分是"+score.innerText)
+                    score.innerText = 0;
+                    // background.removeChild(BitBalloon.balloon);
+                    time.innerText = 100;
+
+                    
                     if(confirm("是否再次挑战")){
-                        setInterval(function(){
-                            BitBalloon(Math.random()*1000,Math.random()*50+20)
-                        },500)
-                    }else {
-                        clearInterval(countDown)
+
+                        clearInterval( BitBalloon.timer);       
+                        return start();
+
+                    }else{
+                        clearInterval(countDown);
+
                     }
                 }
         },1000)
