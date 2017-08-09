@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #box{
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+
+
+
+    <script>
+    var box = document.getElementById("box");
+
+
+        box.onclick = function(){
+            // fun();//this指window
+            // box.fun();//underfined
+            fun.apply(this);//可以
+        }
+
+        // box.onclick = fun;//可以
+        
+        function fun(){
+            this.style.backgroundColor = "red";
+        }
+
+    </script>
+</body>
+</html>

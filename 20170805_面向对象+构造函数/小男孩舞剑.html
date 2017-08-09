@@ -32,10 +32,9 @@
 
 
 
-        function BoySword(left,top,speed){
+        function BoySword(left,top){
             this.top = top;
             this.left = left;
-            this.speed = speed;
             this.timer = null;
             this.action = 0;
             this.idx = -1;
@@ -156,7 +155,7 @@
         }
 
 
-        var special = new BoySword(Math.random()*100,Math.random()*100,Math.random()*10+10);
+        var special = new BoySword(Math.random()*100,Math.random()*100);
 
     </script>
 </body>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>挡板小球游戏</title>
+    <style>
+        body{
+            width: 1000px;
+            height: 600px;
+            border:2px solid slateblue;
+            background-color: lightcyan;
+            margin: 0;
+            padding:0;
+        }
+    .board{
+        position: absolute;
+        top:500px;  
+        border-radius: 2px;
+        height: 5px;
+        background-color: lightseagreen;
+
+
+    }
+
+    .ball{
+        position: absolute;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: orangered;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+    
+
+
+
+    <script>
+    // 数据结构：挡板对象，小球对象，游戏对象
+    // 算法：反弹
+
+        // 算法：
+        // 反弹算法：到了边界就把迭代信号取反    
+            // 碰到挡板:ball.top+ball.width == board.top &&
+            // ball.left+ball.width/2 >= board.offsetleft &&
+            // ball.left+ball.width/2 <= board.offsetleft+board.offsetwidth
+
+        // 属性：
+        //     球: top,left,timer,dom,deltaX,deltaY；
+        //     挡板：left ， width；
+        // 方法：
+        //     init（），move（），render（）；
+        //     init（），mousemove（），render();
+        // 游戏：
+        //     属性：分数
+        //     方法：init，render（）；addscore（）；
+
+
+        // 挡板部分
+        function Board(){
+            this.top = 500;
+            this.left = (document.body.clientWidth||document.documentElement.clientWidth)/2-100;
+            this.width = 100;
+            this.dom = null;
+            
+            this.init();
+            this.move();
+        }
+
+        Board.prototype.init = function(){
+            
+            this.dom = document.createElement("div");
+
+            document.body.appendChild(this.dom);
+
+            this.dom.className = "board";
+
+            this.dom.style.width = this.width + "px";
+            this.dom.style.left = this.left + "px";
+            
+        }
+
+        
+        Board.prototype.move = function(){
+
+            var self = this;
+            // console.log(self)
+            document.onmousedown = function(event){
+                event = event || window.event;
+
+                self.disX = event.clientX -self.dom.offsetLeft;
+            
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    self.left = event.clientX - self.disX;
+                    
+                    if(self.left<0){
+                        self.left = 0;
+                    }else if(self.left>1000-self.width){
+                        self.left = 1000 - self.width;
+                    }
+
+                    self.dom.style.left = self.left +"px";
+                }
+
+                document.onmouseup = function(){
+                    document.onmousemove = document.onmouseup= null;
+                }
+                return false;
+            }
+        }
+            var special = new Board();
+        
+
+
+
+
+
+        // 小球部分
+        function Ball(deltaX,deltaY,speed){
+            this.top = 0;
+            this.left = 0;
+            this.deltaX = deltaX;
+            this.deltaY = deltaY;
+            this.speed = speed;
+            this.dom = null;
+            this.timer = null;
+
+
+            this.init();
+            this.move();
+        }
+
+        Ball.prototype.init = function(){
+            this.dom = document.createElement("div");
+
+            this.dom.className = "ball";
+
+            document.body.appendChild(this.dom);
+
+            this.dom.style.width = this.width + "px";
+            this.dom.style.top = this.top +"px";            
+            this.dom.style.left = this.left + "px";
+        }
+        Ball.prototype.move = function(){
+            var self = this;
+            this.timer = setInterval(function(){
+                
+                self.left +=  self.deltaX;
+                self.top +=  self.deltaY;
+
+                if(self.left<0){
+                    self.deltaX = -self.deltaX;
+                }else if(self.left>1000){
+                     self.deltaX = -self.deltaX;
+                }
+                if(self.top<0){
+                     self.deltaY = -self.deltaY;
+                }else if(self.top+10 >= special.top 
+                && self.top <= special.top 
+                && self.left+5 >= special.dom.offsetLeft
+                && self.left+5 <= special.dom.offsetLeft+special.width){  //碰到板反弹
+
+                      self.deltaY = -self.deltaY
+                      game.addScore();
+                }else if(self.top>590){
+                    clearInterval(self.timer);
+                    alert("游戏结束,你的分数是"+game.score+"分");
+                    // self.die();
+                }
+
+                self.dom.style.top = self.top +"px";
+                self.dom.style.left = self.left +"px";
+                
+            },this.speed)
+        }
+        
+            var ball = new Ball(Math.random()*10,Math.random()*10,Math.random()*10+10);
+
+
+
+
+        // 游戏部分
+        function Game(){
+            this.time = 100;
+            this.score = -1;
+
+            this.init();   
+            this.addScore();         
+        }
+
+        Game.prototype.init = function(){
+            this.dom = document.createElement("h1");
+            document.body.appendChild(this.dom);
+
+        }
+        Game.prototype.addScore = function(){
+            this.score++;
+            this.dom.innerText = "分数"+this.score;
+        }
+        if(confirm("是否开始新游戏?鼠标按住滑动操控")){
+            var game = new Game();
+        }
+
+
+        // 道具部分，未完成
+        function Item(){
+            this.biger = special.width*2;
+            this.smaller = special.width/2;
+        }
+
+        function
+
+
+    </script>
+</body>
+</html>

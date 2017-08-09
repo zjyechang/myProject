@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+    function Dog(){
+        
+    }
+    function Cat(){
+
+    }
+    Cat.prototype = new Dog();
+
+    var hellokitty =  new Cat();
+
+    console.log( hellokitty.constructor);//Dog
+
+    console.log(hellokitty instanceof Cat);//true
+
+    console.log(hellokitty instanceof Dog);//true
+
+
+
+    // 数组
+    var arr = [];
+    console.log(typeof arr);
+
+    var obj = {};
+    console.log(typeof obj);
+
+    var obj1 = /1[3578]\d{9}/;
+    console.log(typeof obj1);
+    
+
+    var arr1 = [];
+    console.assert (Array.isArray(arr))
+    </script>
+</body>
+</html>
