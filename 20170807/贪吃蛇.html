@@ -92,58 +92,56 @@
                 
                 switch(keyCode){
                     case 37:
-                        if(self.diraction == 37){
-                            break;
+                        if(self.diraction == 39){
+                            self.diraction = 39;
                         }else{
-                            self.body.pop();   
-                            self.x --;
                             self.diraction = 37;
                         }
                     break;
                     case 38:
-                        if(self.diraction == 38){
-                            break;
+                        if(self.diraction == 40){
+                            self.diraction = 40;
                         }else{
-                            self.body.pop();                               
-                            self.y --;
                             self.diraction = 38;
                         }
                     break;
                     case 39:
-                        if(self.diraction == 39){
+                        if(self.diraction == 37){
+                            self.diraction = 37;
                             break;
-                        }else{
-                            self.body.pop();                               
-                            self.x ++;                            
+                        }else{                           
                             self.diraction = 39;
                         }
                     break;
                     case 40:
-                       if(self.diraction == 40){
+                       if(self.diraction == 38){
+                            self.diraction = 38;                           
                             break;
                         }else{
-                            self.body.pop();                               
-                            self.y ++;
                             self.diraction = 40;
                         }
                     break; 
                 }
-                    self.body.unshift( {x : self.x, y : self.y} );
-                    self.render();
                     self.auto();
+                    self.render();
+                    return false;
             }
 
         }
+// snack.grown();
 
         Snake.prototype.grown = function(){
 
-            this.food = [{x:parseInt(Math.random()*20) , y:parseInt(Math.random()*20) } ]
 
-            tds[this.food[0].y][this.food[0].x].className = "red";
+                tds[this.food[0].y][this.food[0].x].className = "red";
 
-            if(this.body[0].x == this.food[0].x && this.food[0].y == his.body[0].y)
+// console.log(this.body[0].y)
 
-            this.body.unshift(this.food[0]);
+                if( (this.body[0].x == this.food[0].x)   &&  (this.food[0].y == this.body[0].y) ){
+
+                    this.body.unshift(this.food[0]);
+                    this.food = [];
+                }
 
         }
 
@@ -151,11 +149,20 @@
                 var self = this;
             this.timer = setInterval(function(){
                 self.body.pop();
-
-
-            if (this.food == [])                
-                this.grown();
-                    
+                // console.log(!self.food.pop());
+                console.log(self.food);
+                
+            if (!self.food.pop()){   
+                self.food = [{x:parseInt(Math.random()*20) , y:parseInt(Math.random()*20) }];
+                 
+                // console.log(self.food[0].y)
+                self.grown();
+            }else{
+                // console.log(!self.food.pop());
+                
+                //   tds[self.food[0].y][self.food[0].x].className = "red";
+            }
+             
 
                 switch(self.diraction){
                     case 37:
@@ -180,11 +187,13 @@
                     break;
                 }
                 self.body.unshift( {x : self.x, y : self.y} );
+
                 if(self.x<0 || self.x>19 || self.y<0 || self.y>19){
                     clearInterval(self.timer);
                     alert("游戏结束，你的得分为"+self.body.length);
                     return;
                 }
+
                 self.render();
             },200)
         }
