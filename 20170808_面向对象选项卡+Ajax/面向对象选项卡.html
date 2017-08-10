@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding:0;
+				margin:0;
+				
+			}
+			#oDiv div{
+				width: 200px;
+				height: 200px;
+				border:1px solid black;
+				display: none;
+				text-align: center;
+				line-height: 200px;
+			}
+            #oDiv1 div{
+				width: 200px;
+				height: 200px;
+				border:1px solid black;
+				display: none;
+				text-align: center;
+				line-height: 200px;
+			}
+			.active{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="oDiv">
+			<input type="button" value="汽车" class="active"/>
+			<input type="button" value="旅游"/>
+			<input type="button" value="动漫"/>
+			<div style="display: block;">汽车汽车汽车</div>
+			<div>旅游旅游旅游</div>
+			<div>动漫动漫动漫</div>
+        </div>
+        
+
+		<div id="oDiv1">
+			<input type="button" value="汽车" class="active"/>
+			<input type="button" value="旅游"/>
+			<input type="button" value="动漫"/>
+			<div style="display: block;">汽车汽车汽车</div>
+			<div>旅游旅游旅游</div>
+			<div>动漫动漫动漫</div>
+        </div>
+		
+        <script type="text/javascript">
+
+            
+            function Tab(id){
+
+                this.oDiv = document.getElementById(id);
+                this.aInput = this.oDiv.getElementsByTagName("input");              
+                this.aDiv = this.oDiv.getElementsByTagName("div");
+				this.inew = 0;
+                this.init();
+            }
+
+            Tab.prototype.init = function(){
+
+                var self = this;
+
+                for(var i=0;i<this.aInput.length;i++){
+
+                    this.aInput[i].index = i;
+
+                    this.aInput[i].onclick=function(){
+                        self.fun(this)
+                    }
+            }
+
+            Tab.prototype.fun = function (obj){
+                    
+                        for(var j=0;j<this.aInput.length;j++){
+                            this.aInput[j].className="";
+                            this.aDiv[j].style.display="none";
+                        }
+                        obj.className = "active";
+                        this.aDiv[obj.index].style.display="block";
+                    }
+                
+
+            }
+
+
+            Tab.prototype.autoplay = function(time){
+                var self = this;
+
+                setInterval(function(){
+
+                    if( self.inew == self.aInput.length-1){
+                        self.inew = 0;
+                    }else {
+                        self.inew ++;
+                    }
+
+					for(var j=0;j<self.aInput.length;j++){
+						self.aInput[j].className="";
+						self.aDiv[j].style.display="none";
+					}
+                    self.aInput[self.inew].className = "active";
+                    self.aDiv[self.inew].style.display="block";
+                },time)
+            }
+            var tab = new Tab("oDiv");
+            tab.autoplay(500);
+            var tab1 = new Tab("oDiv1");
+            tab1.autoplay(200);
+            
+		</script>
+	</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <style>
+    table{
+        margin:100 auto;
+        border-spacing:0px;  
+        /* border-collapse: collapse; */
+    }
+    tr{
+        margin: 0;
+        background-color: lightblue;
+    }
+    td{
+        /* background-color: #000; */
+        width: 10px;
+        height: 10px;
+        margin: 0;
+        background-color: lightblue;
+    }
+    .red{
+        background-color: red;
+        border-radius: 4px;
+    }
+
+    </style>
+</head>
+<body>
+    <table id="oTable">
+
+    </table>
+    
+    <script>
+    var oTable = document.getElementById("oTable");
+    var tds = [];
+        for (var i = 0; i<50 ;i++){
+            var tr = document.createElement("tr");
+            var thisRow = [];//存放当前行的td
+            for (var j = 0 ;j < 50 ;j++){
+                var td = document.createElement("td");
+                tr.appendChild(td);
+                thisRow.push(td);
+            }
+            oTable.appendChild(tr);
+            tds.push(thisRow);
+        }
+        function Snake(){
+            this.body = [
+                {x : 5,y : 4},
+                {x : 4,y : 4},
+                {x : 3,y : 4},]
+            this.food = [];
+            this.diraction = 39;
+            this.lock = true;
+
+            this.render();
+            this.move();
+        }
+            // 渲染
+        Snake.prototype.render = function(){
+            for(var i =0 ;i<50 ;i++){
+                for (var j=0 ;j<50 ;j++){
+                    tds[i][j].className = "";
+                }
+            }
+            for(var i =0 ;i<this.body.length ;i++){
+                tds[this.body[i].y][this.body[i].x].className = "red";
+            }
+            if(this.food.length > 0){
+                tds[this.food[0].y][this.food[0].x].className = "red";
+            }
+            
+        }
+        Snake.prototype.move = function(){
+             var self = this;
+            document.onkeydown = function(event){
+                event = event || window.event;
+                var keyCode = event.keyCode;
+                self.x= self.body[0].x;
+                self.y= self.body[0].y;
+                
+                
+                clearInterval(self.timer);
+
+                    // 函数节流
+                    if(self.lock){
+                        switch(keyCode){
+                            case 37:
+                                if(self.diraction == 39){
+                                    // return;
+                                    self.diraction = 39;
+                                }else{
+                                    self.diraction = 37;
+                                }
+                            break;
+                            case 38:
+                                if(self.diraction == 40){
+                                    // return;                            
+                                    self.diraction = 40;
+                                }else{
+                                    self.diraction = 38;
+                                }
+                            break;
+                            case 39:
+                                if(self.diraction == 37){
+                                    // return;                            
+                                    self.diraction = 37;
+                                    break;
+                                }else{                           
+                                    self.diraction = 39;
+                                }
+                            break;
+                            case 40:
+                            if(self.diraction == 38){
+                                    // return;                           
+                                    self.diraction = 38;                           
+                                    break;
+                                }else{
+                                    self.diraction = 40;
+                                }
+                            break; 
+                        }
+                        
+                    };
+
+                    self.lock = false;
+                    setTimeout(function(){
+                        self.lock =true;                        
+                    },100)
+
+
+
+
+                    self.auto();
+                    self.render();
+                    return false;
+            }
+        }
+
+
+
+        Snake.prototype.auto = function(){
+                var self = this;
+            this.timer = setInterval(function(){
+
+                // 食物生成与吃食物长大部分
+            if (self.food.length == 0){
+                self.food = [{x:parseInt(Math.random()*50) , y:parseInt(Math.random()*50) }];
+                
+                for(var i =0 ;i<self.body.length ;i++){
+                    if(self.food[0].y == self.body[i].y && self.food[0].x == self.body[i].x){
+                        return self.auto();
+                    }
+                }
+                tds[self.food[0].y][self.food[0].x].className = "red";
+            }
+             
+            if( (self.body[0].x == self.food[0].x)   &&  (self.food[0].y == self.body[0].y) ){
+                self.body.push(self.food[0]);
+                self.food = [];
+            }
+
+
+                switch(self.diraction){
+                    case 37:
+                        self.body.pop();
+                            self.x --;
+                    break;
+                    case 38:
+                        self.body.pop();                    
+                            self.y --;
+                    break;
+                    case 39:
+                        self.body.pop();                    
+                            self.x ++;                            
+                    break;
+                    case 40:
+                        self.body.pop();                    
+                            self.y ++;
+                    break;
+                }
+                self.body.unshift( {x : self.x, y : self.y} );
+                if(self.x<0 || self.x>49 || self.y<0 || self.y>49){
+                    clearInterval(self.timer);
+                    alert("游戏结束，你的得分为"+(self.body.length-3));
+                    return;
+                }
+                for (var i = 1; i<self.body.length ;i++){
+                    if(self.body[i].x == self.body[0].x && self.body[i].y == self.body[0].y){
+                         clearInterval(self.timer);
+                        alert("游戏结束，你的得分为"+(self.body.length-3));
+                        return;
+                    }
+                }
+                self.render();
+            },100)
+        }
+        
+        var snake = new Snake(); 
+    </script>
+</body>
+</html>

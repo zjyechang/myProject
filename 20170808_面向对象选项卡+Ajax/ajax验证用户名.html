@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .tip{
+        display: none;
+    }
+    .wrong{
+        background-color: red;
+    }
+    .right{
+        background-color: green;
+    }
+
+
+</style>
+<body>
+    <p>请输入用户名:
+        <input type="text" id = "account">
+    </p>
+    <p id="tip"></p>
+    <script>
+
+    var account = document.getElementById("account");
+    var tip = document.getElementById("tip");
+
+    
+    account.onblur = function(){
+        
+        var yonghuming = account.value;
+
+         var xhr = new XMLHttpRequest();
+        // 第二步，指定监听回来的对象怎么处理
+            // 这个事件在“就绪状态”改变时触发
+        
+        xhr.onreadystatechange = function(){
+            if( xhr.readyState == 4){
+
+                if( xhr.responseText == "n" ){
+                    tip.style.display = "block";
+                    tip.className = "wrong";
+                    tip.innerHTML = "对不起，用户名已存在";
+                }else{
+                    tip.style.display = "block";
+                    tip.className = "right";
+                    tip.innerHTML = "恭喜，用户名可以使用！"
+                }
+            }
+        }
+        // 第三步：创建一个请求，第一个参数请求的类型，
+        //        第二个参数请求的路径，第三个参数是否使用异步
+
+        // "php/1.php?id="+user_id
+        // "php/check.php?yonghuming="+yonghuming
+
+        xhr.open("get","check.php?yonghuming="+yonghuming,true)
+
+        // 第四步：发送请求 ,括号内为请求头内容，get请求没有报头文写null
+        xhr.send(null);
+    }
+
+
+
+
+    </script>
+</body>
+</html>
