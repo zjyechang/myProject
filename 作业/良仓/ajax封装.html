@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    img{
+        width: 100px;
+        margin-left: 20px;
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <input type="button" id="btn" value="点我读取文件">
+    <h1 id="h1">-----</h1>
+
+    <script>
+    var btn =document.getElementById("btn");
+    var oH =document.getElementById("h1");
+    
+
+
+
+    var $ = {
+        ajax: function(option){
+            
+            var dataType = option.dataType;
+            var url = option.url;
+            if(url == undefined){
+                throw new Error("地址有问题");
+                return;
+            }
+            var type = option.type || "GET"
+
+
+
+            var xhr = null;
+            // 能力判断
+            if( window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                xhr = new ActiveXObject("Microsoft.XMLHTTP")
+            }
+            // 当准备状态值改变是时触发事件
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+
+                    if(xhr.status>=200 && xhr.status<300 || xhr.status ==304){
+
+                        if( (typeof option.success) === "function"){
+                            // 响应结果
+                            var response = '';
+                            if (dataType == "string"){
+                                response = xhr.responseText;
+                            }else if( dataType == "json"){
+                                // 将字符串反序列化
+                                response = JSON.parse(xhr.responseText)
+                            }
+                            
+                            option.success( response );
+                        }
+                    }
+                }
+            }
+
+
+            xhr.open(type,url,true)
+            xhr.send(null);
+
+
+            }
+        }
+    
+
+
+    $.ajax({
+        "url":"http://h6.duchengjiu.top/shop/api_goods.php",
+        "type":"GET",
+        "dataType":"json",  
+        "success":function(response){
+            console.log(response);
+
+            // for(var i=0;i<response.data.length;i++){
+            //     var obj = response.data[i];
+                
+            //     var oImg = document.createElement("img");
+            //         oImg.src = obj.goods_thumb;
+            //         document.body.appendChild(oImg)
+
+            // }
+
+            var html = "";
+
+            for(var i=0;i<response.data.length;i++){
+                html += "<div class='oDiv'><img src='"+
+                response.data[i].goods_thumb+"'></div>";
+
+            }
+        document.body.innerHTML = html;
+        }
+    })
+
+
+
+        var oDiv = document.getElementsByClassName("oDiv");
+
+        $.ajax({ 
+        "url" :"http://h6.duchengjiu.top/shop/api_cat.php",
+        "type": "GET",
+        "dataType": "json",
+        "success":function(response){
+            // console.log(response);
+            for(var i=0;i<response.data.length;i++){
+                var obj = response.data[i];
+                
+                 var oP2 = document.createElement("p");
+                oP2.innerText = obj.cat_id;
+                    oDiv[i].appendChild(oP2)
+
+                    
+                var oP = document.createElement("p");
+                oP.innerText = obj.cat_name;
+                    oDiv[i].appendChild(oP);
+
+                
+            }
+
+        }
+    })
+    </script>
+</body>
+</html>
