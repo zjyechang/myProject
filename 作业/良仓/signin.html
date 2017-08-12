@@ -12,20 +12,117 @@
     }
     .signin{
         text-align: center;
-
+        width: 300px;
+        margin:0 auto;
+    }
+    #logo{
+        margin: 60px 0;
+    }
+    .indexbox{
+        height: 35px;
+        border: 0;
+        border-bottom: 1px solid #000;
+        padding-left:35px;
+        font-size: 18px;
+        outline: none;
+    }
+    #phone{
+        width: 265px;
+        background: url(./img/nlphone.png) no-repeat 0 6px;
+        margin-bottom: 22px;
+    }
+    #code{
+        width: 137px;
+        background: url(./img/nlcode.png) no-repeat 0 6px;
+    }
+    #getcode{
+        border: solid 1px #000;
+        height: 35px;
+        line-height: 34px;
+        width: 110px;
+        font-size: 16px;
+        margin-left: 12px;
+        border-radius: 4px;
+        color: #333;
+        float: right;
+        cursor: pointer;
     }
     
-
-
-
+    #btn{
+        border-radius: 4px;
+        width: 300px;
+        height: 50px;
+        border: 0;
+        background: #25292e;
+        font-size: 18px;
+        color: #ffffff;
+        margin-top: 9px;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+    .more{
+        text-decoration: none;
+        font-size: 15px;
+        color: #333;
+    }
+    .left{
+        text-align: left;
+        float: left;
+    }   
+    .checkbox{
+        margin: 15px 0;
+        font-size: 12px;
+        width: 300px;
+    }
     </style>
 </head>
 <body>
     <div class="signin">
-        <img src="./img/nlicon.png" alt="">
+        <img src="./img/nlicon.png" alt="#" id="logo">
         <form action="get">
-            <input type="text">
+            <div class="left">
+                <input type="text" placeholder="输入手机号" name="phone" id="phone" class="indexbox">
+            </div>
+            <div class="left code">
+                <input type="text" placeholder="输入验证码" name="code" id="code" class="indexbox">
+
+            </div>
+            <div id="getcode">获取验证码</div>
+            <div class="left checkbox">
+            <input type="checkbox" name="autosign">
+            <span>自动登录</span>
+            </div>
+            <input type="button" name="signin" value="登录" class="btn">
+            <a href="#" class="more">更多登录方式></a>
         </form>
     </div>
+
+    <script>
+    var indexbox = document.getElementsByClassName("indexbox");
+
+    indexbox[0].onfocus = function(){
+        return false;
+    }
+
+    var phone = document.getElementById("phone");
+    var code = document.getElementById("code");
+    var btn = document.getElementById("btn");
+    
+    var iPhone = /1[36789]\d{9}/;
+
+    pnone.onblue = function(){
+
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState == 4){
+            if(xhr.responseText == "n"){
+                alert("验证码错误 ")
+            }
+        }
+    }
+    xhr.open("get","./text.php?phone="+)
+    </script>
 </body>
 </html>
