@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        margin:0;
+        padding:0;
+    }
+    .signin{
+        border:1px solid #000;
+        width: 400px;
+        height: 350px;
+        margin:50px auto;
+        padding:30px;
+        background-color: lightsteelblue;
+        box-shadow: 10px 10px 5px #888;
+    }
+    h1{
+        display: inline-block;
+    }
+    .signin>img{
+        width: 100px;
+        height: 100px;
+    }
+    #denglu{
+        margin-left: 100px;
+        margin-bottom: 50px;
+    }
+    .othersignin>img{
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="signin">
+         <img src="./image/1.jpg" alt=""> 
+        <h1>登录</h1>
+        <p>账号：<input type="text" id = "account"></p>
+        <p class="tip"></p>
+        <p>密码：<input type="password" id = "password"></p>
+        <p class="tip"></p>
+        
+        <input type="button" value="登录" id="denglu" placeholder="请输入用户名">
+        <input type="button" value="注册" id="zhuce" placeholder="请输入密码">
+        
+        <div class="othersignin">
+            其他登录：
+            <img src="./image/qq.jpg" alt="QQ登录" id="qq">
+            <img src="./image/wexin.jpg" alt="微信登录" id="wechat">
+            <img src="./image/blog.jpg" alt="微博登录" id="blog">             
+        </div>
+    </div>
+
+
+    <script>
+   var account = document.getElementById("account"); 
+   var password = document.getElementById("password"); 
+   var tip = document.getElementsByClassName("tip");
+   var denglu = document.getElementById("denglu"); 
+   var zhuce = document.getElementById("zhuce"); 
+   var qq = document.getElementById("qq"); 
+   var wechat = document.getElementById("wechat"); 
+   var blog = document.getElementById("blog"); 
+   
+
+   var yonghuming = account.value;
+        qq.onclick = function(){
+            alert("qq登录");
+        }
+        wechat.onclick = function(){
+            alert("微信登录");
+        }
+        blog.onclick = function(){
+            alert("微博登录");
+        }
+
+
+        account.onblur = function(){
+
+            var xhr = new XMLHttpRequest();
+    
+            xhr.onreadystatechange = function(){
+            if( xhr.readyState == 4){
+
+                   if(xhr.responseText == "y"){
+                        tip[0].innerHTML = "账号已存在"
+                        tip[0].style.backgroundColor = "red";
+                   }else{
+                        tip[0].innerHTML = "账号输入正确"
+                        tip[0].style.backgroundColor = "green";
+                   }
+                    
+
+
+        }
+
+           }
+
+        xhr.open("get","un.php?acco="+account.value,true);
+        xhr.send(null);
+        }
+
+
+    </script>
+</body>
+</html>

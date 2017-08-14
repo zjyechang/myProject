@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    jsonp("jsonp.txt","fun",function(data){
+        console.log(data.result[1].name);
+    })
+
+
+     //编写一个使用jsonp的使用轮子
+        function jsonp(URL,callbackname,callback){
+            // 命名空间
+            window[callbackname] = callback;
+            // 创建节点
+            var scriptObj = document.createElement("script");
+            //添加节点
+            document.body.appendChild(scriptObj);
+            //设置新建script的src属性
+            scriptObj.src = URL;
+            //删除
+            document.body.removeChild(scriptObj);
+        }
+
+    </script>
+</body>
+</html>

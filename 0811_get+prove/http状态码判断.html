@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btn" value="点我读取文件">
+    <h1 id="h1">-----</h1>
+
+    <script>
+    var btn =document.getElementById("btn");
+    var oH =document.getElementById("h1");
+    
+
+    btn.onclick = function(){
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function(){
+
+            if (xhr.readyState == 4){
+                if( xhr.status >= 200 && xhr.status <300 || xhr.status == 304){
+                    oH.innerHTML = "服务器没问题"
+                }else{
+                    oH.innerHTML = "服务器错误"
+                    
+                }
+
+            }
+        }
+
+        xhr.open("get","./do.3php",true)
+
+        xhr.send(null);
+
+        console.log("嘻嘻");//先执行
+    }
+
+
+
+
+
+    </script>
+</body>
+</html>

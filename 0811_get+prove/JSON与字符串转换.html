@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+	var obj = {
+				"name": "xiaoming",
+				"age":/^1/g
+			}
+
+            var objString = JSON.stringify(obj);
+            console.log(objString);//
+            console.log(JSON.parse(objString));//
+
+
+
+    var str = '{"code":0,"message":"\u5546\u54c1\u5206\u7c7b\u6570\u636e\u83b7\u53d6\u6210\u529f","data":[{"cat_id":"45","cat_name":"\u5bb6\u5c45","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"55","cat_name":"\u5bb6\u5177","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"62","cat_name":"\u6587\u5177","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"69","cat_name":"\u6570\u7801","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"77","cat_name":"\u73a9\u4e50","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"82","cat_name":"\u53a8\u536b","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"92","cat_name":"\u7f8e\u98df","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"101","cat_name":"\u7537\u88c5","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"112","cat_name":"\u5973\u88c5","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"},{"cat_id":"125","cat_name":"\u7ae5\u88c5","cat_desc":" ","icon":" ","sort_order":"50","parent_id":"0","is_show":"1","site_id":"0"}],"page":[]}';
+  
+        var obj1 = JSON.parse(str);
+        console.log(obj1)
+
+
+    </script>
+</body>
+</html>

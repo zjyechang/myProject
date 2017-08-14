@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btn" value="点我读取文件">
+    <h1 id="h1">-----</h1>
+
+    <script>
+    var btn =document.getElementById("btn");
+    var oH =document.getElementById("h1");
+    
+
+    btn.onclick = function(){
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function(){
+
+            if (xhr.readyState == 4){
+                // 获取数据
+                var response = JSON.parse(xhr.responseText);
+               
+               console.log(response);
+                        var html = '';
+                    
+                    for(var i=0;i<response.data.length;i++){
+                        var obj = response.data[i];
+                        // dom操作
+                        // var oDiv = document.createElement("div");
+
+                        // oDiv.innerHTML = obj.cat_name;
+
+                        // document.body.appendChild(oDiv);
+
+                        html += "<div><p>"+response.data[i].cat_id+
+                        "</p><p>"+response.data[i].cat_name+
+                        "</p></div>"
+
+                        document.body.innerHTML = html;
+                    }
+            }
+
+        }
+        
+
+        xhr.open("get","http://h6.duchengjiu.top/shop/api_cat.php",true)
+
+        xhr.send(null);
+
+
+    }
+
+
+
+
+
+    </script>
+</body>
+</html>

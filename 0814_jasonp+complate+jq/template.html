@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/underscore.js"></script>
+    <script src="./js/ajax.js"></script> 
+    <style>
+    	table,tr,td{
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        .active{
+            background-color: skyblue;
+        }
+    </style>   
+</head>
+<body>
+    <table id="table">
+			<tr>
+				<td>学号</td>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+			</tr>
+        </table>
+        
+        <!-- 在工程里，我们用一个故意写错的type的script标签来存放模板 -->
+        <script type="text/template" id="template">
+            <tr class="%leiming%">
+                <td>%xuehao%</td>
+                <td>%xingming%</td>
+                <td>%nianling%</td>
+                <td>%xingbie%</td>
+            </tr>
+        </script>
+    <script>
+        // complate用法
+    // var con = _.template("hello :<%= name %>");
+    //   console.log( con({"name": "yechang"}) )
+
+        function compile(templateString , dictionary){
+            return templateString.replace(/\%([a-z]+)\%/g , function(match ,$1, index,string){
+                return dictionary[$1];
+            });
+        }
+
+        var table = document.getElementById("table");
+
+        var templateString = document.getElementById("template");
+
+        $.ajax({
+            "url":"student.json",
+            "success":function(str){
+                console.log(str);
+                var obj = JSON.parse(str);
+                console.log(obj);
+
+                for(var i=0;i<obj.result.length;i++){
+                    //拿到数据
+                    var dictionary = obj.result[i];
+                    // 字典修正，根据字典中的某一项的情况
+                    dictionary.leming = dictionart.nianling >= 18? "":"active";
+                    console.log(dictionary);
+
+                    // 数据绑定
+                    var DOMString = compile (templateString,dictionary);
+
+                    // 添加dom
+                    table.innerHTML += DOMstring;
+                }
+                }
+        })
+
+
+
+
+    </script>
+</body>
+</html>

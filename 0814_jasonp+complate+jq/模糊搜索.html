@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #keywords{
+				width: 300px;
+				height: 30px;
+				padding:5px;
+				border:1px solid skyblue;
+				font-size: 16px;
+			}
+			#oUl{
+				border:1px solid orange;
+				width: 310px;
+				margin:0;
+				padding:0;
+				display: none;
+			}
+			li a{
+				line-height: 30px;
+				padding: 5px;
+				text-decoration: none;
+				color:#ccc;
+				display: block;
+			}
+			li a:hover{
+				background-color: #f90;
+				color: white;
+			}
+
+    </style>
+</head>
+<body>
+   <input type="text" id="keywords" />
+        <ul id="oUl"></ul>
+        
+    <script>
+        function myNeed(data){
+           var html = "";
+            if(data.s.length){
+                oUl.style.display="block";
+                // 限制出现的数量
+                for (var i =0;i<data.s.length;i++){
+                    html += "<li><a target='_blank' href='http://baidu.com/s?wd="+data.s[i]+"'>"+data.s[i]+"</a></li>"
+                    
+                }
+                oUl.innerHTML = html;
+            }else{
+                oUl.style.display ="none";
+            }
+        }
+
+        var keywords = document.getElementById("keywords");
+        var oUl = document.getElementById("oUl");
+
+        keywords.onkeyup = function(){
+            if(keywords.value != ""){
+                var oScript = document.createElement("script");
+                oScript.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + this.value + "&cb=myNeed";
+                document.body.appendChild(oScript);
+                document.body.removeChild(oScript)
+            }else{
+                oUl.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
