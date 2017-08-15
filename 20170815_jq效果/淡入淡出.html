@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: lawngreen;
+    }
+    </style>
+</head>
+<body>
+    <input type="button" value="淡入">
+    <input type="button" value="淡出">
+    <input type="button" value="指定到位置">    
+    <input type="button" value="切换">
+    <div></div>
+    
+    
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+    $("input").eq(0).click(function(){
+        $("div").fadeIn(2000)
+    })
+    $("input").eq(1).click(function(){
+        $("div").fadeOut(2000);
+    })
+    $("input").eq(2).click(function(){
+        $("div").fadeTo(2000,0.6);
+    })
+    $("input").eq(3).click(function(){
+        $("div").fadeToggle(2000);
+    })
+
+
+</body>
+</html>

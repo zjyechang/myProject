@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    p{
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background: lightblue;
+    }
+
+
+    </style>
+</head>
+<body>
+    <p></p>
+    <p></p>
+    <script src ="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+
+        $("p").animate({"left":"1000px"},1000,function(){
+            $(this).css("background","red");
+        });
+
+        // 同一对象动画依次执行
+        $("p:first").animate({"left":"1000px"},1000);
+        $("p:first").animate({"top":"1000px"},1000);
+        
+        // 写在一起同时执行
+        $("p:first").animate({"left":"1000px","top":"1000px"},1000);
+        
+        // 不同对象异步进行
+    </script>
+
+
+</body>
+</html>

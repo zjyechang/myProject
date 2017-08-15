@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    .box{
+        width: 600px;
+        height: 600px;
+        position: relative;
+        margin:100px;
+        background-color: #ccc;
+    }
+
+    p{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background-color: lightblue;
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+
+
+        <p></p>
+    </div>
+
+    <script src ="../JS框架/jquery-1.12.3.min.js"></script>
+    <script src ="../JS框架/jquery-ui.min.js"></script>
+    <script>
+        $("p").draggable({
+            axis:"x",  //约束在某个轴上
+            containment:"parent",//在父元素中拖拽
+            drag:function(event,ui){
+                console.log(ui);
+                console.log(ui.position.left,ui.position.top);
+            }
+        })
+    
+
+
+
+    </script>
+</body>
+</html>

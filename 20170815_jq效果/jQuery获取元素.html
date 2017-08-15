@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #oDiv{
+        height: 200px;
+        width: 200px;
+        background-color: lavender;
+    }
+    p{
+        width: 100px;
+        height: 100px;
+        background-color: lavenderblush;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- <div id="oDiv"></div>
+     -->
+
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+<script src="../JS框架/jquery-1.12.3.min.js"></script>
+<script>
+    // $("#oDiv").click(function(){
+    //     alert("我是div");
+    //     $(this).css({
+    //         "background":"orange",
+    //         "width":"300px",
+    //     })
+    // })
+    // 通过加下标将jqurary转化成原生属性
+    // $("#oDiv")[0].style.backgroundColor = "blue";
+    
+
+    $("p").css("background","red");
+
+    $("p:first").css("background","orange");
+    $("p:last").css("background","yellow");
+
+    $("p:eq(3)").css("background","blue");
+    
+    $("p:lt(3)").css("width","300px");
+
+    $("p:gt(3)").animate({"height":"300PX"},1000)
+    
+
+    $("p").eq(3).css("width","+=300px");
+    var a = 4;
+    $("p").eq(a).css("width","+=300px");
+    
+    
+</script>
+
+</body>
+</html>

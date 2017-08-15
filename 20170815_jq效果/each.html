@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    p{
+        background-color: lawngreen;
+        height: 50px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+            // 遍历
+        var i =0;
+    $("p").each(function(){
+        i++;
+        $(this).css("width",30*i);
+    })
+
+
+    $("p").eq(2).html("哈哈哈哈");//jquery的方法，相当于原生的innerHTML
+    $("p").get(2).innerHTML = "哈哈哈哈";//隐式转成原生对象
+    $("p").eq(2)[0].innerHTML = "哈哈哈哈";//等同于下标的方式
+    
+    </script>
+    
+    
+</body>
+</html>

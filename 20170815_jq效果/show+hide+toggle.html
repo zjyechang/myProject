@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+        display: inline-block;
+    }
+
+
+    </style>
+</head>
+<body>
+    
+    <input type="button" value="show">
+    <input type="button" value="hide">
+    <input type="button" value="toggle">
+    <input type="button" value="show(1000)">
+    <input type="button" value="hide(2000)">
+    <input type="button" value="toggle(1000)">
+
+<div></div>
+
+
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+        $("input").eq(0).click(function(){
+            $("div").show();//把display改成block;
+        })
+        $("input").eq(1).click(function(){
+            $("div").hide();//把display改成none；
+        })
+        $("input").eq(2).click(function(){
+            $("div").toggle();//切换当前的状态
+        })
+
+        // 添加时间产生动画效果
+        $("input").eq(3).click(function(){
+            $("div").show(1000);//把display改成block;
+        })
+        $("input").eq(4).click(function(){
+            $("div").hide(2000);//把display改成none；
+        })
+        $("input").eq(5).click(function(){
+            $("div").toggle(1000);//切换当前的状态
+        })
+
+    </script>
+</body>
+</html>

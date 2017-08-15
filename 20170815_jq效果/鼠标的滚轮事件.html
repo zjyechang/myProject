@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        height: 5000px;
+    }
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: lawngreen;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../JS框架/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../JS框架/jquery.mousewheel.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script >
+        $("div").mousewheel(function(event){
+            if(event.preventDefault){
+                event.preventDefault();
+            }else{
+                event.returnValue = false;
+            }
+
+            $("div").html(event.deltaY)
+
+        })
+
+
+
+    </script>
+
+</body>
+</html>

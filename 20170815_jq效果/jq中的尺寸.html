@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 200px;
+        height: 200px;
+        border: 20px solid #0ff;
+        margin: 20px;
+        padding:10px;
+
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+    console.log($("div").width());//内容的宽度
+    console.log($("div").innerWidth());//内容的宽度+padding
+    console.log($("div").ourterWidth());//内容的宽度+padding+border
+    console.log($("div").ourterwidth(true));//内容的宽度+padding+border+margin;
+
+
+    var t = $("p").offset().top;
+    console.log(t)
+    
+
+    </script>
+
+
+
+
+</body>
+</html>

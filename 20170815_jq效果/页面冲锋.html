@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        height: 10000px;
+        background-image: -webkit-linear-gradient(top,red,orange,yellow,green,blue,purple);
+    }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <input type="button" value="点我">
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+    $(window).scroll(function(){
+        console.log($(window).scrollTop());
+    })
+    $("input").click ( function(){
+        $("html,body").animate({"scrollTop":9000},2000)
+    })
+
+    </script>
+
+
+
+</body>
+</html>
