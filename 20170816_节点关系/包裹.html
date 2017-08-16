@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	div{
+		width: 100px;
+		height: 100px;
+	}
+</style>
+<body>
+	<div id="box">
+	???
+		<a href="#">111</a>
+		<a href="#">222</a>
+		<a href="#">333</a>
+		<div></div>
+		<a href="#">444</a>
+		<a href="#">555</a>
+		<a href="#">666</a>
+
+	</div>
+	<script type="text/javascript" src="../JS框架/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+	
+		$("a").wrapAll("<span></span>");//统一包装
+
+		// $("a").wrap("<span></span>");//逐个包装
+
+		// $("a").replaceWith("<span></span>");//将整个a包括内容全部替换了
+
+		// $("a").empty();//清空内容
+
+
+	</script>
+</body>
+</html>

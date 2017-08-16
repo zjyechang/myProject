@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: lawngreen;
+    }
+    </style>
+</head>
+<body>
+      <input type="button" value="100">
+    <input type="button" value="800"> 
+
+    <div></div>
+    
+     
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script> 
+
+
+        
+    $("input").eq(0).click(function(){
+        //连续打点语法，想清除所有的动画队列
+        $("div").stop(true).animate({"left":100},2000);
+    })
+    $("input").eq(1).click(function(){
+        $("div").stop(true).animate({"left":800},2000);
+    }) 
+
+
+    </script>
+</body>
+</html>

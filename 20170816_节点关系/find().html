@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				width: 60px;
+				height: 60px;
+				background: orange;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+				</li>
+			</ul>
+		</div>
+		
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+//			$("#box").find("p").css("background","red");
+			
+//			alert( $("#box").find("*").length );
+			
+			$("#box").find("*").eq(2).css("background","red");
+		</script>
+	</body>
+</html>

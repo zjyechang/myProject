@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			background-color: blue; 
+			width: 60px;
+			height: 60px;
+		}
+		.cur{
+			background:gold;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p class="op">op</p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+</div>
+
+<script type="text/javascript" src="../JS框架/jquery-1.12.3.min.js"></script>
+
+<script type="text/javascript">
+	// $(".op").siblings(":odd").css("background","red")
+	$("p").mouseenter(function(){
+		$(this).addClass("cur").siblings().removeClass("cur");
+	})
+</script>
+	
+</body>
+</html>
