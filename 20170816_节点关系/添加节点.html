@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+	???
+		<p>啦啦</p>
+		<p>哈哈</p>
+	</div>
+	<script type="text/javascript" src="../JS框架/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		var $obj = $("<p>嘻嘻</p>");
+		$("#box").append($obj);
+
+		$("#box").append("<p>么么哒</p>");
+		// $("<p>么么哒</p>").appendTo($("#box"));
+		$("<p>草草哒</p>").appendTo($("#box"));
+
+		$("p")
+		$("#box").after("<h3>我是h3</h3>");
+		$("#box").before("<h3>我是h3</h3>");
+
+	</script>
+</body>
+</html>

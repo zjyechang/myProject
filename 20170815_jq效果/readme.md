@@ -57,6 +57,7 @@ $("p:even")	下标是偶数的p
 ##jQuery实现  
 
 ### 拖拽
+需要额外导入jquery UI包   
 Draggable：拖拽  
 Droppable ：拖放  
 Resizable ：改变尺寸  

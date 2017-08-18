@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<meta charset="UTF-8">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.accordion{
+			width: 500px;
+			margin: 100px auto;
+			border: 1px solid #000;
+		}
+		.accordion ul{
+			list-style: none;
+		}
+		.accordion ul li.cur h3{
+			background-color: orange;
+			
+		}
+		.accordion ul li h3{
+			line-height: 40px;
+			background-color: skyblue;
+			padding: 0 10px;
+			border-bottom: 1px solid #000;
+			color:white;
+			cursor: pointer;
+			position: relative;
+		}
+		.accordion ul li .content{
+			padding: 10px;
+			line-height: 150%;
+			font-size: 16px;
+			display: none;
+		}
+		.accordion ul li.first .content{
+			display: block;
+		}
+		.accordion ul li i{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			width: 16px;
+			height: 16px;
+			background-color: yellow;
+			background: url(images/icon.png);
+			/*css3的过渡*/
+			transition:all 1s ease 0s;
+		}
+		.accordion ul li.cur i{
+			/*有cur的时候转90度*/
+			transform:rotate(90deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="accordion">
+		<ul>
+			<li class="cur first">
+				<h3>授课时长和授课模式是怎么样的？<i></i></h3>
+				<div class="content">
+					<p>
+						一共88个教学日，上2天休息1天，每个月能上22天课，所以总时长一共4个月（预计毕业时间是7月22日）。教学时间为上午9:00~12:00 ，下午14:30~17:30， 晚自习时间为18:30~20:30。
+					</p>
+				</div>
+			</li>
+			<li>
+				<h3>是否有远程班？周末班？<i></i></h3>
+				<div class="content">
+					<p>
+						目前只有脱产实体班，仅在北京校区开设，课程时间4个月（包括休息日）。目前没有远程班、周末班。欢迎你留意我们的官方网站。
+					</p>
+				</div>
+			</li>
+			<li>
+				<h3>是否有班主任和学习辅导员？<i></i></h3>
+				<div class="content">
+					<p>
+						实事求是的说，我们人手不够，任课老师就同时兼任班主任和辅导员了。我们的任课老师同时也将负责学生考勤，监督学生不要迟到早退，维护课堂纪律，上课睡觉、课间打游戏、大声喧哗都是不可能的。
+					</p>
+				</div>
+			</li>
+			<li>
+				<h3>课程难么？<i></i></h3>
+				<div class="content">
+					<p>
+						我们的课程有一定难度，但只要认真学习，完整学习下来是没有问题的。每位老师上课会细致入微，形象生动，可以辅导每位同学。所以不用担心自己的理解能力跟不上。
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="../JS框架/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		//监听h3
+	$(".accordion ul li h3").click(function(){
+
+		$(".content").slideUp();
+
+		if($(this).siblings(".content").is(":visible")){
+
+			$(this).siblings(".content").stop(true).slideUp();
+
+			$(this).parent().removeClass("cur");
+		}else{
+
+			$(".cur").removeClass("cur");
+
+			$(this).parent().addClass("cur")
+
+			$(this).siblings(".content").stop(true).slideDown();
+		}
+	})
+
+
+	// $(".accordion ul li h3").click(function(){
+
+	// 	$(".content").slideUp();
+	// 	if($(this).siblings(".content").is(":visible")){
+	// 		$(this).sibings(".content").stop(true).slideUp();
+	// 		$(this).parent().removeClass("cur");
+
+	// 	}
+	// 	else{
+	// 		$(".cur").removeClass("cur");
+	// 		$(this).parent().addClass("cur");
+	// 		$(this).siblings(".content").stop(true).slideDown();
+
+	// 	}
+
+	// })
+	</script>
+</body>
+</html>
