@@ -11,6 +11,13 @@ a{
     color: #333;
     font-size: 12px;
 }
+.ahover a,.ahover{
+    color:#5c5c5c;
+    transition: all 0.3s;    
+}
+.ahover a:hover,.ahover:hover{
+    color:#ccc!important;
+}
 .clearfix::after,.clearfix:after{
     content:"";
     display: block;
@@ -28,11 +35,13 @@ a{
     height: 56px;
     background: #25292e;
     line-height: 56px;
-    /* position: fixed; */
+    position: fixed;
+    top:0;
+    z-index: 1000;
 }
 .head{
     width: 1000px;
-    height: 55px;
+    height: 56px;
     margin:0 auto;
 }
 .head .logo{
@@ -49,6 +58,7 @@ a{
 }
 .head .mynav li{
     float:left;
+    position: relative;
 }
 .head .mynav .login a{
     margin-right: 10px;
@@ -64,21 +74,83 @@ a{
     padding: 0 17px;    
 }
 
+.shoppingCart{
+    position: absolute;
+    width:319px;
+    top:56px;
+    background-color: #25292e;
+    right:-143px;
+    text-align: center;
+    color:#ccc;
+    line-height: 50px;
+    font-size: 15px;
+    z-index: 100;
+    display: none;
+    padding-bottom: 50px;
+}
+.shoppingCart a{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width:285px;    
+    height: 50px;
+    line-height: 50px;
+    background: #7dbfde;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+.message{
+    position: absolute;
+    top: 56px;
+    background: #292f34;
+    z-index: 1000;
+    left: auto;
+    right: -69px;
+    width: 190px;
+    cursor: pointer;
+    display: none;
+}
+.cart:hover>div{
+    display:block;
+}
+.message p{
+    display: block;
+    margin:0 auto;
+    width: 140px;
+    height: 44px;
+    padding: 0 15px;
+    line-height: 44px;
+    background: #292f34;
+    cursor: pointer;
+    color:#fff;
+    border-bottom: 1px solid #666;
+}
+
+
+
 
 /* 头部白色tab */
+.wrap-toptab{
+    width: 100%;
+    height: 49px;    
+    position: fixed;
+    top:56px;
+    z-index: 1000;
+}
 .toptab{
     width: 1000px;
-    height: 55px;
+    height: 49px;
     margin:0 auto;
     background-color: #fff;
+    overflow: hidden;
     position: relative;
-    overflow: hidden;    
 }
 .toptab>*{
     float: left;
 }
 .toptab li a{
-    font-size: 16px;
+    font-size: 15px;
 }
 .toptab li{
     float: left;
@@ -129,9 +201,14 @@ a{
     background-position: -167px -145px;
     background-color: #fff;
     cursor: pointer;
+    z-index: 10px;
 }
 
 
+
+.wrap-toptab .item .li{
+    float: left;
+}
 /* 动画区 */
 .toptab li:hover{
     border-bottom: 4px solid #333;    
@@ -146,12 +223,37 @@ a{
     height: 475px;
     margin: 0 auto;
     overflow: hidden; 
+    margin-top:130px;
 }
 .carouselContainer{
     position: relative;
     width: 1500%;
     height: 475px;
-    /* transition:1s;  */
+}
+.carousel >span{
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    z-index: 10;
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgb(0,0,0);
+    opacity: 0.2;
+    border-radius: 50%;
+    filter: alpha(opacity=20);
+    font-size: 50px;
+    line-height: 43px;
+    text-align: center;
+    color:white;
+}
+.carousel .leftBtn{
+    left: 32px;
+}
+.carousel .rightBtn{
+    right: 32px;
 }
 .carouselContainer li{
     float: left;
@@ -169,6 +271,10 @@ a{
     height: 4px;
     background-color: #ccc;
     display: inline-block;
+    cursor: pointer;
+}
+.actionpoint li.cur{
+    background-color: #666;
 }
 .carouselContainer li img{
     width: 1000px;
@@ -289,3 +395,278 @@ a{
 }
 
 
+/* 底部 */
+.serve{
+    padding: 51px 0 78px;
+    width: 100%;
+    min-width: 1000px;
+    border-top: #ededed 1px solid;
+    background: #fbfdfe;
+    margin: 90px auto 0;
+}
+.serve a{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    padding-left: 45px;
+    width: 177px;
+    height: 16px;
+    background-image: url(./img/icon.png);
+    background-position: 45px -417px;
+    background-clip: content-box;
+}
+.serve .hand{
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 27px;
+    height: 15px;
+    background-image: url(./img/icon.png);
+    background-position: -173px -356px;
+    overflow: hidden;
+}
+.serve .slogo{
+    width: 1000px;
+    height: 60px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.serve dt{
+    background: url(./img/icon.png) no-repeat;
+    width: 56px;
+    height: 60px;
+    float:left;
+    
+}
+.serve dl:first-of-type dt{
+    background-position: 0 -355px;
+}
+.serve dl:nth-of-type(2) dt{
+    width:45px;
+    background-position: -153px -217px;
+}
+.serve dl:nth-of-type(3) dt{
+    width: 55px;
+    background-position: -57px -353px;
+}
+.serve dl:last-of-type dt{
+    background-position: -114px -353px;
+}
+.serve dd{
+    padding: 9px 50px 0 20px;
+    float:left;
+    margin: 0;
+}
+.serve dd p:first-of-type{
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #737373;
+    text-align: left;
+}
+.serve dd p:last-of-type{
+    line-height: 22px;
+    color: #ccc;
+    letter-spacing: 1.2px;
+}
+
+
+/* 底部黑色区域 */
+.bottom{
+    margin: 0 auto;
+    width: 100%;
+    min-width: 1000px;
+    height: 222px;
+    background: #25292e;
+    color: #5c5c5c;
+    padding-top:1px;
+}
+
+.bottom .download{
+    width: 19px;
+    height: 44px;
+    margin:20px 0;
+}
+.bottom .download .phoneIcon{
+    background: url(./img/icon.png) no-repeat;   
+    display: inline-block; 
+    position: relative;
+    width: 136px;
+    height: 44px;
+    background-position: -175px 0;
+    color: #5c5c5c;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.3s;  
+    padding-left:50px;
+    margin-bottom: 20px;
+}
+.bottom .downloadCode{
+    position: absolute;
+    width: 283px;
+    top: -188px;
+    left: 0;
+    display: none;
+    height: 187px;
+    text-align: center;
+    z-index: 100;
+    transition: 0.5s;
+}
+.bottom .download:hover .downloadCode{
+    display: block;
+}
+.bottom .downloadCode>div{
+    float:left;
+}
+.bottom .downloadCode .iPhone>div{
+    height: 95px;
+    width: 98px;
+    background: url(./img/icon.png) no-repeat;    
+    border-right: #d9d9d9 1px solid;
+    background-position: -99px -47px;
+    padding-right: 20px;
+    background-color: #fff;
+}
+.bottom .downloadCode .Android>div{
+    height: 95px;
+    width: 98px;
+    padding-left: 20px;
+    background: url(./img/icon.png) no-repeat;    
+    background-position: 20px -47px;  
+    background-color: #fff;    
+}
+.bottom .phoneIcon p{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 25px;
+}
+.bottom ul{
+    position: absolute;
+    width: 200px;
+    left: 850px;
+    top:0;
+    margin-bottom: 10px;
+}
+.bottom ul .code{
+    position: absolute;
+    top: -188px;
+    left: 0;
+    background: url(./img/icon.png) no-repeat;    
+    display: none;
+    text-align: center;
+    width: 145px;
+    height: 145px;
+    background-position: 0 -148px;
+    z-index:100;
+    opacity: 1;
+}
+.bottom ul .wechat:hover>.code{
+    display: block;
+}
+.bottom ul li{
+    background: url(./img/icon.png) no-repeat;    
+    height: 20px;
+    opacity: 0.2;
+    float:left;
+    margin-left:25px;
+}
+.bottom ul li.wechat{
+    width: 26px;   
+    background-position: -100px -23px;
+}
+.bottom ul li:nth-of-type(2){
+    width: 22px;   
+    background-position: -150px -23px;
+}
+.bottom ul li:nth-of-type(3){
+    width: 18px;   
+    background-position: -129px -25px;
+}
+
+.bottom ul li:hover{
+    opacity: 1;  
+}
+.bottom .ahover a{
+    padding:0 10px;
+    border-left: 1px solid #5c5c5c;
+}
+.bottom .ahover a:first-of-type{
+    padding-left: 0;
+    border-left: 0;
+}
+.btmMain{
+    width: 1000px;
+    margin:0 auto;
+    margin-top:40px;
+    line-height: 18px;
+    letter-spacing: 1.2px;
+    position: relative;
+}
+
+/* 右边的固定滑块
+ */
+ .toTop{
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+    cursor: pointer;
+    width: 59px;
+    height: 59px;
+    background: url(./img/icon.png) no-repeat;    
+    background-position: -20px -813px; 
+    transition: 0.2s; 
+    display:none;
+ }
+ .contact{
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    background-color: #5b799a;
+    color:#fff; 
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 0 10px;
+ }
+ .toTop:hover{
+     opacity: 0.2;
+ }
+
+
+
+
+ .goodsdetail{
+     width: 1000px;
+     height: 500px;
+     margin:150px auto;
+     position: relative;
+ }
+
+.goodsdetail .itemName{
+     font-size: 30px;
+     position: absolute;
+     left:500px;
+     top:20px;
+ }
+ .goodsdetail .price{
+    font-size: 30px;
+    position: absolute;
+    left:500px;
+    top:70px;
+    color: red;
+    font-style:italic;
+ }
+ .goodsdetail .itemDesc{
+    font-size: 20px;
+    position: absolute;
+    left:500px;
+    top:150px;
+ }

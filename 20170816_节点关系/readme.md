@@ -120,3 +120,41 @@ jQuey屏蔽掉了浏览器兼容问题，不存在空文本节点也是儿子了
 
 ### 增删改节点
 <img src="./1.png">
+
+1. append就是往最后添加
+父亲.append(儿子)  
+jQuery节点操作非常简单，不用createElement的过程了。实际上内部就是用innerHTML来给你加进去的。
+
+特别的，如果我们想先创建一个孤儿节点，给这个孤儿节点加样式、加监听、加动画，可以的，那么创建孤儿节点，也是用$()函数。 $()不仅仅能够选择页面上的节点，也能够创建新的孤儿节点：
+	var $obj = $("<p></p>");
+	$obj.css("background-color","red");   //jQuery对象就可以直接调用css方法
+	$("#box").append($obj);
+	
+
+2.  appendTo 表示被动，儿子appendTo父亲
+  
+3.  after 插入兄弟  before 插入兄弟
+	$("p").after("<h3>我是h3</h3>");
+	
+4.  insertBefore、insertAfter
+	$("<p>么么哒</p>").insertBefore($("p")[2]);
+	before和after的被动形式
+	
+5.  wrap、warpAll
+	$("a").wrap("<span></span>");  //每个a都用span包裹起来
+	$("a").wrapAll("<span></span>");  //所有a都用span包裹起来
+  
+6. empty()
+$("p").empty()   等价于	$("p").html("");  
+清空元素  
+
+7. remove()
+删除页面上所有p标签：
+	$("p").remove();
+	
+8. clone()
+克隆节点  
+克隆ul li里面的第1个，然后ul追加：  
+	$(“ul”).append($(“ul li”).eq(0).clone());  
+反过来：  
+	$(“ul li”).eq(0).clone().appendTo($(“ul”));  

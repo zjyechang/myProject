@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <ul id="nav">
+            <!-- <li><a href="http://h6.duchengjiu.top/shop/api_goods.php"></a></li> -->
+        </ul>    
+    
+        <ul id="goodsul">
+    
+        </ul>
+
+
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+
+          // 页面导航
+    $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(data){
+        var obj = data;
+        for (var i=0;i<obj.data.length;i++){
+            $("#nav").append("<li><a href='list.html?cat_id="+obj.data[i].cat_id+"'>"+obj.data[i].cat_name+"</a></li>")
+        }
+    })
+
+
+
+        // 通过location获取get传过来的参数
+        var str = location.search.substr(1);
+        // 分割的方法得到等号两边的内容
+        var catId = str.split("=");
+        // 用下标找到id的值
+        console.log(catId[1])
+        $.ajax({
+            "url":"http://h6.duchengjiu.top/shop/api_goods.php",
+            "type": "GET",
+            "data": {
+                "cat_id":catId[1],
+            },
+            "datatype": "json",
+            "success":function(response){
+                var obj = response;
+                for(var i=0;i<obj.data.length;i++){
+                    $("#goodsul").append('<li><img src="' +obj.data[i].goods_thumb+ '" /><p>' +obj.data[i].goods_name+ '</p><p>' +obj.data[i].goods_desc+ '</p><p class="price">' +obj.data[i].price+ '</p></li>');
+                }
+            },
+
+        })
+
+    </script>
+</body>
+</html>
