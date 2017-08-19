@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../JS框架/jquery-1.12.3.min.js"></script>
+		<script>
+//			jquery的预加载,指加载dom
+//			给jquery对象丰富插件方法
+			$(function(){
+				$.fn.abc = function(){
+					console.log("1298y4e9ehfiakfj");
+				}
+				
+				$.fn.extend({
+					aaa:function(){
+						console.log("dsadasdas")
+					},
+					ccc:function(){
+						console.log("ccccccc")
+					}
+				})
+				$().aaa();
+				$().ccc();
+				
+				$("div").abc();
+				
+				$.hello = function(){
+					console.log("hello")
+				}
+				$.hello();
+				
+			})
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

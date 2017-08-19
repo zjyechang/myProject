@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>
+        <input type="text" id="search">
+        <input type="button" id="btn" value="search">
+    </p>
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+    
+        // $(function(){
+        //     // 通过location获取get传过来的参数
+        // var str = location.search.substr(1);
+        // // 分割的方法得到等号两边的内容
+        // var catId = str.split("=");
+        // // 用下标找到id的值
+        // console.log(catId[1])
+
+
+
+        $("#btn").click(function(){
+            var str = $("#search").val();
+            console.log(str);
+
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_goods.php",
+                "type":"GET",
+                "data":{
+                    "goods_id" :str
+                },
+                "datatype":"json",
+                "success":function(response){
+                    var obj = response;
+                    console.log(response);
+                }
+            })
+        })
+    
+    
+    </script>
+
+
+</body>
+</html>
