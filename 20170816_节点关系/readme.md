@@ -48,6 +48,38 @@ slideDown : 下滑展开
 slideUp：上滑收回  
 slideToggle : 滑动切换  
 
+### stop
+停止当前的animate动画，但是不清除队列，立即执行后面的animate动画：
+	$("div").stop(); //等价于$(“div”).stop(false,false);
+
+停止当前的animate动画，并且清除队列，盒子留在了此时的位置：
+	$("div").stop(true);//等价于$(“div”).stop(true,false);
+
+瞬间完成当前的animate动画，并且清除队列：
+	$("div").stop(true,true);
+
+瞬间完成当前的animate动画，但是不清楚队列，立即执行后面的动画：
+	$("div").stop(false,true);
+  
+结束后可以进行下一个动画，例如：
+
+### finish()
+瞬间完成所有动画队列并瞬间出现在动画最终结束的位置  
+
+### delay()
+小窍门，让所有的img元素，都延迟不同的时间入场：
+
+	$("img").each(function(i){
+		//attr就表示得到标签内的属性
+		$(this).delay(i * 1000).fadeIn(1000);
+	});
+
+### is()
+is()方法表示身份探测，返回true、false。  
+	$(this).is("p:odd")  
+	$(this).is("p:lt(3)")  
+	$(this).is(":animated")  //可以用作节流
+
 ## 节点关系
 
 ### 节点类型值

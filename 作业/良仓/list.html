@@ -15,8 +15,8 @@
             <a href="#" class="logo"></a>
             <ul class="mynav clearfix">
                 <li class="login">
-                    <a href="#">登录</a>
-                    <a href="#">注册</a>              
+                    <a href="signin.html">登录</a>
+                    <a href="signin.html">注册</a>              
                 </li>
                 <li class="line"></li>                
                 <li class="cart">
@@ -57,6 +57,11 @@
                 </li>
                 <li class="subLi">
                     <a href="#">商店</a>
+                    <div class="item">
+                         <ul class="itemul">
+                            
+                        </ul>
+                    </div>
                 </li>
                 <li class="subLi">
                     <a href="#">杂志</a>
@@ -77,57 +82,17 @@
         </div>
     </div>
 
-    <!-- 轮播图 -->
-    <div class="carousel">
-            <span class="leftBtn"><</span>
-            <span class="rightBtn">></span>
-            
 
-        <div class="carouselContainer">
-           
-            <ul>
-                <li><a href="#"><img src="./img/1037.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./img/1039.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./img/1045.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./img/1049.gif" alt=""></a></li>
-                <li><a href="#"><img src="./img/1050.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./img/1052.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./img/1053.jpg" alt=""></a></li>
-                <li><a href="#"><img src="./img/1055.jpg" alt=""></a></li>                
-            </ul>
-        </div>
-    </div>
-    <ul class="actionpoint">
-        <li class="cur"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>            
-    </ul>
+    <!-- 商品详情 -->
+    <div class="listitem">
 
-    <div class="itempic">
-        <div class="imgbox">
-            <img src="./img/28260.jpg" alt="">
-           <img src="./img/28259.jpg" alt="">
-        </div> 
-        <div class="imgbox">
-            <img src="./img/28161.jpg" alt="">  
-        </div>
-        <div class="imgbox">
-            <img src="./img/28262.jpg" alt="">
-            <img src="./img/28258.jpg" alt="">
-        </div>
+
+
     </div>
 
 
 
-        <!-- 主要内容 -->
-    <div class="title">人气商品</div>
-    <div class="mainitem clearfix">
-    </div>
+
 
     <!-- 底部 -->
     <div class="serve">
@@ -217,5 +182,41 @@
     </div>
     <script src="./jquery-1.12.3.min.js"></script>
     <script src="./main.js"></script>
+    <script>
+
+
+        var $listitem = $(".listitem");
+    var str = location.search.substr(1)
+    var cat_id = str.split("=");
+    
+    $.ajax({
+        "url":"http://h6.duchengjiu.top/shop/api_goods.php",
+        "type": "GET",
+        "data": {
+            "cat_id":cat_id[1],
+        },
+        "datatype": "json",
+        "success":function(response){
+            var obj = response;
+ 
+            for(var i=0;i<response.data.length;i++){
+                html += "<div class='itemlist'><img src='"+
+                response.data[i].goods_thumb+
+                "'><a href='detail.html?goods_id="+
+                response.data[i].goods_id+
+                "' class='goods'><p class='price'>￥"+
+                response.data[i].price+
+                "</p><p class='goodsname'>"+
+                response.data[i].goods_name+
+                "</p><p class='goodsdesc'>"+
+                response.data[i].goods_desc+            
+                "</p></a><div class='seller'><img src='./img/55.jpg'><span>XXXX</span><a href='javascript:;' class='great'>1180</a></div></div>";
+
+        }
+        $listitem.html(html);
+        }
+
+    })
+    </script>
 </body>
 </html>
