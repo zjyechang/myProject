@@ -74,6 +74,10 @@
         font-size: 12px;
         width: 300px;
     }
+    .tip{
+        display: none;
+        font-size: 14px;
+    }
     </style>
 </head>
 <body>
@@ -83,6 +87,7 @@
             <div class="left">
                 <input type="text" placeholder="输入手机号" name="phone" id="phone" class="indexbox">
             </div>
+            <p class="tip">手机格式不正确，请输入11位手机号</p>
             <div class="left code">
                 <input type="text" placeholder="输入验证码" name="code" id="code" class="indexbox">
 
@@ -96,34 +101,50 @@
             <p><a href="#" class="more">更多登录方式></a></p>
         </form>
     </div>
-
+    <script src="./jquery-1.12.3.min.js"></script>
     <script>
-    var indexbox = document.getElementsByClassName("indexbox");
 
-    indexbox[0].onfocus = function(){
-        return false;
-    }
-
-    var phone = document.getElementById("phone");
-    var code = document.getElementById("code");
-    var btn = document.getElementById("btn");
-    
     var iPhone = /1[36789]\d{9}/;
-
-    pnone.onblue = function(){
-
-    }
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange=function(){
-        if(xhr.readyState == 4){
-            if(xhr.responseText == "n"){
-                alert("验证码错误 ")
-            }
+    
+    $("input[name='phone']").blur(function(){
+        var phone = $("input[name='phone']").val();
+        console.log(iPhone.test(phone))
+        if(!iPhone.test(phone)){
+            $(".tip").css({"color":"red","display":"block"}).html("请输入11位手机号");
+        }else{
+            $(".tip").css({"color":"green","display":"block"}).html("格式正确");           
         }
-    }
-    xhr.open("get","./text.php?phone="+account,true)
-    xhr.send(null);
+
+    })
+
+    $(".btn").click(function(){
+        if(iPhone.test(phone)){
+            window.location.href = index.html;
+        }else{
+            alert("信息错误，请确认后提交");
+        }
+    //     var phone = $("input[name='phone']").val();
+    //     var code = $("input[name='code']").val();
+        
+    //     // URl: 
+    // $.ajax({
+    //     "type": "POST",
+    //     "url": "http://h6.duchengjiu.top/shop/api_user.php",
+    //     "data": {
+    //         "status": "register",
+    //         "username": username,
+    //     },
+    //     "dataType": "json",
+    //     "success": function(response){
+    //         if(response.code ==0){
+    //             alert(responde.message);
+    //             window.location.href = index.html
+    //         }
+            
+    //     }
+    // })
+
+})
     </script>
 </body>
 </html>

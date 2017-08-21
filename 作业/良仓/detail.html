@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
-    <title>良仓首页</title>
+    <title>详细商品</title>
 </head>
 <body>
 
@@ -15,8 +15,8 @@
             <a href="#" class="logo"></a>
             <ul class="mynav clearfix">
                 <li class="login">
-                    <a href="signin.html">登录</a>
-                    <a href="signin.html">注册</a>              
+                    <a href="sign.html">登录</a>
+                    <a href="regist.html">注册</a>              
                 </li>
                 <li class="line"></li>                
                 <li class="cart">
@@ -58,9 +58,9 @@
                 <li class="subLi">
                     <a href="#">商店</a>
                     <div class="item">
-                         <!-- <ul class="itemul">
+                         <ul class="itemul">
                             
-                        </ul> -->
+                        </ul>
                     </div>
                 </li>
                 <li class="subLi">
@@ -85,7 +85,13 @@
 
     <!-- 商品详情 -->
     <div class="goodsdetail">
+        <div id="buyNow">
 
+        </div>
+        <div class="cart-share">
+            <input type="button" value="加入购物车" id="#cart">
+            <input type="button" value="分享" id="#share">            
+        </div>
 
 
     </div>
@@ -203,6 +209,34 @@
         },
 
     })
+
+
+
+    //加入购物车功能
+//判断当前是否登录，没登录无法加入购物车
+$("#cart").click(function(){
+    if(!localStorage.getItem("token")){
+    
+        alert("请登录");
+        location.href = "login.html";
+        return;
+    }
+    $.ajax({
+        "url": "http://h6.duchengjiu.top/shop/api.php?token="+localStorage.token,
+        "type": "POST",
+        "dataType": "json",
+        "data": {
+            "goods_id": goods_id[1],
+            "goods_number": 1,
+        },
+        "success": function(response){
+            console.log(goods_id[1])
+            console.log(response)
+        }
+    })
+
+})
+
     </script>
 </body>
 </html>

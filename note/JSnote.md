@@ -34,3 +34,18 @@ input( type = "range" )
 ## input color 的应用  
     详见20170724 homework2  
     用.value取值，再应用  
+
+## Storage仓库
+### Local Storage 一直在
+localStorage.setItem("token",response.data.token);
+localStorage.getItem("token");
+
+### Session Storage 关了浏览器就没了
+### web SQL 
+### Cookies
+
+## 解码
+udecode
+
+
+

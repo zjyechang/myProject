@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <style>
+    body{
+        margin: 0;
+        padding:0;
+    }
+    input{
+        outline: none;
+    }
+    input:focus::placeholder{
+        color : transparent;
+    }
+    h1{
+        width: 100%;
+        text-align: center;
+    }
+    .signin{
+        text-align: left;
+        width: 500px;
+        margin:0 auto;
+        margin-top:50px;
+    }
+    .left{
+        margin:10px 0;
+        width: 500px;
+        height: 50px;
+        border:1px solid #ccc;
+    }
+    .left label{
+        display: inline-block;
+        width: 80px;
+        height: 50px;
+        padding-left: 15px;
+        line-height: 50px;
+        text-align-last: justify;
+        font-size: 15px;
+        color:#666;
+
+    }
+    input[type="text"],input[type="password"]{
+        height: 35px;
+        border: 0;
+        padding-left:35px;
+        font-size: 15px;
+    }
+
+    #getcode{
+        border: solid 1px #000;
+        height: 35px;
+        line-height: 34px;
+        width: 110px;
+        font-size: 15px;
+        margin-left: 12px;
+        border-radius: 4px;
+        color: #333;
+        float: right;
+        cursor: pointer;
+        text-align: center;
+    }
+    
+    .btn{
+        border-radius: 4px;
+        width: 300px;
+        height: 50px;
+        border: 0;
+        background: #25292e;
+        font-size: 18px;
+        color: #ffffff;
+        display: block;
+        margin:40px auto;
+        cursor: pointer;
+    }
+ 
+    .checkbox{
+        margin: 15px 0;
+        font-size: 12px;
+        width: 300px;
+    }
+    .success{
+        background: green;
+        color: white;
+        font-size: 16px;
+        display: none;
+    }
+    .error{
+        background: red;
+        color: white;
+        font-size: 16px;
+        display: none;
+        
+    }
+    </style>
+</head>
+<body>
+    <h1>登录</h1>
+    <div class="signin">
+        <div class="left">
+            <label for="username">用户名</label>
+            <input type="text" placeholder="请输入账号" name="username">
+        </div>
+        <p class="tip usename"></p>
+
+        <div class="left">
+            <label for="password">密码</label>                
+            <input type="password" placeholder="请输入密码" name="password">
+        </div>
+        <p class="tip password"></p>
+
+        
+        <input type="checkbox" name="agree" >
+        <label for="agree">自动登录</label>
+
+        <div>
+            <input type="button" name="regist" value="登录" class="btn">
+        </div>
+
+
+    </div>
+
+    <script src="./jquery-1.12.3.min.js"></script>
+    <script>
+   $(function(){
+    if(localStorage.getItem("token")){
+        $("body").html("<p>尊敬的"+localStorage.getItem("username")+"，您已登录,3秒后为你跳回</p><p><a href='index.html'>点此手动跳转</a></p>");
+        setTimeout(function() {
+            location.href = "index.html";
+        }, 3000);
+    }
+
+
+
+
+
+
+        $(".btn").click(function(){
+            var username = $("input[name='username']").val();
+            var password = $("input[name='password']").val();
+            var code = $("input[name='code']").val();
+        // console.log(username)
+            
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_user.php",
+                "type":"POST",
+                "datatype": "json",
+                "data": {
+                    "status": "login",
+                    "username": username,
+                    "password": password,
+                },
+                "success": function(response){
+                    if(response.code == 0){
+                        alert(response.message);
+                        
+                        var data = response.data;
+                        for(prop in data){
+                            // 判断是否是自身的属性hasOwnProperty
+                            if(data.hasOwnProperty(prop)){
+                                // 存储到本地仓库
+                                localStorage.setItem(prop,data[prop]);
+                                
+                            }
+                        }
+                        
+                        location.href =" index.html";
+
+                    }else{
+                       alert(response.message);
+                    }
+                }
+            })
+        // $.ajax({
+        //     "type": "POST",
+        //     "url": "http://h6.duchengjiu.top/shop/api_user.php",
+        //     "data": {
+        //         "status": "login",
+        //         "username": username,
+        //         "password": password,
+        //     },
+        //     "dataType": "json",
+        //     "success": function(response){
+        //         if(response.code == 0){
+        //             alert("登录成功");
+        //             location.href = index.html;
+        //         }
+                
+        //     }
+        // })
+
+    })
+})
+    </script>
+</body>
+</html>

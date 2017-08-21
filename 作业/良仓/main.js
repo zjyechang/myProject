@@ -1,4 +1,18 @@
+// 登录后更改
+$(function(){
+    if(localStorage.getItem("token")){
+        $(".login").html("<p>尊敬的"+localStorage.getItem("username")+"&nbsp; <a href='javascript:;' class='logout'>退出登录</a></p>");
+    }
+    // 退出登录
+    $(".logout").click(function(){
+        console.log(1)
+        localStorage.clear();
+        location.reload();
+    });
+})
 
+
+    // 滚动顶部栏隐藏
     var scroll = $(window).scrollTop();
     var $head = $(".wrap-head");
     var $toptab = $(".wrap-toptab")
@@ -21,7 +35,7 @@ $(window).scroll(function(){
 })
 
 $(".toTop").click(function(){
-    $("body").animate({"scrollTop":0},500)
+    $("body").animate({"scrollTop":0},500);
 })
 
 $(".toptab li").mouseenter(function(){
@@ -32,6 +46,8 @@ $(".toptab li").mouseleave(function(){
 })
 
 
+
+// 搜索框部分
 var searchbox = document.getElementsByClassName("searchbox")[0];
 var searchIcon = document.getElementsByClassName("searchIcon")[0];
 var searchAnima = searchbox.getElementsByClassName("searchAnime")[0];
@@ -42,44 +58,25 @@ var flag = true;
             searchAnima.style.left = "14px";
             searchAnima.style.transition="0.1s";
             flag = !flag;
-        }else{
-            searchAnima.style.left = "280px"; 
+        }else if(!$(".search").val() && !flag){
+        searchAnima.style.left = "280px"; 
             searchAnima.style.transition="0.5s";            
             flag = !flag;                       
+        }else if($(".search").val() && !flag){
+
+            window.location.href = "search.html?cat_id="+$(".search").val();
+
         }
     }
 
 
-    // var carouselContainer = document.getElementsByClassName("carouselContainer")[0];
-    // var actionpoint = document.getElementsByClassName("actionpoint")[0];
-    // var imgli = carouselContainer.getElementsByTagName("li");
-    // var imgul = carouselContainer.getElementsByTagName("ul")[0];
-    // var idx = 0;
-    // var oLeft =0;
-    // // carouselContainer.style.left = 0 +"px";
-
-    // // imgul.innerHTML += imgul.innerHTML;
-    // var timer = setInterval(function(){
-
-    //     oLeft += 1000;
-    //         carouselContainer.style.transition = "1s"; 
-
-    //     if(oLeft > 1000*(imgli.length/2)){
-    //         oLeft = 0;
-    //         carouselContainer.style.transition = "none";
-    //         // carouselContainer.style.left = 0 +"px";
-    //     }    
-    //     carouselContainer.style.left = -oLeft +"px";
-    // },2000)
-
     
- 
+    // 轮播图
     var $carousel = $(".carouselContainer");
     $carousel.find("li").eq(0).clone().appendTo($(".carouselContainer ul"));
     var length = $carousel.find("li").length;
     var idx = 0;
-    // console.log($carousel.find("li").eq(0).clone()  )
-    // console.log(length);
+
     var timer = setInterval(function(){
         idx++;
         move();
@@ -195,6 +192,7 @@ var flag = true;
 //     }
 
 
+// 添加列表
 var mainitem = document.getElementsByClassName("mainitem")[0];
 
 $.ajax({
@@ -252,35 +250,10 @@ $.ajax({
     $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(data){
         var obj = data;
         for (var i=0;i<obj.data.length;i++){
-            $(".toptab .itemul").append("<li><a href='list.html?cat_id="+obj.data[i].cat_id+"'>" +obj.data[i].cat_name+ "</a></li>")
+            $(".toptab .itemul").append("<li><a class='tap-' href='list.html?cat_id="+obj.data[i].cat_id+"'>" +obj.data[i].cat_name+ "</a></li>")
         }
     })
 
-
-    // $.ajax ({
-    //     "url":"http://h6.duchengjiu.top/shop/api_cat.php",
-    //     "type":"GET",
-    //     "dataType":"json",  
-    //     "success":function(response){
-    //          var html = "";
-
-    //         for(var i=0;i<response.data.length;i++){
-    //             html += "<div class='itemlist'><img src='"+
-    //             response.data[i].goods_thumb+
-    //             "'><a href='detail.html?goods_id="+
-    //             response.data[i].goods_id+
-    //             "' class='goods'><p class='price'>￥"+
-    //             response.data[i].price+
-    //             "</p><p class='goodsname'>"+
-    //             response.data[i].goods_name+
-    //             "</p><p class='goodsdesc'>"+
-    //             response.data[i].goods_desc+            
-    //             "</p></a><div class='seller'><img src='./img/55.jpg'><span>XXXX</span><a href='javascript:;' class='great'>1180</a></div></div>";
-
-    //     }
-    //     mainitem.innerHTML = html;
-    //     }
-    // })
 
 
 

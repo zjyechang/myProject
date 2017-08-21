@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <style>
+    body{
+        margin: 0;
+        padding:0;
+    }
+    input{
+        outline: none;
+    }
+    input:focus::placeholder{
+        color : transparent;
+    }
+    h1{
+        width: 100%;
+        text-align: center;
+    }
+    .regist{
+        text-align: left;
+        width: 500px;
+        margin:0 auto;
+        margin-top:50px;
+    }
+    .left{
+        margin:10px 0;
+        width: 500px;
+        height: 45px;
+        border:1px solid #ccc;
+    }
+    .left label{
+        display: inline-block;
+        width: 80px;
+        height: 50px;
+        padding-left: 15px;
+        line-height: 50px;
+        text-align-last: justify;
+        font-size: 15px;
+        color:#333;
+
+    }
+    input[type="text"],input[type="password"]{
+        height: 35px;
+        border: 0;
+        padding-left:35px;
+        font-size: 15px;
+    }
+
+    #getcode{
+        border: solid 1px #000;
+        height: 45px;
+        line-height: 44px;
+        width: 110px;
+        font-size: 15px;
+        margin-left: 12px;
+        border-radius: 5px;
+        color: #333;
+        float: right;
+        cursor: pointer;
+        text-align: center;
+    }
+    
+    .btn{
+        border-radius: 4px;
+        width: 300px;
+        height: 50px;
+        border: 0;
+        background: #25292e;
+        font-size: 18px;
+        color: #ffffff;
+        display:block;
+        margin:40px auto;
+        cursor: pointer;
+    }
+ 
+    .checkbox{
+        margin: 15px 0;
+        font-size: 12px;
+        width: 300px;
+    }
+    .success{
+        background: green;
+        color: white;
+        font-size: 16px;
+        display: none;
+    }
+    .error{
+        background: red;
+        color: white;
+        font-size: 16px;
+        display: none;
+        
+    }
+    .tip{
+        padding-left: 20px;
+        font-size: 13px;
+        color: #666;
+        visibility: hidden;
+    }
+    .back{
+        
+    }
+    </style>
+</head>
+<body>
+    <h1>注册</h1>
+    <div class="regist">
+        <div class="left">
+            <label for="username">用户名</label> :
+            <input type="text" placeholder="您的用户名和账号" name="username">
+        </div>
+        <p class="tip username">支持字母，数字和下划线的组合，4-20个字符</p>
+
+        <div class="left">
+            <label for="password">设置密码</label> :              
+            <input type="password" placeholder="至少使用两种数字组合" name="password">
+        </div>
+        <p class="tip password">建议使用数字、字母和符号两种及以上组合，6-20位</p>
+
+        <div class="left">
+            <label for="password">重复密码</label> :              
+            <input type="password" placeholder="请再次输入密码" name="passwordagain">
+        </div>
+        <p class="tip passwordagain">请再次输入密码</p>
+
+        <div class="left">
+            <label for="phone">手机号</label> :
+            <input type="text" placeholder="建议常用手机号" name="phone">
+        </div>
+        <p class="tip phone">请输入11位手机号</p>
+
+        <div class="left code">
+            <label for="code">手机验证码</label> :
+            <input type="text" placeholder="输入验证码" name="code">
+            <div id="getcode">获取验证码</div>
+        </div>
+        
+        
+        <div>
+            <input type="checkbox" name="agree" checked>
+            <label for="agree">同意注册条款</label>
+        </div>
+
+        <input type="button" name="regist" value="注册" class="btn">
+        <a class="back" href="sign.html"><返回登录</a>
+
+    </div>
+
+    <script src="./jquery-1.12.3.min.js"></script>
+    <script>
+        
+        var iAcc = /^[\w]{4,20}$/;
+        var iPass = /^\S{6,20}$/;
+        var iPhone = /^1[36789]\d{9}$/;
+
+        // 账号检测
+        $("input[name='username']").focus(function(){
+            $(".tip.username").css("visibility","visible");
+        })
+        $("input[name='username']").blur(function(){
+
+            var username = $("input[name='username']").val();
+
+            if(iAcc.test(username)){
+                $.ajax({
+            "type": "POST",
+            "url": "http://h6.duchengjiu.top/shop/api_user.php",
+            "data": {
+                "status": "check",
+                "username": username,
+            },
+            "dataType": "json",
+            "success": function(response){
+                console.log(response)
+                if( response.code ==0 ){
+                    $(".tip.username").css({"color":"green"}).html("可以使用此用户名");
+                    
+                }else if( response.code ==2001 ){
+                    $(".tip.username").css({"color":"red"}).html("用户名已存在");                
+                    
+                }
+                
+            }
+        })
+            }else if(!username){
+
+                $(".tip.username").css({"color":"#666"}).html("支持字母，数字和下划线的组合，4-20个字符");                
+            }else{
+                $(".tip.username").css({"color":"red"}).html("用户名格式错误，请重新输入");                
+            }
+        })
+        
+
+        // 密码检测
+        $("input[name='password']").focus(function(){
+            $(".tip.password").css("visibility","visible");
+        })
+        $("input[name='password']").blur(function(){
+            var password = $("input[name='password']").val();
+            
+            if(iPass.test(password)){
+                $(".tip.password").css({"color":"green"}).html("可以使用此密码");                
+            }else if(!password){
+                $(".tip.password").css({"color":"#666"}).html("建议使用数字、字母和符号两种及以上组合，6-20位");
+            }else{
+                $(".tip.password").css({"color":"red"}).html("密码格式错误，请重新输入");                
+            }
+        })
+        // 重复密码
+        $("input[name='passwordagain']").focus(function(){
+            $(".tip.passwordagain").css("visibility","visible");
+        })
+        $("input[name='passwordagain']").blur(function(){
+            var password = $("input[name='password']").val();
+            var passwordagain = $("input[name='passwordagain']").val();
+
+            if(passwordagain == password){
+                $(".tip.passwordagain").css({"color":"green"}).html("两次密码相同");                
+            }else if(!password){
+                $(".tip.passwordagain").css({"color":"#666"}).html("请再次输入密码");
+            }else{
+                $(".tip.passwordagain").css({"color":"red"}).html("两次密码不相同");                
+            }
+        })
+        // 手机验证
+        $("input[name='phone']").focus(function(){
+            $(".tip.phone").css("visibility","visible");
+        })
+        $("input[name='phone']").blur(function(){
+            var phone = $("input[name='phone']").val();
+
+            if( iPhone.test(phone)){
+                $(".tip.phone").css({"color":"green"}).html("手机格式无误");                
+            }else if(!phone){
+                $(".tip.phone").css({"color":"#666"}).html("请输入11位手机号");
+            }else{
+                $(".tip.phone").css({"color":"red"}).html("手机格式有误，请重新输入");                
+            }
+        })
+
+
+        $(".btn").click(function(){
+            var username = $("input[name='username']").val();
+            var password = $("input[name='password']").val();
+            var passwordagain = $("input[name='passwordagain']").val()
+            var phone = $("input[name='phone']").val();
+            var code = $("input[name='code']").val();
+            
+            
+  
+        $.ajax({
+            "type": "POST",
+            "url": "http://h6.duchengjiu.top/shop/api_user.php",
+            "data": {
+                "status": "register",
+                "username": username,
+                "password": password,
+            },
+            "dataType": "json",
+            "success": function(response){
+                if(response.code ==0){
+                    alert(response.message);
+                    window.location.href = "sign.html";
+                }else{
+                    console.log(response)
+                }
+                
+            }
+        })
+
+    })
+
+    </script>
+</body>
+</html>

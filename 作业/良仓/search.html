@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
-    <title>商品列表</title>
+    <title>详细商品</title>
 </head>
 <body>
 
@@ -84,7 +84,14 @@
 
 
     <!-- 商品详情 -->
-    <div class="listitem clearfix">
+    <div class="goodsdetail">
+        <div id="buyNow">
+
+        </div>
+        <div class="cart-share">
+            <input type="button" value="加入购物车" id="#cart">
+            <input type="button" value="分享" id="#share">            
+        </div>
 
 
     </div>
@@ -184,11 +191,10 @@
     <script>
 
 
-        var $listitem = $(".listitem");
+var goodsdetail = document.getElementsByClassName("goodsdetail")[0];
+
     var str = location.search.substr(1)
     var cat_id = str.split("=");
-    console.log(cat_id[1])
-    
     $.ajax({
         "url":"http://h6.duchengjiu.top/shop/api_goods.php",
         "type": "GET",
@@ -198,26 +204,56 @@
         "datatype": "json",
         "success":function(response){
             var obj = response;
-            var html = "";
+            for(var i=0;i<obj.data.length;i++){
+                var html = "";
 
-            for(var i=0;i<response.data.length;i++){
-                html += "<div class='itemlist'><img src='"+
-                response.data[i].goods_thumb+
-                "'><a href='detail.html?goods_id="+
-                response.data[i].goods_id+
-                "' class='goods'><p class='price'>￥"+
-                response.data[i].price+
-                "</p><p class='goodsname'>"+
-                response.data[i].goods_name+
-                "</p><p class='goodsdesc'>"+
-                response.data[i].goods_desc+            
-                "</p></a><div class='seller'><img src='./img/55.jpg'><span>XXXX</span><a href='javascript:;' class='great'>1180</a></div></div>";
+        for(var i=0;i<response.data.length;i++){
+            html += "<div class='itemlist'><img src='"+
+            response.data[i].goods_thumb+
+            "'><a href='detail.html?goods_id="+
+            response.data[i].goods_id+
+            "' class='goods'><p class='price'>￥"+
+            response.data[i].price+
+            "</p><p class='goodsname'>"+
+            response.data[i].goods_name+
+            "</p><p class='goodsdesc'>"+
+            response.data[i].goods_desc+            
+            "</p></a><div class='seller'><img src='./img/55.jpg'><span>XXXX</span><a href='javascript:;' class='great'>1180</a></div></div>";
 
         }
-        $listitem.html(html);
-        }
+        goodsdetail.innerHTML = html;
+            }
+        },
 
     })
+
+
+
+    //加入购物车功能
+//判断当前是否登录，没登录无法加入购物车
+$("#cart").click(function(){
+    if(!localStorage.getItem("token")){
+    
+        alert("请登录");
+        location.href = "login.html";
+        return;
+    }
+    $.ajax({
+        "url": "http://h6.duchengjiu.top/shop/api.php?token="+localStorage.token,
+        "type": "POST",
+        "dataType": "json",
+        "data": {
+            "goods_id": goods_id[1],
+            "goods_number": 1,
+        },
+        "success": function(response){
+            console.log(goods_id[1])
+            console.log(response)
+        }
+    })
+
+})
+
     </script>
 </body>
 </html>
