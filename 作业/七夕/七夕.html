@@ -11,14 +11,60 @@
         padding:0;
     }
     .background{
-        background: url("./images/background.png")
+        position: absolute;
+        width: 100%;
+        height: 100%;
     }
-    
+    .backgroundimg{
+        position: absolute;
+        width: 100%;
+    }
+    .wave{
+        width: 100%;
+        float: left;
+        bottom:10%;
+        left:0;
+    }
+    .copy{
+        width:200%;
+
+    }
+    .bird1{
+        position: absolute;
+        
+    }
     </style>
 </head>
 <body>
+    
     <div class="background">
-
+        <img src="./images/background.png" alt="" class="backgroundimg">
+        <img src="./images/bird1.png" alt="" class="bird1">
+        <img src="./images/bird2.png" alt="" class="bird2">
+        <img src="./images/cload1.png" alt="" class="cload1">
+        <img src="./images/cload2.png" alt="" class="cload2">
+        <img src="./images/cload3.png" alt="" class="cload3">
+        <div class="copy">
+            <img src="./images/wave1.png" alt="" class="wave wave1">
+        </div>
+        <div class="copy">
+            <img src="./images/wave2.png" alt="" class="wave wave2">
+        </div>
+        <div>
+            <img src="./images/wave3.png" alt="" class="wave wave3">
+        </div class="copy">
+        <img src="./images/denglong.png" alt="" class="denglong">
+        <img src="./images/enter.png" alt="" class="enter">
+        <img src="./images/play.png" alt="" class="play">
+        
+        
+        
     </div>
+
+    <script src="./jquery-1.12.3.min.js"></script>
+    <script>
+        $(".copy").append(this.find(img).clone())
+    
+    </script>
 </body>
 </html>
