@@ -10,28 +10,137 @@
         margin:0;
         padding:0;
     }
-    .background{
-        position: absolute;
+    body{
         width: 100%;
-        height: 100%;
+    }
+    .background{
+        position: relative;
+        width: 100%;
     }
     .backgroundimg{
-        position: absolute;
-        width: 100%;
-    }
-    .wave{
-        width: 100%;
-        float: left;
-        bottom:10%;
+        position: relative;
+        top:0;
         left:0;
+        width: 100%;
+        z-index: 0;
+    }
+    img{
+        position: absolute;
+        z-index: 1;
+        animation-iteration-count: 999;
     }
     .copy{
+        position: absolute;
         width:200%;
+        left:0;
+    }
+    .copy3{
+        bottom:11%;
+        z-index: 2;
+    }
 
+    .copy1{
+        bottom:10%;
+        z-index: 3;
+        left:-100%;
+    }
+    .copy2{
+        bottom:9%;
+        z-index: 4;
+    }
+    .wave{
+        position: relative;
+        width: 50%;
+        float: left;
+    }
+ 
+    .play{
+        width: 30%;
+        right:40%;
+        bottom:3.5%;
+    }
+    .enter{
+        width: 30%;
+        right:7%;
+        bottom:3.5%;
+    }
+    .denglong{
+        width: 10%;
+        /* bottom:50%;
+        right:10%;
+        opacity: 0.5; */
+        animation:myfirst 6s 999;
+    }
+    @keyframes myfirst{
+    0% { right:10%;
+        bottom: 40%;
+        opacity:0;}
+    50% {right:15%;
+        bottom: 50%;
+        opacity:0.7;}
+    100% {right:10%;
+        bottom:60%;
+        opacity:0;}
+    }
+    .cloud1{
+        width: 70%;
+        bottom: 46%;
+        right: -19%;
+        animation:cloud1 8s 999;        
+    }
+    @keyframes cloud1{
+        from{
+            bottom: 40%;
+            right: 110%;
+        }to{
+            bottom: 46%;
+            right: -19%;
+        }
+    }
+    .cloud2{
+        width: 50%;
+        bottom: 33%;
+        right: 56%;
+        animation:cloud1 8s 999;                
+    }
+    @keyframes cloud1{
+        from{
+            bottom: 40%;
+            right: 110%;
+        }to{
+            bottom: 46%;
+            right: -19%;
+        }
+    }
+    .cloud3{
+        width: 100%;
+        bottom: 58%;
+        right: -17%;
     }
     .bird1{
-        position: absolute;
-        
+        width: 20%;
+        bottom: 82%;
+        right: 26%;
+    }
+    .bird2{
+        width: 40%;
+        bottom: 82%;
+        right: 3%;
+    }
+    .star1{
+        width: 40%;
+        bottom: 37%;
+        right: 12%;
+    }
+    .star2{
+        width: 40%;
+        bottom: 37%;
+        right: 19%;
+    }
+    .star3{
+        width: 40%;
+        bottom: 33%;
+        right: 13%;
     }
     </style>
 </head>
@@ -39,21 +148,25 @@
     
     <div class="background">
         <img src="./images/background.png" alt="" class="backgroundimg">
-        <img src="./images/bird1.png" alt="" class="bird1">
-        <img src="./images/bird2.png" alt="" class="bird2">
-        <img src="./images/cload1.png" alt="" class="cload1">
-        <img src="./images/cload2.png" alt="" class="cload2">
-        <img src="./images/cload3.png" alt="" class="cload3">
-        <div class="copy">
-            <img src="./images/wave1.png" alt="" class="wave wave1">
+        <img src="./images/bird.png" alt="" class="bird1">
+        <img src="./images/bird.png" alt="" class="bird2">
+        <img src="./images/cloud1.png" alt="" class="cloud1">
+        <img src="./images/cloud2.png" alt="" class="cloud2">
+        <img src="./images/cloud3.png" alt="" class="cloud3">
+        <img src="./images/star.png" alt="" class="star1">
+        <img src="./images/star.png" alt="" class="star2">
+        <img src="./images/star.png" alt="" class="star3">
+        
+        <div class="copy copy1">
+            <img src="./images/wave1.png" alt="" class="wave">
         </div>
-        <div class="copy">
-            <img src="./images/wave2.png" alt="" class="wave wave2">
+        <div class="copy copy2">
+            <img src="./images/wave2.png" alt="" class="wave">
         </div>
-        <div>
-            <img src="./images/wave3.png" alt="" class="wave wave3">
+        <div class="copy copy3">
+            <img src="./images/wave3.png" alt="" class="wave">
         </div class="copy">
-        <img src="./images/denglong.png" alt="" class="denglong">
+        <img src="./images/denglong2.png" alt="" class="denglong">
         <img src="./images/enter.png" alt="" class="enter">
         <img src="./images/play.png" alt="" class="play">
         
@@ -63,8 +176,65 @@
 
     <script src="./jquery-1.12.3.min.js"></script>
     <script>
-        $(".copy").append(this.find(img).clone())
+    var autoSetRem = (function(doc, win) {
+    var docEl = doc.documentElement,
+        done = false,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        set = function(paper) {
+            if(paper==null){
+                paper=360;
+            }
+            var clientWidth = docEl.clientWidth || win.innerWidth || screen.width;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 22 * (clientWidth / paper) + 'px';
+            done = true;
+            return done;
+        };
+    return {
+        set:set
+    };
+    //AbortifbrowserdoesnotsupportaddEventListener
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, set, false);
+    doc.addEventListener('DOMContentLoaded', set, false);
+    })(document, window);
+
+    window.onload=function(){
+        autoSetRem.set();
+    };
+        
+        
+        
     
+    $(".copy").append(function(){
+        return $(this).find("img").clone()
+    });
+        
+
+
+    // $(".play")[0].onclick = function(){
+    //     // $(".copy3").animate({"left":"-100%"},3000);
+    
+    //     move();
+        
+    // }
+    
+    // var move = setInterval(function(){
+    //     $(".copy3").css({"left":"0"});
+    //     $(".copy1").css({"left":"-100%"});
+    //     $(".copy2").css({"left":"0"});
+        
+    //     $(".copy3").animate({"left":"-100%"},3000);
+    //     $(".copy1").animate({"left":"0"},3000);
+    //     $(".copy2").animate({"left":"-100%"},3000);
+    //     return;
+    // })
+    // function move2(){
+    //     $(".copy3").animate({"left":"0"},3000);
+    //     $(".copy1").animate({"left":"-100%"},3000);
+    //     $(".copy2").animate({"left":"0"},3000);
+    //     return move1();
+    // }
     </script>
 </body>
 </html>

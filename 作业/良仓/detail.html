@@ -85,12 +85,10 @@
 
     <!-- 商品详情 -->
     <div class="goodsdetail">
-        <div id="buyNow">
-
-        </div>
+        <input type="button" value="立即购买" id="buyNow">
         <div class="cart-share">
-            <input type="button" value="加入购物车" id="#cart">
-            <input type="button" value="分享" id="#share">            
+            <input type="button" value=" &nbsp;&nbsp;&nbsp;加入购物车" id="cart">
+            <input type="button" value=" &nbsp;分享" id="share">            
         </div>
 
 
@@ -194,6 +192,7 @@
   
     var str = location.search.substr(1)
     var goods_id = str.split("=");
+
     $.ajax({
         "url":"http://h6.duchengjiu.top/shop/api_goods.php",
         "type": "GET",
@@ -203,35 +202,43 @@
         "datatype": "json",
         "success":function(response){
             var obj = response;
-            for(var i=0;i<obj.data.length;i++){
-                $(".goodsdetail").append('<img class="itemImg" src="' +obj.data[i].goods_thumb+ '" /><p class="itemName">' +obj.data[i].goods_name+ '</p><p class="itemDesc">' +obj.data[i].goods_desc+ '</p><p class="price">￥' +obj.data[i].price+ '</p>');
-            }
+            
+            $(".goodsdetail").append('<img class="itemImg" src="' +obj.data[0].goods_thumb+ '" /><p class="itemName">' +obj.data[0].goods_name+ '</p><p class="itemDesc">' +obj.data[0].goods_desc+ '</p><p class="price">￥' +obj.data[0].price+ '</p>');
+            
         },
 
     })
-
+    // URI转义码
+    // decodeURI(goodsId[1])
 
 
     //加入购物车功能
 //判断当前是否登录，没登录无法加入购物车
-$("#cart").click(function(){
-    if(!localStorage.getItem("token")){
+    $("#cart").click(function(){
+        if(!localStorage.getItem("token")){
+        
+            alert("请登录");
+            location.href = "sign.html#callback="+location.href;
+            // location.href = "sign.html";
+            return;
+        }
+
+    var goods_number = localStorage.getItem("cart"+goods_id[1]);
+    console.log(goods_number)
+    goods_number =  1*goods_number +1 || 1;
     
-        alert("请登录");
-        location.href = "login.html";
-        return;
-    }
     $.ajax({
-        "url": "http://h6.duchengjiu.top/shop/api.php?token="+localStorage.token,
+        "url": "http://h6.duchengjiu.top/shop/api_cart.php?token="+localStorage.token,
         "type": "POST",
         "dataType": "json",
         "data": {
             "goods_id": goods_id[1],
-            "goods_number": 1,
+            "goods_number": goods_number,
         },
         "success": function(response){
-            console.log(goods_id[1])
-            console.log(response)
+            localStorage.setItem("cart"+goods_id[1],goods_number);
+            alert(response.message);
+            console.log(response);
         }
     })
 

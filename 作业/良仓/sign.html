@@ -166,14 +166,20 @@
                                 
                             }
                         }
-                        
-                        location.href =" index.html";
 
+
+                        if(location.hash){
+                            location.href = location.hash.substr(10);
+                        }else{
+                            location.href =" index.html";
+                        }
+                        // history.back(1);
                     }else{
                        alert(response.message);
                     }
                 }
             })
+            console.log(location.hash)
         // $.ajax({
         //     "type": "POST",
         //     "url": "http://h6.duchengjiu.top/shop/api_user.php",

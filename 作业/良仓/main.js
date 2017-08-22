@@ -33,17 +33,12 @@ $(window).scroll(function(){
         $(".toTop").fadeIn(500);        
     }
 })
-
+// 上天部分
 $(".toTop").click(function(){
     $("body").animate({"scrollTop":0},500);
 })
 
-$(".toptab li").mouseenter(function(){
-    $(".toptab li div").stop(true).slideDown();
-})
-$(".toptab li").mouseleave(function(){
-    $(".toptab li div").stop(true).slideUp(500);
-})
+
 
 
 
@@ -64,7 +59,7 @@ var flag = true;
             flag = !flag;                       
         }else if($(".search").val() && !flag){
 
-            window.location.href = "search.html?cat_id="+$(".search").val();
+            window.location.href = "detail.html?cat_id="+$(".search").val();
 
         }
     }
@@ -133,8 +128,6 @@ var flag = true;
         })
 
     }
-
-
     )
 
     
@@ -159,7 +152,7 @@ var flag = true;
 //         if( window.XMLHttpRequest){
 //             xhr = new XMLHttpRequest();
 //         }else{
-//             xhr = new ActiveXObject("Microsoft.XMLHTTP")
+//             xhr = new ActiveXObject("Microsoft.XMLHTTP");
 //         }
 //         // 当准备状态值改变是时触发事件
 //         xhr.onreadystatechange = function(){
@@ -225,6 +218,7 @@ $.ajax({
 
     var great = document.getElementsByClassName("great");
 
+
     setTimeout(function() {
  
     for(var i =0 ;i<great.length ;i++){
@@ -253,7 +247,18 @@ $.ajax({
             $(".toptab .itemul").append("<li><a class='tap-' href='list.html?cat_id="+obj.data[i].cat_id+"'>" +obj.data[i].cat_name+ "</a></li>")
         }
     })
+    
+$(".toptab li").mouseenter(function(){
+    $(this).find(".item").stop(true).show();
+})
+$(".toptab li").mouseleave(function(){
+    $(this).find(".item").stop(true).slideUp(500);
+})
 
 
 
+    // 购物车跳转
+    $("li.cart").click(function(){
+        location.href = mycart.html;
+    })
 

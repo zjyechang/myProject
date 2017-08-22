@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 10rem;
+            height: 10rem;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+    <script>
+        var autoSetRem = (function(doc, win) {
+    var docEl = doc.documentElement,
+        done = false,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        set = function(paper) {
+            if(paper==null){
+                paper=1366;
+            }
+            var clientWidth = docEl.clientWidth || win.innerWidth || screen.width;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 22 * (clientWidth / paper) + 'px';
+            done = true;
+            return done;
+        };
+    return {
+        set:set
+    };
+    //AbortifbrowserdoesnotsupportaddEventListener
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, set, false);
+    doc.addEventListener('DOMContentLoaded', set, false);
+    })(document, window);
+
+    window.onload=function(){
+        autoSetRem.set();
+    };
+        </script>
+</body>
+</html>

@@ -658,6 +658,7 @@ a{
 
 
 
+ /* 详细商品页面部分 */
  .goodsdetail{
      width: 1000px;
      height: 500px;
@@ -685,7 +686,12 @@ a{
     left:500px;
     top:200px;
  }
-
+.cart-share{
+    position: absolute;
+    left: 500px;
+    top:410px;
+    width: 330px;
+}
 #cart{
     width: 160px;
     height: 32px;
@@ -694,11 +700,11 @@ a{
     line-height: 32px;
     font-size: 13px;
     border: 1px solid black;
-    background-color: #fff;
     background: url(./img/24749.png) #fff no-repeat;
     float:left;
     background-size: 15px;
     background-position: 38px 8px;
+    cursor: pointer;
 }
 #share{
     width: 160px;
@@ -708,15 +714,87 @@ a{
     line-height: 32px;
     font-size: 13px;
     border: 1px solid black;
-    background-color: #fff;
-    background: url(./img/24749.png) #fff no-repeat;
+    background: url(./img/24746.png) #fff no-repeat;
     float: right;
     background-size: 12px;
     background-position: 55px 7px;
+    cursor: pointer;
+    
 }
- .listitem{
+#buyNow{
+    position: absolute;
+    left: 500px;
+    top: 350px;
+    background: black;
+    width: 330px;
+    height: 42px;
+    line-height: 42px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;    
+}
+
+
+/* 商品列表 */
+.listitem{
+     margin-top:150px;
      position: relative;
      width: 1000px;
      margin:0 auto;
 
  }
+
+
+ /* 购物车部分 */
+.wrap-mycart{
+    width: 1000px;
+    margin:0 auto;
+    margin-top:150px;
+}
+.wrap-mycart h1{
+    font-size: 25px;
+    color: #333;
+}
+.mycart{
+    width: 1000px;
+    margin:0 auto;
+    vertical-align: middle;
+    text-align: center;
+}
+.mycart tr{
+    margin:10px 0;
+    border: 1px solid #ccc;
+    height:auto;
+}
+.mycart .simple{
+    padding-left: 100px;
+}
+.mycart .simple span{
+    margin-top:20px;
+    line-height: 20px;
+    float:left;
+    width: 200px;
+}
+.mycart img{
+    width: 70px;
+    float:left;
+}
+.mycart input[type="text"]{
+    width: 20px;
+}
+.red{
+    color:red;
+    font-size:10px;
+}
+.ready{
+    float: right;
+
+}
+.goPay{
+    display: block;
+    padding:5px 10px;
+    background-color: red;
+    color:#fff;
+    width: 50px;
+}

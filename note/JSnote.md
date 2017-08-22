@@ -45,7 +45,9 @@ localStorage.getItem("token");
 ### Cookies
 
 ## 解码
-udecode
+decodeURI(goodsId[1]) URI解码
+
+## URL:  协议：//IP：端口/path（路径）/文件夹/文件？查询的参数#a
 
 
 
