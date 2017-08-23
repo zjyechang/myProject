@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
-    <title>购物车</title>
+    <title>用户地址</title>
 </head>
 <body>
 
@@ -83,40 +83,58 @@
     </div>
 
 
+    <!-- 购买与用户地址 -->
+    <div class="cart-head">
+
+    
+        <div class="usemessage">
+            <form action="get">
+                <h1>新建收货地址</h1>
+                <p class="wrapitem">
+                    <label for="getname"> 收件人姓名</label> :
+                    <input type="text" name="getname">
+                </p>
+                <p class="wrapitem">
+                    <label for="getprovince"> 省份</label> :
+                    <input type="text" name="getprovince">
+                </p>
+                <p class="wrapitem">
+                    <label for="getcity"> 市区 </label> :
+                    <input type="text" name="getcity">
+                </p>
+                <p class="wrapitem">
+                    <label for="getdaddress"> 详细地址</label> :
+                    <input type="text" name="getdaddress">
+                </p>
+                <p class="wrapitem">
+                    <label for="getzipcode"> 邮编</label> :                       
+                    <input type="text" name="getzipcode">
+                </p>            
+                <p class="wrapitem">
+                    <label for="getphone"> 手机</label> :
+                    <input type="text" nmae="getphone">
+                </p class="wrapitem">
+                <p><input type="button" value="提交" class="submit"></p>
+            </form>
+            
+        </div>
+        <div class="chooseAddresss">
+            <h4>选择收货地址</h4>
+            <ul class="addressli">
+
+            </ul>
+        </div>
 
 
-   <!-- 我的购物车 -->
-   <div class="wrap-mycart">
-       <h1>我的购物车</h1>
-       <table class="mycart">    
-            <tr>
-                 <td>
-                   <input type="checkbox" name="selectAll"><label for="selectAll">全选</label>
-                </td>
-                <td>商品信息</td>
-                <td>单价（元）</td>
-                <td>数量</td>
-                <td>金额（元）</td>
-                <td>操作</td>
-            </tr>
-
-   
-
-       </table>
-       <div class="shop">
-            <input type="button" value="删除选中项" class="delSelect">
-            <div class="ready">
-                <p>已选商品 <span class="red num"> 0</span>件，总价（不含运费）: <span class="red all"> ￥0</span></p>
-                <a href="" class="goPay">去结算</a>
-            </div>
-       </div>
-       
-   </div>
+        <a class="newAddress" href="javascript:;">新增地址</a>
+    
+    </div>
 
 
 
 
 
+    
     <!-- 底部 -->
     <div class="serve">
         <a href="#"><p class="hand"></p></a>
@@ -208,140 +226,55 @@
     <script>
     $(function(){
 
-        var price = [];
-        
-        $.ajax({
-            "type": "GET",
-            "url": "http://h6.duchengjiu.top/shop/api_cart.php?token="+localStorage.token,
-            "dataType": "json",
-            "data": {
+        function addressAjax(){
 
-            },
-            "success": function(response){
-                console.log(response);
-                // 判断购物车有没有商品
-                if(response.data.length>0){
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_useraddress.php",
+                "type": "GET",
+                "dataType": "json",
+                "succcess": function(response){
+                    // console.log(response);
+
+                    var address = "";
                     for(var i=0;i<response.data.length;i++){
                         var obj = response.data[i];
-                        price[i] = obj.good_price;
-                        var sumprice;
-                        var html = `<tr>
-                                        <td>
-                                            <input type="checkbox" class="goodcheck">
-                                        </td>
-                                        <td class="simple">
-                                            <img src="${obj.goods_thumb}" alt="">
-                                            <span>${obj.goods_name}</span>
-                                        </td>
-                                        <td><strong>
-                                            <span class="goodpri">${obj.goods_price}</span>
-                                        </strong></td>
-                                        <td>
-                                            <input type="button" class="leftbtn" value="-">
-                                            <input type="text" name="goodnum" class="goodnum" value=${obj.goods_number}>
-                                            <input type="button"class="rightbtn" value="+">
+                        htmlData+='<li class="address-item" data-id="' +obj.address_id+ '">收货人：'
+								+obj.address_name 
+								+'  省份：'+obj.province 
+								+'  市：'+obj.city 
+								+'  地区：'+obj.district 
+								+'  街道：'+obj.address 
+								+'  手机号：'+obj.mobile 
+								+'</li>';
+                    }
+                    $(".addressli").append(htmlData)
+                }
+            })
+        }
 
-                                        </td>
-                                        <td>
-                                            <span class="sumPrice"> ${obj.goods_price*obj.goods_number} </span>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:;"class="delete">删除</a>
-                                        </td>
-                                    </tr>`;
-                                $(".mycart").html($(".mycart").html()+html);
+        $(".newAddress").click(function(){
+            })
 
-                                                        
-                                
+        $(".submit").click(function(){
+            var data = $("form").serialize();
+            // console.log(data);
+
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_useraddress.php?token="+location.token,
+                "type": "POST",
+                "datatype": "json",
+                "data": data,
+                "success": function(response){
+                    if(response.code == 1){
+                        $("#add").hide();
+                        addressAjax();
                     }
                 }
-                // 商品加减部分
-                var $goodnum =  $("input.goodnum");
-
-                    // 价格变动
-                    function changePrice(){
-                        var sumnum = 0;
-                        var sumall = 0;
-                        $goodnum.each(function(i){
-                            sumnum += 1*$(this).val();
-                            sumall += 1*$(this).val()*$(".goodpri").eq(i).text();
-                        })
-                        $(".red.num").text(sumnum);
-                        $(".red.all").text("￥"+sumall);
-                    }
-                    changePrice();
-                
-                // 数量增减
-                    $(".leftbtn").each(
-                    function(i){
-                        $(this).click(function(){
-                            var idx = i;
-                            updateCart(i,-1);
-                            
-                        })
-                    })
-
-                    $(".rightbtn").each(
-                    function(i){
-                        $(this).click(function(){
-                            var idx = i;
-                            updateCart(i,1);
-                            
-                        })
-                    })
-                    
-                   
-                    function updateCart(idx,x){
-                        var good_num_value = $goodnum.eq(idx).val();
-                        good_num_value = 1*good_num_value+1*x;
-
-                        if( good_num_value <1)  good_num_value =1;
-                        if( good_num_value >10)  good_num_value =10;
-
-                        $goodnum.eq(idx).val(good_num_value);
-                       
-                        var goodsum = good_num_value*$(".goodpri").eq(idx).text()
-                        $("span.sumPrice").eq(idx).text(goodsum);
-
-
-                        changePrice();
-                }
-
-
-                // 删除商品
-                $(".delete").each(function(){
-                    $(this).click(function(){
-                        $(this).parent().parent().parent().remove();
-                    })
-                })
-                // 删除选中项
-                $(".delSelect").click(function(){
-                    $(".goodcheck").each(function(){
-                        if($(this).prop("checked")){
-                            $(this).parent().parent().parent().remove();
-                        };
-                    }) 
-                })
-                // 全选
-                $("input[name='selectAll']").click(function(){
-                    var checked = $(this).prop("checked");
-                    $(".goodcheck").each(function(){
-                        $(this).prop("checked",checked);
-                    }) 
-                })
-            }
-
+            })
         })
 
-
-
-
-
+        
     })
-
-
-
-    
     </script>
 </body>
 </html>

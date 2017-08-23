@@ -11,6 +11,12 @@ a{
     color: #333;
     font-size: 12px;
 }
+input{
+    outline: none;
+}
+input:focus::placeholder{
+    color : transparent;
+}
 .ahover a,.ahover{
     color:#5c5c5c;
     transition: all 0.3s;    
@@ -753,8 +759,11 @@ a{
     margin-top:150px;
 }
 .wrap-mycart h1{
+    width: 1000px;
+    margin:20px auto;
     font-size: 25px;
-    color: #333;
+    text-align: center;
+    color: #666;
 }
 .mycart{
     width: 1000px;
@@ -785,16 +794,76 @@ a{
 }
 .red{
     color:red;
-    font-size:10px;
+    font-size:14px;
+    font-style: blod;
 }
 .ready{
     float: right;
-
+    height:30px;
 }
 .goPay{
-    display: block;
-    padding:5px 10px;
+    margin-top:10px;
+    padding:8px 13px;
     background-color: red;
+    font: 16px;
     color:#fff;
-    width: 50px;
+    float: right;
+}
+.sumPrice{
+    color:#f00;
+    font-weight: 700;
+}
+
+
+/* 用户地址样式 */
+.cart-head{
+    width: 1000px;
+    height:auto;
+    margin:150px auto 0;
+}
+.cart-head h1{
+    width: 100%;
+    text-align: center;
+}
+.cart-head form{
+    width: 400px;
+    height:auto;
+    margin:150px auto 0;
+    position: fixed;
+}
+.wrapitem{
+    margin:10px 0;
+    width: 400px;
+    height: 45px;
+    border:1px solid #ccc;
+}
+.wrapitem label{
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+    padding-left: 15px;
+    line-height: 50px;
+    text-align-last: justify;
+    font-size: 15px;
+    color:#333;
+
+}
+.wrapitem input[type="text"]{
+    height: 35px;
+    border: 0;
+    padding-left:35px;
+    font-size: 15px;
+}
+
+.usemessage .submit{
+    border-radius: 4px;
+    width: 300px;
+    height: 50px;
+    border: 0;
+    background: #25292e;
+    font-size: 18px;
+    color: #ffffff;
+    display:block;
+    margin:40px auto;
+    cursor: pointer;
 }

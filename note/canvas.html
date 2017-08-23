@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>贪吃蛇</title>
+    <style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    #canvas{
+        display: block;
+        margin:10px auto;
+        border:1px solid #ccc;
+    }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="500px">???</canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+
+        // 画笔
+        var pen = canvas.getContext("2d");
+
+        pen.shadowBlur = 20;
+        pen.shadowColor = "#000";
+        //         创建蛇身
+        // var r=[{x:10,y:9},{x:10,y:8},{x:10,y:7},{x:10,y:6}];
+                // 画矩形,x,y,w,h
+        // pen.fillRect(20,30,10,10);
+        // r[0].x = r[1].x
+        // for(var i=0 ;i<r.length;i++){
+        //     pen.fillRect(r[i].x,r[i].y,10,10)
+        // }
+
+        // 移动部分
+        function Snake(){
+            this.body = [
+                {x : 5,y : 4},
+                {x : 4,y : 4},
+                {x : 3,y : 4},
+                ]
+            this.food = [{x:parseInt(Math.random()*50) , y:parseInt(Math.random()*50) }];
+            this.diraction = 39;
+            this.lock = true;
+
+            this.render();
+            this.move();
+        }
+            // 渲染
+        Snake.prototype.render = function(){
+            pen.clearRect(0,0,canvas.width,canvas.height);
+            
+            for(var i=0 ;i<this.body.length;i++){
+                pen.fillRect(this.body[i].x*10,this.body[i].y*10,10,10)
+            }
+
+            pen.fillRect(this.food[0].y*10,this.food[0].x*10,10,10)
+        }
+
+        Snake.prototype.move = function(){
+             var self = this;
+            document.onkeydown = function(event){
+                event = event || window.event;
+                var keyCode = event.keyCode;
+                self.x= self.body[0].x;
+                self.y= self.body[0].y;
+                
+                clearInterval(self.timer);
+
+                    // 函数节流
+                    if(self.lock){
+                        switch(keyCode){
+                            case 37:
+                                if(self.diraction == 39){
+                                    // return;
+                                    self.diraction = 39;
+                                }else{
+                                    self.diraction = 37;
+                                }
+                            break;
+                            case 38:
+                                if(self.diraction == 40){
+                                    // return;                            
+                                    self.diraction = 40;
+                                }else{
+                                    self.diraction = 38;
+                                }
+                            break;
+                            case 39:
+                                if(self.diraction == 37){
+                                    // return;                            
+                                    self.diraction = 37;
+                                    break;
+                                }else{                           
+                                    self.diraction = 39;
+                                }
+                            break;
+                            case 40:
+                            if(self.diraction == 38){
+                                    // return;                           
+                                    self.diraction = 38;                           
+                                    break;
+                                }else{
+                                    self.diraction = 40;
+                                }
+                            break; 
+                        }
+                        
+                    };
+                    self.lock = false;
+                    setTimeout(function(){
+                        self.lock =true;                        
+                    },100)
+
+                    self.auto();
+                    self.render();
+                    return false;
+            }
+        }
+
+
+
+        Snake.prototype.auto = function(){
+                var self = this;
+            this.timer = setInterval(function(){
+
+                // 食物生成与吃食物长大部分
+            if (self.food.length == 0){
+                self.food = [{y:parseInt(Math.random()*50) , x:parseInt(Math.random()*50) }];
+                // 食物与身体重合再次随机
+                for(var i =0 ;i<self.body.length ;i++){
+                    if(self.food[0].y == self.body[i].y && self.food[0].x == self.body[i].x){
+                        return self.auto();
+                    }
+                }
+                pen.fillRect(self.food[0].x*10,self.food[0].y*10,10,10)
+            }
+            // console.log(self.body[0].x,self.body[0].y);
+            // console.log(self.food[0].x,self.food[0].y)
+             
+            if( (self.body[0].x == self.food[0].y)   &&  (self.food[0].y == self.body[0].x) ){
+                self.body.push(self.food[0]);
+                self.food = [];
+            }
+            
+            
+
+                switch(self.diraction){
+                    case 37:
+                        self.body.pop();
+                            self.x --;
+                    break;
+                    case 38:
+                        self.body.pop();                    
+                            self.y --;
+                    break;
+                    case 39:
+                        self.body.pop();                    
+                            self.x ++;                            
+                    break;
+                    case 40:
+                        self.body.pop();                    
+                            self.y ++;
+                    break;
+                }
+                self.body.unshift( {x : self.x, y : self.y} );
+                
+                if(self.x<0 || self.x>50 || self.y<0 || self.y>50){
+                    clearInterval(self.timer);
+                    alert("游戏结束，你的得分为"+(self.body.length-3));
+                    return;
+                }
+                for (var i = 1; i<self.body.length ;i++){
+                    if(self.body[i].x == self.body[0].x && self.body[i].y == self.body[0].y){
+                         clearInterval(self.timer);
+                        alert("游戏结束，你的得分为"+(self.body.length-3));
+                        return;
+                    }
+                }
+                self.render();
+            },100)
+        }
+        
+        var snake = new Snake(); 
+    </script>
+</body>
+</html>
