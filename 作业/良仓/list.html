@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./img/head.jpg" type="image/x-icon"/>    
     <title>商品列表</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
                 </li>
                 <li class="line"></li>                
                 <li class="cart">
-                    <a href="#" class="ahover">购物车</a>
+                    <a href="javascript:;" class="ahover">购物车</a>
                     <div class="shoppingCart">
                         你的购物车暂时没有商品
                         <a href="#">快去抢购良仓商品吧</a>
@@ -83,12 +84,23 @@
     </div>
 
 
-    <!-- 商品详情 -->
-    <div class="listitem clearfix">
 
+
+    <!-- 商品详情 -->
+    <div class="wrap-listitem">
+        <div class="listitem clearfix">
+    
+        </div>
+
+        <div class="bottom-page">
+            <input type="button" class="proPage" value="上一页">
+            <div class="wrap-page">
+                <div class="page clearfix"> </div>
+            </div>
+            <input type="button" class="nextPage" value="下一页">
+        </div>
 
     </div>
-
 
 
 
@@ -179,45 +191,11 @@
         <div class="contactIcon"></div>
             联系客服
     </div>
-    <script src="./jquery-1.12.3.min.js"></script>
-    <script src="./main.js"></script>
-    <script>
 
 
-        var $listitem = $(".listitem");
-    var str = location.search.substr(1)
-    var cat_id = str.split("=");
-    console.log(cat_id[1])
     
-    $.ajax({
-        "url":"http://h6.duchengjiu.top/shop/api_goods.php",
-        "type": "GET",
-        "data": {
-            "cat_id":cat_id[1],
-        },
-        "datatype": "json",
-        "success":function(response){
-            var obj = response;
-            var html = "";
-
-            for(var i=0;i<response.data.length;i++){
-                html += "<div class='itemlist'><img src='"+
-                response.data[i].goods_thumb+
-                "'><a href='detail.html?goods_id="+
-                response.data[i].goods_id+
-                "' class='goods'><p class='price'>￥"+
-                response.data[i].price+
-                "</p><p class='goodsname'>"+
-                response.data[i].goods_name+
-                "</p><p class='goodsdesc'>"+
-                response.data[i].goods_desc+            
-                "</p></a><div class='seller'><img src='./img/55.jpg'><span>XXXX</span><a href='javascript:;' class='great'>1180</a></div></div>";
-
-        }
-        $listitem.html(html);
-        }
-
-    })
-    </script>
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/list.js"></script>
 </body>
 </html>

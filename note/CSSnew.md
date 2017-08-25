@@ -47,3 +47,124 @@ text-decoration:line-through
 　　注：建议不要使用em作为中文站点的文字单位，会导致文字变形十分严重的。  
 ##  letter-spacing 英文的字母间距 可以为负数
 ##  word-spacing 英文单词间距 可以为负数
+
+## 1.1.1.1. option
+
+属性
+
+    selected    设置为默认选中项
+
+    disabled    设置为不可选中项
+
+规范
+
+    无论对于下拉里列表，还是滚动列表，最好设置一个selected
+
+### 1.1.2. datalist
+
+datalist vs select
+
+datalist 必须与input结合使用,input的list属性值，需要是datalist的id
+
+```html
+datalist
+<input list="data" name="city1" type="text">
+<datalist id="data">
+    <option value="beijing">
+    <option value="shanghai">
+    <option value="nanjing">
+</datalist>
+
+select
+<select name="city2">
+    <option value="bj">北京</option>
+    <option value="hz">杭州</option>
+    <option value="nj">南京</option>
+</select>
+
+# font
+    text-indent:32px;
+    <!-- 首行缩进 -->
+    text-shadow: 3px 5px 1px #888;
+    /*
+        x-offset
+        y-offset
+        blur
+        color
+    */
+
+    /*对于文字过长，显示省略号效果，必须先设置容器高宽*/
+    white-space:nowrap;
+    /*
+        文本过长，是否换行
+        normal 默认换行
+        nowrap 不换行
+    */
+
+    overflow: hidden;
+    /*
+        超出隐藏
+    */
+    text-overflow: ellipsis;
+    /*
+        文字超出隐藏
+        clip 默认，裁剪
+        ellipsis 省略号显示
+    */
+
+#、基本概念
+
+1.  基线、底线、顶线、中线[Css精通]深入理解CSS中的行高与基线 
+
+注意：基线（base line）并不是汉字文字的下端沿，而是英文字母“x”的下端沿。
+
+2. 内容区
+内容区
+
+内容区是指底线和顶线包裹的区域（行内元素display：inline可以通过background-color属性显示出来），实际中不一定看得到，但确实存在。内容区的大小依据font-size的值和字数进行变化。
+
+3. 行距、行高
+行距和行高
+
+行高（line-height）：包括内容区与以内容区为基础对称拓展的空白区域，我们称之为行高。一般情况下，也可以认为是相邻文本行基线间的距离。
+
+行距：指相邻文本行间上一个文本行基线和下一文本行顶线之间的距离。当然，我更愿意认为是（上文本行行高-内容区高度）/2+（下文本行行高-内容区高度）/2。
+
+4. 行内框
+行内框
+行内框是一个浏览器渲染模型中的一个概念，无法显示出来，但是它又确实存在，它的高度就是行高指定的高度。
+
+5. 行框
+行框
+
+行框（line box），同行内框类似的概念，行框是指本行的一个虚拟的矩形框，也是浏览器渲染模式中的一个概念。行框高度等于本行内所有元素中行内框最大的值（以行高值最大的行内框为基准，其他行内框采用自己的对齐方式向基准对齐，最终计算行框的高度）。
+
+
+
+Vertical-align:垂直居中
+上一节我们讲解了行高与单行纯文字的垂直居中（line-height），而如果行内含有图片和文字，在浏览器渲染出来后，读者可以发现文字和图片在垂直方向并不是沿中线居中，而是沿基线对齐。这是因为，元素默认的垂直对齐方式为基线对齐（vertical-align: baseline）。
+
+
+CSS语法：vertical-align
+语法：
+baseline | sub | super | top | text-top | middle | bottom | text-bottom | <百分比> | <长度> | inherit
+说明：
+设置元素内容的垂直对齐方式。
+参数：
+baseline： 基线对齐；
+sub： 下标显示；
+super： 上标显示；
+top： 顶端对齐；
+text-top： 文本的顶端对齐；
+middle： 中部对齐；  //没有研究透的属性
+bottom： 底端对齐；
+text-bottom：   文本的底端对齐；
+百分比和长度： CSS2，可为负数。
+初始值：baseline
+继承性：不继承
+ 此处需要特别注意的是：垂直对齐属性只对文本有效（是指包含了#Text节点的元素节点才能正确地处理vertical-align属性）。同时，该属性不能继承。
+
+
+属性值详解
+在上面一节中，介绍了文本的基线、顶线、中线和底线，还有内容区、行内框和行框，而本节的垂直对齐和这几个概念密切相关。
+

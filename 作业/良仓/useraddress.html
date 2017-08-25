@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style.css">
-    <title>用户地址</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./img/head.jpg" type="image/x-icon"/>    
+    <title>支付</title>
 </head>
 <body>
 
@@ -20,7 +21,7 @@
                 </li>
                 <li class="line"></li>                
                 <li class="cart">
-                    <a href="#" class="ahover">购物车</a>
+                    <a href="mycart.html" class="ahover">购物车</a>
                     <div class="shoppingCart">
                         你的购物车暂时没有商品
                         <a href="#">快去抢购良仓商品吧</a>
@@ -88,31 +89,32 @@
 
     
         <div class="usemessage">
-            <form action="get">
+            <form action="get" class="addAddress">
                 <h1>新建收货地址</h1>
+                <<div class="close">X</div>
                 <p class="wrapitem">
-                    <label for="getname"> 收件人姓名</label> :
-                    <input type="text" name="getname">
+                    <label for="address_name"> 收件人姓名</label> :
+                    <input type="text" name="address_name">
                 </p>
                 <p class="wrapitem">
-                    <label for="getprovince"> 省份</label> :
-                    <input type="text" name="getprovince">
+                    <label for="province"> 省份</label> :
+                    <input type="text" name="province">
                 </p>
                 <p class="wrapitem">
-                    <label for="getcity"> 市区 </label> :
-                    <input type="text" name="getcity">
+                    <label for="city"> 市区 </label> :
+                    <input type="text" name="city">
                 </p>
                 <p class="wrapitem">
-                    <label for="getdaddress"> 详细地址</label> :
-                    <input type="text" name="getdaddress">
+                    <label for="address"> 详细地址</label> :
+                    <input type="text" name="address">
                 </p>
                 <p class="wrapitem">
-                    <label for="getzipcode"> 邮编</label> :                       
-                    <input type="text" name="getzipcode">
+                    <label for="zipcode"> 邮编</label> :                       
+                    <input type="text" name="zipcode">
                 </p>            
                 <p class="wrapitem">
-                    <label for="getphone"> 手机</label> :
-                    <input type="text" nmae="getphone">
+                    <label for="mobile"> 手机</label> :
+                    <input type="text" nmae="mobile">
                 </p class="wrapitem">
                 <p><input type="button" value="提交" class="submit"></p>
             </form>
@@ -120,14 +122,15 @@
         </div>
         <div class="chooseAddresss">
             <h4>选择收货地址</h4>
-            <ul class="addressli">
+            <ul class="addressli clearfix">
 
             </ul>
         </div>
 
 
         <a class="newAddress" href="javascript:;">新增地址</a>
-    
+        <p id="sumPrice"></p>
+        <input type="button" value="购买" id="order">
     </div>
 
 
@@ -221,60 +224,11 @@
         <div class="contactIcon"></div>
             联系客服
     </div>
-    <script src="./jquery-1.12.3.min.js"></script>
-    <script src="./main.js"></script>
-    <script>
-    $(function(){
 
-        function addressAjax(){
 
-            $.ajax({
-                "url": "http://h6.duchengjiu.top/shop/api_useraddress.php",
-                "type": "GET",
-                "dataType": "json",
-                "succcess": function(response){
-                    // console.log(response);
-
-                    var address = "";
-                    for(var i=0;i<response.data.length;i++){
-                        var obj = response.data[i];
-                        htmlData+='<li class="address-item" data-id="' +obj.address_id+ '">收货人：'
-								+obj.address_name 
-								+'  省份：'+obj.province 
-								+'  市：'+obj.city 
-								+'  地区：'+obj.district 
-								+'  街道：'+obj.address 
-								+'  手机号：'+obj.mobile 
-								+'</li>';
-                    }
-                    $(".addressli").append(htmlData)
-                }
-            })
-        }
-
-        $(".newAddress").click(function(){
-            })
-
-        $(".submit").click(function(){
-            var data = $("form").serialize();
-            // console.log(data);
-
-            $.ajax({
-                "url": "http://h6.duchengjiu.top/shop/api_useraddress.php?token="+location.token,
-                "type": "POST",
-                "datatype": "json",
-                "data": data,
-                "success": function(response){
-                    if(response.code == 1){
-                        $("#add").hide();
-                        addressAjax();
-                    }
-                }
-            })
-        })
-
-        
-    })
-    </script>
+    
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/useraddress.js"></script>
 </body>
 </html>
