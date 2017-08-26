@@ -60,29 +60,37 @@ $(function(){
                     var sumnum = 0;
                     var sumall = 0;
                     $goodnum.each(function(i){
-                        sumnum += 1*$(this).val();
-                        sumall += 1*$(this).val()*$(".goodpri").eq(i).text();
+                        var idx = i;
+                        if($(this).parent().parent().find(".goodcheck").prop("checked")){
+                            sumnum += 1*$(this).val();
+                            sumall += 1*$(this).val()*$(".goodpri").eq(idx).text();
+                        }
                     })
                     $(".red.num").text(sumnum);
                     $(".red.all").text("￥"+sumall);
                 }
                 changePrice();
             
+                // checkedbox点击改变价格
+                $(".goodcheck").click(function(){
+                    changePrice();
+                });
+
             // 数量增减
                 $(".leftbtn").each(
                 function(i){
+                    var idx = i;
                     $(this).click(function(){
-                        var idx = i;
-                        updateCart(i,-1);
+                        updateCart(idx,-1);
                         
                     })
                 })
 
                 $(".rightbtn").each(
                 function(i){
+                    var idx = i;
                     $(this).click(function(){
-                        var idx = i;
-                        updateCart(i,1);
+                        updateCart(idx,1);
                         
                     })
                 })
@@ -159,8 +167,6 @@ $(function(){
 
 
             // 获取金额
-            var str = location.search;
-            var sum = str.split("=");
 
             $(".goPay").click(function(){
                 var sum = $(".red.all").text();

@@ -46,12 +46,5 @@ $.ajax({
     }
     }, 1000);
 
-    $(".hand").mouseenter(function(){
- 
-        $(".hand").animate({"left":-15},400);
-        $(".hand").animate({"left":0},400);
-        $(".hand").animate({"left":-13},300);
-        $(".hand").animate({"left":0},300);
-        
-    })
+  
 })

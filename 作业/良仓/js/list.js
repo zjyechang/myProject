@@ -6,35 +6,7 @@ var str = location.search.substr(1)
 
 var page = 1;
 changePage(page);
-$(".proPage").click(function(){
-    page--;
-    if(page<=1){
-        page = 1;
-        $(this).hide();
-    }else{
-        $(this).show();               
-    }
-    if(page<6){
-        $(".page").css("marginLeft",0);
-    }else if(page>=6){
-        $(".page").css("marginLeft",-50*(page-6));                
-    }
-    changePage(page);
-})
 
-$(".nextPage").click(function(){
-    page++;
-    if(page<=1){
-        page = 1;
-        $(this).hide();
-    }else{
-        $(this).show();               
-    }
-    if(page>6){
-        $(".page").css("marginLeft",-50*(page-6));
-    }
-    changePage(page);
-})
 
 
   
@@ -76,14 +48,69 @@ $.ajax({
         }
         $(".bottom-page .page").html(pagehtml);
 
+        $(".proPage").hide();
+        
         $(".bottom-page .page").find("a").each(function(idx){
             $(this).click(function(){
                 page = $(this)[0].innerText;
+                // 上一页下一页显示隐藏
+                if(page<=1){
+                    $(".proPage").hide();
+                }else{
+                    $(".proPage").show();               
+                }
+
+                if(page>=response.page.page_count){
+                    $(".nextPage").hide();
+                }else{
+                    $(".nextPage").show();
+                }
+                // 页码移动
+                if(page<6){
+                    $(".page").css("marginLeft",0);
+                }else if(page>=6){
+                    $(".page").css("marginLeft",-30*(page-6));                
+                }else if(page>=response.page.page_count-6 && page >6){
+                    $(".page").css("marginLeft",-30*(response.page.page_count-6));                
+                }
                 changePage(page);
             })
         })
 
-    }
+
+        $(".proPage").click(function(){
+            page--;
+            if(page<=1){
+                page = 1;
+                $(this).hide();
+            }else{
+                $(this).show();               
+            }
+            if(page<6){
+                $(".page").css("marginLeft",0);
+            }else if(page>=6){
+                $(".page").css("marginLeft",-30*(page-6));                
+            }
+            changePage(page);
+        })
+        
+        $(".nextPage").click(function(){
+            page++;
+            if(page>=response.page.page_count){
+                page = response.page.page_count;
+                $(this).hide();
+            }else{
+                $(this).show();
+            }
+            if(page>=6){
+                $(".page").css("marginLeft",-30*(page-6));
+            }else if(page>=response.page.page_count-6 && page >6){
+                $(".page").css("marginLeft",-30*(response.page.page_count-6));                
+            }
+            changePage(page);
+        })
+
+    }//succcess括号
 
 })//ajax结束括号
 }//函数changePage括号

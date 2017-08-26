@@ -196,12 +196,12 @@ var flag = true;
         }
     })
     
-$(".toptab li").mouseenter(function(){
-    $(this).find(".item").stop(true).show();
-})
-$(".toptab li").mouseleave(function(){
-    $(this).find(".item").stop(true).slideUp(500);
-})
+    $(".toptab li").mouseenter(function(){
+        $(this).find(".item").stop(true).slideDown(1);
+    })
+    $(".toptab li").mouseleave(function(){
+        $(this).find(".item").stop(true).slideUp(500);
+    })
 
 
 
@@ -216,3 +216,12 @@ $(".toptab li").mouseleave(function(){
         }
     })
 
+    //手运动
+    $(".hand").mouseenter(function(){
+        
+        $(".hand").animate({"left":-15},400);
+        $(".hand").animate({"left":0},400);
+        $(".hand").animate({"left":-13},300);
+        $(".hand").animate({"left":0},300);
+        
+    })

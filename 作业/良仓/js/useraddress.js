@@ -16,7 +16,7 @@ $(function(){
                 var htmlData = "";
                 for(var i=0;i<response.data.length;i++){
                     var obj = response.data[i];
-                    htmlData+='<li class="address-item" addressId="' +obj.address_id+ '"><p>收货人：'
+                    htmlData +='<li class="address-item" addressId="' +obj.address_id+ '"><p>收货人：'
                             +obj.address_name 
                             +'</p><p>  省份：'+obj.province 
                             +'</p><p>  市：'+obj.city 
@@ -25,14 +25,16 @@ $(function(){
                             +'</p><p>  手机号：'+obj.mobile 
                             +'</p><a href="javascript:;" class="remove">删除地址</a></li>';
                 }
-                $(".addressli").append(htmlData);
+                $(".addressli").html(htmlData);
 
                    // 删除地址
                 $(".remove").click(function(){
-                    // ajax更改
-                    removeAjax($(this).parent());
-                    
-                    $(this).parent().remove();
+                    if(confirm("是否删除此地址?")){
+                        // ajax更改
+                        removeAjax($(this).parent());
+                        
+                        $(this).parent().remove();
+                    }
                 })
 
 
@@ -86,7 +88,6 @@ $(function(){
             "datatype": "json",
             "success": function(response){
                 // console.log(response);
-
             },
         })
     }
@@ -112,7 +113,7 @@ $("#order").click(function(){
     }
     // 订单ajax
     $.ajax({
-        "url": "http://h6.duchengjiu.top/shop/api_useraddress.php?token="+localStorage.token+"&status=add",
+        "url": "http://h6.duchengjiu.top/shop/api_order.php?token="+localStorage.token+"&status=add",
         "type": "POST",
         "dataType": "json",
         "data": {
