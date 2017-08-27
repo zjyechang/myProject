@@ -22,8 +22,8 @@ $(function(){
                         goods.subtotal = goods.goods_price * goods.goods_number;
                         
                         html += "<div class='data-li' data-id='"+goods.goods_id+"'><img src='"+goods.goods_thumb+"'/>商品名称"+goods.goods_name+"商品总金额:"+goods.subtotal+"</div>"
-                    }                   
-                    html+="</div>";
+                    }            
+                    html+=" <p><input type='button' value='提交此订单'></p></div>";
                 }
                 $(".order-list").html(html);
             }
