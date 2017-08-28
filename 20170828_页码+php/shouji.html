@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="请输入手机号" id="mobile">
+    <input type="button" value="验证" id="btn">
+    <div id="oDiv">
+    
+</div>
+<script>
+    var oMobile = document.getElementById("mobile");
+    var btn = document.getElementById("btn");
+    var oDiv = document.getElementById("oDiv");
+
+    btn.onclick = function(){
+        var str = oMobile.value;
+
+    
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            if(xhr.status ==0){
+                var obj = JSON.parse(xhr.responseText);
+
+                oDiv.innerHTML = "<p>地区是:"+obj.areaName+"</p><p>厂商是:" +obj.providerName+"</p>"  ;
+
+                // oDiv.innerHTML = "<p>"+obj.areaName+"</p>";
+                
+            }
+        }
+    }
+    xhr.open("GET","api.php?str="+str,true);
+    xhr.send(null);
+    }
+</script>
+</body>
+</html>

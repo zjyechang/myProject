@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ccc;
+		}
+		.content{
+			background-color: white;
+			width: 1100px;
+			margin: 0 auto;
+			font-size: 12px;
+			padding: 20px;
+		}
+		.content .jobtable{
+			position: relative;
+		}
+		.content .row{
+			overflow: hidden;
+			line-height: 40px;
+			position: relative;
+		}
+		.content .hd{
+			font-weight: bold;
+		}
+		.content .row .cols{
+			overflow: hidden;
+			position: relative;
+			border-bottom: 1px solid #ccc;
+		}
+		.content .row .col{
+			float: left;
+		}
+		.content .row .col1{
+			width: 30%;
+		}
+		.content .row .col2{
+			width: 15%;
+		}
+		.content .row .col3{
+			width: 20%;
+		}
+		.content .row .col4{
+			width: 20%;
+		}
+		.content .row .col3{
+			width: 15%;
+		}
+		.content .info{
+			overflow: hidden;
+			font-size: 16px;
+			line-height: 32px;
+		}
+		.content .info h3{
+			float: left;
+		}
+		.content .info p{
+			float: right;
+		}
+		.content .row_btn{
+			position: absolute;
+			width: 21px;
+			height: 10px;
+			background-color: red;
+			right: 10px;
+			top: 50%;
+			margin-top: -5px;
+			background: url(images/banner-icon.png)  -28px -146px;
+			cursor: pointer;
+		}
+		 .row_btn.up{
+			background-position: -2px -145px;
+		}
+		 .detail{
+			display: none;
+			border-bottom: 1px solid #ccc;
+		}
+		.pageNav{
+			margin-top: 10px;
+			width: 259px;
+			margin: 20px auto;
+		}
+		.pageNav ul{
+			list-style: none;
+			overflow: hidden;
+		}
+		.pageNav ul li{
+			float: left;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			margin-right: 5px;
+			cursor: pointer;
+			border: 1px solid #ccc;
+			background: orange;
+		}
+		.pageNav ul li.cur{
+			background-color: yellowgreen;
+		}
+		.mask{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background:url(images/busy.gif) no-repeat center center;
+			z-index: 999;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="content"></div>
+		<div class="pageNav">
+			<ul>
+				<li class="cur"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<script src="../JS框架/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+        var pageNum = 4;
+        var maxPage = 9;
+        clickPage();
+        showData();
+
+        function showData(){
+            $.get("JSON/getPostList"+pageNum,function(response){
+                var obj = JSON.parse(response);
+
+                var html = "";
+                for(var i=0;i<obj.postList.length;i++){
+                    var item = obj.postList[i];
+                    html += `<div class="row">
+								<div class="cols">
+									<div class="col col1"><a href='javascript:;'>${item.name}</a></div>
+									<div class="col col2">${item.postType}</div>
+									<div class="col col3">${item.workPlace}</div>
+									<div class="col col4">${item.recruitNum}</div>
+									<div class="col col5">${item.publishDate}</div>
+									<div class="row_btn"></div>
+								</div>
+								<div class="detail">
+									<div className="serviceCondition">
+										<h5>入职资格： </h5>
+										${item.serviceCondition}</div> 
+									<div className="workContent">
+										<h5>工作内容： </h5>
+										${item.workContent}</div>
+								</div>
+							</div>`
+                $(".content").html(html);
+
+                $(".row").click(function(){
+                    $(this).children(".detail").stop(true).slideToggle;
+                    
+                })
+                }
+            })
+        }
+
+        function clickPaging(){
+
+            
+        }
+		</script>
+	</body>
+</html>
