@@ -12,7 +12,12 @@
 # java 是强类型语言
 # 弱类型： 在赋值时没有强制赋值类型
 # 动态类型：变量可以改变类型
-
+# 连接数据库 路径，账号，密码
+## 选择一个数据库
+## 设置一下字符集 utf-8
+## 发送一条sql请求
+## 处理数据
+## 关闭数据
 
 检查手机号的api
 http://chongzhi.jd.com/json/order/search_searchPhone.action?mobile=
@@ -21,6 +26,8 @@ http://chongzhi.jd.com/json/order/search_searchPhone.action?mobile=
 $_SERVER
 $_GET
 $_POST
+
+# 连接数据库
 
 # 连字符
 PHP连字符是.，不过很少用。因为PHP很智能：

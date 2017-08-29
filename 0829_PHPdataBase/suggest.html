@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="suggest.php">
+        <p>
+            你的状态：
+            <label for="">
+                <input type="radio" name="state" value="非常明白">非常明白
+                <input type="radio" name="state" value="比较明白">比较明白
+                <input type="radio" name="state" value="一般">一般                
+                <input type="radio" name="state" value="懵逼">懵逼
+                <input type="radio" name="state" value="跳楼">跳楼     
+            </label>
+
+        </p>
+        <p>
+            你觉得我讲课速度应该怎么样：
+            <label for="spead">
+                <input type="radio" name="spead" value="快一点">快一点
+                <input type="radio" name="spead" value="刚刚好">刚刚好
+                <input type="radio" name="spead" value="慢一点">慢一点
+                
+            </label>
+        </p> <p>
+            意见：
+            <textarea name="suggest" id="" cols="30" rows="10"></textarea>
+        </p>
+        <input type="submit">
+    </form>
+</body>
+</html>
