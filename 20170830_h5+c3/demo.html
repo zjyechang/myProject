@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      a {  
+        position: relative;  
+        display: inline-block;  
+        outline: none;  
+        text-decoration: none;  
+        color: #000;  
+        font-size: 32px;  
+        padding: 0 10px;  
+    }  
+      
+    /* 大框 */  
+    a:hover::before, a:hover::after {   
+        content: "";  
+        display: block;  
+        position: absolute;  
+        top: -15%;  
+        left: -14%;  
+        width: 120%;  
+        height: 120%;  
+        border-style: solid;  
+        border-width: 4px;  
+        border-color: #DDD;  
+     }  
+      
+    /* 小框 */  
+     a:hover::after {  
+        top: 0%;  
+        left: 0%;  
+        width: 100%;  
+        height: 100%;  
+        border-width: 2px;  
+     }  
+    </style>
+</head>
+<body>
+    <div>
+        <a href="">dadsalmdnasmnlmasndlmsnlmdsndlmnal</a>
+
+    </div>
+</body>
+</html>

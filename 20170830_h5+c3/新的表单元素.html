@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    input:invalid{ 
+    border:2px solid red;
+    }
+</style>
+</head>
+<body>
+    <form action="" oninput="result.value=rangex.value">
+        <p>请输入年龄
+            <input type="number" min=10 max=80 step=1 id="age">
+            <span id="age-error"></span>
+        </p>
+        <p>请输入手机号
+            <input type="tel" pattern="^1[34578]\d{9}$">
+        </p>
+        <p>请输入邮箱
+            <input type="email">
+        </p>
+        <p>请输入生日
+            <input type="data">
+        </p>
+        <p>请输入你喜欢的颜色
+            <input type="color" id="color">
+        </p>
+        <input type="search" autofocus>
+
+        <input type="text" list="city">
+        <datalist id="city">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="浙江">浙江</option>
+            <option value="广东">广东</option>
+            <option value="新疆">新疆</option>
+            <option value="阿富汗">阿富汗</option>
+        </datalist>
+
+        <p>周
+            <input type="week">
+        </p>
+        <p>月
+            <input type="mouth" name="" id="">
+        </p>
+        <p>时间
+            <input type="time" name="" id="">
+        </p>
+        <p>范围
+            <input type="range" name="rangex" id="" max=1000 min=10 step=10 id="range">
+            <output name="result"></output>
+        </p>
+        <p>
+            <input type="image" src="../20170630/images/p1.jpg" alt="">
+        </p>
+        <input type="submit">
+    </form>
+</body>
+<script>
+    var age = document.querySelector("#age");
+    var ageError = document.querySelector("#age-error");
+    var color = document.querySelector("#color");
+    var range = document.getElementById("range");
+
+    color.onchange = function(){
+        console.log(1);
+        document.body.bgColor = this.value;
+    }
+    age.addEventListener("invalid",function(event){
+        console.log(1);
+        // event.preventDefault();
+        // ageError.innerText = "年龄区间是20到80之间";
+        this.setCustomvalidity("密码不一致");    
+
+    })
+
+    range.
+</script>
+</html>

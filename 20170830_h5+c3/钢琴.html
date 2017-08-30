@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul{
+        list-style: none;
+    }
+    li{
+        float:left;
+        width: 50px;
+        height: 70px;
+        position: relative;
+        background-color: #ccc;
+        margin-right:5px;
+        overflow: hidden;
+    }
+    li::before{
+        content:"";
+        position: absolute;
+        width: 100%;
+        height:100%;
+        top:100%;
+        transition: all 0.2s ease 0s;
+    }
+    li::before:nth-child(1){background-color: red}
+    li::before:nth-child(2){background-color: orange}
+    li::before:nth-child(3){background-color: yellow}
+    li::before:nth-child(4){background-color: yellowgreen}
+    li::before:nth-child(5){background-color: green}
+    li::before:nth-child(6){background-color: navy}
+    li::before:nth-child(7){background-color: blue}
+    li::before:nth-child(8){background-color: purple}
+
+    li.cur::before{
+        top:0;
+    }
+
+    li:hover::before{
+        top:0;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+    </ul>
+</body>
+<script>
+    var lis = document.querySelectorAll("li");
+    var audio = document.querySelectorAll("audio");
+    
+    for(var i=0;i<lis.length;i++){
+        lis[i].index = i;
+        lis[i].onmouseover = function(){
+            audio[this.index].load();
+            audio[this.index].play();
+            
+        }
+    }
+
+    document.onkeydown = function(){
+        // console.log(event.keyCode);
+        if(event.keyCode>=49 && event.keyCode<=49+7){
+            audio[event.keyCode-49].load();
+            audio[event.keyCode-49].play();
+
+
+                
+            for(var i=0;i<lis.length;i++){
+                lis[i].classList.remove("cur");
+                for(var j=0;j<lis.length;j++){
+                    lis[event.keyCode-49].classList.add("cur");
+                }
+            }
+        }
+
+    }
+</script>
+</html>

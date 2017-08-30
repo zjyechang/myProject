@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" list="city">
+    <datalist id="city">
+
+    </datalist>
+    <script>
+        var datalist = document.querySelector("#city");
+
+        var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+            var obj = JSON.parse(xhr.responseText);
+            console.log(obj);
+            var html = "";
+            for(var i=0;i<obj.length;i++){
+                html += '<option value="'+obj[i]+'">'+obj[i]+'</option>';
+            }
+        datalist.innerHTML = html;
+        console.log(html)
+        }
+    }
+    
+    xhr.open("GET","city.json",true);
+    xhr.send(null);
+    </script>
+</body>
+</html>

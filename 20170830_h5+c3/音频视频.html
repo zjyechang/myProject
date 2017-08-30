@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- poster在不播放状态显示图片 -->
+    <video src="" poster="../20170630/images/p2.jpg" controls></video>
+
+
+    <input type="button" id="play" value="开始" />
+    <input type="button" id="stop" value="暂停" />
+
+
+    <input type="url" name="" id="">
+
+        <!-- 可以放视频或音频的资源 -->
+        <embed src="../" type="">
+
+        <!-- data是资源路径 -->
+        <object data="mp3/cbg.mp3" type=""></object>
+        <object data="audio/e5.ogg" type=""></object>
+        
+        <audio src="../20170805_面向对象+构造函数/images/bgm.mp3" autoplay controls></audio>
+
+        <audio atoplay controls>
+            <source src="mp3/cbg.mp3" type="">
+        </audio>
+
+    <input type="button" id="pplay" value="开始" />
+    <input type="button" id="muted" value="静音" />
+    <input type="number" id="volume" max=100 min=0 step=1>
+    <script>
+    var oVideo = document.querySelector("video");
+    var oAudio = document.querySelector("Audio");
+    
+    var play = document.querySelector("#play");
+    var stop = document.querySelector("#stop");
+    var pplay = document.querySelector("#pplay");
+    var muted = document.querySelector("#muted");
+    var volume = document.querySelector("#volume");
+    
+
+
+        play.onclick=function(){
+            oVideo.play();
+        }
+        stop.onclick=function(){
+            oVideo.pause();
+        }
+
+
+        // 音频播放与暂停互换
+        pplay.onclick=function(){
+            if(this.value=="播放"){
+                oAudio.play();
+                this.value="暂停";
+            }else{
+                oAudio.pause();
+                this.value="播放";
+            }
+        }
+        // 控制音量大小
+        volume.onchange = function(){
+            oAudio.volume=~~(this.value/100);
+        }
+
+        // 静音
+        muted.onclick=function(){
+            oAudio.muted = oAudio.muted;
+        }
+    </script>
+</body>
+</html>
