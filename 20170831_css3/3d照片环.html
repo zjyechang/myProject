@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    body{
+        background-color: black;
+        color:aliceblue;
+        cursor: pointer;
+    }
+    .stage{
+        width: 800px;
+        height: 400px;
+        margin:0 auto;
+        perspective:600px;
+        /* border:1px solid #ff0; */
+
+    }
+    .stage .unit{
+        width: 800px;
+        height: 400px;
+        cursor: pointer;
+        position: relative;
+        transform-style:preserve-3d;
+        transition: 1s;
+    }
+    .stage .unit ul{
+        list-style: none;
+    }
+    .stage .unit ul li{
+        position: absolute;
+        left: 300px;
+        top: 135px;
+    }
+    </style>
+</head>
+<body>
+    <h1>请滚动滚轮</h1>
+    <div class="stage">
+        <div class="unit">
+            <ul>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/0.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/1.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/2.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/3.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/4.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/5.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/6.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/7.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/8.png" alt=""></li>
+                <li><img src="../20170726_lun+tab+yangshi/shuzi/9.png" alt=""></li>
+                
+                
+            </ul>
+        </div>
+    </div>
+
+
+
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script src="../JS框架/jquery.mousewheel.min.js"></script>
+    <script>
+    var $unit = $(".unit");
+
+    // 遍历每一个li
+    $(".unit ul li").each(function(i){
+        $(this).css("transform","rotateY("+i*36+"deg) translateZ(400px)");
+    })
+
+
+
+
+
+    //信号量
+    var num = 0;
+    var lock = true;//函数节流
+
+    $(".stage").mousewheel(function(event,delta){
+
+        // 函数节流
+        if(!lock) return;
+
+        // 阻止默认事件
+        event.preventDefault();
+        
+        //滚轮往上滚动是1，往下滚动是-1
+        // console.log(delta);
+        num -= delta*40;
+
+        $unit.css("transform","rotateY("+num+"deg)");
+
+            lock=false;
+
+        // 延时器
+        setTimeout(function(){
+            lock=true;
+        },1000)
+    });
+
+    document.onmousedown = function(){
+        
+    }
+    </script>
+</body>
+</html>

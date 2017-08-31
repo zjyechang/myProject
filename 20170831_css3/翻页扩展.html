@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 256px;
+        height: 256px;
+        border:1px solid #000;
+        margin:100px;
+        perspective: 400px;
+        position: relative;
+    }
+    img{
+        border-radius: 50%;
+        width: 256px;
+        height: 256px;
+        position:absolute;
+        top:0;
+        left:0;
+        transition:3s;
+        backface-visibility: hidden;
+        /* transform-origin: 0 0 ; */
+    }
+    div:nth-child(1) .p1{
+        transform-origin:0 0;     
+    }
+    div:nth-child(1):hover .p1{
+        transform: rotateY(-180deg);        
+    }
+
+   
+    div:nth-child(2) .p1{
+        transform-origin:0 100%;     
+    }
+    div:nth-child(2):hover .p1{
+        transform: rotateY(-180deg);        
+    }
+
+
+    div:nth-child(3) .p1{
+        transform-origin:100% 0;     
+    }
+    div:nth-child(3):hover .p1{
+        transform: rotateX(-180deg);        
+    }
+
+
+    div:nth-child(4) .p1{
+        transform-origin:100% 100%;     
+    }
+    div:nth-child(4):hover .p1{ 
+        transform: rotateX(-180deg);        
+    }
+    </style>
+</head>
+<body>
+    <div>
+
+        <img class="p2" src="../20170726_lun+tab+yangshi/shuzi/1.png" alt="">
+        <img class="p1" src="../20170726_lun+tab+yangshi/shuzi/0.png" alt="">
+        
+    </div>
+
+    <div>
+            
+        <img class="p2" src="../20170726_lun+tab+yangshi/shuzi/1.png" alt="">
+        <img class="p1" src="../20170726_lun+tab+yangshi/shuzi/0.png" alt="">
+        
+    </div>
+
+    <div>
+            
+        <img class="p2" src="../20170726_lun+tab+yangshi/shuzi/1.png" alt="">
+        <img class="p1" src="../20170726_lun+tab+yangshi/shuzi/0.png" alt="">
+        
+    </div>
+
+    <div>
+            
+        <img class="p2" src="../20170726_lun+tab+yangshi/shuzi/1.png" alt="">
+        <img class="p1" src="../20170726_lun+tab+yangshi/shuzi/0.png" alt="">
+        
+    </div>
+</body>
+</html>

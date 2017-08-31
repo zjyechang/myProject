@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #ccc;
+			}
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul{
+				list-style: none;
+				margin: 100px;
+			}
+			ul li{
+				float: left;
+				width: 107px;
+				height: 107px;
+				text-align: center;
+				position: relative;
+				margin-right: 50px;
+			}
+			ul li .yuan{
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all 10s ease 0s;
+				width: 107px;
+				height: 107px;
+			}
+			ul li.no1 .yuan{ background: url(../20170630/images/p1.jpg);}
+			ul li.no2 .yuan{ background: url(../20170630/images/p2.jpg);}
+			ul li.no3 .yuan{ background: url(../20170630/images/p3.jpg);}
+			
+			ul li.no1:hover .yuan{ 
+                
+				background: url(../20170630/images/p2.jpg); 
+				transform: rotate(360deg);
+			}
+			ul li.no2:hover .yuan{ 
+				background: url(img/a_2_h1.png);
+				transform: rotate(360deg);
+				}
+			ul li.no3:hover .yuan{ 
+				background: url(img/a_3_h1.png);
+				transform: rotate(360deg);
+				}
+			ul li .zi{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 107px;
+				height: 107px;
+				line-height: 144px;
+			}
+			ul li .zi a{
+				display: block;
+				width: 107px;
+				height: 107px;
+				color: white;
+				font-size: 14px;
+				text-decoration: none;
+			}
+			.ico{
+				position: absolute;
+				top:20px;
+				left:50%;
+			}
+			.no1 .ico{
+				margin-left: -23px;
+			}
+			.no2 .ico{
+				margin-left: -20px;
+			}
+			.no3 .ico{
+				margin-left: -17px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="no1">
+				<div class="yuan"></div>
+				<div class="zi"><a href="#">学车流程</a></div>
+				<img src="img/tb_1.png" class="ico"/>
+			</li>
+		</ul>
+		<ul>
+			<li class="no2">
+				<div class="yuan"></div>
+				<div class="zi"><a href="#">报名缴费</a></div>
+				<img src="img/tb_2.png" class="ico"/>
+			</li>
+		</ul>
+		<ul>
+			<li class="no3">
+				<div class="yuan"></div>
+				<div class="zi"><a href="#">班车信息</a></div>
+				<img src="img/tb_3.png" class="ico"/>
+			</li>
+		</ul>
+	</body>
+</html>

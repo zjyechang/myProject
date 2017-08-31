@@ -168,3 +168,50 @@ text-bottom：   文本的底端对齐；
 属性值详解
 在上面一节中，介绍了文本的基线、顶线、中线和底线，还有内容区、行内框和行框，而本节的垂直对齐和这几个概念密切相关。
 
+
+
+
+
+
+
+
+
+.red::before {
+    content: 'red';
+    color: red;
+}
+## 方法一
+使用JavaScript或者jquery切换<p>元素的类名，修改样式。
+.green::before {
+    content: 'green';
+    color: green;
+}
+$('p').removeClass('red').addClass('green');
+## 方法二
+在已存在的<style>中动态插入新样式。
+document.styleSheets[0].addRule('.red::before','color: green');
+document.styleSheets[0].insertRule('.red::before { color: green }', 0);
+## 方法三
+创建一份新的样式表，并使用JavaScript或jQuery将其插入到<head>中
+// Create a new style tag
+var style = document.createElement("style");
+
+// Append the style tag to head
+document.head.appendChild(style);
+
+// Grab the stylesheet object
+sheet = style.sheet
+
+// Use addRule or insertRule to inject styles
+sheet.addRule('.red::before','color: green');
+sheet.insertRule('.red::before { color: green }', 0);
+jQuery
+$('<style>.red::before{color:green}</style>').appendTo('head');
+## 方法四
+使用HTML5的data-属性，在属性中使用attr()动态修改。
+<p class="red" data-attr="red">Hi, this is plain-old, sad-looking paragraph tag.</p>
+.red::before {
+    content: attr(data-attr);
+    color: red;
+}
+$('.red').attr('data-attr', 'green');

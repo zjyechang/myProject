@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            margin:10px;
+            border: 1px solid #000;
+        }
+    
+        div[title]{
+            /* background-color: red; */
+        }
+        div[title="shit"]{
+            background-color: #f0f;
+        }
+        [title]{
+
+        }
+        [title^="m"]{
+            /* 匹配开头为m的内容 */
+            background-color: lightblue;
+        }
+        [title$="k"]{
+            /* 匹配结尾为k的内容 */
+            background-color: lightcoral;
+        }
+        [title~="n"]{
+            /* 空格匹配，只匹配空格后内容为a的 
+            例如 title="fnndp a"*/
+            background-color: greenyellow;
+
+        }
+        [title|="ab"]{
+            /* 短横匹配，以ab开头加-
+            例如 title="ab-mmp" */
+        }
+        [title *="i"]{
+            /* 任意匹配，内容包含i */
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="oDiv">
+
+    </div> -->
+
+    <div title="mmp"></div>
+    <div title="fuck"></div>
+    <div title="shit abc"></div>
+    <div title="fnndp a"></div>
+    <div class=="mmp"></div>
+    
+</body>
+</html>

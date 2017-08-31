@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+    nav{
+        width:960px;
+        height: 40px;
+        margin:50px auto;
+        border:1px solid #000;
+    }
+    nav ul{
+        list-style: none;
+    }
+    nav li{
+        float:left;
+        width:120px;
+        height: 40px;
+        perspective: 500px;
+    }
+    nav li .unit{
+       transform-style:preserve-3d;
+       width: 120px;
+       height: 40px;
+       text-align: center;
+       line-height: 40px;
+       transition: 1s
+    }
+    nav span{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+    }
+    .chinese{
+        transform:translateZ(20px);
+        background-color: lightblue;
+    }
+    .english{
+        transform:rotateX(-90deg) translateZ(20px);
+        background-color: lightgreen;   
+    }
+
+    li:hover .unit{
+        transform:rotateX(90deg);           
+    }
+    </style>
+</head>
+<body>
+        <nav>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="unit">
+                                <span class="chinese">网站栏目</span>
+                                <span class="english">wangzhanlanmu</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="unit">
+                                <span class="chinese">网站栏目</span>
+                                <span class="english">wangzhanlanmu</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="unit">
+                                <span class="chinese">网站栏目</span>
+                                <span class="english">wangzhanlanmu</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="unit">
+                                <span class="chinese">网站栏目</span>
+                                <span class="english">wangzhanlanmu</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="unit">
+                                <span class="chinese">网站栏目</span>
+                                <span class="english">wangzhanlanmu</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="unit">
+                                <span class="chinese">网站栏目</span>
+                                <span class="english">wangzhanlanmu</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="unit">
+                                <span class="chinese">网站栏目</span>
+                                <span class="english">wangzhanlanmu</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="unit">
+                                <span class="chinese">网站栏目</span>
+                                <span class="english">wangzhanlanmu</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+</body>
+</html>

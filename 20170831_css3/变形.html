@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    img{
+        /* 变化时间 */
+        transition:all 0.8s ease 0s;
+
+        /* 2d旋转 */
+        /* transform:rotate(30deg); */
+
+        /* 放大变形 */
+        /* transform:scale(0.2,1); */
+        /* transform:scaleX(0.2) scaleY(1) scaleZ(0.5); */
+        
+        /* 斜切变形 */
+        /* transform: skew(10deg,10deg); */
+
+        /* 2d变形整合 */
+        transform:skew(10deg,10deg) scale(1.1,2) rotate(10deg);
+
+
+    }
+    img:hover{
+        /* transition:rotate(390deg); */
+        /* transform:scale(1,0.2); */
+
+    }
+    </style>
+</head>
+<body>
+    <img src="../20170630/images/p4.jpg" alt="">
+</body>
+</html>

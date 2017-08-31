@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    div.aaa{
+        width: 256px;
+        height: 256px;
+        position: relative;
+        /* 组合体旋转，加上这个属性 */
+        transform-style:preserve-3d;
+        transition:all 5s ease 0s;
+    }
+    .ppp{
+        width: 256px;
+        height: 256px;
+        border:1px solid #000;
+        perspective:600px;
+        position: relative;
+        top:100px;
+        left:100px
+    }
+    div.aaa:hover{
+        transform: rotateX(860deg) rotateY(300deg);        
+    }
+    img{
+        position: absolute;
+        width: 256px;
+        height: 256px;
+        top:0;
+        left:0;
+        
+
+    }
+    .p1{ transform:translateZ(128px); }
+    .p2{ transform:rotateX(90deg) translateZ(128px); }
+    .p3{ transform:rotateX(180deg) translateZ(128px); }
+    .p4{ transform:rotateX(-90deg) translateZ(128px); }
+    .p5{ transform:rotateY(90deg) translateZ(128px); }
+    .p6{ transform:rotateY(-90deg) translateZ(128px); }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class="ppp">
+        <div class="aaa">
+            <img src="../20170726_lun+tab+yangshi/shuzi/1.png" alt="" class="p1">
+            <img src="../20170726_lun+tab+yangshi/shuzi/2.png" alt="" class="p2">
+            <img src="../20170726_lun+tab+yangshi/shuzi/3.png" alt="" class="p3">
+            <img src="../20170726_lun+tab+yangshi/shuzi/4.png" alt="" class="p4">
+            <img src="../20170726_lun+tab+yangshi/shuzi/5.png" alt="" class="p5">
+            <img src="../20170726_lun+tab+yangshi/shuzi/6.png" alt="" class="p6">
+            
+        </div>
+
+    </div>
+</body>
+</html>

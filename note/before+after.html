@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p{
+            position:relative;
+            display: inline-block;
+        }
+        p::after{
+            content: "";
+            display: block;
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            right:-20px;
+            top:3px;
+            background:url("../作业/良仓/img/icon (1).png") no-repeat;
+            background-position: 0 -100px;
+        }
+        p.red::after{
+            background-position: -15px -100px;            
+        }
+        p.greed::after{
+            background-position: 0 -130px;                        
+        }
+        input:invalid{
+            border:2px solid red;
+
+        }
+        input:valid{
+            border:2px solid green;
+           
+        }
+    </style>
+
+
+<style>
+ .container{
+            width: 1000px;
+            margin: 10px auto;
+            border: 1px solid red;
+        }
+        h3.title {
+            color: #F2AE11;
+            font-size: 1.3em;
+            margin-bottom: 3em;
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.1;
+        }
+        h3.title span {
+            display: block;     /*设置为块级元素会独占一行形成上下居中的效果*/
+            font-size: 3em;
+            color: #212121;
+            position: relative;   /*定位横线（当横线的父元素）*/
+        }
+        h3.title span:before, h3.title span:after {
+            content: '';                 /*CSS伪类用法*/
+            position: absolute;         /*定位背景横线的位置*/
+            top: 52%;
+            background: #494949;       /*宽和高做出来的背景横线*/
+            width: 9%;
+            height: 2px;
+        }
+        h3.title span:before{
+            left: 25%;        /*调整背景横线的左右距离*/
+        }
+        h3.title span:after {
+            right: 25%;
+        }
+
+</style>
+
+
+<style>
+    a.kuang {  
+    position: relative;  
+    display: inline-block;  
+    outline: none;  
+    text-decoration: none;  
+    color: #000;  
+    font-size: 32px;  
+    padding: 0 10px;  
+    left:100px;
+}  
+  
+/* 大框 */  
+a.kuang:hover::before, a.kuang:hover::after {   
+    content: "";  
+    display: block;  
+    position: absolute;  
+    top: -15%;  
+    left: -14%;  
+    width: 120%;  
+    height: 120%;  
+    border-style: solid;  
+    border-width: 4px;  
+    border-color: #DDD;
+    left:-10%;
+ }  
+  
+/* 小框 */  
+ a.kuang:hover::after {  
+    top: 0%;  
+    left: 0%;  
+    width: 100%;  
+    height: 100%;  
+    border-width: 2px;  
+ }  
+</style>
+
+
+
+
+<style>
+    a.kuohao {  
+    position: relative;  
+    display: inline-block;  
+    outline: none;  
+    text-decoration: none;  
+    color: #000;  
+    font-size: 32px;  
+    padding: 5px 10px;  
+    left:50px;
+}  
+  
+
+a.kuohao:hover::before { content: "\5B"; left: -20px; position: absolute;}  
+a.kuohao:hover::after { content: "\5D"; right:  -20px; position: absolute;}  
+</style>
+
+
+</head>
+<body>
+    <form action="">
+        <p> 手机<input class="phone" type="text" pattern="^1[34578]\d{9}$" required></p>
+    </form>
+
+
+
+
+
+
+    
+    <div class="container">     
+        <h3 class="title">欢迎来到 <span>xx游乐园</span></h3>
+        <div class="row">
+        </div>
+    </div>
+
+
+
+
+    
+        <a class="kuang" href="">我tm真帅</a>  
+    
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    
+        <a class="kuohao" href="">我tm真帅</a>
+
+    
+
+    <script>
+    var input = document.querySelector("input");
+    var p = document.querySelector("p");
+    var pattern=/^1[34578]\d{9}$/;
+
+    input.addEventListener("blur",function(){
+       
+      if(pattern.test(input.value)){
+          p.className = "green";
+
+      }else{
+        p.className = "red";
+        console.log(1);
+        
+      }
+         
+        
+    
+    })
+    
+
+
+
+
+
+
+    </script>
+</body>
+</html>
