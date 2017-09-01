@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				overflow: hidden;
+			}
+			.yezi{
+				width: 90px;
+				height: 65px;
+				background:url(images/icon.png);
+				background-position: 0 -149px;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				animation: yezi 5s ease 0s infinite;
+			}
+			
+			.sanjiaoxing{
+				width: 170px;
+				height: 170px;
+				background: url(images/icon.png);
+				background-position: 0 -312px;
+				position: absolute;
+				top: 100px;
+				left: 400px;
+				animation: zhuan 5s ease 0s infinite;
+			}
+			
+			.fangxing{
+				width: 96px;
+				height: 96px;
+				background: url(images/icon.png);
+				background-position: 0 -215px;
+				position: absolute;
+				top: 173px;
+				left: 480px;
+				animation: zhuan 5s ease 0s infinite;
+			}
+			
+			.deng{
+				width: 191px;
+				height: 267px;
+				background: url(images/icon.png);
+				background-position: 0 -620px;
+				position: absolute;
+				top: 400px;
+				left: 100px;
+			}
+			
+			.dengguang{
+				width: 341px;
+				height: 256px;
+				background: url(images/icon.png);
+				background-position: 0 -887px;
+				position: absolute;
+				top: 336px;
+				left: 29px;
+				opacity: 0;
+				animation: faguang 1s ease 0s infinite alternate;
+			}
+			
+			.huojian{
+				width: 230px;
+				height: 220px;
+				background: url(images/icon.png) no-repeat;
+				background-position: -239px 0px;
+				position: absolute;
+				top: 100px;
+				left: 950px;
+				animation: huojian 1s ease 0s infinite alternate;
+			}
+			
+			@-webkit-keyframes yezi{
+				0%{
+					transform: rotateZ(-10deg) translateX(0) translateY(0); 
+					opacity:1;
+				}
+				100%{
+					transform: rotateZ(30deg) translateX(300px) translateY(450px);
+					opacity:0;
+				}
+			}
+			
+			@-webkit-keyframes zhuan{
+				0%{
+					transform: rotate(0deg);
+				}
+				60%{
+					transform: rotate(360deg);
+				}
+				100%{
+					transform: rotate(360deg);
+					
+				}
+			}
+			
+			@-webkit-keyframes faguang{
+				0%{
+					opacity: 0;
+				}
+				80%{
+					opacity: 1;
+				}
+				100%{
+					opacity: 1;
+					
+				}
+			}
+			
+			@-webkit-keyframes huojian{
+				from{
+					transform: none;
+				}
+				to{
+					transform: translate3D(-10px,-10px,0);
+				}
+			}
+			
+			.xian1{
+				width: 156px;
+				height: 153px;
+				background: url(images/icon.png) -239px -220px;
+				position: absolute;
+				top: 10px;
+				left: 900px;
+				animation: xian 2s ease 0s infinite;
+			}
+			@-webkit-keyframes xian{
+				from{
+					transform: translate3D(1000px,-1000px,0);;
+				}
+				to{
+					transform: translate3D(-1000px,1000px,0);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!--div.yezi+div.sanjiaoxing+div.fangxing+div.deng+div.dengguang+div.huojian+div.xian1+div.xian2+div.xian3-->
+		<div class="yezi"></div>
+		
+		<div class="sanjiaoxing"></div>
+		<div class="fangxing"></div>
+		
+		<div class="deng"></div>
+		<div class="dengguang"></div>
+		
+		<div class="huojian"></div>
+		
+		<div class="xian1"></div>
+		<div class="xian2"></div>
+		<div class="xian3"></div>
+	</body>
+</html>

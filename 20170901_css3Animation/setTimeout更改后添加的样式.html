@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 1px;
+        background-color: lightblue;
+        transition: 1s;
+        
+    }
+    </style>
+</head>
+<body>
+    
+
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script>
+    
+    $("<div></div>").appendTo("body");
+
+
+    setTimeout(function(){
+        $("div").css("width",1000);
+
+    })
+    
+    
+    </script>
+</body>
+</html>

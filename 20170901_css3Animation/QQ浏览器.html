@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        html,body{
+            height: 100%;
+        }
+        body{
+            background-color: #ccc;
+            perspective: 500px;
+        }
+        .inner_c{
+            width: 1000px;
+            height: 100%;
+            margin:0 auto;
+            position: relative;
+        }
+        .logo_stage{
+            width: 313px;
+            height: 46px;
+            perspective: 500px;
+        }
+        .logo_stage .logo{
+
+            /* display: none; */
+        }
+        .h1_stage{
+            margin-top:100px;
+            perspective:500px;
+        }
+        h1{
+            width: 466px;
+            height:70;
+            margin:0 auto;
+            line-height:50px;
+            font-size: 50px;
+            text-align: center;
+
+        }
+        em{
+            font-style:normal;
+            float:left;
+        }
+        h3{
+            font-size: 20px;
+            color:#333;
+
+        }
+        .clock{
+            width: 381px;
+            height: 381px;
+            position: relative;
+            perspective: 1500px;
+
+        }
+        .n1,.n2,.n3,.n4{
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left:-190px;
+            margin-top:-190px;
+            width: 381px;
+            height: 381px;
+        }
+
+        .banben{
+            position: absolute;
+            width: 316px;
+            height: 296px;
+            top:50%;
+            left:50%;
+            margin-left:-150px;            
+            margin-top:-150px;
+        }
+
+        ul{
+            list-style: none;
+        }
+        li{
+            width: 10px;
+            height: 10px;
+            border-radius:50%;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1 class=""h1_stage>
+        <em>找</em>
+        <em>到</em>
+        <em>属</em>
+        <em>于</em>
+        <em>你</em>
+        <em>的</em>
+        <em>浏</em>
+        <em>览</em>
+        <em>器</em>
+    </h1>
+    <span>chrome</span>
+    <h3>吹牛逼的话，我能吹到你怀疑人生</h3>
+
+    <div class="clock_stage">
+        <div class="clock">
+            <img src="./img/n1.png" alt="" class="n1">
+            <img src="./img/n2.png" alt="" class="n2">
+            <img src="./img/n3.png" alt="" class="n3">
+            <img src="./img/n4.png" alt="" class="n4">
+            
+        </div>
+
+    </div>
+
+    <div class="circle">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            
+        </ul>
+    </div>
+    <script src="../JS框架/jquery-1.12.3.min.js"></script>
+    <script src="../JS框架/velocity.min.js"></script>
+    <script src="../JS框架/jquery.mousewheel.min.js"></script>
+    <script>
+        var page =0;
+
+            // 入场动画
+        var inAnimation = [function(){},function(){},function(){},function(){}];
+            //出场动画
+        var outAnimation = [function(){},function(){},function(){},function(){}];
+            
+        inAnimation[0]=function(){
+            event.preventDefault();
+
+            var oldPage = page;
+            page -=delta;
+            if(page>4) page=0;
+            if(page<0) page=4;
+            
+            if(oldPage != page){
+                outAnimation[page];
+                inAnimation[page];
+            }
+
+            $("circle ul li").eq(page).addClass("active").sibilings().removeClass("active");
+        }
+
+
+    </script>
+</body>
+</html>

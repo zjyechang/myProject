@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            a{
+                position:absolute;
+                top:100px;
+                left:100px;
+                width: 120px;
+                top: 50px;
+                line-height: 50px;
+                border:1px solid #000;
+                color:#000;
+                text-decoration: none;
+                border-radius: 3px;
+                text-align: center;
+                background-image: -webkit-linear-gradient(top, yellow,greenyellow);
+                background-image: -moz-linear-gradient(top, yellow, greenyellow);
+                background-image: linear-gradient(to bottom, yellow, greenyellow);;
+                
+                animation: tiaotiao 0.3s infinite;
+            }
+    
+            @keyframes tiaotiao{
+                from{
+                    margin-top:0px;
+                    box-shadow: 0 0 10px 10px rgba(255,0,255,0.5)
+                }
+                to{
+                    margin-top:4px;
+                    box-shadow: 0 0 10px 10px rgba(255,0,0,0.5)                    
+                }
+            }
+    </style>
+</head>
+<body>
+    <a href="#">
+        点击注册
+    </a>
+
+</body>
+</html>

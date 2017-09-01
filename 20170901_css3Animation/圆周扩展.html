@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 300px;
+            left: 300px;
+            border-radius: 50%;
+            background-color: orange;
+            
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    
+
+
+    <script>
+        var oDiv = document.querySelectorAll("div");
+
+        circleMove({
+            "obj": oDiv[0],
+            "yuanxin":[300,300],
+            "r":"150",
+            "looptime":4000,
+        })
+        circleMove({
+            "obj": oDiv[1],
+            "yuanxin":[300,300],
+            "r":"130",
+            "looptime":4000,
+            "degree":90,
+        })
+        circleMove({
+            "obj": oDiv[2],
+            "yuanxin":[300,300],
+            "r":"180",
+            "looptime":4000,
+            "degree":180,
+        })
+        circleMove({
+            "obj": oDiv[3],
+            "yuanxin":[300,300],
+            "r":"200",
+            "looptime":4000,
+            "degree":270,
+        })
+
+
+
+        function circleMove(json){
+            // 运动的对象
+            var obj = json.obj;
+            // 圆心
+            var x = json.yuanxin[0];
+            var y = json.yuanxin[1];
+            // 半径
+            var r = json.r;
+            // 方向，默认1
+            var direction = json.direction || 1;
+            // 开始的角度
+            var degree = json.degree || 0;
+            // 动画运动间隔
+            var interval = 40;
+            // 一圈的时间
+            var time = json.looptime;
+            // 总帧数
+            var frames = time/interval;
+            // 每帧的变化量
+            var degreeDelta = 360/frames;
+
+            setInterval(function(){
+
+                degree += degreeDelta*direction;
+
+                if(degree >= 360) degree =0;
+                if(degree <= -360) degree =0;
+                
+                go(degree)
+               
+            },interval)
+
+
+            function go(degree){
+                obj.style.left = x+r *Math.sin(degreeRo(degree))+"px";
+                obj.style.top = y-r *Math.cos(degreeRo(degree))+"px";
+            }
+            
+        }
+        
+            // 把角度转化弧度 因为js中正弦的都是弧度制
+        function degreeRo(degree){
+           return degree*Math.PI/180;
+        }
+        
+        </script>
+</body>
+</html>

@@ -54,7 +54,16 @@ backface-visibility:hidden;
 rotateY的时候，是绕着Y轴旋转，所以我们只关心轴的横向位置。即第一个参数起作用。  
 rotateX的时候，是绕着X轴旋转，所以我们只关心轴的纵向位置。即第二个参数起作用。  
 
-## 
+## 当做整体运动
+transform-style:preserve-3d;
+
+## 空间移动
+transform:translateX(100px);  
+transform:translateY(200px);  
+transform:translateZ(300px);  
+等价于  
+transform:translate3D(100px,200px,300px);
+
 
 
 

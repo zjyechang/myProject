@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 200px;
+            left: 200px;
+            border-radius: 50%;
+            background-color: orange;
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+
+    <script>
+        var oDiv = document.querySelector("div");
+
+        
+        //圆心的坐标
+        var yuan = {a:200,b:200};
+
+        // 半径
+        var r = 150;
+
+        // 信号量
+        var idx=0;
+        setInterval(function(){
+            idx++;
+            go(idx);
+
+        },40)
+
+        function go(degree){
+            oDiv.style.left = yuan.a+r *Math.sin(degreeRo(degree))+"px";
+            oDiv.style.top = yuan.b-r *Math.cos(degreeRo(degree))+"px";
+            
+
+        }
+
+            // 把角度转化弧度 因为js中正弦的都是弧度制
+        function degreeRo(degree){
+           return degree*Math.PI/180;
+        }
+        
+        </script>
+</body>
+</html>

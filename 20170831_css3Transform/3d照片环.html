@@ -19,7 +19,7 @@
         width: 800px;
         height: 400px;
         margin:0 auto;
-        perspective:600px;
+        perspective:1000px;
         /* border:1px solid #ff0; */
 
     }
@@ -29,7 +29,8 @@
         cursor: pointer;
         position: relative;
         transform-style:preserve-3d;
-        transition: 1s;
+        transition: 0.5s;
+
     }
     .stage .unit ul{
         list-style: none;
@@ -92,7 +93,7 @@
         
         //滚轮往上滚动是1，往下滚动是-1
         // console.log(delta);
-        num -= delta*40;
+        num -= delta*36;
 
         $unit.css("transform","rotateY("+num+"deg)");
 
@@ -104,8 +105,36 @@
         },1000)
     });
 
-    document.onmousedown = function(){
+        var moveX ;
+        var moveY ;
+    document.onmousedown = function(event){
+        var startX = event.clientX;
+        var startY = event.clientY;
+
         
+        var currentX =  moveX || 0;
+        var currentY =  moveY || 0;
+        console.log(moveX)
+        // $unit.css("transition","none");
+        
+        document.onmousemove = function(event){
+            
+             moveX = event.clientX - startX+currentX;
+             moveY = event.clientY - startY+currentY;
+
+            
+            
+            $unit.css("transform","rotateX("+ -moveY/4 +"deg) rotateY("+ -moveX/4 +"deg)");
+            
+            return false;
+        }
+        document.onmouseup = function(){
+            document.onmousemove = document.onmouseup =null;
+            // $(document).off("onmousemove");
+
+            // $unit.css("transition","all 0.5 ease 0s");
+            
+        }
     }
     </script>
 </body>
