@@ -21,15 +21,27 @@
         width: 100%;
         text-align: center;
     }
+    .already{
+        position: absolute;
+        width:1000px;
+        text-align: center;
+        margin:100px auto;
+    }
+    #logo{
+        display: inline-block;
+        margin: 60px auto;
+        width: 113px;
+    }
     .signin{
         text-align: left;
         width: 500px;
         margin:0 auto;
-        margin-top:50px;
+        text-align: center;
     }
     .left{
+        display: inline-block;
         margin:10px 0;
-        width: 500px;
+        width: 400px;
         height: 50px;
         border:1px solid #ccc;
     }
@@ -82,12 +94,16 @@
         font-size: 12px;
         width: 300px;
     }
-
+    .regist{
+        text-decoration: none;
+        color: #666;
+    }
     </style>
 </head>
 <body>
-    <h1>登录</h1>
     <div class="signin">
+            <img src="./img/nlicon.png" alt="#" id="logo">
+            
         <div class="left">
             <label for="username">用户名</label>
             <input type="text" placeholder="请输入账号" name="username">
@@ -101,21 +117,21 @@
         <p class="tip password"></p>
 
         
-        <input type="checkbox" name="agree" >
+        <input type="checkbox" name="agree">
         <label for="agree">自动登录</label>
 
         <div>
             <input type="button" name="regist" value="登录" class="btn">
         </div>
 
-
+        <p><a href="regist.html" class="regist">注册账号></a></p>
     </div>
 
     <script src="./js/jquery-1.12.3.min.js"></script>
     <script>
    $(function(){
     if(localStorage.getItem("token")){
-        $("body").html("<p>尊敬的"+localStorage.getItem("username")+"，您已登录,3秒后为你跳回</p><p><a href='index.html'>点此手动跳转</a></p>");
+        $("body").html("<p class='already'>尊敬的"+localStorage.getItem("username")+"，您已登录,3秒后为你跳回<a href='index.html'>点此手动跳转</a></p>");
         setTimeout(function() {
             location.href = "index.html";
         }, 3000);

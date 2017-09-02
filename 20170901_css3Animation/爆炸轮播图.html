@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			overflow:hidden;
+		}
+		.carousel{
+			width: 560px;
+			height: 300px;
+			margin: 150px auto;
+			border: 1px solid #333;
+			position: relative;
+			perspective:500px;
+		}
+		.carousel ul{
+			list-style: none;
+		}
+		.carousel ul li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.carousel ul li.cur{
+			display: block;
+		}
+		.btns a{
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 50%;
+			margin-top: -20px;
+			background-color: orange;
+			font-size: 30px;
+			line-height: 40px;
+			text-align: center;
+			border-radius: 50%;
+			font-weight: bold;
+			cursor: pointer;
+			z-index: 999;
+		}
+		.btns a:hover{
+			background-color: gold;
+		}
+		.leftBtn{
+			left: 10px;
+		}
+		.rightBtn{
+			right: 10px;
+		}
+		.circles{
+			position: absolute;
+			width: 150px;
+			height: 16px;
+			bottom: 10px;
+			right: 10px;
+		}
+		.circles ol{
+			list-style: none;
+		}
+		.circles ol li{
+			float: left;
+			width: 16px;
+			height: 16px;
+			background-color: orange;
+			margin-right: 6px;
+			border-radius: 50%;
+			cursor: pointer;
+			z-index: 1000;
+		}
+		.circles ol li.active{
+			background-color: red;
+		}
+        .imageslist{
+            width:100%;
+            position: absolute;
+			perspective: 500px;
+        }
+		.chips div{
+			position: absolute;
+			transition:all 3s ease-in 0s;
+		}
+		.chips{
+			width: 560px;
+			height: 300px;
+			
+		}
+	</style>
+
+</head>
+<body>
+	<div class="carousel" id="carousel">
+		<div class="btns">
+			<a href="javascript:void(0);" class="leftBtn"  id="leftBtn"></a>
+			<a href="javascript:void(0);" class="rightBtn" id="rightBtn"></a>
+		</div>
+		<div class="imageslist" id="imageslist">
+			<ul>
+				<li class="cur"><a><img  src="../20170728_节流+呼吸轮播/images/0.jpg" alt="" /></a></li>
+                <li><a><img src="../20170728_节流+呼吸轮播/images/1.jpg" alt="" /></a></li>
+				<li><a><img src="../20170728_节流+呼吸轮播/images/2.jpg" alt="" /></a></li>
+				<li><a><img src="../20170728_节流+呼吸轮播/images/3.jpg" alt="" /></a></li>
+				<li><a><img src="../20170728_节流+呼吸轮播/images/4.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div class="circles" id="circles">
+			<ol>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+
+
+		<div class="chips"></div>
+
+
+	</div>	
+	
+
+	<script type="text/javascript" src="../JS框架/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		var $imglis = $(".imageslist");
+		var $imgs = $imglis.find("img");
+		var $chips = $(".chips");
+		var idx = 0;
+		var lock = true;
+
+
+
+		function change(shit){
+
+            
+			// 轮播图cd
+			if(!lock) return;
+
+				// 第一步，生成碎片
+			// for(var rows = 0;rows<8;rows++){
+			// 	for(var cols = 0; cols<6 ;cols++){
+			// 		$("<div></div>")
+			// 		.css({
+			// 			"width": "70px",
+			// 			"height": "50px",
+			// 			"top": 50*cols+"px",
+			// 			"left": 70*rows+"px",
+			// 			"backgroundImage": "url('"+$imgs.eq(idx).attr("src")+"')",
+			// 			"backgroundPosition": -70*rows+"px " + (-50*cols)+"px",
+			// 		}).appendTo($chips);
+
+			// 	}
+			// }
+			for(var rows = 0;rows<28;rows++){
+				for(var cols = 0; cols<15 ;cols++){
+					$("<div></div>")
+					.css({
+						"width": "20px",
+						"height": "20px",
+						"top": 20*cols+"px",
+						"left": 20*rows+"px",
+						"backgroundImage": "url('"+$imgs.eq(idx).attr("src")+"')",
+						"backgroundPosition": -20*rows+"px " + (-20*cols)+"px",
+					}).appendTo($chips);
+
+				}
+			}
+
+			// 第二步，碎片运动
+			setTimeout(function(){
+				console.log($chips.find("div"))
+				$chips.find("div").each(function(i){
+					$(this).css({
+						"transform": "rotateX(" + (Math.random()*500-180) + "deg) rotateY(" +(Math.random()*500-180)+ "deg) translateZ(900px)",
+						"opacity": 0,
+					});
+				})
+			},10)
+
+
+			//第三步，轮播图切换
+			idx += shit;
+			// 信号量的判断
+			if(idx<0) idx=$imgs.length-1;
+			if(idx>$imgs.length-1) idx = 0;
+
+			$imglis.find("li").eq(idx).addClass("cur").siblings().removeClass("cur");
+            $(".circles ol li").eq(idx).addClass("active").siblings().removeClass("active");
+            
+			lock = false;
+
+			//第四步，清空并节流
+			setTimeout(function(){
+				$chips.html("");
+				lock = true;
+			},3000)
+		}
+
+
+
+
+        $("#rightBtn").click(change(1));
+
+        $("#leftBtn").click(change(-1));
+		
+		var timer = setInterval(change,3000);
+
+		$(".carousel").mouseenter(function(){
+			clearInterval(timer);
+		})
+
+		$(".carousel").mouseleave(function(){
+			timer = setInterval(function(){
+                change(1);
+            },3000);
+		})
+
+
+        $(".circles ol li").each(function(i){
+            var j=i;
+            $(this).click(function(){
+                change(j-idx);
+            });
+        })
+
+	})
+	</script>
+</body>
+</html>

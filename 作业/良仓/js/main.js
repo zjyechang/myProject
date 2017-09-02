@@ -5,7 +5,6 @@ $(function(){
     }
     // 退出登录
     $(".logout").click(function(){
-        console.log(1)
         localStorage.clear();
         location.reload();
     });

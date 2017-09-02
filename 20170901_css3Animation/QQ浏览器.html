@@ -7,8 +7,8 @@
     <title>Document</title>
     <style>
         *{
-            padding:0;
-            margin:0;
+            padding: 0;
+            margin: 0;
         }
         html,body{
             height: 100%;
@@ -20,114 +20,148 @@
         .inner_c{
             width: 1000px;
             height: 100%;
-            margin:0 auto;
+            margin: 0 auto;
             position: relative;
         }
-        .logo_stage{
+        .inner_c .logo_stage{
             width: 313px;
             height: 46px;
             perspective: 500px;
         }
-        .logo_stage .logo{
-
-            /* display: none; */
+        .inner_c .logo_stage .logo{
+            display: none;
         }
-        .h1_stage{
-            margin-top:100px;
-            perspective:500px;
+        .inner_c .h1_stage{
+            margin-top: 100px;
+            perspective: 500px;
         }
-        h1{
+        .inner_c .h1_stage h1{
             width: 466px;
-            height:70;
-            margin:0 auto;
-            line-height:50px;
+            height: 70px;
+            margin: 0 auto;
+            line-height: 80px;
             font-size: 50px;
             text-align: center;
-
         }
-        em{
-            font-style:normal;
-            float:left;
+        .inner_c .h1_stage h1 em{
+            font-style: normal;
+            float: left;
+            
         }
-        h3{
+        .inner_c h3{
             font-size: 20px;
-            color:#333;
-
+            color: #333;
+            text-align: center;
+            clear: both;
         }
-        .clock{
+        
+        .clock_stage{
+            width: 381px;
+            height: 381px;
+            perspective: 300px;
+        }
+        .clock_stage .clock{
             width: 381px;
             height: 381px;
             position: relative;
             perspective: 1500px;
-
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            display: none;
         }
-        .n1,.n2,.n3,.n4{
+        .clock_stage .clock .n1,
+        .clock_stage .clock .n2,
+        .clock_stage .clock .n3,
+        .clock_stage .clock .n4{
             position: absolute;
-            top:50%;
-            left:50%;
-            margin-left:-190px;
-            margin-top:-190px;
+            top: 50%;
+            left: 50%;
+            margin-left: -190px;
+            margin-top: -190px;
             width: 381px;
             height: 381px;
+            
         }
-
         .banben{
             position: absolute;
             width: 316px;
             height: 296px;
-            top:50%;
-            left:50%;
-            margin-left:-150px;            
-            margin-top:-150px;
+            top: 50%;
+            left: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+            display: none;
         }
-
-        ul{
+        
+        .circles{
+            position:absolute;
+            top:50%;
+            right: 10%;
+            margin-top: -100px;
+            width: 20px;
+        }
+        .circles ol{
             list-style: none;
         }
-        li{
-            width: 10px;
-            height: 10px;
-            border-radius:50%;
-            background-color: orange;
+        .circles ol li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: orange;
+            margin-bottom: 6px;
+        }
+        .circles ol li.cur{
+            background: skyblue;
         }
     </style>
 </head>
 <body>
-    
-    <h1 class=""h1_stage>
-        <em>找</em>
-        <em>到</em>
-        <em>属</em>
-        <em>于</em>
-        <em>你</em>
-        <em>的</em>
-        <em>浏</em>
-        <em>览</em>
-        <em>器</em>
-    </h1>
-    <span>chrome</span>
-    <h3>吹牛逼的话，我能吹到你怀疑人生</h3>
-
-    <div class="clock_stage">
-        <div class="clock">
-            <img src="./img/n1.png" alt="" class="n1">
-            <img src="./img/n2.png" alt="" class="n2">
-            <img src="./img/n3.png" alt="" class="n3">
-            <img src="./img/n4.png" alt="" class="n4">
-            
+    <div class="inner_c">
+        <!--page0的元素们-->
+        <div class="logo_stage">
+            <img src="./img/qq/title2_1.png" alt="" class="logo" />
         </div>
-
+        <div class="h1_stage">
+            <h1>
+                <em>找</em>
+                <em>到</em>
+                <em>属</em>
+                <em>于</em>
+                <em>你</em>
+                <em>的</em>
+                <em>浏</em>
+                <em>览</em>
+                <em>器</em>
+            </h1>
+            <h3>吹牛逼的话，我能吹到你怀疑人生!</h3>
+        </div>
+        
+        <!--page0的元素们-->
+        <div class="clock_stage">
+            <div class="clock">
+                <img src="./img/qq/n1.png" alt="" class="n1"/>
+                <img src="./img/qq/n2.png" alt="" class="n2" />
+                <img src="./img/qq/n3.png" alt="" class="n3" />
+                <img src="./img/qq/n4.png" alt="" class="n4" />
+            </div>
+        </div>
+        <div class="banben">
+            <img src="./img/qq/47.png"/>
+        </div>
     </div>
-
-    <div class="circle">
-        <ul>
+    
+    
+    <div class="circles">
+        <ol>
+            <li class="cur"></li>
             <li></li>
             <li></li>
             <li></li>
-            <li></li>
-            
-        </ul>
+        </ol>
     </div>
+  
+    
+
     <script src="../JS框架/jquery-1.12.3.min.js"></script>
     <script src="../JS框架/velocity.min.js"></script>
     <script src="../JS框架/jquery.mousewheel.min.js"></script>
@@ -139,23 +173,114 @@
             //出场动画
         var outAnimation = [function(){},function(){},function(){},function(){}];
             
+
         inAnimation[0]=function(){
-            event.preventDefault();
+           console.log("0号进场");
 
-            var oldPage = page;
-            page -=delta;
-            if(page>4) page=0;
-            if(page<0) page=4;
-            
-            if(oldPage != page){
-                outAnimation[page];
-                inAnimation[page];
-            }
+           $(".logo").show().velocity({
+               "rotateY": "180deg",
+               "rotateX": "360deg",
+               "translateZ": "500px"
+           },0).velocity("reverse",1000);
 
-            $("circle ul li").eq(page).addClass("active").sibilings().removeClass("active");
+           $("h1 em").velocity({
+               "opacity":1
+           },0);
+
+           $("h1").show().velocity({
+               "translateZ": "500px"
+           },0).delay(400).velocity("reverse",1000);
+
+           $("h3").show().velocity({
+               "translateZ":"500px"
+           },0).delay(600).velocity("reverse",1000)
         }
 
 
+        inAnimation[1]=function(){
+				console.log("1号页面进场");
+				
+				$(".clock").show().velocity({
+					"rotateY": "-180deg",
+					"translateZ": "400px",
+					"scale": "0.1"
+				},0)
+				.velocity({
+					"rotateY": "0deg",
+					"translateZ": "0px",
+					"scale": "1"
+				},1000);
+				
+				$(".banben").show().velocity({
+					"translateZ": "0px",
+					"scale": "0.001"
+				},0)
+				.delay(1300).velocity({
+					"scale": "1"
+				},1400);
+				
+			}
+			inAnimation[2]=function(){
+				console.log("2号页面进场");
+			}
+			inAnimation[3]=function(){
+				console.log("3号页面进场");
+			}
+			//出场
+			outAnimation[0]=function(){
+				console.log("0号页面出场");
+				
+				$(".logo").fadeOut();
+				$("h1 em").each(function(i){
+					$(this).delay( i * 60).velocity({
+						"translateZ": "500px"
+					},1400,function(){
+						$(this).velocity({
+							"translateZ": "0px",
+							"opacity": "0"
+						},0)
+					})
+				})
+				$("h3").fadeOut();
+				
+			}
+			outAnimation[1]=function(){
+				console.log("1号页面出场");
+				
+				$(".banben").fadeOut();
+			}
+			outAnimation[2]=function(){
+				console.log("2号页面出场");
+			}
+			outAnimation[3]=function(){
+				console.log("3号页面出场");
+			}
+			
+			
+			//页面一开始就应该执行0页面的入场动画
+            inAnimation[0]();
+            
+
+
+        $(document).mousewheel(function(event,delta){
+            event.preventDefault();
+
+            var oldpage = page;
+
+            page -=delta;
+
+            if(page>3) page=0;
+            if(page<0) page=3;
+            
+            if(oldpage != page){
+                outAnimation[oldpage]();
+                inAnimation[page]();
+            }
+
+            $(".circles ol li").eq(page).addClass("cur").siblings().removeClass("cur");
+            // $(".circles ol li").eq(page).addClass("cur").siblings().removeClass("cur");
+
+        })
     </script>
 </body>
 </html>
