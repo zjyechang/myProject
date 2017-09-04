@@ -176,7 +176,7 @@
 
 			// 第二步，碎片运动
 			setTimeout(function(){
-				console.log($chips.find("div"))
+
 				$chips.find("div").each(function(i){
 					$(this).css({
 						"transform": "rotateX(" + (Math.random()*500-180) + "deg) rotateY(" +(Math.random()*500-180)+ "deg) translateZ(900px)",
@@ -207,11 +207,13 @@
 
 
 
-        $("#rightBtn").click(change(1));
+        $("#rightBtn").click(function(){change(1)});
 
-        $("#leftBtn").click(change(-1));
+        $("#leftBtn").click(function(){
+			change(-1);
+		});
 		
-		var timer = setInterval(change,3000);
+		var timer = setInterval(function(){change(1);},3000);
 
 		$(".carousel").mouseenter(function(){
 			clearInterval(timer);

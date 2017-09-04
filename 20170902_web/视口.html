@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 约束视口 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    p{
+        font-size: 60px;    
+    }
+    
+    </style>
+</head>
+<body>
+    <p>页面展示内容</p>
+    <h1 class="biaoti"></h1>
+
+
+    <script >
+    var biaoti = document.querySelector(".biaoti");
+
+    biaoti.innerHTML = document.documentElement.clientWidth;
+    </script>
+</body>
+</html>
