@@ -1,5 +1,4 @@
-html,
-body {
+html,body {
     height: 100%;
     position: relative;
 }
@@ -20,8 +19,72 @@ body {
     font-size: 18px;
     text-align: center;
     background-color: #fff;
+}
+
+.landscape_notice{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    height: 100%;
+    z-index: 9999;
+    background: rgba(0,0,0,.8);
+    display: none;
+}
+.text-center {
+    position: relative;
+    top: 50%;
+    left: 0;
+    right: 0;
+    /* color: #fff; */
+    font-size: 28px;
+    text-align: center;
+}
+
+@media (orientation: landscape){
+    .landscape_notice {
+        display: block;
+}}
+
+/* 向上箭头 */
+
+.up-arrow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 40px;
+    width: 75px;
+    z-index: 11;
+    opacity: 0.8;
+}
+
+.up-arrow img {
+    width: 100%;
+    animation: upArrow 1.5s infinite ease-in-out;
+}
+
+
+/* 音乐播放 */
+
+.btn-music {
+    position: absolute;
+    padding: 50px;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    background: url('../images/musicBtn.png') 50% 50% no-repeat;
+    animation: music 5s infinite linear;
+}
+
+.btn-music.off {
+    background: url('../images/musicBtnOff.png') 50% 50% no-repeat;
+}
+
+@-webkit-keyframes music {
+    to {
+        transform: rotate(360deg)
+    }
 }
 
 
@@ -107,51 +170,11 @@ body {
 }
 
 .index-build {
+    /* position: absolute; */
     bottom: 0;
-    width: 100%;
 }
 
 
-/* 向上箭头 */
-
-.up-arrow {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    bottom: 40px;
-    width: 75px;
-    z-index: 11;
-    opacity: 0.8;
-}
-
-.up-arrow img {
-    width: 100%;
-    animation: upArrow 1.5s infinite ease-in-out;
-}
-
-
-/* 音乐播放 */
-
-.btn-music {
-    position: absolute;
-    padding: 50px;
-    z-index: 9999;
-    top: 0;
-    right: 0;
-    background: url('../images/musicBtn.png') 50% 50%;
-    animation: music 5s infinite linear;
-}
-
-.btn-music.off {
-    background: url('../images/musicBtnOff.png') 50% 50%;
-}
-
-@-webkit-keyframes music {
-    to {
-        transform: rotate(360deg)
-    }
-}
 
 
 /* 第二页 */
@@ -166,7 +189,6 @@ body {
     height: 100%;
     bottom: 0;
     background: url('../images/wasBg.jpg') 50% 100% no-repeat;
-    background-size: cover;
 }
 
 .ws-line {
@@ -174,7 +196,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 2;
-    background-color: url('../images/wasStar.png') 50% 50% no-repeat;
+    background: url('../images/wasStar.png') 50% 50% no-repeat;
 }
 
 .xy-c {
@@ -221,7 +243,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
+    bottom: 0;
     left: 0;
 }
 
@@ -243,12 +265,17 @@ body {
     bottom: 5%;
 }
 
+.last-bus-station{
+    bottom:0;
+    left:0;
+}
 .bus-avatar {
     right: 0;
     bottom: 5%;
 }
 
 .where-bg {
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -294,15 +321,26 @@ body {
 
 /* 第四页 */
 
+
+/* 灯 */
+
 .light-btn {
     left: 2%;
     top: 15%;
     z-index: 2;
 }
 
+.light-on {
+    display: none;
+    background-color: #1a7fdc;
+}
+
 .light-btn-on {
     display: none;
 }
+
+
+/* 暗灯背景 */
 
 .light-page {
     left: 0;
@@ -333,11 +371,6 @@ body {
     z-index: 3;
 }
 
-.infinite {
-    animation-iteration-count: infinite;
-    -webkit-animation-iteration-count: infinite;
-}
-
 .light-off-wall {
     right: 0;
     bottom: 0;
@@ -350,11 +383,6 @@ body {
     height: 100%;
     width: 100%;
     z-index: 1;
-}
-
-light-on {
-    display: none;
-    background-color: #1a7fdc;
 }
 
 .light-page .light-bg {
@@ -423,11 +451,181 @@ light-on {
     text-align: center;
 }
 
+.run-ta {
+    left: 13%;
+    top: 52%;
+}
+
+.run-txt {
+    left: 22%;
+    top: 55%;
+}
+
 
 /* 第七页 */
+
+.swiper-slide:nth-child(7) {
+    background-color: #4add9d;
+    text-align: center;
+}
+
+.city-avatar {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    top: 5%;
+}
+
+.salary-city {
+    top: 8%;
+    left: 0;
+    right: 0;
+}
+
+.salary-city img {
+    width: 70%;
+    height: 70%;
+}
+
+.salary-avatar {
+    top: 3%;
+    left: 0;
+    right: 7%;
+    margin-top: 40px;
+}
+
+.salary-avatar img {
+    width: 40%;
+    height: 40%;
+}
+
+.salary-ta {
+    left: 10%;
+    top: 60%;
+}
+
+.salary-txt {
+    left: 20%;
+    top: 60%;
+}
 
 
 /* 第八页 */
 
+.swiper-slide:nth-child(8) {
+    background-color: #b5effd;
+    text-align: center;
+}
+
+.intro-logo {
+    position: absolute;
+    top: 10%;
+    z-index: 5;
+    left: 0;
+    right: 0;
+}
+
+.intro-txt {
+    background: #fc5955;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 15px;
+    height: 70%;
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+    top:12%;
+}
+
+.intro-txt-inner {
+    background: #ef3d38;
+    padding: 80px 20px 150px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 150%;
+    height: 67%;
+}
+
+.intro-flower {
+    left: 2%;
+    top: 5%;
+}
+
+.intro-avatar {
+    bottom: -3px;
+    right: 10%;
+    z-index: 3;
+}
+
+.intro-avatar img {
+    width: 160px;
+    height: 200px;
+}
+
+.intro-star {
+    right: 200px;
+    bottom: 100px;
+    z-index: 4;
+}
+
+.intro-cloudy {
+    top: 110px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 4;
+}
+
 
 /* 第九页 */
+
+.swiper-slide:nth-child(9) {
+    text-align: center;
+    background: url(../images/endBg.png) no-repeat #3e88f1;
+    background-size: 100% 100%;
+}
+
+.end-logo {
+    left: 0;
+    right: 0;
+    top: 8%;
+}
+
+.end-txt {
+    left: 0;
+    right: 0;
+    top: 20%;
+}
+
+.end-mail {
+    left: 0;
+    right: 0;
+    top: 40%;
+}
+
+.end-clickguide {
+    left: 0;
+    right: 0;
+    top: 50%;
+}
+
+.end-avatar {
+    z-index: 999;
+    display: block;
+    position: relative;
+    top: 60%;
+}
+
+.end-cloudys {
+    left: 0;
+    width: 100%;
+    top: 120px;
+}
+
+.end-bottom-txt {
+    width: 100%;
+    bottom: 25px;
+    z-index: 100;
+    background-color: #3e88f1;
+}

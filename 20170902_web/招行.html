@@ -3,20 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=640, initial-scale=1.0 ,user-scalable=no">
+    <meta name="viewport" content="width=640, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>招行转角，遇见Ta</title>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/swiper.min.css">
     <link rel="stylesheet" href="./styles/animate.min.css">
-
     <link rel="stylesheet" href="./styles/main.css">
 
 </head>
 
 <body>
     <!-- div.swiper-container>(div.swiper-wrapper>div.swiper-slide{$}*9)+div.swiper-pagination -->
-
+    <div class="landscape_notice">
+        <div class="text-center">
+            <span>请竖屏观看</span>
+        </div>
+    </div>
     <div class="swiper-container">
 
         <!-- 向上箭头 -->
@@ -96,7 +99,7 @@
                         <img src="./images/lastBusTitle.png" alt="">
                     </h4>
                     <div class="b-build last-bus-station abs ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="4s">
-                        <img src="./images/lastBusStation.png" alt="">
+                        <img src="./images/lastBusStation.png" alt="" class="ani" >
                     </div>
                     <div class="bus-avatar abs ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="3.5s" swiper-animate-delay="4.5s">
                         <img src="./images/lastBusAvatar.png" alt="">
@@ -142,35 +145,44 @@
             <div class="swiper-slide">
                 <!-- 第四页 -->
                 <div class="light-btn abs">
+                    <!-- 暗灯柱 -->
                     <img src="./images/ligntOff.png" alt="">
                 </div>
 
                 <div class="light-btn light-btn-on abs">
+                    <!-- 亮灯柱 -->
                     <img src="./images/lightOn.png" alt="">
                 </div>
                 <div class="light-page light-off abs">
                     <div class="light-bg abs">
+                        <!-- 夜晚背景 -->
                         <img src="./images/lightOffBg.jpg" alt="">
                     </div>
                     <div class="light-title abs ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s">
+                        <!-- 转角遇见ta -->
                         <img src="./images/cornerTitle.png" alt="">
                     </div>
                     <div class="light-click-guide abs ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s" swiper-animate-delay="0.8s">
+                        <!-- 提示点亮文字 -->
                         <img src="./images/clickGuide.png" alt="" class="ani infinite" swiper-animate-effect="qqpulse" swiper-animate-duration="1s">
                     </div>
                     <div class="light-off-wall abs ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.1s">
+                        <!-- 背景墙 -->
                         <img src="./images/cornerWall.png" alt="">
                     </div>
                 </div>
 
                 <div class="light-page light-on abs">
                     <div class="light-bg abs">
+                        <!-- 点亮后背景 -->
                         <img src="./images/lightOnBg.jpg" alt="" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1s">
                     </div>
                     <div class="light-flowers abs ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1s">
+                        <!-- 向日葵 -->
                         <img src="./images/lightFlowers.png" alt="">
                     </div>
                     <div class="light-knowyou abs ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+                        <!-- 文字 -->
                         <img src="./images/weKnowYou.png" alt="">
                     </div>
                 </div>
@@ -188,7 +200,7 @@
                 <div class="foot-ta abs ani" swiper-animate-effect="fadeOut" swiper-animate-duration="1s" swiper-animate-delay="1.5s">
                     <img src="./images/footTa.png" alt="" class="bounceInLeft" swiper-animate-effect="zoomIn" swiper-animate-duration="1s">
                 </div>
-                <div class="foot-text ani abs" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2s">
+                <div class="foot-txt ani abs" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2s">
                     <img src="./images/footTx.png" alt="">
                 </div>
             </div>
@@ -200,21 +212,87 @@
                 <div class="run-ta ani abs" swiper-animate-effect="fadeOut" swiper-animate-duration="1s" swiper-animate-delay="1.5s">
                     <img src="./images/runTa.png" alt="" class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s">
                 </div>
-                <div class="run-txt abs ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2s">
+                <div class="run-txt ani abs" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2s">
                     <img src="./images/runTxt.png" alt="">
                 </div>
 
             </div>
             <div class="swiper-slide">
                 <!-- 第七页 -->
+                <div class="city-avatar">
+                    <div class="salary-city ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+                        <img src="./images/salaryBg.png" alt="">
+                    </div>
+                    <div class="salary-avatar abs ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.8s">
+                        <img src="./images/salaryAvatar.png" alt="">
+                    </div>
+                </div>
 
+                <div class="salary-ta abs ani" swiper-animate-effect="fadeOut" swiper-animate-duration="1s" swiper-animate-delay="1.5s">
+                    <img src="./images/salaryTa.png" alt="" class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s">
+                </div>
+
+                <div class="salary-txt abs ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2s">
+                    <img src="./images/salaryTxt.png" alt="">
+                </div>
             </div>
             <div class="swiper-slide">
                 <!-- 第八页 -->
+                <div class="intro-logo">
+                    <img src="./images/introLogo.png" alt="">
+                </div>
+                <div class="intro-txt">
+                    <div class="intro-txt-inner">
+                        <p>招商银行是世界500强企业，也是我国第一家完全有企业法人持股的股份制商业银行。</p>
+                        <p>招银网络科技（简称招银科技）是招商银行的全资子公司，致力于为招商银行全球化发展提供强有力的软件开发及技术支持。公司以成为中国银行业最强大脑为己任，在彼此信任和尊重的基础上，追求高标准的交付和价值创造。现有深圳、杭州两家分支机构，共同担负着招商银行电子信息化的重任。</p>
+                        <p>这里是中国最具活力的银行，这里是中国最优秀的金融IT团队之一。如果您足够优秀，那么这里将会是您智慧闪光、价值实现和梦想腾飞的舞台，我们热忱期待您的加盟。</p>
+                    </div>
+
+                </div>
+                <div class="intro-flower abs">
+                    <img src="./images/introFlowers.png" alt="" class="qqpulse animated infinite">
+                </div>
+                <div class="intro-avatar abs">
+                    <img src="./images/introAvatar.png" alt="">
+                </div>
+                <div class="intro-star abs">
+                    <img src="./images/introStar.png" alt="" class="qqflash animated infinite">
+                </div>
+                <div class="intro-cloudy abs">
+                    <img src="./images/introCloudy.png" alt="">
+                </div>
+
 
             </div>
             <div class="swiper-slide">
                 <!-- 第九页 -->
+                <div class="end-logo abs ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+                    <img src="./images/endLogo.png" alt="">
+                </div>
+
+                <div class="end-txt abs ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s" swiper-animate-delay="0.6s">
+                    <img src="./images/endTxt.png" alt="">
+                </div>
+
+                <div class="end-mail abs ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s" swiper-animate-delay="0.7s">
+                    <img src="./images/endMail.png" alt="">
+                </div>
+
+                <div class="end-clickguide abs ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s" swiper-animate-delay="0.8s">
+                    <img src="./images/endClickGuide.png" alt="">
+                </div>
+
+                <a href="javascript:;" class="end-avatar abs ani" swiper-animate-effect="zoomInDown" swiper-animate-duration="1s" swiper-animate-delay="0.9s">
+                    <img src="./images/endAvatar.png" alt="" class="qqshakeLarge animated infinite">
+                </a>
+
+                <div class="end-cloudys abs">
+                    <img src="./images/endCloudys.png" alt="" class="qqpulse animated infinite">
+                </div>
+
+                <div class="end-bottom-txt abs">
+                    <img src="./images/endBottomTxt.png" alt="">
+                </div>
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -258,6 +336,20 @@
             }
 
 
+        })
+
+
+        // 开灯
+        var oLightBtn = document.querySelector(".light-btn");
+        var oLightOnBtn = document.querySelector(".light-btn-on");
+        var oLightOff = document.querySelector(".light-off");
+        var oLightOn = document.querySelector(".light-on");
+
+        oLightBtn.addEventListener("click", function() {
+            oLightBtn.style.display = "none";
+            oLightOff.style.display = "none";
+            oLightOnBtn.style.display = "block";
+            oLightOn.style.display = "block";
         })
     </script>
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin:0;
+    }
+    div{
+        width: 1000px;
+        height: 200px;
+        background-color: #000;
+        margin:0 auto;
+    }
+    p{
+        float: left;
+        width: calc(50% - 10px);
+        height: 100%;
+        /* background-image: -webkit-radial-gradient(top,blue,green); */
+        background-image: -webkit-linear-gradient(135deg,yellow 100px,red 100px);
+        box-sizing:border-box;
+        border: 5px solid #0ff;;
+    }
+    p:last-child{
+        border-left: none;
+    }
+    </style>
+</head>
+<body>
+    <h3>制作两个50%宽的盒子，带边框，不会掉下去</h3>
+    <div>
+        <p>1</p>
+        <p>2</p>
+    </div>
+</body>
+</html>

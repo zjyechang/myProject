@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    /* 第一种 display:box*/
+    /* div{
+        display: -webkit-box;
+        width:100%;
+        height:200px;
+    }
+    P:nth-child(1){
+        width: 200px;
+        height: 100px;
+      
+        background-color: lawngreen;
+    }
+    p:nth-child(2){
+        -webkit-box-flex: 1;
+        height: 100px;
+     
+        background-color: darkcyan;
+    }
+    p:nth-child(3){
+        width: 200px;
+        height: 100px;
+
+        background-color: rebeccapurple;
+    } */
+    
+
+    /* 第二种 计算后样式*/
+    /* 
+    P:nth-child(1){
+        width: 200px;
+        height: 100px;
+        float: left;
+        background-color: lawngreen;
+    }
+    p:nth-child(2){
+        width: calc(100% - 400px);
+        height: 100px;
+        float: left;
+        background-color: darkcyan;
+    }
+    p:nth-child(3){
+        width: 200px;
+        height: 100px;
+        float: right;
+        background-color: rebeccapurple;
+    } */
+
+
+    /* 第三种 两侧绝对定位*/
+    /* P:nth-child(1){
+        position: absolute;
+        top:0;
+        left:0;
+        width: 200px;
+        height: 100px;
+        background-color: lawngreen;
+        z-index: 1;
+    }
+    p:nth-child(2){
+        position: relative;
+        padding:0 200px;
+        width: 100%;
+        height: 100px;
+        background-color: darkcyan;
+    }
+    p:nth-child(3){
+        position: absolute;
+        top:0;
+        right:0;
+        width: 200px;
+        height: 100px;
+        background-color: rebeccapurple;
+    } */
+
+    /* 第四种，js */
+    P:nth-child(1){
+        width: 200px;
+        height: 100px;
+        background-color: lawngreen;
+        z-index: 1;
+        float:left;
+        
+    }
+    p:nth-child(2){
+        height: 100px;
+        background-color: darkcyan;
+        float:left;
+        
+    }
+    p:nth-child(3){
+        width: 200px;
+        height: 100px;
+        background-color: rebeccapurple;
+        float:left;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+
+    <script>
+    var p = document.getElementsByTagName("p")[1];
+        window.onload = function(){
+            changeWidth(); 
+        }
+
+    window.onresize=function(){  
+            changeWidth();  
+    }  
+    function changeWidth(){               
+        var h = document.documentElement.clientWidth;//获取页面可见高度  
+        p.style.width= (h-400)+"px";  
+}
+
+    </script>
+</body>
+</html>
