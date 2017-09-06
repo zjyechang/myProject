@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            
+        }
+        html{
+            font-size: 30px;
+        }
+        div{
+            float:left;
+            width:33.33%;
+            height: 6.666%;
+            border:1px solid #000;
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    
+    <script>
+    
+    window.onload = function(){
+        set();
+    }
+
+
+    window.onresize = function(){
+        set();
+    }
+    function set(){
+        var window = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = 30*(window/600)+"px";
+    }
+
+
+    </script>
+</body>
+</html>

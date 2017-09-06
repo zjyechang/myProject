@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>携程旅行</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="soso">
+            <div class="soso_box">
+                <input type="text" placeholder="目的地/酒店/景点/航班号" name="search">
+            </div>
+        </div>
+        <div class="user">
+            <a href="#">我 的</a>
+        </div>
+
+    </header>
+    <!-- banner -->
+    <section class="banner">
+
+    </section>
+    <!-- 导航部分 -->
+    <nav>
+        <div class="row">
+            <ul>
+                <li>
+                    <div><a href="#">酒 店</a></div>
+                </li>
+                <li>
+                    <div><a href="#">海外酒店</a></div>
+                </li>
+                <li>
+                    <div><a href="#">团 购</a></div>
+                </li>
+                <li>
+                    <div><a href="#">特价酒店</a></div>
+                </li>
+                <li>
+                    <div><a href="#">民宿·客栈</a></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <ul>
+                <li>
+                    <div><a href="#">机 票</a></div>
+                </li>
+                <li>
+                    <div><a href="#">火车票·抢票</a></div>
+                </li>
+                <li>
+                    <div><a href="#">汽车票·船票</a></div>
+                </li>
+                <li>
+                    <div><a href="#">特价机票</a></div>
+                </li>
+                <li>
+                    <div><a href="#">专车·租车</a></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <ul>
+                <li>
+                    <div><a href="#">旅 游</a></div>
+                </li>
+                <li>
+                    <div><a href="#">目的地攻略</a></div>
+                </li>
+                <li>
+                    <div><a href="#">邮轮旅行</a></div>
+                </li>
+                <li>
+                    <div><a href="#">周边游</a></div>
+                </li>
+                <li>
+                    <div><a href="#">定制旅游</a></div>
+                </li>
+            </ul>
+        </div>
+
+    <div class="row">
+            <ul>
+                <li>
+                    <div><a href="#">景点·玩乐</a></div>
+                </li>
+                <li>
+                    <div><a href="#">美食林</a></div>
+                </li>
+                <li>
+                    <div><a href="#">购物·信用卡</a></div>
+                </li>
+                <li>
+                    <div><a href="#">礼品卡</a></div>
+                </li>
+                <li>
+                    <div><a href="#">WIFI·电话卡</a></div>
+                </li>
+                <li>
+                    <div><a href="#">保险·签证</a></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="sunNav">
+        
+    </section>
+
+
+
+
+
+
+
+
+
+    <script>
+        var banner = document.querySelector(".banner");
+
+    window.onload = function(){
+        set();
+    }
+    window.onresize =set;
+    function set(){
+        var bannerWidth = parseInt(getComputedStyle(banner)["width"]);
+        console.log(bannerWidth)
+        // 根据宽度除以比例得到宽度，再赋值
+        banner.style.height = Math.round(bannerWidth/(1242/248)) +"px";
+    }
+    
+    
+    </script>
+</body>
+</html>

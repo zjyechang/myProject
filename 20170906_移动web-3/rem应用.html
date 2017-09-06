@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+				padding: 0;
+				margin: 0;
+			}   
+    html{
+        font-size: 16px;
+
+    }
+    .box1{
+        font-size: 2rem;
+    }
+    .box2{
+        font-size: 2rem;
+    }
+    .box3{
+        font-size: 2rem;
+    }
+    
+
+    @media (min-width: 600px){
+        html{
+            font-size:14px;
+        }
+        a{
+            background-color: lightcoral;
+        }
+    }
+    @media (min-width: 800px){
+        html{
+            font-size:18px;
+        }
+        a{
+            background-color: darkcyan;
+        }
+    }
+    @media (min-width: 1000px){
+        html{
+            font-size:22px;
+        }
+        a{
+            background-color: royalblue;
+        }
+    }
+    @media (min-width: 1200px){
+        html{
+            font-size:26px;
+        }
+        a{
+            background-color: paleturquoise;
+        }
+    }
+    header{
+        position: relative;
+        height: 2.5rem;
+    }
+    header .logo{
+        position: absolute;
+        top:0;
+        left:0;
+        width:7.5rem;
+        height:2.5rem;
+        background-color: lightblue;
+    }
+    header nav{
+        width: 100%;
+        height: 2.5rem;
+        padding:0 7.5rem;
+        box-sizing: border-box;
+        background-color: lightslategrey;
+        overflow: hidden;
+    }
+    header .btn{
+        position: absolute;
+        top:0;
+        right:0;
+        width:7.5rem;
+        height: 2.5rem;
+        background-color: mediumspringgreen;
+    }
+
+    header ul{
+        list-style: none;
+        overflow: hidden;
+    }
+    header li{
+        float:left;
+        margin-right:0.625rem;
+        line-height:2.5rem;
+        font-size: 1rem;
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="box1">
+        哈哈
+        <div class="box2">
+            嘻嘻
+            <div class="box3">桀桀</div>
+        </div>
+    </div> -->
+
+    <header>
+        <div class="logo"></div>
+        <nav>
+            <ul>
+                <li><a href="#">网站栏目</a></li>
+                <li><a href="#">网站栏目</a></li>
+                <li><a href="#">网站栏目</a></li>
+                <li><a href="#">网站栏目</a></li>
+                <li><a href="#">网站栏目</a></li>
+                <li><a href="#">网站栏目</a></li>
+            </ul>
+        </nav>
+        <div class="btn"></div>
+    </header>
+</body>
+</html>

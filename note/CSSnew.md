@@ -215,3 +215,6 @@ $('<style>.red::before{color:green}</style>').appendTo('head');
     color: red;
 }
 $('.red').attr('data-attr', 'green');
+
+## css样式顺序
+位 大 字 背 其

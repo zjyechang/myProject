@@ -1,7 +1,7 @@
 
 # display:box
 父元素设置display:-webkit-box;子元素可按比例设置-webkit-box-flex:1;  **已经被淘汰**
-现在用display:flex;替代了，子元素设置-webkit-box-flex:1;
+现在用display:flex;替代了，子元素设置flex-grow:1;
 # flex详细
 
 ## 容器中项目六个属性
