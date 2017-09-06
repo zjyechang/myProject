@@ -234,3 +234,194 @@ nav .row:nth-child(4) ul li:nth-child(6)>div{
 nav .row:nth-child(4) ul li:nth-child(1) div a::before{
     display: none;
 }
+
+
+
+.sunNav{
+    width: 100%;
+    margin:0 auto;
+    max-width: 540px;
+}
+.sunNav ul{
+    list-style: none;
+    display:flex;
+    width: 100%;
+    height: 60px;
+}
+.sunNav ul li{
+    position: relative;
+    /* float: left; */
+    height: 26px;
+    margin-right: 1px;
+    padding-top: 34px;
+    background: #fff;
+    text-align: center;
+    font-size: 0.85em;
+    flex-grow: 1;
+}
+.sunNav ul li::before{
+    content:"";
+    display: block;
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background:url('../images/un_ico.png') no-repeat;
+    background-size: 20px 315px;
+}
+.sunNav .row1 li:nth-child(1)::before{
+    background-position: 0 -80px;
+}
+.sunNav .row1 li:nth-child(2)::before{
+    background-position: 0 -292px;
+}
+.sunNav .row1 li:nth-child(3)::before{
+    background-position: 0 -120px;
+}
+.sunNav .row1 li:nth-child(4)::before{
+    background-position: 0 -140px;
+}
+
+.sunNav .row2 li:nth-child(1)::before{
+    background-position: 0 -160px;
+}
+.sunNav .row2 li:nth-child(2)::before{
+    background-position: 0 -180px;
+}
+.sunNav .row2 li:nth-child(3)::before{
+    background-position: 0 -200px;
+}
+.sunNav .row2 li:nth-child(4)::before{
+    background-position: 0 -220px;
+}
+
+.sunNav .row3 li:nth-child(1)::before{
+    background-position: 0 -20px;
+}
+.sunNav .row3 li:nth-child(2)::before{
+    background-position: 0 -262px;
+}
+.sunNav .row3 li:nth-child(3)::before{
+    background-position: 0 0;
+}
+.sunNav .row3 li:nth-child(4)::before{
+    background-position: 0 -60px;
+}
+
+.sale-wrap{
+    width: 100%;
+    max-width: 540px;
+    margin:0 auto;
+
+}
+.sale-wrap h2{
+    position: relative;
+    width: 100%;
+    padding:0 8px;
+    background-color: #fff;
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden;
+}
+.sale-wrap h2::before{
+    content:"";
+    display: block;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    width: 79px;
+    height: 15px;
+    background: url("../images/home_text.png") no-repeat 0 0;
+    background-size: 79px auto;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 999;
+    background-color: #fff;
+}
+.tltle-button{
+    position: absolute;
+    right: 8px;
+    top: 11px;
+    display: inline-block;
+    padding: 0 18px 0 12px;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 12px;
+    background: -webkit-linear-gradient(left,#ff4e63,#ff6cc9);
+    background: linear-gradient(to right,#ff4e63,#ff6cc9);
+}
+
+.sale-box{
+    flex:0 0 50%;
+    max-width:50%;
+}
+.sale-img{
+    position: relative;
+    height: 117px;
+    overflow: hidden;
+}
+.sale-img .sale-hot{
+    position: absolute;
+    line-height: 20px;
+    padding: 0 6px 0 8px;
+    top: 0;
+    background-color: #fd3a51;
+    text-align: center;
+    z-index: 10;
+    left: 0;
+    color: #fff;
+    font-size: 12px;
+}
+.sale-img .sale-hot::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -8px;
+    border-width: 20px 8px;
+    border-style: solid;
+    border-color: #fd3a51 transparent transparent;
+}
+.sale-img img{
+    position: absolute;
+    width: 100%;
+    min-height: 117px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.sale-title{
+    height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding: 8px;
+}
+.sell-info{
+    padding: 0 8px;
+    right: 4px;
+    height: 22px;
+    overflow: hidden;
+}
+.sell-info .sell-price{
+    color: #ff495e;
+    font-size: 18px;
+    font-weight: 400;
+}
+.sell-info .sell-tag{
+    display: inline-block;
+    padding: 1px 6px;
+    background: #fd3a51;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1;
+    vertical-align: 1px;
+}
