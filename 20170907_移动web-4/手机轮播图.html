@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            overflow: hidden;
+        }
+    .carousel{
+        position:relative;
+        width: 100%;
+        overflow: hidden;
+        /* max-width:600px; */
+        border-bottom:11px solid #000;
+    }
+    .carousel ul{
+        list-style: none;
+    }
+    .carousel li{
+        position: absolute;
+        width:100%;
+        left:0;
+        top:0;
+    }
+    .carousel ul li img{
+        width: 100%;
+    }
+    .cir{
+        position: absolute;
+        bottom:0;
+        left:50%;
+        z-index: 66;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);        
+    }
+    ol{
+        list-style: none;
+    }
+    .cir ol li{
+        float:left;
+        width: 10px;
+        height: 10px;
+        border-radius:50%;
+        background-color: #ccc;
+        margin-right:10px;
+    }
+    .cir ol li.cur{
+        background: orange;
+    }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="imglist">
+            <ul>
+                <li><a href="#"><img src="../20170726_lun+tab+yangshi/shuzi/0.png" alt=""></a></li>
+                <li><a href="#"><img src="../20170726_lun+tab+yangshi/shuzi/1.png" alt=""></a></li>
+                <li><a href="#"><img src="../20170726_lun+tab+yangshi/shuzi/2.png" alt=""></a></li>
+                <li><a href="#"><img src="../20170726_lun+tab+yangshi/shuzi/3.png" alt=""></a></li>
+                <li><a href="#"><img src="../20170726_lun+tab+yangshi/shuzi/4.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cir">
+        <ol>
+            <li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+
+    <script>
+        var carousel = document.querySelector(".carousel");
+        var imageLis = document.querySelectorAll(".carousel ul li");
+        var olLis = document.querySelectorAll("ol li");
+
+        
+
+        var idx= 0;
+        var next = 1;
+        var prev = 4;
+
+        init();
+        window.onresize = init;
+
+        function init(){
+            console.log(document.body.style.width)
+            // 得到屏幕宽
+            windowWidth = document.documentElement.clientWidth;
+
+            // 设置盒子高度
+            carousel.style.height = windowWidth/(200/130)+"px";
+
+            for(var i=0;i<imageLis.length;i++){
+                imageLis[i].style.webkitTransform = "translateX(" +windowWidth+ "px)";
+                }
+                imageLis[idx].style.transition = "none";
+                imageLis[prev].style.transition = "none";
+                imageLis[next].style.transition = "none"; 
+
+                // 新的位置
+                imageLis[idx].style.webkitTransform = "translateX(0)";
+                imageLis[prev].style.webkitTransform = "translateX(" + -windowWidth+ "px)";
+                imageLis[next].style.webkitTransform = "translateX(" + windowWidth+ "px)";
+                
+        }
+
+        // 事件监听
+        carousel.addEventListener("touchstart",touchstart,false);
+        carousel.addEventListener("touchmove",touchmove,false);
+        carousel.addEventListener("touchend",touchend,false);
+        // 手指偏移量
+        var deltaX;
+        // 手指开始触碰时的位置
+        var startX;
+
+        // 时间戳
+        var startTime;
+        // clearInterval(timer);
+        var timer = setInterval(showNext,2000)
+
+
+        // 触摸开始
+        function touchstart(event){
+            event.preventDefault();
+            // 超过一根手指不起效
+            if(event.touches.length>1) return;
+
+            // 清除定时器
+            clearInterval(timer);
+            // 记录偏移量
+            deltaX = event.touches[0].clientX;
+
+            // 记录手指位置
+            startX = event.touches[0].clientX;
+
+            imageLis[prev].style.transition = "none";
+            imageLis[idx].style.transition = "none";
+            imageLis[next].style.transition = "none";
+            
+            // 就绪，其实没必要，防止bug
+            imageLis[idx].style.webkitTransform = "translateX(0)";
+            imageLis[prev].style.webkitTransform = "translateX(" + -windowWidth+ "px)";
+            imageLis[next].style.webkitTransform = "translateX(" + windowWidth + "px)";
+
+            // 时间戳
+            startTime = new Date();
+        }
+
+        // 手指移动
+        function touchmove(event){
+            event.preventDefault();
+            if(event.touches.length>1) return;
+            // clearInterval(timer);
+            
+            var clientX = event.touches[0].clientX;
+
+            imageLis[prev].style.webkitTransform = "translateX("+ (-windowWidth+clientX-deltaX) +"px)";
+            imageLis[idx].style.webkitTransform = "translateX("+ (clientX-deltaX) +"px)";
+            imageLis[next].style.webkitTransform = "translateX("+ (windowWidth+clientX-deltaX) +"px)";
+            
+        }
+
+        // 触摸结束
+        function touchend(event){
+            event.preventDefault();
+            // clearInterval(timer);
+
+            var distance = event.changedTouches[0].clientX - startX;
+
+            var time = new Date() - startTime;
+            
+            if(distance >= windowWidth/2 || (distance>=30 &&time<=300)){
+                showPrev();
+            }else if((distance <= -windowWidth/2 || (distance<=-30 &&time<=300) )){
+                showNext();
+            }else{
+                imageLis[prev].style.transition = "none";
+                imageLis[idx].style.transition = "none";
+                imageLis[next].style.transition = "none";
+                
+                imageLis[idx].style.webkitTransform = "translateX(0)";
+                imageLis[prev].style.webkitTransform = "translateX(" + -windowWidth+ "px)";
+                imageLis[next].style.webkitTransform = "translateX(" + windowWidth + "px)";
+            }
+
+            timer = setInterval(showNext,3000);
+        }
+
+     
+
+        function showNext(){
+            
+            console.log("left");
+            prev = idx;
+            idx = next;
+
+            next++;
+            if(next>4) next=0;
+
+            // imageLis[next].style.transition = "none";
+            // imageLis[next].style.webkitTransform = "translateX("+windowWidth+"px)";
+
+            imageLis[prev].style.transition = "all 0.3s ease 0s";
+            imageLis[idx].style.transition = "all 0.3s ease 0s";
+
+            // 移动
+            imageLis[prev].style.webkitTransform = "translateX("+ -windowWidth+"px)";
+            imageLis[idx].style.webkitTransform = "translateX(0)";
+            
+            cir();
+        }
+    
+
+
+        function showPrev(){
+
+            console.log("right");
+
+            next = idx;
+            idx = prev;
+
+            prev--;
+            if(prev<0) prev =4;
+
+            // imageLis[next].style.transition = "none";
+            // imageLis[next].style.webkitTransform = "translateX("+windowWidth+")";
+
+            imageLis[idx].style.transition = "all 0.3s ease 0s";
+            imageLis[next].style.transition = "all 0.3s ease 0s";
+
+            // 移动
+            imageLis[idx].style.webkitTransform = "translateX(0)";
+            imageLis[next].style.webkitTransform = "translateX("+ windowWidth+"px)";
+            
+            cir();
+        }
+
+
+        function cir(){
+            for(var i=0;i<olLis.length;i++){
+                olLis[i].className="";
+            }
+            olLis[idx].className ="cur";
+        }
+
+        for(var i=0;i<olLis.length;i++){
+            // var j = i;
+            (function(i){
+                olLis[i].onclick = function(){
+                idx = i;
+                // console.log(i);
+                cir();
+                // showNext();
+            }})(i);
+            }
+    </script>
+</body>
+</html>

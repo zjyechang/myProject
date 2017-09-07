@@ -315,7 +315,7 @@ nav .row:nth-child(4) ul li:nth-child(1) div a::before{
     width: 100%;
     max-width: 540px;
     margin:0 auto;
-
+    overflow: hidden;
 }
 .sale-wrap h2{
     position: relative;
@@ -340,7 +340,7 @@ nav .row:nth-child(4) ul li:nth-child(1) div a::before{
     z-index: 99;
     background-color: #fff;
 }
-.tltle-button{
+.title-button{
     position: absolute;
     right: 8px;
     top: 11px;
@@ -358,9 +358,12 @@ nav .row:nth-child(4) ul li:nth-child(1) div a::before{
 .sale-box{
     flex:0 0 50%;
     max-width:50%;
-    /* margin-right: 2px; */
+    padding-left:8px;
+    padding-bottom: 8px;
+    margin-right: 2px;
     background: #f9f9f9;
     min-height: 175px;
+    height:200px;
     float: left;
 }
 .sale-img{
@@ -433,7 +436,7 @@ nav .row:nth-child(4) ul li:nth-child(1) div a::before{
     margin-bottom: 4px;
     height: 88px;
     position: relative;
-    width: 50%;
+    width: 46%;
     background: #f9f9f9;
     overflow: hidden;
     float: left;
@@ -460,8 +463,9 @@ nav .row:nth-child(4) ul li:nth-child(1) div a::before{
 }
 
 .sale-list.item{
-    width: 25%;
+    width: 22.5%;
     height:112px;
+    margin-left: 2px;
 }
 .item .sale-txt{
     text-align: center;    
@@ -484,4 +488,49 @@ nav .row:nth-child(4) ul li:nth-child(1) div a::before{
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     width:48px;
+}
+
+
+.active-wrap{
+    width: 100%;
+    max-width: 540px;
+    margin:10px auto;
+    overflow: hidden;
+}
+.active-wrap h2{
+    padding:0 8px;
+}
+.active-wrap h2:before{
+    content:"";
+    display: block;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    width: 79px;
+    height: 15px;
+    background: url("../images/home_text.png") no-repeat 0 0;
+    background-size: 79px auto;
+    background-position: 0 -19px;
+    background-color: #fff;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 99;
+}
+.active-wrap h2 img{
+    position: absolute;
+    top:50%;
+    left:90px;
+    width: 36px;
+    height: 15px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);    
+}
+.sale-imgs{
+    overflow: hidden;
+    width: 100%;
+
+}
+.sale-imgs img{
+    float:left;
+    width: 50%;
 }

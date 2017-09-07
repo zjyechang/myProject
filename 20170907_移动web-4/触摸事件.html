@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title"></h1>
+
+
+
+    <script>
+        var title = document.querySelector(".title")
+        
+        document.addEventListener("touchstart",function(event){
+            console.log(event);
+            title.innerHTML = "你正在用"+event.touches.length +"根手指触碰页面"
+        })
+    
+
+        document.addEventListener("touchmove",function(event){
+            event.preventDefault();
+
+            title.innerHTML = "";
+            for(var i=0; i<event.touches.length;i++){
+                title.innerHTML += "第" +i+ "根手指信息<br />";
+                title.innerHTML += event.touches[i].clientX +"<br />" +event.touches[i].clientY;
+            }
+        })
+        
+
+        document.addEventListener("touchend",function(event){
+            event.preventDefault();
+
+            title.innerHTML = "touch结束";
+           
+        })
+    </script>
+</body>
+</html>

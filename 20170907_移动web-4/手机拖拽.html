@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    img{
+        position:absolute;
+        left:30px;
+        top:50px;
+        width: 50px;
+    }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <img src="../20170630/images/p3.jpg" alt="">
+
+
+    <script>
+        var img = document.querySelector("img");
+
+        // 手指距离图片的误差
+        var deltaX,deltaY;
+        // 信号量
+        var newX = 30,newY = 50;
+
+        img.addEventListener("touchstart",function(event){
+            event.preventDefault();
+
+            deltaX = event.touches[0].clientX - newX;
+            deltaY = event.touches[0].clientY - newY;
+            
+        },false);
+
+        img.addEventListener("touchmove",function(event){
+            event.preventDefault();
+
+            newX = event.touches[0].clientX-deltaX;
+            newY = event.touches[0].clientY-deltaY;
+            
+            img.style.left = newX +"px";
+            img.style.top = newY +"px";
+            
+        },false)
+    
+    
+    </script>
+</body>
+</html>
