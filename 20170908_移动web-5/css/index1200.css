@@ -1,0 +1,55 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+header{
+	width: 1200px;
+	height: 80px;
+	background: #ccc;
+	margin: 0 auto;
+}
+header .logo{
+	float: left;
+	width: 120px;
+	height: 60px;
+	background: orange;
+	margin: 10px;
+}
+header nav{
+	float: left;
+	width: 840px;
+	height: 60px;
+	background: skyblue;
+	margin-top: 10px;
+}
+header ul li{
+	float: left;
+	margin-right: 20px;
+	line-height: 60px;
+}
+.main{
+	width: 1200px;
+	height: 400px;
+	background: #ccc;
+	margin: 10px auto;
+}
+.main .col{
+	float: left;
+	width: 190px;
+	height: 180px;
+	margin-right: 10px;
+	background: gold;
+}
+.tools{
+	float:left;
+	width: 50px;
+	height: 50px;
+	margin: 10px;
+	background: saddlebrown;
+}

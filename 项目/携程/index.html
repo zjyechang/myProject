@@ -22,6 +22,26 @@
     <!-- banner -->
     <section class="banner">
 
+            <div class="imglist">
+                <ul>
+                    <li><a href="#"><img src="./images/2.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="./images/3.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="./images/4.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="./images/5.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="./images/6.jpg" alt=""></a></li>
+                </ul>
+            </div>
+            
+            <div class="cir">
+                <ol>
+                    <li class="cur"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+
     </section>
     <!-- 导航部分 -->
     <nav>
@@ -202,20 +222,191 @@
 
 
     <script>
-        var banner = document.querySelector(".banner");
 
-    window.onload = function(){
-        set();
-    }
-    window.onresize =set;
-    function set(){
-        var bannerWidth = parseInt(getComputedStyle(banner)["width"]);
-        console.log(bannerWidth)
-        // 根据宽度除以比例得到宽度，再赋值
-        banner.style.height = Math.round(bannerWidth/(1242/248)) +"px";
-    }
+        var carousel = document.querySelector(".banner");
+        var imageLis = document.querySelectorAll(".banner ul li");
+        var olLis = document.querySelectorAll("ol li");
+
+        var idx= 0;
+        var next = 1;
+        var prev = 4;
+
+        init();
+        window.onresize = init;
+
+        function init(){
+            // console.log(document.body.style.width);
+            // 得到屏幕宽
+            windowWidth = document.documentElement.clientWidth;
+            if(windowWidth>540) windowWidth =540;
+            if(windowWidth<320) windowWidth =320;
+            // 设置盒子高度
+            carousel.style.height = windowWidth/ (768/154)+"px";
+            
+
+            for(var i=0;i<imageLis.length;i++){
+                imageLis[i].style.webkitTransform = "translateX(" +windowWidth+ "px)";
+                }
+                imageLis[idx].style.transition = "none";
+                imageLis[prev].style.transition = "none";
+                imageLis[next].style.transition = "none"; 
+
+                // 新的位置
+                imageLis[idx].style.webkitTransform = "translateX(0)";
+                imageLis[prev].style.webkitTransform = "translateX(" + -windowWidth+ "px)";
+                imageLis[next].style.webkitTransform = "translateX(" + windowWidth+ "px)";
+                
+        }
+
+        // 事件监听
+        carousel.addEventListener("touchstart",touchstart,false);
+        carousel.addEventListener("touchmove",touchmove,false);
+        carousel.addEventListener("touchend",touchend,false);
+        // 手指偏移量
+        var deltaX;
+        // 手指开始触碰时的位置
+        var startX;
+
+        // 时间戳
+        var startTime;
+        // clearInterval(timer);
+        var timer = setInterval(showNext,2000)
+
+
+        // 触摸开始
+        function touchstart(event){
+            event.preventDefault();
+            // 超过一根手指不起效
+            if(event.touches.length>1) return;
+
+            // 清除定时器
+            clearInterval(timer);
+            // 记录偏移量
+            deltaX = event.touches[0].clientX;
+
+            // 记录手指位置
+            startX = event.touches[0].clientX;
+
+            imageLis[prev].style.transition = "none";
+            imageLis[idx].style.transition = "none";
+            imageLis[next].style.transition = "none";
+            
+            // 就绪，其实没必要，防止bug
+            imageLis[idx].style.webkitTransform = "translateX(0)";
+            imageLis[prev].style.webkitTransform = "translateX(" + -windowWidth+ "px)";
+            imageLis[next].style.webkitTransform = "translateX(" + windowWidth + "px)";
+
+            // 时间戳
+            startTime = new Date();
+        }
+
+        // 手指移动
+        function touchmove(event){
+            event.preventDefault();
+            if(event.touches.length>1) return;
+            // clearInterval(timer);
+            
+            var clientX = event.touches[0].clientX;
+
+            imageLis[prev].style.webkitTransform = "translateX("+ (-windowWidth+clientX-deltaX) +"px)";
+            imageLis[idx].style.webkitTransform = "translateX("+ (clientX-deltaX) +"px)";
+            imageLis[next].style.webkitTransform = "translateX("+ (windowWidth+clientX-deltaX) +"px)";
+            
+        }
+
+        // 触摸结束
+        function touchend(event){
+            event.preventDefault();
+            // clearInterval(timer);
+
+            var distance = event.changedTouches[0].clientX - startX;
+
+            var time = new Date() - startTime;
+            
+            if(distance >= windowWidth/2 || (distance>=30 &&time<=300)){
+                showPrev();
+            }else if((distance <= -windowWidth/2 || (distance<=-30 &&time<=300) )){
+                showNext();
+            }else{
+                imageLis[prev].style.transition = "none";
+                imageLis[idx].style.transition = "none";
+                imageLis[next].style.transition = "none";
+                
+                imageLis[idx].style.webkitTransform = "translateX(0)";
+                imageLis[prev].style.webkitTransform = "translateX(" + -windowWidth+ "px)";
+                imageLis[next].style.webkitTransform = "translateX(" + windowWidth + "px)";
+            }
+
+            timer = setInterval(showNext,3000);
+        }
+
+     
+
+        function showNext(){
+            
+            console.log("left");
+            prev = idx;
+            idx = next;
+
+            next++;
+            if(next>4) next=0;
+
+            // imageLis[next].style.transition = "none";
+            // imageLis[next].style.webkitTransform = "translateX("+windowWidth+"px)";
+
+            imageLis[prev].style.transition = "all 0.3s ease 0s";
+            imageLis[idx].style.transition = "all 0.3s ease 0s";
+
+            // 移动
+            imageLis[prev].style.webkitTransform = "translateX("+ -windowWidth+"px)";
+            imageLis[idx].style.webkitTransform = "translateX(0)";
+            
+            cir();
+        }
     
-    
+
+
+        function showPrev(){
+
+            console.log("right");
+
+            next = idx;
+            idx = prev;
+
+            prev--;
+            if(prev<0) prev =4;
+
+            // imageLis[next].style.transition = "none";
+            // imageLis[next].style.webkitTransform = "translateX("+windowWidth+")";
+
+            imageLis[idx].style.transition = "all 0.3s ease 0s";
+            imageLis[next].style.transition = "all 0.3s ease 0s";
+
+            // 移动
+            imageLis[idx].style.webkitTransform = "translateX(0)";
+            imageLis[next].style.webkitTransform = "translateX("+ windowWidth+"px)";
+            
+            cir();
+        }
+
+
+        function cir(){
+            for(var i=0;i<olLis.length;i++){
+                olLis[i].className="";
+            }
+            olLis[idx].className ="cur";
+        }
+
+        for(var i=0;i<olLis.length;i++){
+            // var j = i;
+            (function(i){
+                olLis[i].onclick = function(){
+                idx = i;
+                // console.log(i);
+                cir();
+                // showNext();
+            }})(i);
+            }
     </script>
 </body>
 </html>

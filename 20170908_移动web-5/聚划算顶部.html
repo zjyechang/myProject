@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    header{
+        position: relative;
+        height: 40px;
+        width: 100%;
+        background-color: #E51650;
+    }
+    header .logo{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100px;
+        height: 40px;
+        background-color: lightcoral;
+        z-index: 66;
+    }
+    header .btn{
+        position: absolute;
+        top:0;
+        right:0;
+        width: 60px;
+        height: 40px;
+        background-color: orchid;
+        z-index: 66;
+    }
+    nav{
+        width: 100%;
+        padding-right:60px;
+        padding-left:100px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        overflow: hidden;        
+    }
+    #unit{
+        width: 100%;
+        height: 40px;
+        overflow: hidden;
+    }
+    nav ul{
+        /* position: absolute; */
+        list-style: none;
+        width: 1000px;
+        height: 40px;
+        padding-left:10px;
+    }
+    header nav ul li{
+        float:left;
+        width: 60px;
+        line-height: 40px;
+    }
+    header ul li a{
+        text-decoration: none;
+        color:#fff;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <nav id="nav">
+            <div id="unit">
+                <ul>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                    <li><a href="#">购物</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="btn"></div>
+    </header>
+
+
+    <script>
+    var unit = document.getElementById("unit");
+    var ul = document.querySelector("ul");
+    var nav = document.querySelector("#nav");
+        // 所有li的宽度总和
+    var lis = unit.querySelectorAll("li").length*60;
+    
+    var windowWidth = document.documentElement.clientWidth;
+        // 最小的移动范围
+    var min = lis - (windowWidth-100-60);
+        // 起始位置，惯性距离
+    var deltaX, targetX = 0;
+        // 信号量
+    var newX;
+        // 移动数组
+    var movearr = [];
+
+    unit.addEventListener("touchstart",function(event){
+        event.preventDefault();
+        ul.style.transition = "none";
+
+        deltaX = event.touches[0].clientX - targetX;
+    },false)
+
+
+
+    unit.addEventListener("touchmove",function(event){
+        event.preventDefault();
+
+        newX = event.touches[0].clientX - deltaX;
+
+        ul.style.transform = "translateX("+ newX +"px)";
+        ul.style.webkitTransform = "translateX("+ newX +"px)";
+
+        movearr.push(newX);
+    },false)
+
+
+
+    unit.addEventListener("touchend",function(event){
+        event.preventDefault();
+
+        var s = movearr[movearr.length-1] - movearr[movearr.length-2];
+        targetX = newX + s*6;
+
+        if(targetX < -min) {
+                targetX = -min;
+                ul.style.transition = "all 0.5s cubic-bezier(0.15,0.85,0.15,2.08) 0s";
+            }else if(targetX > 0) {
+                targetX = 0;
+                ul.style.transition = "all 0.5s cubic-bezier(0.15,0.85,0.15,2.08) 0s";
+            }else{
+                ul.style.transition = "all 0.5s ease-out 0s";                
+            }
+            // 贝塞尔曲线，有折返效果
+            ul.style.transform = "translateX(" +targetX+"px)";
+
+    },false)
+    </script>
+</body>
+</html>

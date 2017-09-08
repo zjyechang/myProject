@@ -1,66 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-*{
-    margin: 0;
-    padding: 0;
-}
-.img_container{
-    width: 300px;
-    margin: 60px auto;
-    position: relative;
-    perspective:300px;
-}
-.img_container *{
-    /*transform-style:flat;*/
-    transition: all 0.2s;
-}
-.img_container .img_back{
-    width: 300px;
-    height: 420px;
-    background: url('./images/back_1.jpg');
-    background-size:contain;
-    transform: translateZ(0px);
-}
-.img_container .img_border{
-    width: 234px;
-    height: 354px;
-    border: 3px solid #fff;
-    position: absolute;
-    left: 30px;
-    top: 30px;
-    transform: translateZ(25px);
-}
-.img_container .img_font{
-    color: #fff;
-    line-height: 20px;
-    position: absolute;
-    left: 42px;
-    top: 323px;
-    font: 12px/20px '宋体';
-    transform: translateZ(-5px);
-}
-    </style>
-
-</head>
-
-<body>
-    <div class="img_container">
-        <div class="img_back"></div>
-        <div class="img_border"></div>
-        <div class="img_font">
-            <span>我希望有个如你一般的人</span>
-            <br>
-            <span>如山间清爽的风</span>
-            <br>
-            <span>如古城温暖的光</span>
-        </div>
-    </div>
-    
-    <script>
 var container = document.querySelector('.img_container');
 var back = document.querySelector('.img_container .img_back');
 var border = document.querySelector('.img_container .img_border');
@@ -140,9 +77,3 @@ var setAllStyle = function(e,b){
                             " translateY("+ mouse.Height*0.1*b +"px)"+
                             " translateZ(-5px)";
 }
-
-
-    </script>
-</body>
-</html>
-

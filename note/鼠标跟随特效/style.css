@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.img_container{
+    width: 300px;
+    margin: 60px auto;
+    position: relative;
+    perspective:300px;
+}
+.img_container *{
+    /*transform-style:flat;*/
+    transition: all 0.2s;
+}
+.img_container .img_back{
+    width: 300px;
+    height: 420px;
+    background: url('./1.jpg') no-repeat;
+    background-size:cover;
+    background-position: 50% 50%;
+    transform: translateZ(0px);
+}
+.img_container .img_border{
+    width: 234px;
+    height: 354px;
+    border: 3px solid #fff;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    transform: translateZ(25px);
+}
+.img_container .img_font{
+    color: #fff;
+    line-height: 20px;
+    position: absolute;
+    left: 42px;
+    top: 323px;
+    font: 12px/20px '宋体';
+    transform: translateZ(-5px);
+}
