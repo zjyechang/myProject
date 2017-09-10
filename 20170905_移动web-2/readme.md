@@ -48,14 +48,14 @@
 
 ## flex-direction
 
-    box { 2 flex-direction: row | row-reverse | column | column-reverse; 3 } 
+    flex-direction: row | row-reverse | column | column-reverse; 
 
 属性可选值的范围为row(默认)沿水平主轴由左向右排列、row-reverse沿水平主轴由右向左排列、column沿垂直主轴右上到下和column-reverse。
 
  
 
 ## flex-wrap 
-    box{ 2 flex-wrap: nowrap | wrap | wrap-reverse; 3 } 
+    flex-wrap: nowrap | wrap | wrap-reverse;  
 
 属性可选值的范围为nowrap(默认)不换行、wrap换行（第一行在上方）和wrap-reverse（你懂的~）
 
@@ -63,7 +63,7 @@
 
 ## flex-flow
 
-    box { 2 flex-flow: <flex-direction> || <flex-wrap>; 3 } 
+    flex-flow: <flex-direction> || <flex-wrap>; 
 
 写法属性中，将上述两种方法的值用||连接即可
 
@@ -71,7 +71,7 @@
 
 ## justify-content
 
-    box { 2 justify-content: flex-start | flex-end | center | space-between | space-around; 3 } 
+    justify-content: flex-start | flex-end | center | space-between | space-around;   
 
 项目在主轴上的对齐方式(主轴究竟是哪个轴要看属性flex-direction的设置了)
 
@@ -87,11 +87,11 @@ center：在主轴上居中排列
 
 ## align-items
 
-    box { 2 align-items: flex-start | flex-end | center | baseline | stretch; 3 } 
+    align-items: flex-start | flex-end | center | baseline | stretch;  
 
 ## align-content
 
-    box { 2 align-content: flex-start | flex-end | center | space-between | space-around | stretch; 3 } 
+    align-content: flex-start | flex-end | center | space-between | space-around | stretch;  
 这里面直接上图片说明的更清楚一些
 # 视口
 	document.documentElement.clientWidth;
@@ -137,7 +137,6 @@ columu属性
 # img只设定width的话会按照比例缩放
 但是img在div中是最下方会有一条白边，可以用js计算得到div中的height属性，也可以将height设置为0；用padding-top与width比例为图片的长宽比设置。
 
-# display
 # css预处理器
 ## less
 

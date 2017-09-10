@@ -1,3 +1,4 @@
+/* 主页样式 */
 body{
     background-color: #ebebeb;
 }
@@ -8,15 +9,14 @@ h1::selection,h2::selection,h3::selection,h4::selection,h5::selection,h6::select
 a:focus{
     text-decoration: none;
 }
-.col-sm-4, col-sm-8{
+.col-sm-4, .col-sm-8{
     padding:0 15px;
     position: relative;
 }
-
+/* 头部 */
 header.main-header{
     padding-top: 72px;
     padding-bottom: 82px;
-    /* background: url("../images/background.jpg") no-repeat; */
     background-image: url('../images/background.jpg');
     background-repeat: no-repeat;
     background-position: center 20%;
@@ -34,10 +34,10 @@ header.main-header{
     margin-bottom: 35px;
     border-bottom: 2px solid #e1e1e1;
     box-sizing: content-box;
-}
-.navagition .nav.nav-pills{
     text-align: center;
-    position: relative;
+}
+.nav-toggle{
+    display: none;
 }
 .navagition .navstyle>li{
     list-style: none;
@@ -69,35 +69,14 @@ header.main-header{
 }
 
 /* 缩小后导航 */
-.dropdown{
-    display: none;
-    padding:10px 0;
-}
-.dropdown-toggle{
-    font-size: 2em;
-    cursor: pointer;
-}
-.open .dropdown-menu{
-    width: 100%;
-    position: relative;
-    box-shadow: none;
-    -webkit-box-shadow: none;    
-    border:none;
-}
-.dropdown-menu li{
-    width: 100%;
-    float:none;
-}
 
-/* @media screen and (max-width:767px){
-    .dropdown{
+@media screen and (max-width:767px){
+
+    .nav-toggle, .navagition .navstyle>li{
         display: block;
+        float:none;
     }
-    .navagition .row{
-        display: none;
-    }
-
-} */
+}
 /* 左侧栏，文章 */
 article.post{
     width: 100%;
@@ -261,4 +240,3 @@ footer.main-footer{
 .copyright a{
     color:inherit;
 }
-
