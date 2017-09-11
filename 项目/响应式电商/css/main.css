@@ -1,0 +1,223 @@
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none!important;
+    color: #333;
+    font-size: 12px;
+}
+input{
+    outline: none;
+}
+input:focus::placeholder{
+    color : transparent;
+}
+.ahover a,.ahover{
+    color:#5c5c5c;
+    transition: all 0.3s;    
+}
+.ahover a:hover,.ahover:hover{
+    color:#ccc!important;
+}
+
+/* 头部黑色区域 */
+header{
+    width: 100%;
+    min-width: 1000px;
+    height: 56px;
+    background: #25292e;
+    line-height: 56px;
+    position: fixed;
+    top:0;
+    z-index: 99;
+}
+
+header .logo{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: url(../images/logo.png) no-repeat;
+    background-size:contain;
+    left: 10px;
+    top:0;
+}
+header .mynav{
+    float:right;
+    height: 56px;
+    line-height: 56px;
+}
+header .mynav>li{
+    float:left;
+    position: relative;
+}
+header .mynav .login a{
+    margin-right: 10px;
+    color: #ccc;
+}
+header .mynav .line{
+    border-left: 1px solid #666;
+    height: 8px;
+    margin-top:25px;
+}
+header .mynav .cart a{
+    color: #666;
+    padding: 0 17px;    
+}
+.login p{
+    color:#ccc;
+    padding:0 10px;
+    cursor: pointer;
+}
+
+.shoppingCart{
+    position: absolute;
+    width:319px;
+    top:56px;
+    background-color: #25292e;
+    right:-143px;
+    text-align: center;
+    color:#ccc;
+    line-height: 50px;
+    font-size: 15px;
+    z-index: 100;
+    display: none;
+    padding-bottom: 50px;
+}
+.shoppingCart a{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width:285px;    
+    height: 50px;
+    line-height: 50px;
+    background: #7dbfde;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+.message{
+    position: absolute;
+    top: 56px;
+    background: #292f34;
+    z-index: 1000;
+    left: auto;
+    right: -69px;
+    width: 190px;
+    cursor: pointer;
+    display: none;
+}
+.cart:hover>div{
+    display:block;
+}
+.message p{
+    display: block;
+    margin:0 auto;
+    width: 140px;
+    height: 44px;
+    padding: 0 15px;
+    line-height: 44px;
+    background: #292f34;
+    cursor: pointer;
+    color:#fff;
+    border-bottom: 1px solid #666;
+}
+/* 响应式样式 */
+.mynav .dropdown-menu>li{
+    display:block;
+    float: none;
+}
+
+
+
+/* 头部白色tab */
+.wrap-toptab{
+    width: 100%;
+    height: 49px;    
+    position: fixed;
+    top:56px;
+    z-index: 88;
+}
+.toptab{
+    width: 1000px;
+    height: 45px;
+    margin:0 auto;
+    background-color: #fff;
+    position: relative;
+    border-bottom: 4px solid #ededed;  
+}
+.toptab>*{
+    float: left;
+}
+.toptab li a{
+    font-size: 15px;
+    padding:15px 40px;
+}
+.toptab li{
+    float: left;
+    height: 45px;
+    width: 121px;
+    text-align: center;
+    line-height: 45px;
+}
+.toptab .homepage{
+    width: 118px;
+    text-align: left;
+}
+.toptab .subLi{
+    width: 164px;
+}
+.wrap-toptab .item{
+    position: absolute;
+    width: 1000px;
+    height: 120px;
+    background-color: #fff;
+    left:0;
+    top:49px;
+    z-index: 1000;
+    display: none;
+}
+
+
+.toptab .searchbox{
+    position: relative;
+    height: 49px;
+    width: 260px;
+    overflow: hidden;
+}
+.toptab .searchbox .searchAnime{
+    position: relative;
+    height: 45px;
+    width: 260px;
+    left: 280px;
+    transition: 0.5s;
+    border-bottom: 4px solid #333;
+}
+.toptab .search{
+    border:0;
+    outline: none;
+    height: 40px;
+    width: 200px;
+}
+.toptab .searchIcon{
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 954px;
+    width: 33px;
+    height: 40px;
+    z-index: 9;
+    cursor: pointer;
+    z-index: 10px;
+}
+
+
+
+.wrap-toptab .item .li{
+    float: left;
+}
+/* 动画区 */
+.toptab li:hover>a{
+    border-bottom: 4px solid #333;    
+}
+
+
