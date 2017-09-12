@@ -3,16 +3,18 @@ $(function(){
     var $imgs = $imglis.find("img");
     var $chips = $(".yc-chips");
     var imgWidth = parseInt($imglis.css("width"));
-    var imgHeight = parseInt($imglis.css("height"));
+    var imgHeight = imgWidth*720/1920;
+    $(".yc-carousel").css("height",imgHeight);    
     var idx = 0;
     var lock = true;
     
     $(window).resize(function(){
         imgWidth = parseInt($imglis.css("width"));
-        imgHeight = parseInt($imglis.css("height"));
-        console.log(imgWidth)
+        imgHeight = imgWidth*720/1920;        
+        $(".yc-carousel").css("height",imgHeight);
     })
 
+    console.log(imgHeight)
     function change(shit){
         // 轮播图cd
         if(!lock) return;

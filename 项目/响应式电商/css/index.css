@@ -1,9 +1,10 @@
 /* 轮播图 */
 .yc-carousel{
     width: 100%;
-    margin: 150px auto;
+    margin: 100px auto 20px;
     position: relative;
-    perspective:500px;
+    overflow: hidden;
+    perspective:800px;
 }
 .yc-carousel ul{
     list-style: none;
@@ -23,22 +24,23 @@
     height: 40px;
     top: 50%;
     margin-top: -20px;
-    background-color: orange;
+    background-color: rgba(0,0,0,0.6);
+    color:#fff;
     font-size: 30px;
     line-height: 40px;
     text-align: center;
-    border-radius: 50%;
     font-weight: bold;
     cursor: pointer;
     z-index: 999;
+    text-decoration: none!important;
 }
 .yc-btns a:hover{
-    background-color: gold;
+    background-color: rgba(0,0,0,0.3);
 }
-.yc-leftBtn{
+#yc-leftBtn{
     left: 10px;
 }
-.yc-rightBtn{
+#yc-rightBtn{
     right: 10px;
 }
 .yc-circles{
@@ -47,33 +49,30 @@
     height: 16px;
     bottom: 10px;
     right: 10px;
-}
-.yc-circles ol{
-    list-style: none;
+    z-index: 55;    
 }
 .yc-circles ol li{
     float: left;
-    width: 16px;
-    height: 16px;
-    background-color: orange;
+    padding:3px;
+    border:4px solid #000;
+    background-color: #fff;
     margin-right: 6px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 1000;
 }
 .yc-circles ol li.yc-active{
-    background-color: red;
+    background-color: blue;
 }
 .yc-imageslist{
     width:100%;
-    position: absolute;
+    position: relative;
     perspective: 500px;
-}
-.yc-chips div{
-    position: absolute;
-    transition:all 3s ease-in 0s;
 }
 .yc-chips{
     width: 100%;
     height: 100%;
+}
+.yc-chips div{
+    position: absolute;
+    transition:all 2s ease-in 0s;
 }
