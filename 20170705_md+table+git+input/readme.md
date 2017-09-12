@@ -19,7 +19,7 @@
     - [2.4. 拉取](#24-拉取)
     - [2.5. 推送](#25-推送)
     - [2.6. git config user.name ""](#26-git-config-username-)
-    - [2.7. git reflogs](#27-git-reflogs)
+    - [2.7. git reflog](#27-git-reflog)
     - [2.8. git log](#28-git-log)
     - [2.9. git reset [reflog里的版本号]](#29-git-reset-reflog里的版本号)
 - [3. table](#3-table)
@@ -34,6 +34,7 @@
         - [4.3.1. type](#431-type)
         - [4.3.2. name](#432-name)
         - [4.3.3. value](#433-value)
+        - [1.1.2. textarea](#112-textarea)
 
 <!-- /TOC -->
 # 1. markdown语法
@@ -76,7 +77,7 @@ git pull origin master
 git push origin master
 ## 2.6. git config user.name ""
 添加用户名
-## 2.7. git reflogs
+## 2.7. git reflog
 查看以前的提交修改记录，所有版本改动都有
 ## 2.8. git log
 只能看到以前版本，之后修改的看不到
