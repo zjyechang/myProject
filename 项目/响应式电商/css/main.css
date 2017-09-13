@@ -6,11 +6,6 @@ a{
     color: #333;
     font-size: 12px;
 }
-html,body{
-    height: 1000%;
-    position: relative;
-    /* overflow: hidden; */
-}
 .nodecoration{
     text-decoration: none;
 }
@@ -59,14 +54,15 @@ header{
     height: 10px;
     margin-top:6px;
 }
+.head-black .yc-mynav .yc-cart{
+    position: relative;
+}
 .head-black .yc-mynav .yc-cart a{
-    padding: 0 17px;    
+    padding: 0 17px;
 }
 
 
 .head-black .yc-cart-item{
-    position: absolute;
-
     background-color: #25292e;
     text-align: center;
     color:#ccc;
@@ -74,12 +70,13 @@ header{
     font-size: 15px;
     z-index: 100;
     padding-bottom: 50px;
+    min-width: 200px;
 }
 .head-black .yc-cart-item a{
     position: absolute;
     bottom: 0;
     display: block;
-    width:100%;    
+    width:100%;
     height: 50px;
     line-height: 50px;
     background: #7dbfde;
@@ -96,10 +93,7 @@ header{
 .head-black .yc-message:hover>ul{
     display:block;
 }
-.head-white li.active{
-    color:#18ba9b;
-    border-bottom: 2px solid #18ba9b;
-}
+
 
 
 /* 响应式样式 */
@@ -169,7 +163,21 @@ header{
     line-height: 30px;
     border-left: 1px solid #ccc;
 }
-.head-white .item .li{
+.head-white li.active{
+    color:#18ba9b;
+    border-bottom: 2px solid #18ba9b;
+}
+.head-white .yc-itemNav{
+    position: absolute;
+    width: 1000px;
+    height: 120px;
+    background-color: #fff;
+    left:0;
+    top:49px;
+    z-index: 1000;
+    display: none;
+}
+.head-white .yc-itemNav li{
     float: left;
 }
 /* 动画区 */
@@ -179,8 +187,6 @@ header{
 
 /* 页脚 */
 footer{
-    position: absolute;
-    bottom:0;
     width: 100%;
 }
 .yc-subscribe{
@@ -242,7 +248,7 @@ footer{
 .yc-footer .clearfix .code{
     position: absolute;
     top: 100px;
-    left: 350px;
+    left: 10px;
     background: url("../images/icon.png") no-repeat;    
     display: none;
     text-align: center;
@@ -259,15 +265,15 @@ footer{
     margin-left:25px;
 }
 .yc-footer .clearfix li.yc-wechat{
-    width: 26px;   
+    width: 26px;
     background-position: -100px -23px;
 }
 .yc-footer .clearfix li:nth-of-type(2){
-    width: 22px;   
+    width: 22px;
     background-position: -150px -23px;
 }
 .yc-footer .clearfix li:nth-of-type(3){
-    width: 18px;   
+    width: 18px;
     background-position: -129px -25px;
 }
 .yc-footer .clearfix li:hover{
@@ -298,7 +304,7 @@ footer{
 }
 
 /* 回到顶部 */
-.yc-totop{
+.yc-toTop{
     position: fixed;
     bottom:10px;
     right:10px;
@@ -306,15 +312,16 @@ footer{
     background-color: #25292e;
     color: #fff!important;
     transition:all 0.5s ease 0s;
+    z-index: 999;
 }
-.yc-totop:hover{
+.yc-toTop:hover{
     background-color: #18ba9b;
 }
 
 
 
 /* 媒体查询 */
-@media screen and (max-width:992px){
+@media screen and (max-width:991px){
     .yc-subscribe .yc-send{
         margin-top:20px;
     }
@@ -341,12 +348,12 @@ footer{
     .head-white .yc-searchbox{
         position: absolute;
         top:0;
-        right:100px;
-        width: 65%;
+        right:130px;
+        width: calc(100% - 220px);
     }
     .head-white .yc-searchIcon{
         position: absolute;
         top:0;
-        right:50px;
+        right:100px;
     }
 }

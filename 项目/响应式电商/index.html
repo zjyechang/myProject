@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>电商首页</title>
+    <title>YcZp</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/index.css">    
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="icon" href="./images/leaveLogo.png" type="image/x-icon"/>
 </head>
 <body>
@@ -82,8 +83,10 @@
                             </li>
                             <li class="subLi">
                                 <a href="#">商店</a>
-                                <ul class="dropdown-menu yc-itemul">
-                                </ul>
+                                <div class="yc-itemNav">
+                                    <ul class="dropdown-menu yc-itemul">
+                                    </ul>
+                                </div>
                             </li>
                             <li>
                                 <a href="#">杂志</a>
@@ -113,8 +116,8 @@
     <!-- 轮播图 -->
     <div class="yc-carousel">
             <div class="yc-btns hidden-xs">
-                <a href="javascript:void(0);" id="yc-leftBtn"><</a>
-                <a href="javascript:void(0);" id="yc-rightBtn">></a>
+                <a href="javascript:void(0);" id="yc-leftBtn"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                <a href="javascript:void(0);" id="yc-rightBtn"><span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
             <div class="yc-imageslist ">
                 <ul>
@@ -142,13 +145,190 @@
         <!-- 正文部分 -->
     <section class="wrap-container">
         <div class="container">
-            <div class="row">
+            <div class="row yc-ad">
+                <div class="col-md-6">
+                    <div class="yc-scaleImg yc-adimg1">
+                        <h3>
+                            新年<strong>促销</strong>全场
+                            <strong>30%-60%</strong>折扣
+                        </h3>
+                        <a href="#" class="btn btn-brd">立即购买</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="yc-scaleImg yc-adimg2">
+                        <p>2017</p><br />
+                        <span>秋季爆款服饰</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="yc-featured">
+                <h2 class="yc-title">特色产品</h2>
+                <div class="yc-introduce">
+                    这里是产品的介绍区域，有各种各样的品牌服饰，特色产品，满足你的的各种需求。我们瞎JB扯两句就当是介绍一下这些个产品。啦啦啦啦，不知道该说什么。不过字数还没到，就随便扯一点吧，好了，现在差不多了，就这样。
+                </div>
+            </div>
 
 
+
+
+            <div class="row yc-productlist">
+                <div class="yc-play-item">
+                        <!-- ajax调用放入 -->
+                </div>
+            </div>
+
+
+            <!-- 分类大图 -->
+            <div class="row yc-productCategory">
+                <div class="col-md-4">
+                    <a class="yc-scaleImg yc-backimg-1" href="list.html?cat_id=101">
+                        <p class="yc-category">
+                            <span>男装</span>
+                            <span>56项</span>
+                        </p>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="yc-scaleImg yc-backimg-2" href="list.html?cat_id=112">
+                        <p class="yc-category">
+                            <span>女装</span>
+                            <span>47项</span>
+                        </p>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="yc-scaleImg yc-backimg-3"href="list.html?cat_id=125">
+                        <p class="yc-category">
+                            <span>童装</span>
+                            <span>79项</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="yc-featured">
+                <h2 class="yc-title">最新物品</h2>
+            </div>
+
+
+            <div class="row yc-productlist">
+            <!-- ajax数据放入 -->
+            </div>
+
+        </div>
+        
+        <!-- 下方轮播图 -->
+        <div class="carousel slide yc-caro" data-ride="carousel" id="yc-carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#yc-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#yc-carousel" data-slide-to="1"></li>
+                <li data-target="#yc-carousel" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+
+                <div class="item active">
+                    <div class="yc-featured">
+                        <p>YcZp已经达到10000加上销售额，我们只想感谢所有客户成为统一模板成功的一部分</p>
+                    </div>
+            
+                    </div>
+                <div class="item">
+                    <div class="yc-featured">
+                        <p>大多数人以某种形式遭受改变，注入幽默，或者看起来不太可信的随机词。如果你要使用Lorem Ipsum的通道</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="yc-featured">
+                        <p>新完全免费的库存照片,感谢每一天,您为创意项目所需的一切。</p>
+                    </div>
+                </div>
 
             </div>
+            <div class="yc-featured">
+                <h2 class="yc-title">最新的TWEETS</h2>
+            </div>
+               
+            <a class="left carousel-control" href="#yc-carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#yc-carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
+
+        <div class="container">
+             <!-- 轮播下方通用三个标签-->
+            <div class="row yc-product-serve">
+                <div class="col-md-4">
+                    <div class="yc-serve-icon">
+                        <span class="fa fa-truck"></span>
+                    </div>
+                    <div class="yc-product-in">
+                        <h3>免费寄送</h3>
+                        <p>一大堆产品或雇员,高性能的设备，开发商总是veliUt，leo...</p>
+                        <a href="#">+Read More</a>
+                    </div>
+                </div>
+                 <div class="col-md-4">
+                    <div class="yc-serve-icon">                           
+                        <span class="glyphicon glyphicon-headphones"></span>
+                    </div>
+                    <div class="yc-product-in">
+                        <h3>客户服务</h3>
+                        <p>一大堆产品或雇员,高性能的设备，开发商总是veliUt，leo...</p>
+                        <a href="#">+Read More</a>
+                    </div>
+                </div>
+                 <div class="col-md-4">
+                    <div class="yc-serve-icon">                           
+                        <span class="glyphicon glyphicon-refresh"></span>
+                    </div>
+                    <div class="yc-product-in">
+                        <h3>免费退货</h3>
+                        <p>一大堆产品或雇员,高性能的设备，开发商总是veliUt，leo...</p>
+                        <a href="#">+Read More</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- 折扣收藏夹 -->
+        <div class="yc-collect-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3>添加到收藏夹</h3>
+                        <p>我们考虑到来我们网站购物的人一般都是有钱人，所以特地加了一个添加到收藏夹方便骗....我是说方便大家购物<br />
+                        PS：是不是很贴心啊</p>
+                        <a href="#" class="yc-buyNow">立即购买</a>
+                    </div>
+                    <div class="col-md-5">
+                        <span class="yc-percentNum">50</span>
+                        <div class="yc-discount">
+                            <span class="yc-discountPer">%</span>
+                            <span class="yc-discountOff">折扣</span>                            
+                        </div>
+                        <div class="yc-newProduct">
+                            <span>新品<br />上架</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container yc-sponsors">
+            <div class="yc-featured">
+                <h2 class="yc-title">赞助商</h2>
+                <p>以下公司均已破产<br />
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio elit, ultrices vel cursus sed, placerat ut leo. Phasellus in magna erat. Etiam gravida convallis augue non tincidunt. Nunc lobortis dapibus neque quis lacinia. Nam dapibus tellus sit amet odio venenatis</p>
+            </div>
+  
     </section>
+
     <!-- 页脚 -->
     <footer>
         <div class="yc-subscribe">
@@ -298,8 +478,8 @@
             </ul>
         </div>
     </footer>
-
-    <div class="btn yc-totop"><span class="glyphicon glyphicon-chevron-up"></span></div>
+    <!-- 上天 -->
+    <div class="btn yc-toTop"><span class="glyphicon glyphicon-chevron-up"></span></div>
     <script src="./js/jquery-1.12.3.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>

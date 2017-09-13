@@ -32,16 +32,16 @@ $(window).scroll(function(){
     scroll = $(window).scrollTop();
     if(scroll<300){
         $(".yc-toTop").fadeOut(500);
+        $header.find(".head-white").css("background","rgba(255,255,255,1)");        
     }else{
-        $(".yc-toTop").fadeIn(500);        
+        $(".yc-toTop").fadeIn(500);
+        $header.find(".head-white").css("background","rgba(255,255,255,0.6)");
     }
 })
 // 上天部分
-$(".toTop").click(function(){
+$(".yc-toTop").click(function(){
     $("body").animate({"scrollTop":0},500);
 })
-
-
 
 // 搜索框部分
 var searchIcon = document.querySelector(".yc-searchIcon");
@@ -88,4 +88,20 @@ var flag = true;
         }else{
             location.href = "mycart.html";
         }
+    })
+
+
+    // 导航菜单
+    $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(data){
+        var obj = data;
+        for (var i=0;i<obj.data.length;i++){
+            $(".head-white .yc-itemul").append("<li><a class='tap-' href='list.html?cat_id="+obj.data[i].cat_id+"'>" +obj.data[i].cat_name+ "</a></li>")
+        }
+    })
+    
+    $(".toptab li").mouseenter(function(){
+        $(this).find(".yc-itemNav").stop(true).slideDown(1);
+    })
+    $(".toptab li").mouseleave(function(){
+        $(this).find(".yc-itemNav").stop(true).slideUp(500);
     })

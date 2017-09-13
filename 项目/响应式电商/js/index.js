@@ -1,10 +1,14 @@
 $(function(){
+
+    // 轮播图
     var $imglis = $(".yc-imageslist");
     var $imgs = $imglis.find("img");
     var $chips = $(".yc-chips");
     var imgWidth = parseInt($imglis.css("width"));
     var imgHeight = imgWidth*720/1920;
-    $(".yc-carousel").css("height",imgHeight);    
+    $(".yc-carousel").css("height",imgHeight);
+    var $ycCarou = parseInt($(".carousel-inner").css("width"));
+    $(".carousel-inner").css("height",$ycCarou/864*324+"px");
     var idx = 0;
     var lock = true;
     
@@ -12,9 +16,10 @@ $(function(){
         imgWidth = parseInt($imglis.css("width"));
         imgHeight = imgWidth*720/1920;        
         $(".yc-carousel").css("height",imgHeight);
+        $ycCarou = parseInt($(".carousel-inner").css("width"));
+        $(".carousel-inner").css("height",$ycCarou/864*324+"px");
     })
 
-    console.log(imgHeight)
     function change(shit){
         // 轮播图cd
         if(!lock) return;
@@ -92,4 +97,37 @@ $(function(){
             change(j-idx);
         });
     })
+})
+
+
+// ajax调用
+$.ajax({
+    "url": "http://h6.duchengjiu.top/shop/api_goods.php",
+    "type": "GET",
+    "datatype": "json",
+    "success": function(response){
+        // console.log(response);
+        var html = "";
+        for(let i=0;i<4;i++){
+            var obj = response.data[i];
+            html += `<div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <a href="detail.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"></a>
+                            <div class="caption">
+                            <a href="detail.html?goods_id=${obj.goods_id}"><h4>${obj.goods_name}</h4></a>
+                            <p>${obj.goods_desc}</p>
+                            <p>${obj.price}</p>
+                            <ul class=""><li><span class="fa fa-star"></span></li>
+                            <li><span class="fa fa-star"></span></li>
+                            <li><span class="fa fa-star"></span></li>
+                            <li><span class="fa fa-star yc-selected"></span></li>
+                            <li><span class="fa fa-star yc-selected"></span></li>
+                            <li class="yc-like-icon"><span class="fa fa-heart yc-selected"></span></li></ul>
+                            <a href="#" class="yc-addToCart" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>添加购物车</a>
+                            </div>
+                        </div>
+                    </div>`
+        }
+        $(".yc-productlist").html(html);
+    }
 })
