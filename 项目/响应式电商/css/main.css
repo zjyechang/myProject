@@ -60,8 +60,6 @@ header{
 .head-black .yc-mynav .yc-cart a{
     padding: 0 17px;
 }
-
-
 .head-black .yc-cart-item{
     background-color: #25292e;
     text-align: center;
@@ -93,10 +91,6 @@ header{
 .head-black .yc-message:hover>ul{
     display:block;
 }
-
-
-
-/* 响应式样式 */
 .yc-mynav .dropdown-menu>li{
     display:block;
     float: none;
@@ -126,16 +120,19 @@ header{
 .head-white .navbar-nav>li>a{
     font-size: 16px;
     padding:15px 25px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
 }
 .head-white .navbar-nav>li>a:hover{
     color:#18ba9b;
+    border-bottom:2px solid #18ba9b;
 }
 
 .head-white .yc-searchbox{
     position: absolute;
     top:0;
     right:33px;
-    width: 20%;
+    width: calc(100% - 600px);
     overflow: hidden;
 }
 .head-white .yc-searchbox .yc-searchAnime{
@@ -167,22 +164,31 @@ header{
     color:#18ba9b;
     border-bottom: 2px solid #18ba9b;
 }
+.head-white .yc-subli{
+    position: static;
+}
 .head-white .yc-itemNav{
     position: absolute;
-    width: 1000px;
-    height: 120px;
     background-color: #fff;
+    width: 100%;
     left:0;
-    top:49px;
-    z-index: 1000;
+    top:52px;
+    z-index: 888;
     display: none;
 }
 .head-white .yc-itemNav li{
-    float: left;
+    float:left;
+    padding:5px 20px;
+
 }
-/* 动画区 */
-.toptab li:hover>a{
-    border-bottom: 4px solid #333;
+.head-white .yc-itemNav li a{
+    font-size: 16px;
+    text-decoration: none;
+    transition:0.3s;
+    -webkit-transition:0.3s;
+}
+.head-white .yc-itemNav li a:hover{
+    color:#18ba9b;
 }
 
 /* 页脚 */
@@ -355,5 +361,8 @@ footer{
         position: absolute;
         top:0;
         right:100px;
+    }
+    .head-white .yc-itemNav{
+        width: 100%;
     }
 }

@@ -222,7 +222,49 @@ h2.yc-title::after,h2.yc-title:after{
     color: #888;
     font-size: 14px;
 }
+/* ajax调用的样式 */
+.yc-productlist a:hover{
+    color:#18ba9b;
+    text-decoration: none;
+}
+.yc-productlist h4{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.yc-productlist h4>a:hover{
+    color:#18ba9b;
+}
+.yc-productlist .yc-price{
+    text-align: right;
+    color: #c9253c;
+    font-size: 16px;
+}
+.yc-productlist .yc-addToCart{
+    position: absolute;
+    top:30%;
+    left:5%;
+    width: 90%;
+    text-align: center;
+    font-size: 16px;
+    padding:5px;
+    background-color: rgba(255,255,255,0.8);
+    text-decoration: none;
+}
+.yc-productlist ul li{
+    float: left;
+}
+.yc-productlist ul li.yc-like-icon{
+    float:right;
+}
+.yc-productlist .fa{
+    color:#18ba9b
+}
+.yc-productlist .fa.yc-selected{
+    color: #8bdccd;
+}
 
+/* 分类下大图 */
 .yc-productCategory .col-md-4{
     overflow: hidden;
     margin:30px 0;

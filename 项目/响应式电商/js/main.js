@@ -35,7 +35,7 @@ $(window).scroll(function(){
         $header.find(".head-white").css("background","rgba(255,255,255,1)");        
     }else{
         $(".yc-toTop").fadeIn(500);
-        $header.find(".head-white").css("background","rgba(255,255,255,0.6)");
+        $header.find(".head-white").css("background","rgba(255,255,255,0.8)");
     }
 })
 // 上天部分
@@ -63,24 +63,9 @@ var flag = true;
         }
     }
 
-         // 页面导航
-    $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(data){
-        var obj = data;
-        for (var i=0;i<obj.data.length;i++){
-            $(".toptab .itemul").append("<li><a class='tap-' href='list.html?cat_id="+obj.data[i].cat_id+"'>" +obj.data[i].cat_name+ "</a></li>")
-        }
-    })
-    
-    $(".toptab li").mouseenter(function(){
-        $(this).find(".item").stop(true).slideDown(1);
-    })
-    $(".toptab li").mouseleave(function(){
-        $(this).find(".item").stop(true).slideUp(500);
-    })
-
 
     // 购物车跳转
-    $(".yc-cart").click(function(){
+    function addToCart(){
         console.log(localStorage.token)
         if(!localStorage.getItem("token")){
             alert("请登录!")
@@ -88,20 +73,21 @@ var flag = true;
         }else{
             location.href = "mycart.html";
         }
-    })
-
+    }
+    $(".yc-cart").click(addToCart)
+    $(".yc-addToCart").click(addToCart);
 
     // 导航菜单
-    $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(data){
-        var obj = data;
+    $.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
+        var obj = response;
         for (var i=0;i<obj.data.length;i++){
-            $(".head-white .yc-itemul").append("<li><a class='tap-' href='list.html?cat_id="+obj.data[i].cat_id+"'>" +obj.data[i].cat_name+ "</a></li>")
+            $(".head-white .yc-itemNav ul").append("<li><a href='list.html?cat_id="+obj.data[i].cat_id+"'>" +obj.data[i].cat_name+ "</a></li>")
         }
     })
     
-    $(".toptab li").mouseenter(function(){
+    $("li.yc-subli").mouseenter(function(){
         $(this).find(".yc-itemNav").stop(true).slideDown(1);
     })
-    $(".toptab li").mouseleave(function(){
+    $("li.yc-subli").mouseleave(function(){
         $(this).find(".yc-itemNav").stop(true).slideUp(500);
     })

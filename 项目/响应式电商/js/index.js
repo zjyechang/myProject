@@ -116,13 +116,13 @@ $.ajax({
                             <div class="caption">
                             <a href="detail.html?goods_id=${obj.goods_id}"><h4>${obj.goods_name}</h4></a>
                             <p>${obj.goods_desc}</p>
-                            <p>${obj.price}</p>
-                            <ul class=""><li><span class="fa fa-star"></span></li>
+                            <p class="yc-price">￥${obj.price}</p>
+                            <p><ul class="clearfix"><li><span class="fa fa-star"></span></li>
                             <li><span class="fa fa-star"></span></li>
                             <li><span class="fa fa-star"></span></li>
                             <li><span class="fa fa-star yc-selected"></span></li>
                             <li><span class="fa fa-star yc-selected"></span></li>
-                            <li class="yc-like-icon"><span class="fa fa-heart yc-selected"></span></li></ul>
+                            <li class="yc-like-icon"><span class="fa fa-heart yc-selected"></span></li></ul></p>
                             <a href="#" class="yc-addToCart" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>添加购物车</a>
                             </div>
                         </div>
