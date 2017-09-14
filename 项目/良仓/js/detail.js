@@ -49,7 +49,7 @@
         "success": function(response){
             localStorage.setItem("cart"+goods_id[1],goods_number);
             alert(response.message);
-            console.log(response);
+            // console.log(response);
         }
     })
 
