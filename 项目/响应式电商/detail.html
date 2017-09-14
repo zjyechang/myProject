@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/detail.css ">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="./images/leaveLogo.png" type="image/x-icon" />
+
+</head>
+
+<body>
+
+
+    <!-- 页眉 -->
+    <header>
+        <div class="head-black">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-12">
+                        <a href="#" class="yc-event">主题</a>
+                        <a href="#" class="yc-event">活动</a>
+                        <a href="#" class="yc-event">优惠</a>
+                    </div>
+                    <div class="col-sm-9 col-xs-12">
+                        <ul class="yc-mynav clearfix">
+                            <li class="yc-login">
+                                <a href="login.html">登录</a>
+                                <a href="reg.html">注册</a>
+                            </li>
+                            <li class="yc-line"></li>
+                            <li class="yc-cart">
+                                <a href="javascript:;" class="yc-ahover"><span class="glyphicon glyphicon-shopping-cart"></</span>购物车</a>
+                                <div class="dropdown-menu yc-cart-item">
+                                    你的购物车暂时没有商品
+                                    <a href="#" class="yc-nodecoration">快去抢购商品吧</a>
+                                </div>
+                            </li>
+                            <li class="yc-line"></li>
+                            <li class="dropdown yc-message">
+                                <a href="#" class="dropdown-toggle yc-ahover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">消息 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">动态<span class="pull-right">0</span></a></li>
+                                    <li><a href="#">评论<span class="pull-right">0</span></a></li>
+                                    <li><a href="#">私信<span class="pull-right">0</span></a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">粉丝<span class="pull-right">0</span></a></li>
+                                    <li><a href="#">通知<span class="pull-right">0</span></a></li>
+                                </ul>
+                            </li>
+
+                            <li class="yc-line"></li>
+                            <li class="yc-ahover yc-add-item">
+                                <a href="#">添加商品</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.container -->
+        </div>
+        <nav class="head-white navbar-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- 缩小导航 -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand yc-logo" href="index.html"></a>
+                        </div>
+                        <!-- 原生导航与缩小后列表 -->
+                        <div class="collapse navbar-collapse head-white" id="main-menu">
+                            <ul class="nav navbar-nav clearfix ">
+                                <li class="active">
+                                    <a href="index.html">首页</a>
+                                </li>
+                                <li class="yc-subli">
+                                    <a href="#">商店</a>
+                                    <div class="yc-itemNav">
+                                        <ul>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">杂志</a>
+                                </li>
+                                <li>
+                                    <a href="#">分享</a>
+                                </li>
+                                <li>
+                                    <a href="#">达人</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="yc-searchIcon"><span class="glyphicon glyphicon-search"></span></a>
+
+                        <div class="yc-searchbox">
+                            <div class="yc-searchAnime">
+                                <input type="text" name="search" class="yc-search" placeholder="Search..">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="zp-product">
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb zp-path">
+                        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+                        <li><a href="list.html">商品</a></li>
+                        <li class="active">商品详情</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 md-margin-bottom-50 zp-product-pic">
+                        <img src="images/28.jpg" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="zp-product-title">
+                            <h2>小姐姐</h2>
+                        </div>
+                        <ul class="list-inline zp-product-ratings">
+                            <li>
+                                <i class="rating-selected fa fa-star"></i>
+                            </li>
+                            <li>
+                                <i class="rating-selected fa fa-star"></i>
+                            </li>
+                            <li>
+                                <i class="rating-selected fa fa-star"></i>
+                            </li>
+                            <li>
+                                <i class="rating fa fa-star"></i>
+                            </li>
+                            <li>
+                                <i class="rating fa fa-star"></i>
+                            </li>
+                            <li class="zp-product-review">
+                                <span>
+                                    (1)
+                                    <a href="#">评论</a>
+                                    |
+                                    <a href="#">添加评论</a>
+                                </span>
+                            </li>
+                        </ul>
+                        <p class="zp-goods-detail">小姐姐很漂亮</p><br>
+
+                        <ul class="list-inline zp-product-prices">
+                            <li class="shop-red">$ 57.00</li>
+                        </ul>
+                        <!--/end shop product prices-->
+
+
+                        <h3 class="zp-product-num-title">数量</h3>
+                        <div class="zp-product-num clearfix">
+                            <form name="f1" class="product-quantity sm-margin-bottom-20 pull-left">
+                                <div>
+                                    <input type="button" class="btn minus" value="-">
+                                    <input type="text" value="1" id="product-num">
+                                    <input type="button" class="btn plus" value="+">
+                                </div>
+                            </form>
+                            <a type="button" class="btn add-chat-btn" id="cart">添加到购物车</a>
+                        </div>
+                        <!--/end product quantity-->
+
+                        <ul class="list-inline add-to-wishlist add-to-wishlist-brd">
+                            <li class="wishlist-in">
+                                <i class="fa fa-heart"></i>
+                                <a href="#">加入收藏</a>
+                            </li>
+                            |
+                            <li class="compare-in">
+                                <i class="fa fa-exchange"></i>
+                                <a href="#">加入比较</a>
+                            </li>
+                        </ul>
+                        <p class="wishlist-category"><strong>分类:</strong> <a href="#">服装，</a> <a href="#">鞋子</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <!-- 轮播下方通用三个标签-->
+            <div class="row yc-product-serve">
+                <div class="col-md-4">
+                    <div class="yc-serve-icon">
+                        <span class="fa fa-truck"></span>
+                    </div>
+                    <div class="yc-product-in">
+                        <h3>免费寄送</h3>
+                        <p>一大堆产品或雇员,高性能的设备，开发商总是veliUt，leo...</p>
+                        <a href="#">+Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="yc-serve-icon">
+                        <span class="glyphicon glyphicon-headphones"></span>
+                    </div>
+                    <div class="yc-product-in">
+                        <h3>客户服务</h3>
+                        <p>一大堆产品或雇员,高性能的设备，开发商总是veliUt，leo...</p>
+                        <a href="#">+Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="yc-serve-icon">
+                        <span class="glyphicon glyphicon-refresh"></span>
+                    </div>
+                    <div class="yc-product-in">
+                        <h3>免费退货</h3>
+                        <p>一大堆产品或雇员,高性能的设备，开发商总是veliUt，leo...</p>
+                        <a href="#">+Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container yc-sponsors">
+            <div class="yc-featured">
+                <h2 class="yc-title">您可能喜欢的产品</h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio elit, ultrices vel cursus sed, placerat
+                    ut leo. Phasellus in magna erat. Etiam gravida convallis augue non tincidunt. Nunc lobortis dapibus neque
+                    quis lacinia. Nam dapibus tellus sit amet odio venenatis</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="images/like1.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 class="zp-title-price">羊绒帽</h4>
+                                        <p class="zp-title-price">￥90</p>
+                                        <p>
+                                            <ul class="list-inline zp-product-ratings">
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="images/like2.jpg" alt="...">
+                                    <div class="caption ">
+                                        <h4 class="zp-title-price">老北京布鞋</h4>
+                                        <p class="zp-title-price">￥35</p>
+                                        <p>
+                                            <ul class="list-inline zp-product-ratings">
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="images/like3.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 class="zp-title-price">飞行员帽</h4>
+                                        <p class="zp-title-price">￥100</p>
+                                        <p>
+                                            <ul class="list-inline zp-product-ratings">
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="images/like4.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 class="zp-title-price">小皮带</h4>
+                                        <p class="zp-title-price">￥90</p>
+                                        <p>
+                                            <ul class="list-inline zp-product-ratings">
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="images/like5.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 class="zp-title-price">短袖</h4>
+                                        <p class="zp-title-price">￥90</p>
+                                        <p>
+                                            <ul class="list-inline zp-product-ratings">
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="images/like6.jpg" alt="...">
+                                    <div class="caption ">
+                                        <h4 class="zp-title-price">长裤</h4>
+                                        <p class="zp-title-price">￥35</p>
+                                        <p>
+                                            <ul class="list-inline zp-product-ratings">
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="images/like3.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 class="zp-title-price">飞行员帽</h4>
+                                        <p class="zp-title-price">￥100</p>
+                                        <p>
+                                            <ul class="list-inline zp-product-ratings">
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="images/like4.jpg" alt="...">
+                                    <div class="caption">
+                                        <h4 class="zp-title-price">小皮带</h4>
+                                        <p class="zp-title-price">￥90</p>
+                                        <p>
+                                            <ul class="list-inline zp-product-ratings">
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating-selected fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="rating fa fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="yc-subscribe">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12">
+                        <h2>订阅我们的<strong>时事日报</strong></h2>
+                    </div>
+                    <div class="col-md-4 col-sm-12 yc-send">
+                        <input type="text" placeholder="发送你的邮箱">
+                        <button class="btn"> <span class="glyphicon glyphicon-envelope"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="yc-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <img src="./images/logo.png" class="yc-logo img-responsive" alt="logo" title="logo">
+                        <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
+                        <ul class="yc-messagelist">
+                            <li>> &nbsp;公司名称：XXXXXXXX有限公司.</li>
+                            <li>> &nbsp;公司地址：XXXXXXXXXX.</li>
+                            <li>> &nbsp;社会信用统一代码：91110105059231575L.</li>
+                            <li>> &nbsp;食品许可证：JY11105160159557.</li>
+                        </ul>
+
+                        <ul class="clearfix">
+                            <li class="yc-wechat">
+                                <div class="code"></div>
+                            </li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>新手上路</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">Francisco papa</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>主题</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>常见问题</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>文件</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">Francisco papa</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>配送与支持</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">Francisco papa</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>会员中心</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>土豪专区</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>建议与意见</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">Francisco papa</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>2017 © YcZp. ALL Rights Reserved. <a href="#">Htmlstream</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <ul>
+                <li><span class="glyphicon glyphicon-tint"></span></li>
+                <li><span class="glyphicon glyphicon-screenshot"></span></li>
+                <li><span class="glyphicon glyphicon-leaf"></span></li>
+                <li><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- 上天 -->
+    <div class="btn yc-toTop"><span class="glyphicon glyphicon-chevron-up"></span></div>
+
+
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="./js/main.js"></script>
+    
+    <script>
+        // 商品数量的加减
+        num = $("#product-num").val();
+        $(".minus").click(function () {
+            $("#product-num").val(num--);
+            // console.log(numM);
+            if (num <= 0) {
+                num = 0;
+            }
+        })
+        $(".plus").click(function () {
+            $("#product-num").val(num++);
+        })
+
+
+
+
+        // ajax
+        $(function () {
+
+            // 获取url id
+            var str = location.search.substr(1);
+
+            var goodsId = str.split("=");
+
+            console.log(goodsId[1]);
+
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_goods.php",
+                "type": "GET",
+                "dataType": "json",
+                "data": {
+                    "goods_id": goodsId[1]
+                },
+                "success": function (response) {
+                    console.log(response);
+                    console.log($("#cart"));
+
+                    var obj = response;
+                    // $("#goodsUl").html('<li><img src="' +response.data[0].goods_thumb+ '" /><p>' +response.data[0].goods_name+ '</p><p>' +response.data[0].goods_desc+ '</p><p class="price">' +response.data[0].price+ '</p></li>');
+                    $(".zp-product-pic").html("");
+                    $(".zp-product-pic").prepend(
+                        `<img src="${obj.data[0].goods_thumb}" class="detail_img">`
+                    );
+                    $(".zp-product-title").html("");
+                    $(".zp-product-title").prepend(`<h2>${obj.data[0].goods_name}</h2>`);
+                    $(".zp-goods-detail").html("");
+                    $(".zp-goods-detail").prepend(`${obj.data[0].goods_desc}`);
+                    $(".zp-product-prices").html("");
+                    $(".zp-product-prices").prepend(
+                        `<li class="shop-red">￥${obj.data[0].price}</li>`);
+                }
+            });
+
+            console.log($("#cart").html());
+
+            // 添加到购物车
+            $("#cart").click(function () {
+                console.log("abcdefg");
+
+                if (!localStorage.getItem("token")) {
+                    layer.open({
+                        content: "请先登录，才能使用购物车",
+                        btn:['确定','取消'],
+                        btn1:function(){
+                            location.href = "login.html#callback=" + location.href;
+                            return;
+                        },
+                        scrollbar: false
+                    });
+                    return;
+                }
+
+                // console.log(decodeURI(goodsId[1]));
+
+                var goods_number = localStorage.getItem("cart" + decodeURI(goodsId));
+
+                goods_number = goods_number ? parseInt(goods_number) + 1 : 1;
+                $.ajax({
+                    "url": "http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.getItem(
+                        "token"),
+                    "type": "POST",
+                    "dataType": "json",
+                    "data": {
+                        "goods_id": goodsId[1],
+                        "number": goods_number
+                    },
+                    "success": function (response) {
+                        layer.open({
+                            content: "添加购物车成功",
+                            
+                            scrollbar: false
+                        });
+                        // localStorage.setItem("cart" + goodsId[1], goods_number);
+                        // location.href = "cart.html";
+                        // console.log(response);
+                    }
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>

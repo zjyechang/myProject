@@ -1,0 +1,211 @@
+section{
+    margin-top:86px;
+}
+
+
+/* zp-product start */
+section .zp-product{
+    background:#f8f8f8;
+    border-bottom: 1px solid #dedede;
+}
+section .zp-product .zp-path{
+    margin-bottom:30px;
+    font-family: 'Open Sans', sans-serif;
+}
+section .zp-product .zp-path a{
+    color:#999;
+}
+section .zp-product .zp-path a:hover{
+    color:#18ba9b;
+}
+
+
+
+section .zp-product-pic img{
+    width:100%;
+    height:100%;
+}
+
+/* 商品详情 */
+.zp-product-title{
+    color: #687074;
+    font-size: 26px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #dedede;
+}
+.zp-product-ratings li{
+    padding:0;
+    margin:0;
+}
+.zp-product-ratings li .rating-selected{
+    color: #18ba9b;
+    font-size: 14px;
+}
+.zp-product-ratings li .rating {
+    color: #8bdccd;
+    font-size: 14px;
+    margin-bottom:30px;
+}
+.zp-product .zp-product-review{
+    color: #999;
+    font-size: 14px;
+    margin-left: 20px;
+}
+.zp-product .zp-product-review a{
+    color: #999;
+}
+.zp-product .zp-product-review a:hover{
+    color: #18ba9b;
+}
+.zp-product p{
+    color:#888;
+    font-size:14px;
+}
+.zp-product .zp-product-prices{
+    font-size:30px;
+    color: #c9253c;
+}
+.zp-product-num-title{
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.zp-product-num{
+    margin-bottom:20px;
+}
+.shop-product .product-quantity {
+    float: left;
+    margin-right: 30px;
+}
+
+.product-quantity .minus,.product-quantity .plus{
+    color: #555;
+    width: 55px;
+    height: 50px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    background: #eee;
+    text-align: center;
+    font-weight: normal;
+    white-space: nowrap;
+    display: inline-block;
+    background-image: none;
+    overflow: middle;
+    border-radius: none;
+}
+.product-quantity #product-num{
+    width: 55px;
+    height: 52px;
+    outline: none;
+    margin: 1px -4px 0;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid #eee;
+    overflow: middle;
+}
+.add-chat-btn,.add-chat-btn:link,.add-chat-btn:active{
+    background: #18ba9b;
+    color:white;
+    height:100%;
+    padding:13px 25px;
+    margin-left:20px;
+    font-size:18px;
+}
+.add-chat-btn:hover,.add-chat-btn:visited{
+    background: #2cd5b6;
+    color:white;
+}
+
+.add-to-wishlist-brd {
+    color:#999;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dedede;
+}
+.add-to-wishlist-brd a{
+    color:#999;
+}
+.add-to-wishlist-brd a:hover{
+    color:#18ba9b;
+}
+.add-to-wishlist i {
+    color: #8bdccd;
+    font-size: 16px;
+    margin-right: 7px;
+}
+.wishlist-category{
+    margin-top:15px; 
+}
+.wishlist-category a{
+    color: #18ba9b;
+}
+
+/* 轮播下方通用三个标签 */
+.yc-product-serve{
+    margin:20px 0;
+}
+.yc-product-serve .col-md-4{
+    border-radius:2px;
+    text-align: center;
+    margin:20px 0;
+}
+.yc-product-serve .col-md-4 .yc-serve-icon{
+   background: #18ba9b;
+   -webkit-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+   padding: 10px 0;
+   text-align: center;
+   display: block;
+   color:#fff;
+   font-size:30px;
+}
+.yc-product-serve .col-md-4:hover .yc-serve-icon{
+   background: #8bdccd;
+}
+.yc-product-serve .yc-product-in{
+    padding:15px 30px;
+    border:1px solid #ccc;     
+}
+.yc-product-serve .col-md-4 h3{
+   color: #555;
+   font-size: 20px;
+   font-weight: 400;
+}
+.yc-product-serve .col-md-4 a{
+   color: #c9253c;
+   font-size: 14px;
+   font-weight: 400;
+}
+
+
+
+/* 猜你喜欢轮播图 */
+.carousel-control:hover{
+    color:#8bdccd;
+}
+.carousel-control.left,.carousel-control.right{
+    color:#000;
+    background-image:none;
+}
+
+/* 轮播图内部item */
+.thumbnail{
+    border:none;
+}
+.caption{
+    text-align: center;
+    border:none;
+}
+.zp-title-price{
+    color: #687074;
+    font-size: 18px;
+}
+
+
+
+
+

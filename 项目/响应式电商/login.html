@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YcZp 登录</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="./images/leaveLogo.png" type="image/x-icon" />
+</head>
+
+<body>
+
+    <!-- 页眉 -->
+    <header>
+        <div class="head-black">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-12">
+                        <a href="#" class="yc-event">主题</a>
+                        <a href="#" class="yc-event">活动</a>
+                        <a href="#" class="yc-event">优惠</a>
+                    </div>
+                    <div class="col-sm-9 col-xs-12">
+                        <ul class="yc-mynav clearfix">
+                            <li class="yc-login">
+                                <a href="login.html">登录</a>
+                                <a href="reg.html">注册</a>
+                            </li>
+                            <li class="yc-line"></li>
+                            <li class="yc-cart">
+                                <a href="javascript:;" class="yc-ahover"><span class="glyphicon glyphicon-shopping-cart"></</span>购物车</a>
+                                <div class="dropdown-menu yc-cart-item">
+                                    你的购物车暂时没有商品
+                                    <a href="#" class="yc-nodecoration">快去抢购商品吧</a>
+                                </div>
+                            </li>
+                            <li class="yc-line"></li>
+                            <li class="dropdown yc-message">
+                                <a href="#" class="dropdown-toggle yc-ahover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">消息 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">动态<span class="pull-right">0</span></a></li>
+                                    <li><a href="#">评论<span class="pull-right">0</span></a></li>
+                                    <li><a href="#">私信<span class="pull-right">0</span></a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">粉丝<span class="pull-right">0</span></a></li>
+                                    <li><a href="#">通知<span class="pull-right">0</span></a></li>
+                                </ul>
+                            </li>
+
+                            <li class="yc-line"></li>
+                            <li class="yc-ahover yc-add-item">
+                                <a href="#">添加商品</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.container -->
+        </div>
+        <nav class="head-white navbar-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- 缩小导航 -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand yc-logo" href="index.html"></a>
+                        </div>
+                        <!-- 原生导航与缩小后列表 -->
+                        <div class="collapse navbar-collapse head-white" id="main-menu">
+                            <ul class="nav navbar-nav clearfix ">
+                                <li class="active">
+                                    <a href="index.html">首页</a>
+                                </li>
+                                <li class="yc-subli">
+                                    <a href="#">商店</a>
+                                    <div class="yc-itemNav">
+                                        <ul>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">杂志</a>
+                                </li>
+                                <li>
+                                    <a href="#">分享</a>
+                                </li>
+                                <li>
+                                    <a href="#">达人</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="yc-searchIcon"><span class="glyphicon glyphicon-search"></span></a>
+
+                        <div class="yc-searchbox">
+                            <div class="yc-searchAnime">
+                                <input type="text" name="search" class="yc-search" placeholder="Search..">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- login-banner start -->
+    <div class="zp-login-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 zp-banner-content">
+                    <h4>登录</h4>
+                    <h1>Welcome to<span>YcZp</span></h1>
+                    <ol class="breadcrumb zp-path">
+                        <li><a href="#">首页</a></li>
+                        <li class="active">登录</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- section start -->
+    <section class="clear-fix">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7 welcome">
+                    <h2 class="welcome-title">欢迎来到YcZp</h2>
+                    <p>高品质是对消费者的保障，好服务是让大家买得放心，品质和服务更是YcZp的宗旨</p>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                            <i class="fa fa-search media-object"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Middle aligned media </h3>
+                            <p>sdajg;lkjfdslksjdkag;oijreaodsajjgakshgkajlkgsja;lgjkli</p>
+                            <p>sdajg;lkjfdslksjdkag;oijreaodsajjgakshgkajlkgsja;lgjkli</p>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                            <i class="fa fa-search media-object"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Middle aligned media</h3>
+                            <p>dsajjgakshgkajlkgsja;lgjkldsajjgakshgkajlkgsja;lgjkl</p>
+                            <p>dsajjgakshgkajlkgsja;lgjkldsajjgakshgkajlkgsja;lgjkl</p>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                            <i class="fa fa-search media-object"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Middle aligned media</h3>
+                            <p>jadkslgja;lkgj;lkajdsg;lkjagdajgkdsajjgakshgkajlkgsja;lgjkl</p>
+                            <p>jadkslgja;lkgj;lkajdsg;lkjagdajgkdsajjgakshgkajlkgsja;lgjkl</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5 login-box">
+                    <form class="clearfix" action="#">
+                        <h3>登录</h3>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+                                <input type="text" id="username" class="form-control" placeholder="用户名" aria-describedby="basic-addon1">
+                            </div>
+                            <p class="error2">用户名不合法，请填写3-20位的英文数字下划线!</p>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock"></i></span>
+                                <input type="password" id="pwd" class="form-control" placeholder="登录密码" aria-describedby="basic-addon1">
+                            </div>
+                            <p class="error2">密码长度应该是6~20位之内!</p>
+                        </div>
+                        <div class="pwd clearfix">
+                            <div class="checkbox pull-left">
+                                <label>
+                                    <input type="checkbox"> 记住密码
+                                </label>
+                            </div>
+                            <a href="#" class="pull-right navbar-form">忘记密码</a>
+                        </div>
+                        <input type="button" id="loginBtn" class="btn btn-default login-btn" value="登录">
+
+                        <p class="or"><span>OR</span></p>
+
+                        <div class="other-btn">
+                            <div class="col-md-6 qq-login">
+                                <button class="col-xs-12 btn btn-default qq-btn"><i class="fa fa-qq"></i> QQ登录</button>
+                            </div>
+                            <div class="col-md-6 weixin-login">
+                                <button class="col-xs-12 btn btn-default weixin-btn"><i class="fa fa-weixin"></i>微信登录 </button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <p class="had">还没有帐号？了解更多并<a href="reg.html">注册</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer start -->
+    <footer>
+        <div class="yc-subscribe">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12">
+                        <h2>订阅我们的<strong>时事日报</strong></h2>
+                    </div>
+                    <div class="col-md-4 col-sm-12 yc-send">
+                        <input type="text" placeholder="发送你的邮箱">
+                        <button class="btn"> <span class="glyphicon glyphicon-envelope"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="yc-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <img src="./images/logo.png" class="yc-logo img-responsive" alt="logo" title="logo">
+                        <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
+                        <ul class="yc-messagelist">
+                            <li>> &nbsp;公司名称：XXXXXXXX有限公司.</li>
+                            <li>> &nbsp;公司地址：XXXXXXXXXX.</li>
+                            <li>> &nbsp;社会信用统一代码：91110105059231575L.</li>
+                            <li>> &nbsp;食品许可证：JY11105160159557.</li>
+                        </ul>
+
+                        <ul class="clearfix">
+                            <li class="yc-wechat">
+                                <div class="code"></div>
+                            </li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>新手上路</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">Francisco papa</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>主题</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>常见问题</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>文件</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">Francisco papa</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>配送与支持</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">Francisco papa</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>会员中心</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>土豪专区</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h4>建议与意见</h4>
+                                <ul>
+                                    <li><a href="#">Ultima Hora</a></li>
+                                    <li><a href="#">Exclusiva</a></li>
+                                    <li><a href="#">Documentos</a></li>
+                                    <li><a href="#">Francisco papa</a></li>
+                                    <li><a href="#">...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>2017 © YcZp. ALL Rights Reserved. <a href="#">Htmlstream</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <ul>
+                <li><span class="glyphicon glyphicon-tint"></span></li>
+                <li><span class="glyphicon glyphicon-screenshot"></span></li>
+                <li><span class="glyphicon glyphicon-leaf"></span></li>
+                <li><span class="glyphicon glyphicon glyphicon-thumbs-up"></span></li>
+            </ul>
+        </div>
+    </footer>
+
+
+    <div class="btn yc-toTop"><span class="glyphicon glyphicon-chevron-up"></span></div>
+
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="layer/layer.js"></script>
+    <script>
+        
+        setTimeout(function(){
+             //判断当前用户已登录则显示用户名，否则显示注册登录
+        if( localStorage.getItem("token")){
+            //屏蔽浏览器滚动条
+                layer.open({
+                    content: `${localStorage.getItem("username")},您已成功登录！请不要重复登录`,
+                    btn:["确定"],
+                    btn1:function(){
+                        location.href = "index.html";
+                    },
+                    scrollbar: false
+                });
+            
+            // $("body").html( localStorage.getItem("username") + "您已经登录成功！请不要重复登录");
+        
+            }
+        },501);
+       
+			
+
+        // 点击登录
+        $("#loginBtn").click(login);
+
+        // 键盘登录
+        $("#pwd").keydown(function(event){
+            if(event.keyCode === 13){
+                console.log(123);
+                login();
+            }else{
+                return;
+            }
+        })
+
+        // 登录函数
+        function login(){
+            var username = $("#username").val();
+            var pwd = $("#pwd").val();
+
+            console.log(username, pwd);
+
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_user.php",
+                "type": "POST",
+                "dataType": "json",
+                "data": {
+                    "status": "login",
+                    "username": username,
+                    "password": pwd
+                },
+                "success": function (response) {
+                    console.log(response);
+
+                    if (response.code === 0) {
+                        var data = response.data;
+
+                        for (prop in data) {
+                            if (data.hasOwnProperty(prop)) {
+                                localStorage.setItem(prop, data[prop]);
+                            }
+                        }
+
+                        $(".error2").hide();
+
+                        layer.open({
+                            content: `${response.message}`,
+                            scrollbar: false,                            
+                        },{icon: 6});
+
+                        setTimeout(function(){
+                            var callbackURL = location.hash.substr(10);
+                            console.log(callbackURL);
+
+                            if (callbackURL) {
+                                location.href = callbackURL;
+                            } else {
+                                location.href = "index.html";
+                            }
+                        },500)
+                        
+
+                    } else {
+                        $(".error2").show();
+                    }
+                }
+            })   
+        }
+    </script>
+</body>
+
+</html>

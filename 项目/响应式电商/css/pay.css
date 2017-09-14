@@ -1,0 +1,39 @@
+.cus-form-horizontal .form-group {
+    margin: 0 0 15px;
+    overflow: hidden;
+    padding-bottom: 7px;
+}
+.cus-form-horizontal .form-group label {
+    color: #555;
+    margin-top: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+}
+
+
+.shopping-cart h2.zp-choose-pay {
+    font-size: 16px;
+    margin-left: 20px;
+}
+.cus-form-horizontal .payment-type i {
+    color: #888;
+    font-size: 35px;
+}
+.input-small-field input {
+    width: 20%;
+    float: left;
+    margin-right: 10px;
+}
+.input-small-field span.slash {
+    color: #888;
+    float: left;
+    font-size: 20px;
+    margin-right: 8px;
+}
+.cus-form-horizontal .input-small-field a {
+    top: 5px;
+    color: #18ba9b;
+    position: relative;
+    text-decoration: underline;
+}

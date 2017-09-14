@@ -1,0 +1,48 @@
+
+
+
+/* data start */
+.data{
+    margin-top:30px;
+}
+.data h3,.data h5{
+    color:#687074;
+}
+.data-box{
+    padding: 10px;
+    text-align: center;
+    background: #f8f8f8;
+}
+
+/* member start */
+.member h4{
+    margin-bottom:30px;
+    color: #687074; 
+    text-align: center;
+}
+.member h4 span{
+    color:#18ba9b;
+}
+.member img{
+    display: block;
+    max-width: 100%;
+    height:auto;
+}
+
+/* form start */
+.login-box .checkbox{
+    margin-bottom:20px;
+}
+.login-box  .input-group .icon1,
+.login-box  .input-group .icon3{
+    padding:6px 16px;
+}
+
+
+.checkbox a{
+    color:#18ba9b;
+}
+.checkbox a:hover{
+    color:#2cd5b6;
+}
+

@@ -1,0 +1,248 @@
+
+section{
+    margin:100px 0;
+}
+/* 购物车上端公共部分 */
+.yc-shopHeader{
+    padding:20px 0 50px;
+}
+.yc-shopHeader a{
+    text-decoration: none;
+}
+.yc-shopHeader .col-md-4{
+    padding:0 20px;
+}
+.yc-shopHeader .yc-wrap-order{
+    border:1px solid #eee;
+    margin:20px 0;
+    padding:10px;
+    position: relative;
+}
+.yc-shopHeader .yc-num{
+    float: left;
+    font-size: 36px;
+    margin: 5px 15px 0;
+    color:#18ba9b;
+}
+.yc-shopHeader .yc-wrap-order h2{
+    font-size: 22px;
+    margin: 0 0 5px;
+    color:#888;
+    margin: 15px 0;
+}
+.yc-shopHeader .yc-wrap-order p{
+    opacity: 0.6;
+    font-size: 16px;
+    margin:0 30px 10px 50px;
+    color:#888;
+    font-weight: 500;
+}
+.yc-shopHeader .yc-wrap-order i{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    color: #c4c4c4;
+    font-size: 20px;
+    text-align: center;
+    display: inline-block;
+    border: 2px dashed #e0e0e0;
+    border-radius: 50%;
+}
+.yc-shopHeader .yc-wrap-order.yc-active{
+    background-color: #18ba9b;
+    border-color: transparent;
+}
+.yc-shopHeader .yc-wrap-order.yc-active h2{
+    color:#fff;
+}
+.yc-shopHeader .yc-wrap-order.yc-active .yc-num{
+    color: #fff;
+}
+.yc-shopHeader .yc-wrap-order.yc-active i{
+    color:#fff;
+    border-color: #fff;
+}
+.yc-shopHeader .yc-wrap-order.yc-active p{
+    color:#fff;
+}
+
+
+
+/* 购物车下端公共部分 */
+.container .yc-btn{
+    border-radius:0;
+    background-color: #18ba9b;
+    color: #fff;
+    padding:5px 20px;
+    font-size: 16px;
+}
+.yc-shopHeader .yc-btn:hover{
+    background-color: #8bdccd;
+}
+.yc-coupon-code{
+    padding:0 20px;
+}
+.yc-coupon-code .form-control{
+    border-radius: 0;
+    margin-bottom: 10px;
+    width: 60%;
+    margin-right: 10px;
+    display: inline-block;
+    max-width: 200px;
+}
+.yc-coupon-code p{
+    font-size: 16px;
+    color:#888;
+}
+.yc-coupon-code .yc-linear{
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background: #eee;
+    margin:10px 0;
+}
+.yc-btn.yc-pre,.yc-btn.yc-after{
+    margin:20px 5px;
+    float:right;
+}
+.yc-coupon-code .yc-total{
+    color: #a22;
+}
+.yc-coupon-code .col-sm-3 p span{
+    float:right;
+}
+
+
+/* 购物车页面物品 */
+.yc-wrap-mycart{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    padding:30px 0;
+    margin-bottom:50px;
+}
+.yc-wrap-mycart .yc-simple{
+    padding-left:50px;
+    text-align: left!important;
+}
+.yc-wrap-mycart .yc-simple img{
+    width: 80px;
+}
+.yc-wrap-mycart .yc-simple span{
+    display: inline-block;
+    margin-top:20px;
+    width: calc(100% - 80px);
+    white-space: normal;
+}
+.yc-wrap-mycart .yc-goodsnum{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+.yc-wrap-mycart .yc-sumPrice{
+    color:#a22;
+    font-weight: 600;
+}
+.yc-wrap-mycart .leftbtn,.yc-wrap-mycart .rightbtn{
+    color: #888;
+    width: 45px;
+    height: 40px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    background: #ddd;
+    text-align: center;
+    font-weight: normal;
+    white-space: nowrap;
+    display: inline-block;
+    background-image: none;
+}
+.yc-wrap-mycart .table>thead>tr>td{
+    text-align: center;
+    font-size: 16px;
+    padding-top:20px;
+    white-space: nowrap;
+}
+.yc-wrap-mycart .table>tbody>tr>td{
+    vertical-align:middle;
+    white-space: nowrap;
+    text-align: center;    
+}
+.yc-wrap-mycart .yc-delete{
+    font-size: 20px;
+    color:#333;
+    text-decoration: none!important;
+    cursor: pointer;
+}
+.yc-wrap-mycart .yc-delete:hover{
+    color:#888;
+}
+
+
+/* 用户地址部分 */
+.yc-wrap-address{
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    padding:10px 0 30px;
+    margin-bottom: 30px;
+}
+.yc-addressli{
+    display: block;
+    margin:30px 0;
+}
+.yc-addressli li{
+    padding:10px;
+}
+.yc-address-item{
+    height: 150px;
+    padding:1em;
+    border:6px solid transparent;
+    border-image:16 repeating-linear-gradient(-45deg,#a22 0,#a22 1em,transparent 0,transparent 2em,#58a 0,#58a 3em,transparent 0,transparent 4em);
+}
+.yc-address-item .yc-remove{
+    position: absolute;
+    bottom:20px;
+    right:20px;
+    color:#333;
+    text-decoration: none;
+    font-size: 14px;
+}
+.yc-address-item .yc-remove:hover{
+    color:#888;
+}
+/* 新建地址样式 */
+
+.address-item.active{
+    background-color: #ccc;
+}
+.wrapitem{
+    margin:10px 0;
+    width: 60%;
+    height: 45px;
+    border:1px solid #ccc;
+    margin-left: 20%;
+}
+.wrapitem label{
+    display: inline-block;
+    width: 30%;
+    height: 50px;
+    padding-left: 15px;
+    line-height: 50px;
+    text-align-last: justify;
+    font-size: 15px;
+    color:#333;
+}
+.wrapitem input[type="text"]{
+    height: 35px;
+    border: 0;
+    font-size: 15px;
+}
+
