@@ -36,7 +36,21 @@ header{
 }
 .head-black .yc-event{
     color:#ccc;
-    margin-right:10px;
+    margin-right:20px;
+}
+.head-black .yc-languages>div{
+    position: relative;
+    display: inline-block;
+}
+.head-black .yc-languages .dropdown-menu{
+    background-color: #25292e;
+    padding:10px;
+    left: -50%;
+    white-space: nowrap;
+    min-width: 100px;
+}
+.head-black .yc-languages:hover .dropdown-menu{
+    display: block;
 }
 .head-black .yc-mynav{
     display: inline-block;
@@ -56,7 +70,8 @@ header{
 }
 .head-black .yc-mynav .yc-cart{
     position: relative;
-    padding: 0 17px;
+    padding-left:18px;
+    padding-right:30px;
 }
 .head-black .yc-cart-item{
     background-color: #25292e;
@@ -67,6 +82,22 @@ header{
     z-index: 100;
     padding-bottom: 50px;
     min-width: 200px;
+    white-space: nowrap;
+}
+.head-black .yc-cart .yc-cart-num{
+    position: absolute;
+    top:2px;
+    right:7px;
+    width: 16px;
+    height: 16px;
+    border-radius:50%;
+    color:#fff;
+    background-color: #18ba9b;
+    text-align: center;
+    line-height: 16px;
+}
+.yc-cart-item img{
+    width: 30px;
 }
 .head-black .yc-cart-item a{
     position: absolute;

@@ -9,7 +9,7 @@ $(function(){
         localStorage.clear();
         location.reload();
     });
-})
+
 
 
     // 滚动顶部栏隐藏
@@ -63,10 +63,11 @@ var flag = true;
         }else if(searchValue.value && !flag){
             searchAjax();
         }
+    }
         searchValue.onkeydown = function(event){
             event = event || window.event;
             // console.log(event.keyCode)
-            if(event.keyCode == 13){
+            if(event.keyCode == 13 && !flag){
                 searchAjax();
             }
             return;
@@ -85,18 +86,21 @@ var flag = true;
                 }
             })
         }
-    }
-    
+
 
     // 购物车跳转
     function addToCart(){
-        console.log(localStorage.token)
+        // console.log(localStorage.token)
         if(!localStorage.getItem("token")){
-            alert("请登录!")
-            location.href="login.html";
+            if(!localStorage.getItem("token")){
+                layer.confirm('您还没有登录哦！', {btn: ['登录', '取消'],btn1:function(){
+                    location.href = "login.html#callback="+location.href;
+                }}
+            );
         }else{
             location.href = "mycart.html";
         }
+    }
     }
     $(".yc-cart").click(addToCart)
     
@@ -120,3 +124,24 @@ var flag = true;
         $("yc-itemNav").slideToggle();
     });
     })
+
+    // 购物车内容
+    $.ajax({
+        "type": "GET",
+        "url": "http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.token,
+        "dataType": "json",
+        "success": function (response) {
+            var carthtml="";
+            if(!!response.data.length){
+                
+                for(var i=0; i<response.data.length ;i++){
+                var obj = response.data[i];
+                carthtml +=`<div><img src="${obj.goods_thumb}" alt=""><span>${obj.goods_name}</span></div>`
+                }
+                // var cartmore = `<span class="yc-cart-num"></span>`
+                $(".yc-cart-num").text(response.data.length);
+                $(".yc-cart-item").html(carthtml).css("padding","10px");
+            }
+        }
+    })
+})

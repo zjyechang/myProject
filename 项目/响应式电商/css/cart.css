@@ -201,11 +201,15 @@ section{
 .yc-addressli li{
     padding:10px;
 }
+.yc-address-item.active{
+    border-image:16 repeating-linear-gradient(45deg,#18ba9b 0,#18ba9b 1em,transparent 0,transparent 2em,#58a 0,#58a 3em,transparent 0,transparent 4em);
+}
 .yc-address-item{
     height: 150px;
     padding:1em;
     border:6px solid transparent;
     border-image:16 repeating-linear-gradient(-45deg,#a22 0,#a22 1em,transparent 0,transparent 2em,#58a 0,#58a 3em,transparent 0,transparent 4em);
+    cursor: pointer;
 }
 .yc-address-item .yc-remove{
     position: absolute;
@@ -220,9 +224,6 @@ section{
 }
 /* 新建地址样式 */
 
-.address-item.active{
-    background-color: #ccc;
-}
 .wrapitem{
     margin:10px 0;
     width: 60%;

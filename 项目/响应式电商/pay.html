@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>YcZp 登录</title>
+    <title>YcZp 支付</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -26,7 +26,19 @@
                     <div class="col-sm-3 col-xs-12">
                         <a href="#" class="yc-event">主题</a>
                         <a href="#" class="yc-event">活动</a>
-                        <a href="#" class="yc-event">优惠</a>
+                        <a href="#" class="yc-event yc-languages">
+                            <div>中文 <span class="caret"></span>
+                                <div class="dropdown-menu">
+                                    <p>English</p>
+                                    <li role="separator" class="divider"></li>
+                                    <p>El español</p>
+                                    <li role="separator" class="divider"></li>
+                                    <p>日本語</p>
+                                    <li role="separator" class="divider"></li>
+                                    <p>한국어</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="col-sm-9 col-xs-12">
                         <ul class="yc-mynav clearfix">
@@ -36,7 +48,8 @@
                             </li>
                             <li class="yc-line"></li>
                             <li class="yc-cart">
-                                <a href="javascript:;" class="yc-ahover"><span class="glyphicon glyphicon-shopping-cart"></</span>购物车</a>
+                                <a href="javascript:;" class="yc-ahover"><span class="glyphicon glyphicon-shopping-cart"></span>购物车</a>
+                                <span class="yc-cart-num">0</span>
                                 <div class="dropdown-menu yc-cart-item">
                                     你的购物车暂时没有商品
                                     <a href="#" class="yc-nodecoration">快去抢购商品吧</a>
@@ -47,10 +60,13 @@
                                 <a href="#" class="dropdown-toggle yc-ahover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">消息 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">动态<span class="pull-right">0</span></a></li>
+                                    <li role="separator" class="divider"></li>
                                     <li><a href="#">评论<span class="pull-right">0</span></a></li>
+                                    <li role="separator" class="divider"></li>
                                     <li><a href="#">私信<span class="pull-right">0</span></a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">粉丝<span class="pull-right">0</span></a></li>
+                                    <li role="separator" class="divider"></li>
                                     <li><a href="#">通知<span class="pull-right">0</span></a></li>
                                 </ul>
                             </li>
@@ -78,12 +94,12 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand yc-logo" href="#"></a>
+                            <a class="navbar-brand yc-logo" href="index.html"></a>
                         </div>
                         <!-- 原生导航与缩小后列表 -->
                         <div class="collapse navbar-collapse head-white" id="main-menu">
                             <ul class="nav navbar-nav clearfix ">
-                                <li class="active">
+                                <li>
                                     <a href="index.html">首页</a>
                                 </li>
                                 <li class="yc-subli">
@@ -117,6 +133,7 @@
         </nav>
     </header>
 
+
     <!-- login-banner start -->
     <div class="zp-login-banner">
         <div class="container">
@@ -137,108 +154,142 @@
 
     <!-- section start -->
     <section class="clear-fix">
-        <div class="container">
-            <!-- 购物车页面上端公共部分 -->
-            <div class="row yc-shopHeader">
-                <div class="col-md-4">
-                    <div class="yc-wrap-order yc-active">
-                        <a href="#" class="yc-shoppingCart">
-                            <span class="yc-num">1.</span>
-                            <h2>购物车</h2>
-                            <p>查看确认你的商品</p>
-                            <i class="yc-rounded-x fa fa-check"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="yc-wrap-order">
-                        <a href="#" class="yc-shoppingCart">
-                            <span class="yc-num">2.</span>
-                            <h2>订单信息</h2>
-                            <p>确认订单地址</p>
-                            <i class="yc-rounded-x fa fa-home"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="yc-wrap-order">
-                        <a href="#" class="yc-shoppingCart">
-                            <span class="yc-num">3.</span>
-                            <h2>支付</h2>
-                            <p>选择支付方式</p>
-                            <i class="yc-rounded-x fa fa-credit-card"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 购物车正文 -->
-            <div class="row wrap-mycart">
-                <div class="col-md-6 zp-choose-pay">
-                    <h2 class="choose-title">选择支付方式</h2>
-                    <!-- <div class="panel-group">
-                        <div class="panel panel-default">123afngakfngkadnkgksagkagdlk123afngakfngkadnkgksagkagdlk123afngakfngkadnkgksagkagdlk</div>
-                        <div class="panel panel-default">134352352</div>
-                    </div> -->
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                            <i class="fa fa-credit-card"></i>
-                                            银行卡或信用卡
-                                        </a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse in">
-                                <div class="panel-body cus-form-horizontal">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 no-col-space control-label">持卡人姓名</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control required" name="cardholder" placeholder="">
-                                        </div>
+
+        <!-- 购物车正文 -->
+        <div class="row wrap-mycart">
+            <div class="col-md-6 zp-choose-pay">
+                <h2 class="title-type">选择支付方式</h2>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <i class="fa fa-credit-card"></i>
+                                        银行卡或信用卡
+                                    </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body cus-form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-4 no-col-space control-label">持卡人姓名</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control required" name="cardholder" placeholder="">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-4 no-col-space control-label">卡号</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control required" name="cardnumber" placeholder="">
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 no-col-space control-label">卡号</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control required" name="cardnumber" placeholder="">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-4 no-col-space control-label">选择银行卡</label>
-                                        <div class="col-sm-8">
-                                            <ul class="list-inline payment-type">
-                                                <li><i class="fa fa-cc-paypal"></i></li>
-                                                <li><i class="fa fa-cc-visa"></i></li>
-                                                <li><i class="fa fa-cc-mastercard"></i></li>
-                                                <li><i class="fa fa-cc-discover"></i></li>
-                                            </ul>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 no-col-space control-label">选择银行卡</label>
+                                    <div class="col-sm-8">
+                                        <ul class="list-inline payment-type">
+                                            <li><i class="fa fa-cc-paypal"></i></li>
+                                            <li><i class="fa fa-cc-visa"></i></li>
+                                            <li><i class="fa fa-cc-mastercard"></i></li>
+                                            <li><i class="fa fa-cc-discover"></i></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                                             <i class="fa fa-paypal"></i>
                                             选择其他支付方式
                                         </a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse">
-                                <div class="content margin-left-10">
-                                    <a href="#"><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" alt="PayPal"></a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="content margin-left-10">
+                                <div class="row">
+                                    <a href="#" class="col-sm-6"><img src="images/alipay.png" alt="Alipay"></a>
+                                    <a href="#" class="col-sm-6"><img src="images/wechat.png" alt="Wechatpay"></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
+                </div>
+
                 <!-- End Accordion -->
-                
+
             </div>
-            <div class="col-md-6 zp-problem"></div>
+            <div class="col-md-6 zp-problem">
+                <h2 class="title-type">经常问的问题</h2>
+                <!-- Accordion -->
+                <div class="accordion-v2 plus-toggle">
+                    <div class="panel-group" id="accordion-v2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v2" href="#collapseOne-v2">
+                                            <i class="fa fa-plus-square"></i>
+                                            我可以使用什么付款方式？
+                                        </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne-v2" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    我们不仅支持银行卡、信用卡支付，同时也支持支付宝、微信支付。<br> 感谢您的回答，该回答已收录，可在官网支付页面看到该条问答。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v2" href="#collapseTwo-v2">
+                                            <i class="fa fa-plus-square"></i>                                                
+                                            我们有兑换券，现金抵用券可以用吗？
+                                        </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo-v2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    有，当然有，各个商店均有对应的现金抵用券，另外成为会员，优惠更多哦。<br> 感谢您的回答，该回答已收录，可在官网支付页面看到该条问答。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v2" href="#collapseThree-v2">
+                                            <i class="fa fa-plus-square"></i>
+                                            下订单还要额外收费吗？
+                                        </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree-v2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    不收取任何额外费用，基本都是免邮的，除非偏远地区会有少许的邮费。<br> 感谢您的回答，该回答已收录，可在官网支付页面看到该条问答。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v2" href="#collapseFour-v2">
+                                            <i class="fa fa-plus-square"></i>
+                                            下单后多久能寄到？
+                                        </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour-v2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    除偏远地方，基本两到三天就能送达。 感谢您的回答，该回答已收录，可在官网支付页面看到该条问答。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Accordion -->
+            </div>
         </div>
 
 

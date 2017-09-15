@@ -15,7 +15,11 @@ $(function(){
                 var htmlData = "";
                 for(var i=0;i<response.data.length;i++){
                     var obj = response.data[i];
+<<<<<<< HEAD
+                    htmlData +='<li class="col-md-3 col-sm-4 col-xs-6"><div class="yc-address-item" addressId="' +obj.address_id+ '"><p>'
+=======
                     htmlData +='<li class="col-md-3 col-sm-4 col-xs-6" addressId="' +obj.address_id+ '"><div class="yc-address-item"><p>'
+>>>>>>> b0b558ec2e0f9387109047dee22c50e725fe4c12
                             +obj.province+obj.city
                             +'<strong> ' +obj.address_name+ ' 收</strong>'
                             +'</p><p>详细地址：'+obj.address 
@@ -28,12 +32,16 @@ $(function(){
                 $(".yc-remove").click(function(){
                     if(confirm("是否删除此地址?")){
                         // ajax更改
-                        removeAjax($(this).parent());
-                        $(this).parent().remove();
+                        removeAjax($(this).parent().parent());
+                        $(this).parent().parent().remove();
                     }
                 })
 
+<<<<<<< HEAD
+                // 点击获取地址栏id
+=======
                 // 点击获取地址栏id??????
+>>>>>>> b0b558ec2e0f9387109047dee22c50e725fe4c12
                 $(".yc-address-item").click(function(event){
                     $(this).addClass("active").siblings().removeClass("active");
                     address_id =  $(this).attr('addressId');
@@ -90,11 +98,12 @@ $(".yc-subprice").text("￥"+ sum[1]);
 
 // 订单提交
 $(".yc-after").click(function(){
-    // console.log(address_id);
-    if( address_id == 0){
+
+    if( !address_id ){
         alert("请选择收货地址");
         return
     }
+    
     // 订单ajax
     $.ajax({
         "url": "http://h6.duchengjiu.top/shop/api_order.php?token="+localStorage.token+"&status=add",
@@ -105,6 +114,7 @@ $(".yc-after").click(function(){
             "total_prices": sum[1],   //购物车页面总金额
         },
         "success": function(response){
+            // console.log(response.message)
             if(response.code == 0){
                 alert("订单提交成功");
                 location.href = "pay.html?sum="+sum[1];

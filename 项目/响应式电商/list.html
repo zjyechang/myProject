@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>分类</title>
+    <title>YcZp 分类商品</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -18,24 +18,36 @@
 
     <!-- 页眉 -->
     <header>
-        <div class="head-black">
-
+            <div class="head-black">
+    
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 col-xs-12">
                         <a href="#" class="yc-event">主题</a>
-                        <a href="#" class="yc-event">活动</a>
-                        <a href="#" class="yc-event">优惠</a>
+                        <a href="#" class="yc-event">活动</a>         
+                        <a href="#" class="yc-event yc-languages">
+                            <div>中文 <span class="caret"></span>
+                            <div class="dropdown-menu">
+                                <p>English</p>
+                                <li role="separator" class="divider"></li>
+                                <p>El español</p>
+                                <li role="separator" class="divider"></li>
+                                <p>日本語</p>
+                                <li role="separator" class="divider"></li>
+                                <p>한국어</p>
+                            </div></div>
+                        </a>
                     </div>
-                    <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-9 col-xs-12">
                         <ul class="yc-mynav clearfix">
                             <li class="yc-login">
                                 <a href="login.html">登录</a>
-                                <a href="reg.html">注册</a>
+                                <a href="reg.html">注册</a>              
                             </li>
-                            <li class="yc-line"></li>
+                            <li class="yc-line"></li>     
                             <li class="yc-cart">
-                                <a href="javascript:;" class="yc-ahover"><span class="glyphicon glyphicon-shopping-cart"></</span>购物车</a>
+                                <a href="javascript:;" class="yc-ahover"><span class="glyphicon glyphicon-shopping-cart"></span>购物车</a>
+                                <span class="yc-cart-num">0</span>
                                 <div class="dropdown-menu yc-cart-item">
                                     你的购物车暂时没有商品
                                     <a href="#" class="yc-nodecoration">快去抢购商品吧</a>
@@ -43,29 +55,31 @@
                             </li>
                             <li class="yc-line"></li>
                             <li class="dropdown yc-message">
-                                <a href="#" class="dropdown-toggle yc-ahover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">消息 <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">动态<span class="pull-right">0</span></a></li>
-                                    <li><a href="#">评论<span class="pull-right">0</span></a></li>
-                                    <li><a href="#">私信<span class="pull-right">0</span></a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">粉丝<span class="pull-right">0</span></a></li>
-                                    <li><a href="#">通知<span class="pull-right">0</span></a></li>
-                                </ul>
-                            </li>
-
+                                    <a href="#" class="dropdown-toggle yc-ahover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">消息 <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">动态<span class="pull-right">0</span></a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li><a href="#">评论<span class="pull-right">0</span></a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li><a href="#">私信<span class="pull-right">0</span></a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li><a href="#">粉丝<span class="pull-right">0</span></a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li><a href="#">通知<span class="pull-right">0</span></a></li>
+                                    </ul>
+                                  </li>
+    
                             <li class="yc-line"></li>
                             <li class="yc-ahover yc-add-item">
                                 <a href="#">添加商品</a>
                             </li>
                         </ul>
                     </div>
-
+                    
                 </div>
-            </div>
-            <!-- /.container -->
+            </div><!-- /.container -->
         </div>
-        <nav class="head-white navbar-default">
+            <nav class="head-white navbar-default">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -82,10 +96,10 @@
                         <!-- 原生导航与缩小后列表 -->
                         <div class="collapse navbar-collapse head-white" id="main-menu">
                             <ul class="nav navbar-nav clearfix ">
-                                <li class="active">
+                                <li>
                                     <a href="index.html">首页</a>
                                 </li>
-                                <li class="yc-subli">
+                                <li class="yc-subli active">
                                     <a href="#">商店</a>
                                     <div class="yc-itemNav">
                                         <ul>
@@ -104,7 +118,7 @@
                             </ul>
                         </div>
                         <a class="yc-searchIcon"><span class="glyphicon glyphicon-search"></span></a>
-
+                        
                         <div class="yc-searchbox">
                             <div class="yc-searchAnime">
                                 <input type="text" name="search" class="yc-search" placeholder="Search..">
@@ -114,7 +128,8 @@
                 </div>
             </div>
         </nav>
-    </header>
+        </header>
+    
 
 
     <section>

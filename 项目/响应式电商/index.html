@@ -21,8 +21,19 @@
             <div class="row">
                 <div class="col-sm-3 col-xs-12">
                     <a href="#" class="yc-event">主题</a>
-                    <a href="#" class="yc-event">活动</a>
-                    <a href="#" class="yc-event">优惠</a>
+                    <a href="#" class="yc-event">活动</a>         
+                    <a href="#" class="yc-event yc-languages">
+                        <div>中文 <span class="caret"></span>
+                        <div class="dropdown-menu">
+                            <p>English</p>
+                            <li role="separator" class="divider"></li>
+                            <p>El español</p>
+                            <li role="separator" class="divider"></li>
+                            <p>日本語</p>
+                            <li role="separator" class="divider"></li>
+                            <p>한국어</p>
+                        </div></div>
+                    </a>
                 </div>
                     <div class="col-sm-9 col-xs-12">
                     <ul class="yc-mynav clearfix">
@@ -32,7 +43,8 @@
                         </li>
                         <li class="yc-line"></li>     
                         <li class="yc-cart">
-                            <a href="javascript:;" class="yc-ahover"><span class="glyphicon glyphicon-shopping-cart"></</span>购物车</a>
+                            <a href="javascript:;" class="yc-ahover"><span class="glyphicon glyphicon-shopping-cart"></span>购物车</a>
+                            <span class="yc-cart-num">0</span>
                             <div class="dropdown-menu yc-cart-item">
                                 你的购物车暂时没有商品
                                 <a href="#" class="yc-nodecoration">快去抢购商品吧</a>
@@ -43,10 +55,13 @@
                                 <a href="#" class="dropdown-toggle yc-ahover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">消息 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                   <li><a href="#">动态<span class="pull-right">0</span></a></li>
+                                  <li role="separator" class="divider"></li>
                                   <li><a href="#">评论<span class="pull-right">0</span></a></li>
+                                  <li role="separator" class="divider"></li>
                                   <li><a href="#">私信<span class="pull-right">0</span></a></li>
                                   <li role="separator" class="divider"></li>
                                   <li><a href="#">粉丝<span class="pull-right">0</span></a></li>
+                                  <li role="separator" class="divider"></li>
                                   <li><a href="#">通知<span class="pull-right">0</span></a></li>
                                 </ul>
                               </li>
@@ -128,7 +143,7 @@
                     <li><a><img class="img-responsive" src="./images/5.jpg" alt="" /></a></li>
                 </ul>
             </div>
-            <div class="yc-circles" id="circles">
+            <div class="yc-circles hidden-xs" id="circles">
                 <ol>
                     <li class="yc-active"></li>
                     <li></li>
@@ -482,6 +497,7 @@
     <div class="btn yc-toTop"><span class="glyphicon glyphicon-chevron-up"></span></div>
     <script src="./js/jquery-1.12.3.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="./layer/layer.js"></script>    
     <script src="./js/main.js"></script>
     <script src="./js/index.js"></script>
 </body>

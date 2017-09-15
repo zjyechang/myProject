@@ -18,24 +18,22 @@
 .yc-carousel ul li.yc-cur{
     display: block;
 }
-.yc-btns a{
+.yc-carousel .yc-btns a{
     position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 50%;
-    margin-top: -20px;
-    background-color: rgba(0,0,0,0.6);
+    padding:2%;
+    top: 42%;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
     color:#fff;
     font-size: 30px;
-    line-height: 40px;
+    line-height: 10%;
     text-align: center;
-    font-weight: bold;
     cursor: pointer;
     z-index: 999;
     text-decoration: none!important;
 }
 .yc-btns a:hover{
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.8);
 }
 #yc-leftBtn{
     left: 10px;
@@ -225,6 +223,8 @@
     background-color: rgba(255,255,255,0.8);
     text-decoration: none;
     display: none;
+    transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
 }
 .yc-productlist .yc-hoverOther:hover+.yc-addToCart{
     display: block;
@@ -236,12 +236,18 @@
 }
 .yc-productlist ul li{
     float: left;
+    cursor: pointer;
 }
 .yc-productlist ul li.yc-like-icon{
     float:right;
 }
+.yc-productlist ul li.yc-like-icon:hover span{
+    transition: 1s;
+    -webkit-transition: 1s;    
+    color:#c9253c;
+}
 .yc-productlist .fa{
-    color:#18ba9b
+    color:#18ba9b;
 }
 .yc-productlist .fa.yc-selected{
     color: #8bdccd;
