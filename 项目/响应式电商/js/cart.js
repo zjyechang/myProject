@@ -107,23 +107,24 @@ $(function () {
             // 删除商品
             $(".yc-delete").each(function () {
                 $(this).click(function () {
-                    if (confirm("确认删除该商品？")) {
+                    layer.confirm('确定删除该商品？', {btn: ['确认', '取消'],btn1:function(){
                         updataAjax($(this).parent().parent());
                         $(this).parent().parent().parent().remove();
-                    }
+                    }});
+
                 })
             })
 
             // 删除选中项
-            $(".yc-delSelect").click(function () {
-                if (confirm("确认删除所有选中商品？")) {
+            $(".delSelect").click(function () {
+                layer.confirm('确认删除所有选中商品？', {btn: ['确认', '取消'],btn1:function(){
                     $(".yc-goodcheck").each(function () {
                         if ($(this).prop("checked")) {
                             updataAjax($(this).parent().parent());
                             $(this).parent().parent().parent().remove();
                         };
                     })
-                }
+                }});
             })
             // 全选
             $("input[name='selectAll']").click(function () {

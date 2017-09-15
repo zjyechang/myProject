@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="10000" height="4100">辣鸡浏览器不支持！</canvas>
+    
+    <script>
+        var canvas = document.getElementById("canvas");
+
+        var ctx = canvas.getContext("2d");
+
+
+        var img = new Image();
+        img.src="./img/girl.png";
+
+
+        img.onload = function(){
+            var left =100;
+            var m =0;
+            setInterval(function(){
+                // 清除画布
+                ctx.clearRect(0,0,800,600);
+                // 清除的范围x,y
+                m++;
+                if(m>7) m=0;
+                left++;
+                ctx.drawImage(img,79*m,216,79,108,left,100,79,108);
+                //图片，图片x坐标，图片y坐标，截取图片的宽度，截取图片的高度，在画布中的x坐标，在画布中的y坐标，图片尺寸宽，图片尺寸高  
+            },10)
+        }
+
+    </script>
+</body>
+</html>

@@ -474,6 +474,10 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>
     <script>
+        var str = location.search.substr(1);
+        var sum = str.split("=");
+        $(".yc-total").text("￥"+ sum[1]);
+        $(".yc-subprice").text("￥"+ sum[1]);
     </script>
 </body>
 

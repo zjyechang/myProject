@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400">辣鸡浏览器不支持！</canvas>
+    
+    <script>
+        var canvas = document.getElementById("canvas");
+
+        var ctx = canvas.getContext("2d");
+
+
+        var img = new Image();
+        img.src="../20170630/images/p2.jpg";
+
+
+        img.onload = function(){
+            ctx.drawImage(img,40,5,200,100,100,100,200,200);
+            //图片，图片x坐标，图片y坐标，截取图片的宽度，截取图片的高度，在画布中的x坐标，在画布中的y坐标，图片尺寸宽，图片尺寸高  
+        }
+
+    </script>
+</body>
+</html>

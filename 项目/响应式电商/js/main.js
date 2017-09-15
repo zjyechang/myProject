@@ -40,7 +40,7 @@ $(window).scroll(function(){
 })
 // 上天部分
 $(".yc-toTop").click(function(){
-    $("body").animate({"scrollTop":0},500);
+    $("body").animate({"scrollTop":0},1000);
 })
 
 // 搜索框部分
@@ -90,17 +90,14 @@ var flag = true;
 
     // 购物车跳转
     function addToCart(){
-        // console.log(localStorage.token)
         if(!localStorage.getItem("token")){
-            if(!localStorage.getItem("token")){
-                layer.confirm('您还没有登录哦！', {btn: ['登录', '取消'],btn1:function(){
-                    location.href = "login.html#callback="+location.href;
-                }}
-            );
+            layer.confirm('您还没有登录哦！', {btn: ['登录', '取消'],btn1:function(){
+                location.href = "login.html#callback="+location.href;
+            }}
+        );
         }else{
             location.href = "mycart.html";
         }
-    }
     }
     $(".yc-cart").click(addToCart)
     
@@ -126,22 +123,25 @@ var flag = true;
     })
 
     // 购物车内容
-    $.ajax({
-        "type": "GET",
-        "url": "http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.token,
-        "dataType": "json",
-        "success": function (response) {
-            var carthtml="";
-            if(!!response.data.length){
-                
-                for(var i=0; i<response.data.length ;i++){
-                var obj = response.data[i];
-                carthtml +=`<div><img src="${obj.goods_thumb}" alt=""><span>${obj.goods_name}</span></div>`
+    function getCart(){
+        $.ajax({
+            "type": "GET",
+            "url": "http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.token,
+            "dataType": "json",
+            "success": function (response) {
+                var carthtml="";
+                if(!!response.data.length){
+                    
+                    for(var i=0; i<response.data.length ;i++){
+                    var obj = response.data[i];
+                    carthtml +=`<div><img src="${obj.goods_thumb}" alt=""><span>${obj.goods_name}</span></div>`
+                    }
+                    // var cartmore = `<span class="yc-cart-num"></span>`
+                    $(".yc-cart-num").text(response.data.length);
+                    $(".yc-cart-item").html(carthtml).css("padding","20px");
                 }
-                // var cartmore = `<span class="yc-cart-num"></span>`
-                $(".yc-cart-num").text(response.data.length);
-                $(".yc-cart-item").html(carthtml).css("padding","10px");
             }
-        }
-    })
+        })
+    }
+    getCart();
 })

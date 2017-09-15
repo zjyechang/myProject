@@ -165,7 +165,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="yc-wrap-order">
+                    <div class="yc-wrap-order  yc-active">
                         <a href="#" class="yc-shoppingCart">
                             <span class="yc-num">2.</span>
                             <h2>订单信息</h2>
@@ -195,6 +195,7 @@
                     </ul>
                     <a href="#" class="btn yc-newAddress yc-btn" data-toggle="modal" data-target=".bs-example-modal-lg">添加新地址</a>
                 </div>
+                
                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
@@ -230,13 +231,17 @@
                                     </p class="wrapitem">
                                 </form>
                             </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn yc-btn" data-dismiss="modal">关闭</button>
-                            <button type="button" class="btn yc-btn yc-submit" data-dismiss="modal">提交</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn yc-btn" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn yc-btn yc-submit" data-dismiss="modal">提交</button>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                </div>
+                
+                <!-- <div class="row yc-order-list">
+                    
+                </div> -->
             </div>
 
 
@@ -419,6 +424,7 @@
 
     <script src="js/jquery-1.12.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="./layer/layer.js"></script>    
     <script src="./js/main.js"></script>
     <script src="./js/address.js"></script>
 </body>

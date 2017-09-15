@@ -131,7 +131,9 @@ $.ajax({
 
 
         // 添加购物车
-        $(".yc-addToCart").click(function(){
+        $(".yc-addToCart").each(function(i){
+            var j =i;
+        $(this).click(function(){
             if(!localStorage.getItem("token")){
                 layer.confirm('您还没有登录哦！', {btn: ['登录', '取消'],btn1:function(){
                     location.href = "login.html#callback="+location.href;
@@ -139,10 +141,9 @@ $.ajax({
             );
             return;
             }else{
-                var goods_id = $(".yc-addToCart").parent().find(".yc-goodsId").val();
+                var goods_id = $(".yc-addToCart").parent().find(".yc-goodsId").eq(j).val();
                 var goods_number = localStorage.getItem("cart"+goods_id[1]);
-                    goods_number =  +goods_number +1;
-            
+                    goods_number =  +goods_number +1 || 1;
             $.ajax({
                 "url": "http://h6.duchengjiu.top/shop/api_cart.php?token="+localStorage.token,
                 "type": "POST",
@@ -154,12 +155,36 @@ $.ajax({
                 "success": function(response){
                     localStorage.setItem("cart"+goods_id[1],goods_number);
                     layer.msg(response.message, {icon: 6});
+                    getCart();
                 }
             })
 
             }
                 
         })
+    })
+    
     }
 })
+// 更新购物车
+function getCart(){
+    $.ajax({
+        "type": "GET",
+        "url": "http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.token,
+        "dataType": "json",
+        "success": function (response) {
+            var carthtml="";
+            if(!!response.data.length){
+                
+                for(var i=0; i<response.data.length ;i++){
+                var obj = response.data[i];
+                carthtml +=`<div><img src="${obj.goods_thumb}" alt=""><span>${obj.goods_name}</span></div>`
+                }
+                // var cartmore = `<span class="yc-cart-num"></span>`
+                $(".yc-cart-num").text(response.data.length);
+                $(".yc-cart-item").html(carthtml).css("padding","20px");
+            }
+        }
+    })
+}
 })

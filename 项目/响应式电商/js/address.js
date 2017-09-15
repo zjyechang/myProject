@@ -15,11 +15,7 @@ $(function(){
                 var htmlData = "";
                 for(var i=0;i<response.data.length;i++){
                     var obj = response.data[i];
-<<<<<<< HEAD
                     htmlData +='<li class="col-md-3 col-sm-4 col-xs-6"><div class="yc-address-item" addressId="' +obj.address_id+ '"><p>'
-=======
-                    htmlData +='<li class="col-md-3 col-sm-4 col-xs-6" addressId="' +obj.address_id+ '"><div class="yc-address-item"><p>'
->>>>>>> b0b558ec2e0f9387109047dee22c50e725fe4c12
                             +obj.province+obj.city
                             +'<strong> ' +obj.address_name+ ' 收</strong>'
                             +'</p><p>详细地址：'+obj.address 
@@ -30,20 +26,15 @@ $(function(){
 
                    // 删除地址
                 $(".yc-remove").click(function(){
-                    if(confirm("是否删除此地址?")){
-                        // ajax更改
+                    layer.confirm('确定删除此地址？', {btn: ['确认', '取消'],btn1:function(){
                         removeAjax($(this).parent().parent());
                         $(this).parent().parent().remove();
-                    }
+                    }});
                 })
 
-<<<<<<< HEAD
                 // 点击获取地址栏id
-=======
-                // 点击获取地址栏id??????
->>>>>>> b0b558ec2e0f9387109047dee22c50e725fe4c12
                 $(".yc-address-item").click(function(event){
-                    $(this).addClass("active").siblings().removeClass("active");
+                    $(this).addClass("active").parent().siblings().children().removeClass("active");
                     address_id =  $(this).attr('addressId');
                     // console.log(address_id);
                     
@@ -92,7 +83,6 @@ $(function(){
 //获取总金额
 var str = location.search.substr(1);
 var sum = str.split("=");
-// console.log(str);
 $(".yc-total").text("￥"+ sum[1]);
 $(".yc-subprice").text("￥"+ sum[1]);
 
@@ -100,7 +90,11 @@ $(".yc-subprice").text("￥"+ sum[1]);
 $(".yc-after").click(function(){
 
     if( !address_id ){
-        alert("请选择收货地址");
+        layer.alert('请选择收货地址', {
+            skin: 'layui-layer-lan'
+            ,closeBtn: 0
+            ,anim: 4 //动画类型
+          });
         return
     }
     
@@ -122,4 +116,34 @@ $(".yc-after").click(function(){
         }
     })
 })
+
+
+
+    // 订单
+    // $.ajax({
+    //     "url": "http://h6.duchengjiu.top/shop/api_order.php?token="+localStorage.token,
+    //     "type": "GET",
+    //     "dataType": "json",
+    //     "success": function(response){
+    //         // console.log(response);
+    //         if(response.code == 0){
+    //             var html = "";
+    //             for(var i=0;i<response.data.length;i++){
+    //                 var obj = response.data[i];
+                    
+    //                 html+="<div class='col-xs-12 yc-order-item'><h3 class='order-head'>订单号: "+obj.order_id+"</h3>";
+                    
+    //                 for(var j=0 ;j<obj.goods_list.length;j++){
+    //                     var goods = obj.goods_list[j];
+    //                     goods.subtotal = goods.goods_price * goods.goods_number;
+    //                     html += "<div class='col-xs-4 yc-data-li' data-id='"+goods.goods_id+"'><a href='detail.html?goods_id="+goods.goods_id+"'><img src='"+goods.goods_thumb+"'></a><p>"+goods.goods_name+"</p><p>商品数量:"+goods.goods_number+"</p><p>商品金额: ￥"+goods.subtotal+"</p></div>"
+    //                 }            
+    //                 html+="</div>";
+    //             }
+    //             $(".yc-order-list").html(html);
+    //         }
+    //     }
+    // })
 })
+
+                            

@@ -46,15 +46,16 @@
     width: 150px;
     height: 16px;
     bottom: 10px;
-    right: 10px;
-    z-index: 55;    
+    left:50%;
+    margin-left:-75px;
+    z-index: 55;
 }
 .yc-circles ol li{
     float: left;
-    width: 14px;
-    height: 14px;
-    background-color: rgba(0,0,0,0.6);
-    border:4px solid transparent;
+    width: 16px;
+    height: 16px;
+    background-color: rgba(0,0,0,0.7);
+    border:6px solid transparent;
     margin-right: 6px;
     border-radius: 50%;
     cursor: pointer;
@@ -132,6 +133,7 @@
     position: relative;
     margin-bottom: 35px;
     font-weight: normal;
+    cursor: default;
 }
 .yc-ad .yc-adimg1 h3::after{
     content: " ";
@@ -150,6 +152,7 @@
     border: 2px solid #fff;
     padding:5px 20px;
     font-weight: 400;
+    text-decoration: none!important;
 }
 .yc-buyNow:hover{
     background-color: #fff;
@@ -162,9 +165,11 @@
     font-weight: 400;
     margin-bottom: 30px;
     font-size: 30px;
+    cursor: pointer;
 }
 .yc-ad .yc-adimg2 span{
     position: relative;
+    cursor: default;
 }
 .yc-ad .yc-adimg2 p::before,.yc-ad .yc-adimg2 p:before{
     content: " ";

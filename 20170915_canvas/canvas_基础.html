@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="1000">辣鸡浏览器不支持！</canvas>
+
+
+    <script>
+    var canvas = document.getElementById("canvas");
+// console.log(canvas);
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(100,100,50,50);
+
+    ctx.strokeRect(100,200,50,50);
+
+    ctx.beginPath();
+    ctx.moveTo(500,100);
+    ctx.lineTo(500,200);
+    ctx.lineTo(700,300);
+    ctx.lineTo(600,100);
+    ctx.closePath();
+
+    ctx.strokeStyle = "yellow";
+    ctx.lineWidth = "10";
+    ctx.stroke();
+    ctx.fill();
+
+    </script>
+</body>
+</html>

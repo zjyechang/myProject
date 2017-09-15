@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400">辣鸡浏览器不支持！</canvas>
+    
+    <script>
+        var canvas = document.getElementById("canvas");
+
+        var ctx = canvas.getContext("2d");
+
+
+        var i=100;
+        // ctx.beginPath();
+        ctx.arc(200,200,i,0.5*Math.PI,1.5*Math.PI,false);
+        //arc,参数圆心x坐标，y坐标，半径，起始角弧度，结束角弧度,正负时针方向
+        // ctx.closePath();
+        ctx.arc(482,200,300,1.1*Math.PI,0.9*Math.PI,true);
+        ctx.closePath();
+        ctx.strokeStyle="blue";
+        ctx.stroke();
+
+        
+    </script>
+</body>
+</html>
