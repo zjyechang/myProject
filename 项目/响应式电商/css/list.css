@@ -93,4 +93,79 @@
     float:right;
 }
 
+/* 分页 */
 
+.zp-pagination{
+    padding-top:40px;
+    padding-bottom:40px;
+}
+
+.zp-page{
+    width:420px;
+    margin:0 auto;
+}
+#ButtonPrev{
+    width: 83px;
+    float:left;
+    color: black;
+    display: inline-block;
+    height: 30px;
+    border:1px solid #e8e8e8;
+    background-color: #18ba9b;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+    color:white;
+}
+#ButtonNext{
+    width: 83px;
+    color: black;
+    display: inline-block;
+    height: 30px;
+    border:1px solid #e8e8e8;
+    background-color: #18ba9b;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+    color:white;
+    margin-left:5px;
+}
+.button-center{
+    float: left;
+    overflow: hidden;
+    height: 30px;
+}
+#ButtonCenter{
+    float: left;
+    height:30px;
+    margin-left: 0;
+}
+#ButtonCenter span{
+    width: 30px;
+    height: 30px;
+    float: left;
+    border:1px solid #e8e8e8;
+    background-color: #18ba9b;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+    color:white;
+    margin-left:5px;
+}
+#ButtonCenter .page-cur{
+    background: #0c6eba;
+}
+@media screen and (max-width:440px){
+    .button-center{
+        width:180px;
+    }
+    .zp-page{
+        width:360px;
+        margin:0 auto;
+    }
+}
+
+.yc-searcht-itle{
+    margin-bottom:30px;
+    color: #18ba9b;
+}

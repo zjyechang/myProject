@@ -106,10 +106,13 @@ $(function () {
             }
             // 删除商品
             $(".yc-delete").each(function () {
+                var that = this;
                 $(this).click(function () {
                     layer.confirm('确定删除该商品？', {btn: ['确认', '取消'],btn1:function(){
-                        updataAjax($(this).parent().parent());
-                        $(this).parent().parent().parent().remove();
+                        updataAjax($(that).parent().parent());
+                        $(that).parent().parent().remove();
+                        getCart();
+                        layer.msg('删除成功！', {icon: 1});
                     }});
 
                 })
@@ -118,10 +121,13 @@ $(function () {
             // 删除选中项
             $(".delSelect").click(function () {
                 layer.confirm('确认删除所有选中商品？', {btn: ['确认', '取消'],btn1:function(){
-                    $(".yc-goodcheck").each(function () {
-                        if ($(this).prop("checked")) {
-                            updataAjax($(this).parent().parent());
-                            $(this).parent().parent().parent().remove();
+                    $(".yc-goodscheck").each(function () {
+                        var that = this;
+                        if ($(that).prop("checked")) {
+                            updataAjax($(that).parent().parent());
+                            $(that).parent().parent().remove();
+                            getCart();
+                            layer.msg('删除成功！', {icon: 1});
                         };
                     })
                 }});
@@ -132,6 +138,7 @@ $(function () {
                 $(".yc-goodscheck").each(function () {
                     $(this).prop("checked", checked);
                 })
+                changePrice();                
             })
 
 
@@ -144,5 +151,26 @@ $(function () {
 
 
     })
+    // 更新购物车
+    function getCart(){
+        $.ajax({
+            "type": "GET",
+            "url": "http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.token,
+            "dataType": "json",
+            "success": function (response) {
+                var carthtml="";
+                if(!!response.data.length){
+                    
+                    for(var i=0; i<response.data.length ;i++){
+                    var obj = response.data[i];
+                    carthtml +=`<div><img src="${obj.goods_thumb}" alt=""><span>${obj.goods_name}</span></div>`
+                    }
+                    // var cartmore = `<span class="yc-cart-num"></span>`
+                    $(".yc-cart-num").text(response.data.length);
+                    $(".yc-cart-item").html(carthtml).css("padding","20px");
+                }
+            }
+        })
+    }
 
 })

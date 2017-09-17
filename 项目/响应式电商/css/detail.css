@@ -21,11 +21,6 @@ section .zp-product .zp-path a:hover{
 
 
 
-section .zp-product-pic img{
-    width:100%;
-    height:100%;
-}
-
 /* 商品详情 */
 .zp-product-title{
     color: #687074;
@@ -113,7 +108,6 @@ section .zp-product-pic img{
     color:white;
     height:100%;
     padding:13px 25px;
-    margin-left:20px;
     font-size:18px;
 }
 .add-chat-btn:hover,.add-chat-btn:visited{
@@ -204,6 +198,25 @@ section .zp-product-pic img{
     color: #687074;
     font-size: 18px;
 }
+
+
+/* 添加按钮响应调节 */
+.num-choose{
+    margin-right:30px;
+    margin-bottom:15px;
+}
+/* .zp-product-pic img{
+    width:100%;
+} */
+@media screen and (max-width:1000px){
+    .zp-product-pic img{
+        width:100%;
+    }
+    .zp-product-desc{
+        width:100%;
+    }
+}
+
 
 
 

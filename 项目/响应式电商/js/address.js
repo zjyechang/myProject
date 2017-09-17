@@ -15,7 +15,7 @@ $(function(){
                 var htmlData = "";
                 for(var i=0;i<response.data.length;i++){
                     var obj = response.data[i];
-                    htmlData +='<li class="col-md-3 col-sm-4 col-xs-6"><div class="yc-address-item" addressId="' +obj.address_id+ '"><p>'
+                    htmlData +='<li class="col-md-3 col-sm-4 col-xs-6" addressId="' +obj.address_id+ '"><div class="yc-address-item"><p>'
                             +obj.province+obj.city
                             +'<strong> ' +obj.address_name+ ' 收</strong>'
                             +'</p><p>详细地址：'+obj.address 
@@ -26,16 +26,18 @@ $(function(){
 
                    // 删除地址
                 $(".yc-remove").click(function(){
+                    var that = this;
                     layer.confirm('确定删除此地址？', {btn: ['确认', '取消'],btn1:function(){
-                        removeAjax($(this).parent().parent());
-                        $(this).parent().parent().remove();
+                        removeAjax($(that).parent().parent());
+                        $(that).parent().parent().remove();
+                        layer.msg('删除成功！', {icon: 1});                        
                     }});
                 })
 
                 // 点击获取地址栏id
                 $(".yc-address-item").click(function(event){
                     $(this).addClass("active").parent().siblings().children().removeClass("active");
-                    address_id =  $(this).attr('addressId');
+                    address_id =  $(this).parent().attr('addressId');
                     // console.log(address_id);
                     
                 })
@@ -55,7 +57,6 @@ $(function(){
             "data": data,
             "success": function(response){
                 if(response.code == 0){
-                    // console.log(response);
                     addressAjax();
                 }
             }
@@ -88,8 +89,8 @@ $(".yc-subprice").text("￥"+ sum[1]);
 
 // 订单提交
 $(".yc-after").click(function(){
-
     if( !address_id ){
+        console.log(address_id)
         layer.alert('请选择收货地址', {
             skin: 'layui-layer-lan'
             ,closeBtn: 0
@@ -110,40 +111,13 @@ $(".yc-after").click(function(){
         "success": function(response){
             // console.log(response.message)
             if(response.code == 0){
-                alert("订单提交成功");
-                location.href = "pay.html?sum="+sum[1];
+                layer.alert('订单提交成功', {icon: 6,anim: 3},function(){
+                    location.href = "pay.html?sum="+sum[1];
+                });
             }
         }
     })
 })
-
-
-
-    // 订单
-    // $.ajax({
-    //     "url": "http://h6.duchengjiu.top/shop/api_order.php?token="+localStorage.token,
-    //     "type": "GET",
-    //     "dataType": "json",
-    //     "success": function(response){
-    //         // console.log(response);
-    //         if(response.code == 0){
-    //             var html = "";
-    //             for(var i=0;i<response.data.length;i++){
-    //                 var obj = response.data[i];
-                    
-    //                 html+="<div class='col-xs-12 yc-order-item'><h3 class='order-head'>订单号: "+obj.order_id+"</h3>";
-                    
-    //                 for(var j=0 ;j<obj.goods_list.length;j++){
-    //                     var goods = obj.goods_list[j];
-    //                     goods.subtotal = goods.goods_price * goods.goods_number;
-    //                     html += "<div class='col-xs-4 yc-data-li' data-id='"+goods.goods_id+"'><a href='detail.html?goods_id="+goods.goods_id+"'><img src='"+goods.goods_thumb+"'></a><p>"+goods.goods_name+"</p><p>商品数量:"+goods.goods_number+"</p><p>商品金额: ￥"+goods.subtotal+"</p></div>"
-    //                 }            
-    //                 html+="</div>";
-    //             }
-    //             $(".yc-order-list").html(html);
-    //         }
-    //     }
-    // })
 })
 
                             

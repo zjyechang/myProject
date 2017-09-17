@@ -45,4 +45,6 @@
 .checkbox a:hover{
     color:#2cd5b6;
 }
-
+#regBtn:active{
+    color:white;
+}

@@ -55,7 +55,7 @@
     width: 16px;
     height: 16px;
     background-color: rgba(0,0,0,0.7);
-    border:6px solid transparent;
+    border:5px solid transparent;
     margin-right: 6px;
     border-radius: 50%;
     cursor: pointer;
@@ -85,7 +85,6 @@
     position: absolute;
     transition:all 2s ease-in 0s;
 }
-
 
 /* 轮播图下方广告 */
 
@@ -437,4 +436,14 @@
     text-align: center;
     background-color: #18ba9b;
     border-radius:50%;
+}
+
+/* 翻转特效 */
+.zp-sponsors1 .thumbnail:hover{
+    border-color:#18ba9b;
+}
+.zp-sponsors1 .thumbnail:hover img{
+   /* perspective: 500px; */
+   transform: rotateY(360deg);
+   transition: all 2s;
 }

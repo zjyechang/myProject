@@ -123,5 +123,10 @@ section .welcome>p{
 }
 
 
-
+.welcome .media-left i{
+    float: left;
+    color: #18ba9b;
+    font-size: 30px;
+    margin: 7px 15px 0 0;
+}
 

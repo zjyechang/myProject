@@ -2,7 +2,7 @@
 // 登录后更改
 $(function(){
     if(localStorage.getItem("token")){
-        $(".yc-login").html("<a href='#' class='yc-ahover'>尊敬的"+localStorage.getItem("username")+"</a>&nbsp; <a href='javascript:;' class='yc-logout'>退出登录</a></sapn>");
+        $(".yc-login").html("<a href='#' class='yc-ahover'>尊敬的"+localStorage.getItem("username")+"</a>&nbsp; <a href='javascript:;' class='yc-logout'>退出登录</a><a href='order.html' class='ahover'>查看已买到的宝贝</a>"); 
     }
     // 退出登录
     $(".yc-logout").click(function(){
@@ -81,8 +81,18 @@ var flag = true;
                     "search_text": searchValue.value,
                 },
                 "success": function(response){
-                    var goodsId = response.data[0].goods_id;
-                    window.location.href = "detail.html?goods_id="+goodsId;
+                    if(response.code == 0){
+                        console.log(response)
+                        var userSearch = {};
+                        for(var i =0; i<response.data.length;i++){
+                            userSearch[i] = [response.data[i].cat_id,response.data[i].goods_id];
+                        }
+                        userSearch = JSON.stringify(userSearch);
+                        var obj = localStorage.setItem("userSearch",userSearch);
+                        window.location.href = "search.html";
+                    }else{
+                        layer.msg('你搜的都是些什么？')
+                    }
                 }
             })
         }
@@ -92,7 +102,12 @@ var flag = true;
     function addToCart(){
         if(!localStorage.getItem("token")){
             layer.confirm('您还没有登录哦！', {btn: ['登录', '取消'],btn1:function(){
-                location.href = "login.html#callback="+location.href;
+                if(location.href.substr(-10) == "login.html"){
+                    layer.msg("已经在登录页面了!");
+                    return
+                }else{
+                    location.href = "login.html#callback="+location.href;
+                }
             }}
         );
         }else{

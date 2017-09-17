@@ -74,9 +74,7 @@ $(function(){
 
     $("#yc-rightBtn").click(function(){change(1)});
 
-    $("#yc-leftBtn").click(function(){
-        change(-1);
-    });
+    $("#yc-leftBtn").click(function(){change(-1);});
     
     var timer = setInterval(function(){change(1);},3000);
 
