@@ -109,7 +109,7 @@ $.ajax({
             html += `<div class="col-xs-6 col-sm-6 col-md-3">
                         <div class="thumbnail">
                             <a class="yc-hoverOther" href="detail.html?goods_id=${obj.goods_id}"><img src="${obj.goods_thumb}"></a>
-                            <a href="#" class="yc-addToCart" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>添加购物车</a>
+                            <a href="javascript:;" class="yc-addToCart" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>添加购物车</a>
                             <div class="caption">
                             <a href="detail.html?goods_id=${obj.goods_id}"><h4>${obj.goods_name}</h4></a>
                             <p>${obj.goods_desc}</p>

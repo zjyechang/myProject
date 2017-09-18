@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>太极</title>
+</head>
+<body>
+    <canvas width="800" height="600" >辣鸡浏览器不支持，赶紧换一个</canvas>
+
+
+
+    <script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+
+        // 大圆
+    canvas.style.backgroundColor = "#ccc";
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    ctx.arc(300,200,200,0.5*Math.PI,1.5*Math.PI,false);
+    ctx.fill(); 
+
+
+
+    ctx.fillStyle = "#000";
+    ctx.beginPath();
+    ctx.arc(300,200,200,0.5*Math.PI,1.5*Math.PI,true);
+    ctx.fill();
+    
+
+        // 小圆
+        ctx.fillStyle = "#fff";
+        ctx.beginPath();
+        ctx.arc(300,100,100,0.5*Math.PI,1.5*Math.PI,true);
+        ctx.fill(); 
+
+
+
+        ctx.fillStyle = "#000";
+        ctx.beginPath();
+        ctx.arc(300,300,100,0.5*Math.PI,1.5*Math.PI,false);
+        ctx.fill();
+
+        // 小小圆
+        ctx.fillStyle = "#fff";
+        ctx.beginPath();
+        ctx.arc(300,300,30,2*Math.PI,false);
+        ctx.fill(); 
+
+
+
+        ctx.fillStyle = "#000";
+        ctx.beginPath();
+        ctx.arc(300,100,30,2*Math.PI,false);
+        ctx.fill();
+    </script>
+</body>
+</html>

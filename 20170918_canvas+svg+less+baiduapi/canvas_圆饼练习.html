@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>饼状图</title>
+</head>
+<body>
+    <canvas width="800" height="600" >辣鸡浏览器不支持，赶紧换一个</canvas>
+
+
+
+    <script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "skyblue";
+
+    ctx.strokeStyle = "black";
+
+    ctx.beginPath();
+    ctx.moveTo(100,100);
+    // draw(0.4);
+    autoDraw(1)
+    
+    function draw(a){
+        ctx.arc(100,100,100,-0.5*Math.PI,a*2*Math.PI-0.5*Math.PI,false);
+        ctx.closePath();
+        ctx.fill();
+        // ctx.stroke();
+        
+    }
+    
+    var t=0;
+    var timer = null;
+    
+    function autoDraw(num){
+        timer = setInterval(function(){
+            if( t >num) {draw(num);clearInterval(timer);}else{draw(t);t+=0.01}
+
+        },50)
+    }
+
+    </script>
+</body>
+</html>

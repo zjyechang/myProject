@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟</title>
+    <style>
+    canvas{
+        position:fixed;
+        margin:auto;
+        left: 0;
+        right: 0;
+        top:0;
+        bottom:0;
+        background-color: #ccc;
+    }
+    
+    </style>
+</head>
+<body>
+    <canvas width="600" height="600" >辣鸡浏览器不支持，赶紧换一个</canvas>
+
+
+
+    <script>
+    var canvas = document.querySelector("canvas");
+    var ctx = canvas.getContext("2d");
+
+    function drawClock(){
+        // 清除画布
+        ctx.clearRect(0,0,600,600);
+        // 获取系统时间
+        var date = new Date();
+        // 获取秒
+        var second = date.getSeconds();
+        // 获取分钟
+        var minute = date.getMinutes();
+        // 获取小时
+        var hour = date.getHours();
+        hour = hour + minute/60;//获取具体带小数小时
+        hour = hour>12? hour-12 : hour;
+        // 画钟
+            // 表盘
+            ctx.beginPath();
+            ctx.lineWidth = 5;
+            ctx.strokeStyle="black";
+            ctx.arc(300,300,280,0,360,false);
+            ctx.stroke();
+            ctx.closePath();
+
+        // 刻度
+            // 时针刻度
+            for(var i=0 ;i<12;i++){
+                ctx.save();//保存开始时的样式
+                ctx.lineWidth=6;
+                ctx.strokeStyle = '#000';
+
+                // 设置原点
+                ctx.translate(300,300);
+                // 设置角度
+                ctx.rotate(i*30*Math.PI/180);
+
+                ctx.beginPath();
+                ctx.moveTo(0,-240);
+                ctx.lineTo(0,-260);
+                ctx.stroke();
+                ctx.closePath();
+                
+                ctx.restore();//读取
+            }
+            // 分针刻度
+            for(var i=0 ;i<60;i++){
+                ctx.save();//保存开始时的样式
+                ctx.lineWidth=3;
+                ctx.strokeStyle = '#000';
+
+                // 设置原点
+                ctx.translate(300,300);
+                // 设置角度
+                ctx.rotate(i*6*Math.PI/180);
+
+                ctx.beginPath();
+                ctx.moveTo(0,-240);
+                ctx.lineTo(0,-260);
+                ctx.stroke();
+                ctx.closePath();
+                
+                ctx.restore();//读取
+            }
+            // 时针
+            ctx.save();
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = "green";
+            ctx.translate(300,300);
+            ctx.rotate(hour*Math.PI/6)
+            ctx.beginPath();
+            ctx.moveTo(0,20);
+            ctx.lineTo(0,-130);
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+            // 分针
+            ctx.save();
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = "red";
+            ctx.translate(300,300);            
+            ctx.rotate(minute*Math.PI/6)
+            ctx.beginPath();
+            ctx.moveTo(0,20);
+            ctx.lineTo(0,-180);
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+            // 秒针
+            ctx.save();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "yellow";
+            ctx.translate(300,300);            
+            ctx.rotate(second*Math.PI/30)
+            ctx.beginPath();
+            ctx.moveTo(0,20);
+            ctx.lineTo(0,-230);
+            ctx.stroke();
+            ctx.closePath();
+            ctx.restore();
+
+        // 交叉点
+        ctx.beginPath();
+        ctx.arc(300,300,5,0,360,false);
+        ctx.fillStyle = "white";
+        ctx.strokeStyle = "yellow";
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        
+        // 文本内容
+        ctx.font = "30px 微软雅黑";
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "skyblue";
+        ctx.fillText("珍惜时间" ,240,400)
+    }
+    drawClock();
+        // 定时器
+        
+        setInterval(function(){
+            drawClock();
+        },1000)
+    </script>
+</body>
+</html>

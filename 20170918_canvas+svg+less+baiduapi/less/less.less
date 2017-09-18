@@ -1,0 +1,44 @@
+@w200:200px;
+@h40:40px;
+@color-orange:orange;
+@color-sky:skyblue;
+@color-lgreen:lightgreen;
+@str:"mmp";
+
+*{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style:none;
+}
+header{
+    width: 100%;
+    height:@h40;
+    .logo{
+        width:@w200;
+        height:@h40;
+        background-color:@color-orange;
+        float:left;
+    }
+    nav{
+        float:left;
+        li{
+            width:50px;
+            margin-right:5px;
+            height:@h40;
+            background-color: @color-sky; 
+            float:left;
+        }
+    }
+    .box{
+        width:@w200;
+        height:@h40;
+        background-color: @color-lgreen;
+        float:left;
+        content:@str;
+    }
+}
+
+
+

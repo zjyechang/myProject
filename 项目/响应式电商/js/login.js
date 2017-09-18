@@ -51,7 +51,6 @@ function login() {
             if (response.code === 0) {
                 var data = response.data;
 
-
                 for (prop in data) {
                     if (data.hasOwnProperty(prop)) {
                         localStorage.setItem(prop, data[prop]);
@@ -60,17 +59,11 @@ function login() {
 
                 $(".error2").hide();
 
-                layer.open({
-                    content: `${response.message}`,
-                    scrollbar: false,
-                }, {
-                    icon: 6
-                });
+                layer.msg(response.message,{icon:1});
 
                 setTimeout(function () {
                     var callbackURL = location.hash.substr(10);
                     // console.log(callbackURL);
-
                     if (callbackURL) {
                         location.href = callbackURL;
                     } else {
@@ -91,7 +84,7 @@ function login() {
             }
         },
         "error": function () {
-            alert("数据获取失败！");
+            layer.msg("数据获取失败！",{icon:2});
         }
     })
 }

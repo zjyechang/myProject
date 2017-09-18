@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+header {
+  width: 100%;
+  height: 40px;
+}
+header .logo {
+  width: 200px;
+  height: 40px;
+  background-color: orange;
+  float: left;
+}
+header nav {
+  float: left;
+}
+header nav li {
+  width: 50px;
+  margin-right: 5px;
+  height: 40px;
+  background-color: skyblue;
+  float: left;
+}
+header .box {
+  width: 200px;
+  height: 40px;
+  background-color: lightgreen;
+  float: left;
+  content: "mmp";
+}
