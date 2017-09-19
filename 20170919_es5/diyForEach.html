@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        var arr = [2,4,5,5];
+
+        arr.forEach(function(value,index,content){
+            console.log("value:"+value);
+            console.log("index:"+index);
+            console.log("content:"+content);
+
+
+        })
+        
+        var arr1 = ["yc","zp","wph","mdd"];
+
+        arr1.forEach(function(v,k){
+            console.log(v);
+            console.log(k);
+        })
+        
+        Array.prototype.diyForEach = function(fn){
+            for(var i=1;i<this.length;i++){
+                fn(this[i],i,this)
+            }
+        }
+
+        arr1.diyForEach(function(value,index,content){
+            console.log(this);
+            console.log("value:"+value);
+            console.log("index:"+index);
+            console.log("content:"+content);
+        })
+    </script>
+</body>
+</html>

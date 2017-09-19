@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var arr = [3,4,5,5,9];
+
+        // 将数组中的每一项经过函数处理后输出
+        var newArr = arr.map(function(a){
+            return a+10;
+        })
+        console.log(arr);
+        console.log(newArr);
+        
+
+
+        function mmp(arr,fn){
+            var result = [];
+            for(var i=0;i<arr.length;i++){
+                result[i] = fn(arr[i]);
+            }
+            return result;
+        }
+        var arr1 = mmp(arr,function(a){
+            return a*122;
+        })
+
+        console.log(arr1)
+        
+    </script>
+</body>
+</html>

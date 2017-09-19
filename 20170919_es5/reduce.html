@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var arr = [3,5,7,9,5,2];
+
+        arr.reduce(function(current,sum){
+            return sum+current;
+        })
+        
+        function reduce(arr,fn){
+            var result = arr[0];
+            for(var i=1;i<arr.length;i++){
+                result = fn(result,arr[i]);
+            }
+            return result;
+        }
+
+        console.log(reduce( arr,function(s,v){
+            return s+v;
+        }))
+
+        arr.reduce(function(current,sum){
+            return sum+current;
+        })
+        
+        function reduceRight(arr,fn){
+            var result = arr[0];
+            for(var i=arr.length-2;i>-1;i--){
+                result = fn(result,arr[i]);
+            }
+            return result;
+        }
+
+        console.log(reduce( arr,function(s,v){
+            return s+v;
+        }))
+        </script>
+</body>
+</html>

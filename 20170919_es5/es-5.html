@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- es5新增了一个toJsonp的方法
+     -->
+
+     <script>
+     var date = new Date();
+     console.log(date.toJson);
+
+
+     function fun(){
+         console.log(this);
+         console.log(arguments);
+     }
+
+     var obj = {
+         name: "dongdong",
+     }
+
+    //  call和apply改变this指向并立即执行
+    // fun.call(obj);
+    // fun.apply(obj);
+
+
+    var fun1 = fun.bind(obj);
+    //  bind改变this指向，但不会立即执行
+    fun1();
+     
+     
+     function bind(fn,obj){
+         var args = [].slice.call(arguments,2);
+        console.log(args);
+
+
+        return function(name,age){
+            // 合并数组
+            var newArgs = args.concat( [].slice.call(arguments))
+            fn.apply(obj,newArgs);
+        }
+     }
+     
+     var fun1 = bind(fun,obj,4,5,6,7,8);
+     fun1("真人",22);
+
+
+     </script>
+</body>
+</html>

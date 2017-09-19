@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun(fn){
+            fn(2,3,4);
+        }
+        fun(function(a,b,c){
+            console.log(a,b,c);
+        })
+
+
+        Array.prototype.fun = function(fn){
+            fn(11,2,333)
+        }
+        arr.fun(function(a,b,c){
+            console.log(a,b,c);
+            
+        })
+
+        fun1(); //window
+        fun1.call(arr); //arr
+        
+        function fun1(){
+            console.log(this);
+        }
+        arr.fun1(); //arr
+        </script>
+</body>
+</html>

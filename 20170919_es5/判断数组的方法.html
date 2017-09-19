@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var arr =[1,2,3,4];
+
+
+
+        //方案一,明确自己的判断类型，再进行判断
+        console.log(arr instanceof Array); 
+        //方案二,
+        console.log(arr.constructor === Array)
+        //方案三
+        var obj = {"name":"yechang"};
+        //想调用object的toString方法，
+        console.log(obj.toString());
+        console.log(arr.toString());
+
+        // 数组调用object的toString方法
+        console.log(Object.prototype.toString.call(arr));
+        console.log(Object.prototype.toString.call(arr) === "[object Array]");
+
+
+        // 方案四,
+        console.log(Array.isArray(arr));
+        </script>
+</body>
+</html>

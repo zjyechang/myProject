@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 开启严格模式
+        "use strict";
+        
+        a = 1234;
+
+        //报错
+        console.log(a);
+
+
+        function fun(){
+        "use strict";//局部开启
+            
+            console.log(this); //报错
+        }
+
+
+        function fun1(name,name){
+            console.log(name);
+        }
+        console.log()
+
+        var obj ={
+            "color":"red",
+            "color":"green",
+        }
+
+        var public = abc;
+        // 严格模式保留字使用报错
+        console.log(public);
+
+        var arguments = 1;
+        console.log(arguments);//报错，保留字
+
+
+
+        // 将里面的字符串内容当做代码执行
+        eval("alert(1)");
+        var eval = 12;
+        console.log(eval);
+
+        var name ='打东东';
+        delete name;//报错
+
+
+        var show = function(){
+
+        }
+        delete show;//报错
+
+
+        </script>
+</body>
+</html>

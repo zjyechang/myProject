@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+                "use strict"
+        // eval("var x = 11");
+        // console.log(x);//报错
+
+        // 正常使用
+        var diyEval = eval;
+        divEval("var y = 123");
+        console.log(y);//123
+        
+        function addNum(num){
+            if(num <= 1){
+                return num;
+            }
+            return num+addNum(num-1);
+            return num+arguments.callee(num-1);//严格模式报错
+        }
+        console.log( addNum(7) )
+
+
+
+
+        var a =3;
+        var b= 4;
+        var obj= {c:5};
+        console.log(a+b+obj.c)
+
+        with(obj){
+            a = a+b+c; //c相当于obj.c
+            // 常用于Math.PI
+            // 严格模式出错
+        }
+        </script>
+</body>
+</html>

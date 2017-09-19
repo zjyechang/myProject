@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var arr =[3,5,6,8,2,634,2];
+
+        // some判断数组里面有误满足条件的值，有则返回true
+        console.log(arr.some(function(value,index){
+            // console.log(value);
+            // console.log(index);
+            return value == 5;
+        }));
+        
+        function some(arr,fn){
+            for(var i=0;i<arr.length;i++){
+                // 循环判断有没有满足条件的
+                if( fn() ){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+        console.log(some(arr,function(value,index){
+            // 判断条件
+            return value ===7;
+        }))
+        
+
+
+
+        // every当数组中每个都满足条件，返回true
+
+        function every(arr,fn){
+            for(var i=0;i<arr.length;i++){
+
+                for(var i=0;i<arr.length;i++){
+                    if(!fn(arr[i],i)){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        console.log(
+            every(arr1,function(value,index){
+                return value%5==0;
+            })
+        )
+    </script>
+</body>
+</html>

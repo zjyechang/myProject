@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var arr=[2,3,4,7];
+
+        // fill替换数组内容为括号里的值
+        console.log(arr.fill("shit"));
+
+
+        function divFill(arr,value){
+            for(var i=0;i<arr.length;i++){
+                arr[i] = value;
+            }
+            return arr;
+        }
+        
+        console.log(divFill(arr,"辣鸡"));
+        
+        Array.prototype.diyFill = function(value){
+            for(var i=0;i<this.length;i++){
+                 this[i] = (typeof value)==="function"? value():value;
+            }
+            return arr;
+        }
+
+        console.log(arr.diyFill(function(){
+            return "mmp"
+        })) 
+        </script>
+</body>
+</html>
