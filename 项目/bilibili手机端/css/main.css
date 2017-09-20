@@ -1,0 +1,301 @@
+.clearfix::after,
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+i.fa {
+  width: 100%;
+  height: 100%;
+  font-size: 0.8rem;
+  color: #757575;
+}
+header {
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 100;
+}
+header .topHead {
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  height: 1.32267rem;
+  padding: .27733rem 0;
+  background-color: #fff;
+}
+header .topHead .wrap-logo {
+  position: absolute;
+  display: block;
+  left: .77867rem;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  width: 2.64533rem;
+}
+header .topHead .wrap-logo .logo {
+  position: relative;
+  width: 100%;
+}
+header .topHead .searchIcon {
+  position: absolute;
+  display: block;
+  width: .896rem;
+  height: .896rem;
+  right: 42%;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+header .topHead .user {
+  position: absolute;
+  display: block;
+  width: 1.024rem;
+  height: 1.024rem;
+  right: 30.13%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  overflow: hidden;
+}
+header .topHead .user img {
+  position: relative;
+  width: 100%;
+}
+header .topHead .downloadClient {
+  font-size: .55467rem;
+  line-height: 1.06667rem;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  right: .42667rem;
+  width: 3.41333rem;
+  height: 1.024rem;
+  border: 0.02133rem solid #fb7299;
+  border-radius: .17067rem;
+  background-color: #fb7299;
+}
+header .wrap-nav {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 1.87733rem;
+  z-index: 66;
+  overflow: hidden;
+}
+header .wrap-nav .main-nav {
+  position: relative;
+  width: 90%;
+  padding-top: .256rem;
+  overflow: hidden;
+}
+header .wrap-nav .main-nav ul {
+  position: relative;
+  padding-left: 1.024rem;
+  overflow: hidden;
+  height: 1.87733rem;
+  white-space: nowrap;
+  padding-bottom: .21333rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+  -webkit-transform: translateZ(0);
+  -webkit-perspective: 1000;
+}
+header .wrap-nav .main-nav ul li {
+  display: inline-block;
+  -webkit-transform: translateZ(0);
+  -webkit-perspective: 1000;
+  background-color: #fff;
+  margin-right: 1.49333rem;
+  width: 1.36533rem;
+  font-size: .59733rem;
+  line-height: 1.28rem;
+  text-align: center;
+  color: #757575;
+  border-bottom: .08533rem solid #fff;
+}
+header .wrap-nav .main-nav ul li a {
+  color: inherit;
+  font-weight: 500;
+}
+header .wrap-nav .main-nav ul li.active {
+  border-color: #fb7299;
+  color: #fb7299;
+}
+header .wrap-nav .switch-container {
+  position: absolute;
+  top: 0;
+  width: 1.38667rem;
+  height: 1.87733rem;
+  right: .256rem;
+}
+header .wrap-nav .switch-container i {
+  line-height: 1.87733rem;
+  text-align: center;
+}
+header .switch-nav {
+  position: absolute;
+  left: 0;
+  top: 1.856rem;
+  width: 100%;
+  background-color: #fff;
+  display: none;
+  z-index: 100;
+  transform: translateZ(1px);
+  -webkit-transform: translateZ(1px);
+}
+header .switch-nav ul {
+  position: relative;
+  padding-left: .59733rem;
+  padding-right: .59733rem;
+}
+header .switch-nav ul li {
+  position: relative;
+  display: inline-block;
+  padding-top: .256rem;
+  padding-bottom: .256rem;
+  margin-left: .59733rem;
+  margin-right: .59733rem;
+  background-color: #fff;
+}
+header .switch-nav ul li a {
+  width: 1.36533rem;
+  font-size: .59733rem;
+  line-height: 1.28rem;
+  text-align: center;
+  color: #757575;
+  font-weight: 500;
+  border-bottom: .08533rem solid #fff;
+}
+header .switch-nav ul li.active a {
+  border-bottom: 0.08rem solid #fb7299;
+  color: #fb7299;
+}
+header .switch-nav ul li.tv {
+  margin: 0 .29867rem;
+}
+header .switch-nav ul li.tv a {
+  width: 1.96267rem;
+}
+header .switch-nav .switch-up-arrow {
+  width: .68267rem;
+  height: .91733rem;
+  margin: 1em auto;
+}
+.gap {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  padding-top: 3.79733rem;
+  z-index: -1;
+}
+.carousel {
+  width: 100%;
+}
+.carousel .swiper-wrapper .swiper-slide {
+  height: 4.69333rem;
+  overflow: hidden;
+}
+.carousel .swiper-wrapper img {
+  width: 100%;
+}
+.carousel .swiper-pagination-bullet {
+  width: 2em;
+  height: 2em;
+}
+section {
+  position: relative;
+  width: 100%;
+}
+section .sec-title {
+  position: relative;
+  margin-left: .512rem;
+  margin-bottom: .21333rem;
+}
+section .sec-title i {
+  position: relative;
+  float: left;
+  margin-top: .2688rem;
+  width: 1.19467rem;
+  height: .95573rem;
+  color: #0cf;
+}
+section .sec-title h2 {
+  position: relative;
+  float: left;
+  margin-left: .10667rem;
+  width: 3.41333rem;
+  font-size: .68267rem;
+  line-height: 1.49333rem;
+  text-align: left;
+  color: #212121;
+}
+section .sec-title a {
+  font-size: .59733rem;
+  color: #999;
+  text-align: center;
+  line-height: .59733rem;
+  float: right;
+  margin-right: 0.16rem;
+}
+section .wrap-video {
+  position: relative;
+  padding-left: .256rem;
+  padding-right: .256rem;
+}
+section .wrap-video .video {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 50%;
+  float: left;
+  margin-bottom: .68267rem;
+}
+section .wrap-video img {
+  position: relative;
+  width: 7.232rem;
+  height: 4.52267rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: .256rem;
+  -webkit-border-radius: .256rem;
+  background-color: #e7e7e7;
+  background-image: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.5));
+}
+section .wrap-video p {
+  width: 7.232rem;
+  margin: 0.2rem auto;
+  font-size: 0.5rem;
+  font-weight: 600;
+}
+footer {
+  position: relative;
+  margin-top: 1.344rem;
+  padding-bottom: .32rem;
+}
+footer p {
+  font-size: .55467rem;
+  color: #999;
+  line-height: 1.36533rem;
+  text-align: center;
+}
+.toTop {
+  display: block;
+  position: fixed;
+  z-index: 3;
+  bottom: .896rem;
+  right: .896rem;
+  width: 1.70667rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+.toTop img {
+  width: 100%;
+}

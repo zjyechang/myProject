@@ -1,0 +1,321 @@
+
+@color-pink : #fb7299;
+.clearfix{
+    &::after,&:after{
+        content:"";
+        display: block;
+        clear:both;
+    }
+}
+i.fa{
+    width: 100%;
+    height: 100%;
+    font-size: 0.8rem;
+    color:#757575;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    background-color: #fff;
+    z-index: 100;
+    .topHead{
+        position: relative;
+        width: 100%;
+        z-index: 99;
+        width: 100%;
+        height: 1.32267rem;
+        padding: .27733rem 0;
+        background-color: #fff;
+        .wrap-logo{
+            position: absolute;
+            display: block;
+            left: .77867rem;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            width: 2.64533rem;
+            .logo{
+                position: relative;
+                width: 100%;
+            }
+        }
+        .searchIcon{
+            position: absolute;
+            display: block;
+            width: .896rem;
+            height: .896rem;
+            right: 42%;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+        }
+        .user{
+            position: absolute;
+            display: block;
+            width: 1.024rem;
+            height: 1.024rem;
+            right: 30.13%;
+            top: 50%;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            overflow: hidden;
+            img{
+                position: relative;
+                width: 100%;
+            }
+        }
+        .downloadClient{
+            font-size: .55467rem;
+            line-height: 1.06667rem;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            display: block;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            right: .42667rem;
+            width: 3.41333rem;
+            height: 1.024rem;
+            border: .02133rem solid @color-pink;
+            border-radius: .17067rem;
+            background-color: @color-pink;
+        }
+    }
+
+    .wrap-nav{
+        position: relative;
+        background-color: #fff;
+        width: 100%;
+        height: 1.87733rem;
+        z-index: 66;
+        overflow: hidden;
+        .main-nav{
+            position: relative;
+            width: 90%;
+            padding-top: .256rem;
+            overflow: hidden;
+        ul{
+            position: relative;
+            padding-left: 1.024rem;
+            overflow: hidden;
+            height: 1.87733rem;
+            white-space: nowrap;
+            padding-bottom: .21333rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            z-index: 1;
+            -webkit-transform: translateZ(0);
+            -webkit-perspective: 1000;
+            li{
+                display: inline-block;
+                -webkit-transform: translateZ(0);
+                -webkit-perspective: 1000;
+                background-color: #fff;
+                margin-right: 1.49333rem;
+                width: 1.36533rem;
+                font-size: .59733rem;
+                line-height: 1.28rem;
+                text-align: center;
+                color: #757575;
+                border-bottom: .08533rem solid #fff;
+                a{
+                    color:inherit;
+                    font-weight:500;
+                }
+            }
+            li.active{
+                border-color: @color-pink;
+                color: @color-pink;
+                }
+            }
+        }
+        .switch-container{
+            position: absolute;
+            top: 0;
+            width: 1.38667rem;
+            height: 1.87733rem;
+            right: .256rem;
+            i{
+                line-height: 1.87733rem;
+                text-align: center;
+            }
+            }    
+        }
+    .switch-nav{
+        position:absolute;
+        left:0;
+        top: 1.856rem;
+        width: 100%;
+        background-color: #fff;
+        display: none;
+        z-index: 100;
+        transform:translateZ(1px);
+        -webkit-transform:translateZ(1px);
+        ul{
+            position: relative;
+            padding-left: .59733rem;
+            padding-right: .59733rem;
+            li{
+                position: relative;
+                display: inline-block;
+                padding-top: .256rem;
+                padding-bottom: .256rem;
+                margin-left: .59733rem;
+                margin-right: .59733rem;
+                background-color: #fff;
+                a{
+                    width: 1.36533rem;
+                    font-size: .59733rem;
+                    line-height: 1.28rem;
+                    text-align: center;
+                    color: #757575;
+                    font-weight:500;
+                    border-bottom: .08533rem solid #fff;
+                }
+            }
+            li.active{
+                a{
+                    border-bottom: .08rem solid @color-pink;
+                    color: @color-pink;
+                }
+            }
+            li.tv{
+                margin: 0 .29867rem;
+                a{
+                    width: 1.96267rem;
+                }
+            }
+        }
+        .switch-up-arrow{
+            width: .68267rem;
+            height: .91733rem;
+            margin:1em auto;
+        }
+    }
+}
+.gap{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    padding-top: 3.79733rem;
+    z-index: -1;
+}
+.carousel{
+    // position: relative;
+    width: 100%;
+    // z-index: 2;
+    .swiper-wrapper{
+        .swiper-slide{
+            height: 4.69333rem;
+            overflow: hidden;
+        }
+        img{
+            width: 100%;
+        }
+    }
+    .swiper-pagination-bullet{
+        width: 2em;
+        height: 2em;
+    }
+}
+
+// 各个分区
+section{
+    position: relative;
+    width: 100%;
+
+    .sec-title{
+        position: relative;
+        margin-left: .512rem;
+        margin-bottom: .21333rem;
+    
+        i{
+            position: relative;
+            float: left;
+            margin-top: .2688rem;
+            width: 1.19467rem;
+            height: .95573rem;
+            color:#0cf;
+        }
+        h2{
+            position: relative;
+            float: left;
+            margin-left: .10667rem;
+            width: 3.41333rem;
+            font-size: .68267rem;
+            line-height: 1.49333rem;
+            text-align: left;
+            color: #212121;
+        }
+        a{
+            font-size: .59733rem;
+            color: #999;
+            text-align: center;
+            line-height: .59733rem;
+            float:right;
+            margin-right:0.16rem;            
+        }
+    }
+
+    .wrap-video{
+        position: relative;
+        padding-left: .256rem;
+        padding-right: .256rem;
+        .video{
+            display: block;
+            text-decoration: none;
+            position: relative;
+            width: 50%;
+            float: left;
+            margin-bottom: .68267rem;
+        }
+        img{
+            position: relative;
+            width: 7.232rem;
+            height: 4.52267rem;
+            display: block;
+            margin: 0 auto;
+            border-radius: .256rem;
+            -webkit-border-radius: .256rem;
+            background-color: #e7e7e7;
+            background-image: linear-gradient(transparent 50%,rgba(0,0,0,.5));
+        }
+        p{
+            width: 7.232rem;
+            margin:0.2rem auto;
+            font-size: 0.5rem;
+            font-weight:600;
+        }
+    }
+}
+
+
+footer{
+    position: relative;
+    margin-top: 1.344rem;
+    padding-bottom: .32rem;
+    p{
+        font-size: .55467rem;
+        color: #999;
+        line-height: 1.36533rem;
+        text-align: center;
+    }
+}
+
+.toTop{
+    display: block;
+    position: fixed;
+    z-index: 3;
+    bottom: .896rem;
+    right: .896rem;
+    width: 1.70667rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    img{
+        width: 100%;
+    }
+}

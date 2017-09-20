@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    var arr = [2,4,6,74,6,36,7];
+
+    arr.forEach( v => console.log(v))
+    
+    
+    var fn = x => x*x;
+    console.log( fn(3) );//9
+    
+
+
+    var obj ={
+        birth: 1995,
+        getAge: function(){
+            // let that = this;
+            // let fn = function(){
+            //     return new Date().getFullYear - that.birth;
+            // }
+            // return fn();
+
+            let fn = () => new Date().getFullYear - this.birth;
+        }
+    }
+
+let b = 1;
+    function fun(){
+        let b = 2;
+        console.log("b"+b)
+    }
+    fun();  
+    console.log(b)
+    </script>
+</body>
+</html>

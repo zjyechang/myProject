@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // function point(x,y){
+    //     this.x= x;
+    //     this.y= y;
+    // }
+    // point.prototype.fun = function(){
+    //     return "("+this.x+","+this.y+")"
+    // }
+    
+    // var poin = new point(20,30);
+    // console.log(poin.fun());
+
+
+
+    class DivPoint{
+        //添加属性
+        //构造方法：不是自定义的，在new时会自动调用此方法
+        //初始化，通常给赋值，做准备工作
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+        //自定义函数，随意命名
+        fun(){
+            return "("+this.x+","+this.y+")"
+        }
+    }
+    var point = new DivPoint(40,60);
+    console.log(point);
+    </script>
+</body>
+</html>

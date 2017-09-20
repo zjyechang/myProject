@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    function fun(name){
+        name = name || "mmp";
+        console.log(name);
+    }
+    
+    fun();
+    fun("yechang");
+
+
+
+    // 默认参数
+    function fun(name="啦啦啦"){
+        console.log(name);
+    }
+    
+    fun();
+    fun("yechang");
+
+
+    // 剩余参数
+    function fun1(a,...rest){
+        console.log(a);
+        console.log(rest);
+    }
+
+    fun1(2,4,5,76,7,4);
+    fun1(23,4);
+    fun1(3)
+
+    var arr=["娜美","香克斯","皮克斯"];
+    function fun2(a,b,c){
+        console.log(a,b,c);
+    }
+    fun2.apply(null,arr);//如果不改变this，第一个参数填null
+    fun2(...arr);//以拓展参数映射方式成立。能很好的映射参数
+    </script>
+</body>
+</html>

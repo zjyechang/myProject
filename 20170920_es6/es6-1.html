@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    li{
+        list-style: none;
+
+    }
+    
+    </style>
+</head>
+<body>
+    <ul></ul>
+
+
+
+    <script>
+    
+    var obj = {
+        "name": "dongdong",
+        "age": 23,
+        "sex": "???"
+    }
+    
+    var str = `<li>
+    <p>${obj.name}</p>
+    <p>${obj.age}</p>
+    <p>${obj.sex}</p>
+    </li>`
+    
+    var ul = document.querySelector("ul");
+
+    ul.innerHTML = str;
+
+
+
+    for(var i =0;i<9;i++){
+
+    }
+    console.log(i);//9
+    // let声明
+    for(let i =0;i<9;i++){
+
+    }
+    console.log(i);//underfined
+    </script>
+</body>
+</html>
