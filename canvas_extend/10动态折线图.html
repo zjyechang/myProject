@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折线图</title>
+    <style>
+        canvas{background: #ccc;}
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800px" height="400px"></canvas>
+    <script>
+        var canvas=document.getElementById("canvas");
+        var c=canvas.getContext("2d");
+        var arr=[60,80,30,120,60,90,40,200,170,200,100];            
+        c.translate(50,300); 
+        var a=0;              
+        function hello(spaceX,r){
+            var i=Math.floor(a/spaceX);
+            var j=a%spaceX;
+            var d=(arr[i]-arr[i+1])/spaceX;
+            c.beginPath(); 
+            c.arc(spaceX*i,-(arr[i]),r,0,Math.PI*2);             
+            c.moveTo(spaceX*i,-arr[i]); 
+            c.lineTo(spaceX*i+j,-arr[i]+j*d)  
+            c.stroke();
+            a++;
+        } 
+        window.setInterval("hello("+50+","+8+")",30);     
+    </script>
+</body>
+</html>
