@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.12"
+  },
+  "name": "0922_mongo",
+  "version": "1.0.0",
+  "main": "demo.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
