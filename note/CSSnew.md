@@ -67,21 +67,21 @@ datalist vs select
 datalist 必须与input结合使用,input的list属性值，需要是datalist的id
 
 ```html
-datalist
-<input list="data" name="city1" type="text">
-<datalist id="data">
-    <option value="beijing">
-    <option value="shanghai">
-    <option value="nanjing">
-</datalist>
+    datalist
+    <input list="data" name="city1" type="text">
+    <datalist id="data">
+        <option value="beijing">
+        <option value="shanghai">
+        <option value="nanjing">
+    </datalist>
 
-select
-<select name="city2">
-    <option value="bj">北京</option>
-    <option value="hz">杭州</option>
-    <option value="nj">南京</option>
-</select>
-
+    select
+    <select name="city2">
+        <option value="bj">北京</option>
+        <option value="hz">杭州</option>
+        <option value="nj">南京</option>
+    </select>
+```
 # font
     text-indent:32px;
     <!-- 首行缩进 -->
@@ -218,3 +218,20 @@ $('.red').attr('data-attr', 'green');
 
 ## css样式顺序
 位 大 字 背 其
+
+
+## position
+css3新属性   
+**sticky**   
+可以知道sticky属性有以下几个特点：
+
+该元素并不脱离文档流，仍然保留元素原本在文档流中的位置。
+当元素在容器中被滚动超过指定的偏移值时，元素在容器内固定在指定位置。亦即如果你设置了top: 50px，那么在sticky元素到达距离相对定位的元素顶部50px的位置时固定，不再向上移动。
+元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于viewport来计算元素的偏移量
+　　比较蛋疼的是这个属性的兼容性还不是很好，目前仍是一个试验性的属性，并不是W3C推荐的标准。它之所以会出现，也是因为监听scroll事件来实现粘性布局使浏览器进入慢滚动的模式，这与浏览器想要通过硬件加速来提升滚动的体验是相悖的。
+
+
+## css实现自适应正方形
+方案一：css3单位vm
+方案二：用padding撑开容器
+方案三：利用伪元素的margin-top或padding-top撑开容器
