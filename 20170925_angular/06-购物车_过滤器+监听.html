@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="Aaa">
+        <input type="text" placeholder="单价" ng-model="phone.money">
+        <p>单价{{phone.money | currency:"￥":2}}</p>
+        <p>数量<input type="text" placeholder="num" ng-model="phone.num"></p>
+        <p>运费{{phone.fre | currency:"￥":2}}</p>
+        <p>费用{{show() | currency:"￥":3}}</p>
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.phone={
+            money:2000,
+            num:4,  
+            fre: 10,
+        }
+        $scope.show = function(){
+        return $scope.phone.sum =  $scope.phone.money *  $scope.phone.num;
+        }
+        $scope.$watch($scope.show,function(newVal,oldVal){
+            console.log(newVal);
+            console.log(oldVal);
+            $scope.phone.fre = newVal >=100? 0:10;
+        },true)
+    })
+    
+    </script>
+</body>
+</html>

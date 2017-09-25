@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="Aaa">
+
+        {{name}}
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+        
+
+    })
+    
+    // 判断数组
+   var a = [1,4];
+   console.log(angular.isArray(a));
+
+    // 判断元素
+    var b = document.body;
+    console.log(angular.isElement(b));
+
+    // 判断当前angular版本
+    console.log(angular.version);
+
+    // 判断两个元素是否相等
+    //原生js数组引用地址相同才相等
+    //angular方法只判断值相等就相等，不考虑地址
+     var c=[1,4];
+    console.log(angular.equals(a,c))
+
+    // 遍历
+    var obj = ["name","age","sex"];
+    angular.forEach(obj,function(value,index,arr){
+        console.log(value);
+        console.log(index);
+        console.log(arr);
+    })
+
+    var obj = [{a:"小黑"},{b:"小白"}];
+    angular.forEach(obj,function(value,index,arr){
+        console.log(value)
+    })
+    
+
+    var arr=['name','age','sex'];
+    var str=angular.toJson(arr);
+    console.log(str);
+
+    // var json = '{ "name":"yechang","password":123321}';
+    var json = '[{ "name":"yechang","password":123321},{ "name": "charley","password":123456}]';
+    var obj = angular.fromJson(json);
+
+    console.log(obj);
+    console.log(obj[0].name);
+    console.log(obj[1].password);
+    
+    </script>
+</body>
+</html>

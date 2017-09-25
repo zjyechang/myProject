@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="Aaa">
+
+        {{name}}
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        // $scope.name="yechang";
+
+        setTimeout(function() {
+            //使原生js生效
+            $scope.$apply(function(){
+                $scope.name="xiaohei";
+            })
+        }, 2000);
+
+    })
+    
+    m1.run(["$rootScope",function($rootScope){
+        $rootScope.name = "his";
+        
+    }])
+    </script>
+</body>
+</html>
