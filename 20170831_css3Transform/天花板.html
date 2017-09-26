@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.stage{
+				width: 258px;
+				height: 258px;
+				margin: 100px;
+				perspective: 1500px;
+			}
+			.unit{
+				width: 258px;
+				height: 258px;
+				position: relative;
+			}
+			.unit img{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.unit img.baby{
+				/*baby到天花板上去*/
+				transform: rotateX(90deg) translateZ(200px);
+			}
+			.unit img.xiaoming{
+				z-index: 2;
+				transform: translateZ(200px);
+			}
+			.unit{
+				/*当一个组合体自己要进行旋转的时候,一定要加上这个属性*/
+				transform-style: preserve-3d;
+				transform: rotateX(0deg);
+				transition: all 5s ease 0s;
+			}
+			.stage:hover .unit{
+				transform: rotateX(-90deg);
+			}
+		</style>
+	</head>
+	<body>
+		<!--舞台-->
+		<div class="stage">
+			<div class="unit">
+				<img src="../20170630/images/p1.jpg" alt="" class="xiaoming"/>
+				<img src="../20170630/images/p2.jpg" alt="" class="baby"/>
+			</div>
+		</div>
+	</body>
+</html>

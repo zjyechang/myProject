@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+    <!-- <ul ng-controller="Aaa">
+        <li ng-repeat="data in datalist">{{ data }}</li>
+    </ul> -->
+    <input type="text" id="search" name="search"><input type="button" value="搜索" ng-click="search()">
+    <table ng-controller="Aaa" style="border:1px solid black">
+        <tr>
+            <td>姓名</td>
+            <td ng-click="dataSort('age')">年龄</td>
+        </tr>
+        <tr ng-repeat="people in list">
+            <td>{{ people.name }}</td>
+            <td>{{ people.age }}</td>
+        </tr>
+    </table>
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。   
+
+    m1.controller("Aaa",function($scope,$filter){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.datalist=["name","age","sex"];
+        $scope.list=[
+            {"name":"yechang","age": 22},
+            {"name":"yc","age": 22},
+            {"name":"mmp","age": 23},
+            {"name":"mdd","age": 22},
+            {"name":"wph","age": 24},
+            {"name":"zp","age": 21},
+            {"name":"lh","age": 23},
+            {"name":"jk","age": 24},
+        ]
+        $scope.dataSort = function(arg){
+
+        arguments.callee["dataSort"+arg] = !arguments.callee["dataSort"+arg];
+            // console.log(arguments.callee['dataSort'+arg]);  //第一次是未定义
+
+            $scope.list= $filter("orderBy")($scope.list,arg,arguments.callee['dataSort'+arg]);   
+        }
+
+        $scope.search = function(){
+            $scope.list = $filter("filter")("list",)
+        }
+    })
+
+
+
+    </script>
+</body>
+</html>

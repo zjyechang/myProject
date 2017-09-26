@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    .red{
+        background-color: red;
+    }
+    .blue{
+        background-color: blue;
+    }
+    
+    
+    
+    </style>
+</head>
+<body ng-app="myapp">
+    <ul ng-controller="Aaa">
+        <li ng-repeat="data in datalist">{{ $index }}</li>
+        <!-- $index:可以得到相应的下标 -->
+        <li ng-repeat="data in datalist">{{ $first }}</li>
+        <!-- 第一个为真true，其他是假false -->
+        <li class="{{ $first? 'red':'blue'}}" ng-repeat="data in datalist">{{ $first }}</li>
+
+        <li ng-repeat="data in datalist">{{ $middle }}</li>
+        <!-- 第一个和最后一个为假false，中间部分为真true -->
+
+        <li ng-repeat="data in datalist">{{ $last }}</li>
+        <!-- 最后一个为真true，其他为false -->
+        <li class="{{ $odd? 'red':'blue'}}" ng-repeat="data in datalist">{{ $odd }}</li>
+        <!-- 偶数行是真true，奇数行是假false -->
+        <li class="{{ $even? 'red':'blue'}}" ng-repeat="data in datalist">{{ $even }}</li>
+        <!-- 偶数行是假false，奇数行是真true -->
+
+
+
+
+        <!-- ng-repeat-start 开始循环
+            ng-repeat-end 结束循环 -->
+            <span ng-repeat-start="data in datalist">开始</span>
+            <p>{{data}}</p>
+            <div ng-repeat-end>结束{{data}}</div>
+
+    </ul>
+    
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$filter){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.datalist=["name","age","sex","mmp"];
+ 
+    })
+
+
+
+    </script>
+</body>
+</html>

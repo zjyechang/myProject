@@ -235,3 +235,7 @@ css3新属性
 方案一：css3单位vm
 方案二：用padding撑开容器
 方案三：利用伪元素的margin-top或padding-top撑开容器
+
+
+## 表格中单元格间隙去除
+    border-collapse: collapse;

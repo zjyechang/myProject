@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa">
+        <input type="text" value="{{name}}" ng-disabled="isdisabled"> 
+        <input type="button" value="{{name}}" ng-disabled="isdisabled">         
+    </div>
+    
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$interval){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+    var num = 5;
+    // var timer = $interval(function(){
+    //     num--;
+    //     if(!num){
+    //         $scope.isdisabled=false;            
+    //         $interval.cance(timer);
+    //         $scope.name="按钮可以使用了";
+    //     }
+    //     $scope.name=num+"秒";
+    // },1000)
+    
+    var timer2=setInterval(function(){
+        $scope.$apply(function(){
+            num--;
+            if(!num){
+                clearInterval(timer2);
+                $scope.isdisabled=false;            
+                $scope.name="按钮可以使用了";
+            }
+            $scope.name=num+"秒";
+        })
+    },1000)
+    
+    $scope.name=num+"秒";
+    $scope.isdisabled=true;
+    })
+
+
+
+    </script>
+</body>
+</html>

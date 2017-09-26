@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    .red{
+        color: red;
+    }
+    .blue{
+        background-color: blue;
+    }
+    
+    
+    
+    </style>
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa">
+        <input type="checkbox" ng-model="show">
+        <div ng-show="show">{{name}}</div>
+        <!-- 通过display控制显示，隐藏，true是显示，false是隐藏 -->
+
+        <div ng-hide="show">{{name1}}</div>
+        <!-- 跟show相反 -->
+
+        <div ng-if="show">{{name}}</div>
+        <!-- 通过添加和删除元素的方式操作 -->
+        <div ng-switch on="show">
+            <span ng-switch-default>默认显示效果</span>
+            <span ng-switch-when="true">切换显示效果</span>
+
+    
+        </div>
+    </div>
+    
+
+    <div ng-controller="Bbb">
+			<input type="text" ng-model="myVal"/>
+			
+			<div ng-switch="myVal">
+				<div ng-switch-when="ucai">
+					<h1>优才</h1>
+					<p>欢迎你的到来~</p>
+				</div>
+				<div ng-switch-when="zq">
+					<h1>中秋佳节</h1>
+					<p>快放假了！~</p>
+				</div>
+				<div ng-switch-when="taobao">
+					<h1>淘宝</h1>
+					<p>十月一日有没有特价</p>
+				</div>
+			</div>
+        </div>
+        
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$filter){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+        $scope.name1="charley";
+        $scope.aaa="abc";
+
+    })
+
+
+    m1.controller("Bbb",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+
+    })
+
+    </script>
+</body>
+</html>
