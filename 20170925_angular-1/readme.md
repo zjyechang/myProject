@@ -40,10 +40,29 @@ $rootScope 全局作用域 先找自身局部作用域，在找全局作用域
 angular.module("myapp",[])
 第一个参数是模块名称，第二个是依赖模块的数组，如果不需要填空数组.   
 在<html>标签上多了一个属性ng-app=”MyApp”，它的作用就是用来指定ng的作用域是在<html>标签以内部分。在js中，我们调用angular对象的module方法来声明一个模块，模块的名字和ng-app的值对应。这样声明一下就可以让ng运行起来了。  
+### ng-controller
+要明确创建一个$scope 对象，我们就要给DOM元素安上一个controller对象，使用的是ng-controller 指令属性：
+<div ng-controller="xxxx"> {{ person.name }} </div>  
+ng-controller指令给所在的DOM元素创建了一个新的$scope 对象,这个scope链与原型链相似。
+
+## ajax
+其中提供两个方法：success方法和error方法  
+    demoApp.controller("demoController", function($http, $scope){
+        $scope. getAjaxUser = function(){
+            $http.get({url:"../xxx.action"}).success(function(data){
+                alert(data);
+                }).error(function(){
+                Alert(“出错了！”);
+            });
+        };
+    });
 
 
-## 延时器
-服务$timeout
+## 表达式
+如ng-modle=”people.name”  
+ng-click=”showMe()”  
+{{ person }}  
+
 
 ## 过滤器
 currency(货币)、date(日期)、filter(子串匹配)、json(格式化json对象)、limitTo(限制个数)、lowercase(小写)、uppercase(大写)、number(数字)、orderBy(排序)。
@@ -158,5 +177,10 @@ angular.bootstrap(document.,['myApp'])
 当有多个初始化的时候。只能识别一个！
 可以动态添加多个初始化
 
+## 服务
+
+### 延时器
+服务$timeout
 ### $scope.$apply
 放入原生js中，让原生代码可以实现功能
+### ng-src和ng-href

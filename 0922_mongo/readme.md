@@ -3,7 +3,8 @@
 ## 进行环境配置
 path路径添加C:\Program Files\MongoDB\Server\3.4\bin
 ## 开启数据库（命令行工具别关）
-'/c/Program Files/MongoDB/Server/3.4/bin/mongod.exe' --dbpath=d/data
+'/c/Program Files/MongoDB/Server/3.4/bin/mongod.exe' --dbpath=d/data  
+--dbpath=/d/MongoDB/data
 
 ## **库操作**
 ## 进入数据库

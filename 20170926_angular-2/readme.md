@@ -27,8 +27,6 @@
     2.标记(markup)：即双大括号{{}}，可将数据单向绑定到HTML中；
     3.过滤器(filter)：用来格式化输出数据；
     4.表单控制：用来增强表单的验证功能。
-### 重复
-   ng-repeat="people in list";
 
 ### ng-repeat指令
     例如：ng-repeat="people in list"
@@ -59,34 +57,67 @@ $scope.list= $filter("orderBy")($scope.list,arg,true);
     <!-- 偶数行是假false，奇数行是真true -->
 
 
-### 下拉列表选中
-input里面填ng-model="yes"  
-option里面填ng-select="yes"  
+### 样式与类名
+**类名**  
+ng-class="{{ xxx }}"  
+还有ng-class-odd、ng-class-even   
 
+**样式**  
+ng-style="{}"  
+例如： <div ng-style="{color:'red'}">ng-style测试</div>  
+或者： <div ng-style="style">ng-style测试</div>  
+        $scope.style = {color:'red'};　
 
-### 内容改变时强制切换内容且不可更改
-ng-change="name='change1'" ng-model="name"
+### 表单控制相关
+    ng-checked控制radio和checkbox的选中状态  
+　　ng-selected控制下拉框的选中状态  
+　　ng-disabled控制失效状态  
+　　ng-multiple控制多选  
+　　ng-readonly控制只读状态  
+以上指令的取值均为boolean类型，当值为true时相关状态生效.
+
+### 事件绑定相关
+```ng-click
+　　ng-change
+　　ng-dblclick
+　　ng-mousedown
+　　ng-mouseenter
+　　ng-mouseleave
+　　ng-mousemove
+　　ng-mouseover
+　　ng-mouseup
+　　ng-submit
+```
+事件绑定指令的取值为函数，并且需要加上括号，例如：  
+```<select ng-change=”change($event)”></select>　　
+然后在controller中定义如下：  
+$scope.change = function($event){  
+        alert($event.target);  
+}
+```
+
+### ng-src和ng-href
+可以设置ng-src和ng-href为一个变量
+
+### 自定义属性
+自定义属性名称
+
+### 显示，隐藏
+ng-show   
+ng-hide   
+ng-show和ng-hide的值为boolean类型的表达式，当值为true时，对应的show或hide生效。框架会用display:block和display:none来控制元素的显隐。  
 
 ### 复制，粘贴，剪切后产生效果
 ng-cut="xxx='true'  
 ng-copy="xxx='false'"  
 ng-paste="xxx='true'"
 
-### 样式与类名
-类名ng-class="{{ xxx }}"  
-还有ng-class-odd、ng-class-even   
-
-样式 ng-style="{}"  
-例如： <div ng-style="{color:'red'}">ng-style测试</div>  
-或者： <div ng-style="style">ng-style测试</div>  
-        $scope.style = {color:'red'};　
+### 下拉列表选中
+input里面填ng-model="yes"  
+option里面填ng-select="yes"  
 
 
-### 显示，隐藏
-ng-show   
-ng-hide   
-ng-show和ng-hide的值为boolean类型的表达式，当值为true时，对应的show或hide生效。框架会用display:block和display:none来控制元素的显隐。  
-# 作业
+# 练习
 1.背景图  
 
 2.数据不低于12条  

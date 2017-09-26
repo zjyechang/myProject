@@ -23,8 +23,8 @@
         color:darkblue ;
         font-weight: 550;
         border-collapse: collapse;
+        cursor: default;
         /* border-spacing: 2px; */
-
     }
     td{
         border:2px solid darkorange;
@@ -38,43 +38,57 @@
     <!-- <ul ng-controller="Aaa">
         <li ng-repeat="data in datalist">{{ data }}</li>
     </ul> -->
+    <div ng-controller="Aaa">
+        <input type="text" placeholder="搜索" ng-blur="search()" ng-model="searchVal">
 
-    <table ng-controller="Aaa">
-        <tr>
-            <td>名称</td>
-            <td>播放期间</td>
-            <td>集数</td>
-            <td>类型</td>
-            <td>导演</td>
-            <td>出品公司</td>
-            <td>简介</td>
-        </tr>
-        <tr ng-repeat="anime in list">
-            <td>{{ anime.name }}</td>
-            <td>{{ anime.date }}</td>
-            <td>{{ anime.number }}</td>
-            <td>{{ anime.type }}</td>
-            <td>{{ anime.director }}</td>
-            <td>{{ anime.conpany }}</td>
-            <td>{{ anime.intro }}</td>
-        </tr>
-    </table>
+        <table>
+            <tr>
+                <td ng-click="dataSort('name')">名称</td>
+                <td ng-click="dataSort('date')">播放期间</td>
+                <td ng-click="dataSort('number')">集数</td>
+                <td ng-click="dataSort('type')">类型</td>
+                <td ng-click="dataSort('director')">导演</td>
+                <td ng-click="dataSort('conpany')">出品公司</td>
+                <td ng-click="dataSort('intro')">简介</td>
+            </tr>
+            <tr ng-repeat="anime in list">
+                <td>{{ anime.name }}</td>
+                <td>{{ anime.date }}</td>
+                <td>{{ anime.number }}</td>
+                <td>{{ anime.type }}</td>
+                <td>{{ anime.director }}</td>
+                <td>{{ anime.conpany }}</td>
+                <td>{{ anime.intro }}</td>
+            </tr>
+        </table>
+    </div>
     <script>
     var m1 = angular.module('myapp',[]);
     // 用angular.module()方法创建一个模块化，存入m1变量。
 
-    m1.controller("Aaa",function($scope){
+    m1.controller("Aaa",function($scope,$filter){
     // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
-        $scope.datalist=["name","age","sex"];
-        $scope.list=[
+        var list=[
             {"name":"DATE A LIVE","date": "2013年4月6日-6月22日","number":"全12话+OVA","type":"后宫","director":"元永庆太郎","conpany":"AIC PLUS+","intro":"《约会大作战》改编自日本轻小说家橘公司原作、Tsunako负责插画的同名系列轻小说"},
             {"name":"Re：从零开始的异世界生活","date": "2016年4月4日-9月19日","number":"25话","type":"奇幻，战斗","director":"渡边政治","conpany":"WHITE FOX","intro":"《Re：从零开始的异世界生活》[1-2]  改编自日本轻小说家长月达平原作的同名轻小说。"},
             {"name":"一拳超人","date": "2015年10月4日－12月21日","number":"全12话+OVA+OAD","type":"搞笑，战斗","director":"夏目真悟","conpany":"MADHOUSE","intro":"《一拳超人》改编自日本漫画家ONE原作、村田雄介重制的同名漫画。"},
             {"name":"我的青春恋爱物语果然有问题","date": "2013年4月4日－6月27日","number":"全13话+OVA","type":"校园，喜剧，恋爱","director":"吉村爱","conpany":"Brain's Base","intro":"改编自轻小说家渡航原作的同名轻小说，动画一直制作到原作小说第6卷（文化祭Episode）为止。"},
             {"name":"命运石之门","date": "2011年4月5日－9月13日","number":"25话+SPECIAL","type":"科幻，冒险，爱情","director":"佐藤卓哉，滨崎博嗣","conpany":"WHITE FOX","intro":"《命运石之门》（Steins;Gate，シュタインズ・ゲート）是根据5pb.制作的同名游戏改编"},
             {"name":"Code Geass 反叛的鲁路修","date": "2006年10月5日-2007年7月28日","number":"25话+总集篇2话","type":"科幻，战争，剧情，机战，异能","director":"谷口悟朗","conpany":"SUNRISE","intro":"二次元最大的妹控，为了妹妹一统世界？"},
-      
-        ]
+        ];
+        $scope.list = list;
+
+        $scope.dataSort = function(arg){
+            console.log(1)
+        arguments.callee["dataSort"+arg] = !arguments.callee["dataSort"+arg];
+            // console.log(arguments.callee['dataSort'+arg]);  //第一次是未定义
+            $scope.list= $filter("orderBy")($scope.list,arg,arguments.callee['dataSort'+arg]);   
+        }
+
+        $scope.search = function(){
+            $scope.list = $filter("filter")(list,$scope.searchVal);
+        }
+
     })
 
 

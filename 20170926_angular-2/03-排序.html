@@ -11,17 +11,21 @@
     <!-- <ul ng-controller="Aaa">
         <li ng-repeat="data in datalist">{{ data }}</li>
     </ul> -->
-    <input type="text" id="search" name="search"><input type="button" value="搜索" ng-click="search()">
-    <table ng-controller="Aaa" style="border:1px solid black">
-        <tr>
-            <td>姓名</td>
-            <td ng-click="dataSort('age')">年龄</td>
-        </tr>
-        <tr ng-repeat="people in list">
-            <td>{{ people.name }}</td>
-            <td>{{ people.age }}</td>
-        </tr>
-    </table>
+    <div  ng-controller="Aaa">
+        <input type="text" id="search" ng-model="searchVal">
+        <input type="button" value="搜索" ng-click="dataSearch()">
+        
+        <table style="border:1px solid black">
+            <tr>
+                <td>姓名</td>
+                <td ng-click="dataSort('age')">年龄</td>
+            </tr>
+            <tr ng-repeat="people in list">
+                <td>{{ people.name }}</td>
+                <td>{{ people.age }}</td>
+            </tr>
+        </table>
+    </div>
     <script>
     var m1 = angular.module('myapp',[]);
     // 用angular.module()方法创建一个模块化，存入m1变量。   
@@ -29,7 +33,7 @@
     m1.controller("Aaa",function($scope,$filter){
     // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
         $scope.datalist=["name","age","sex"];
-        $scope.list=[
+        var list1=[
             {"name":"yechang","age": 22},
             {"name":"yc","age": 22},
             {"name":"mmp","age": 23},
@@ -39,17 +43,21 @@
             {"name":"lh","age": 23},
             {"name":"jk","age": 24},
         ]
+
+        $scope.list = list1
         $scope.dataSort = function(arg){
 
         arguments.callee["dataSort"+arg] = !arguments.callee["dataSort"+arg];
             // console.log(arguments.callee['dataSort'+arg]);  //第一次是未定义
-
             $scope.list= $filter("orderBy")($scope.list,arg,arguments.callee['dataSort'+arg]);   
         }
 
-        $scope.search = function(){
-            $scope.list = $filter("filter")("list",)
+        $scope.dataSearch = function(){
+            console.log(1);
+            $scope.list = $filter('filter')(list1,$scope.searchVal);
+
         }
+        // console.log($scope.search)
     })
 
 
