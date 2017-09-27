@@ -96,16 +96,6 @@ $scope.change = function($event){
 }
 ```
 
-### ng-src和ng-href
-可以设置ng-src和ng-href为一个变量
-
-### 自定义属性
-自定义属性名称
-
-### 显示，隐藏
-ng-show   
-ng-hide   
-ng-show和ng-hide的值为boolean类型的表达式，当值为true时，对应的show或hide生效。框架会用display:block和display:none来控制元素的显隐。  
 
 ### 复制，粘贴，剪切后产生效果
 ng-cut="xxx='true'  
@@ -116,6 +106,143 @@ ng-paste="xxx='true'"
 input里面填ng-model="yes"  
 option里面填ng-select="yes"  
 
+### ng-bind
+
+1. ng-bind  
+相当于{{ name }}  
+
+2. ng-bind-template  
+支持表达式的，所以可以支持多个表达式  
+
+3. ng-bind-html  
+可以识别和显示标签,,不过需要额外导入包angular-sanitize
+
+4. ng-non-bindable  
+让我的表达式不被解析
+
+### ng-src和ng-href
+可以设置ng-src和ng-href为一个变量
+
+### ng-attr-添加属性
+    <a ng-href="{{ url }}" ng-attr-title="{{name}}">百度</a>
+
+### 自定义属性
+自定义属性名称
+
+### 显示，隐藏
+ng-show   
+ng-hide   
+ng-show和ng-hide的值为boolean类型的表达式，当值为true时，对应的show或hide生效。框架会用display:block和display:none来控制元素的显隐。  
+### ng-if
+通过添加元素的方法来显示或隐藏  
+例如:
+```<div ng-controller="Aaa">
+    <input type="checkbox" ng-model="show">
+    <div ng-show="show">{{name}}</div>
+    <!-- 通过display控制显示，隐藏，true是显示，false是隐藏 -->
+    <div ng-hide="show">{{name1}}</div>
+    <!-- 跟show相反 -->
+    <div ng-if="show">{{name}}</div>
+    <!-- 通过添加和删除元素的方式操作 -->
+    <div ng-switch on="show">
+        <span ng-switch-default>默认显示效果</span>
+        <span ng-switch-when="true">切换显示效果</span>
+    </div>
+</div>
+```
+### ng-cloak
+控制css让当前标签在加载中时候是隐藏的。加载完成后显示  
+
+### ng-swtich
+–on
+–default
+–when
+<div ng-switch on="show">
+<span ng-switch-default>默认显示的效果</span>
+<span ng-switch-when="false">切换后显示的效果</span>
+</div>
+ng-open：控制部分标签的显示、隐藏
+
+
+### ng-init内容
+ng-init="arr1Index=$index"    
+ng-init="name='hello'"  
+<!-- 相当于$scope.name="hello"; -->
+
+### ng-inculde导入
+ng-inculde="'temp.html'"  
+可以导入html内容  
+
+### ng-model-options
+ <!-- 规则指定事件发生后绑定数据 -->  
+ng-model-options="{updateOn:'blur'}"    
+<!-- 延迟2000毫秒改变数据 -->  
+ng-model-options="{debounce:2000}"    
+
+### 面向对象的方式创建
+ng-controller="Aaa as a1"  
+<!-- 通过as实例化 -->  {{a1.name}}  
+fun.prototype.name="hellow";
+
+### ng-options 选项
+    <select ng-options="(color.name) for color in colors" ng-model="mmp">
+        <option value="">---请选择---</option>
+    </select>
+    <p>{{mmp.name}}</p>
+    <div class="{{mmp.name}}"></div>
+
+     $scope.colors=[
+            {name:"red"},
+            {name:"purple"},
+            {name:"yellow"},
+            {name:"blue"},
+        ]
+
+### 表单验证
+<input type="text" ng-model="text" name="oInput" required ng-minlength="6" ng-maxlength="10" ng-pattern="/^[a-zA-Z]+$/"/>
+    <p>验证通过:{{ oForm.oInput.$valid}}</p>
+    <p>验证失败:{{ oForm.oInput.$invalid}}</p>
+    <p>初始值:{{ oForm.oInput.$pristine}}</p>
+    <p>改变值:{{ oForm.oInput.$dirty}}</p>
+    <p>error信息:{{ oForm.oInput.$error}}</p>
+
+
+### 选项卡
+
+
+
+### 自定义指令
+    m1.directive("myHi",function(){
+        // 要用驼峰命名
+        // 使用时必须写成<my-hi></my-hi>    <div my-hi></div>
+        return {
+            // restrict:'E',
+            // hi的类型定义为E  element标签（一定要大写，小写不识别）
+            // A 属性  C class类名  M 注释
+
+            // 可以组合使用，就是标签属性都支持
+            restrict:'EAMC',
+
+            // 替换外层包裹的标签和替换注释
+            replace:true,
+
+            scope:{
+                myClass:"@",
+                // @绑定字符串,输入什么，解析什么
+                myName:"=",
+                // =绑定数据，是作用域下的变量名
+                myFn:"&",
+            },
+            // 隔离作用域，让数据隔离
+            // 给hi这个指令自定义模板
+            template:"<h2>angular</h2>",
+            //导入模板
+            // templateUrl:"temp2.html"
+        }
+
+        <!-- directive:hi -->
+        <!-- 注释后要有空格,且必须设置replace为true -->
+### 
 
 # 练习
 1.背景图  
@@ -128,4 +255,4 @@ option里面填ng-select="yes"
 
 5.样式美观  
 
-6.数据放在表格内  
+6.数据放在表格内(隔行变色)  

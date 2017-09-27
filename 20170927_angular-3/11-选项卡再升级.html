@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    .red{
+        background-color: red;
+    }
+    .oDiv111 div,.oDiv222 div{
+        border: 1px solid lightcoral;
+        display: none;
+        width: 150px;
+        height: 200px;
+    }
+    
+    </style>
+</head>
+<body ng-app="myapp" >
+   
+    <div ng-controller="Aaa" myDick>
+        <my-dick my-class="oDiv111" my-data="data1"></my-dick>
+        <my-dick my-class="oDiv222" my-data="data2"></my-dick>
+
+        <!-- <div class="{{myClass}}">
+            <input type="button" ng-repeat="data in myData" ng-value="data.name" ng-class="{red:$first}"/>
+            <div ng-repeat="data in myData" ng-style="{display:$first? 'block':'none'}" >{{data.content}}</div>
+        </div> -->
+        
+    </div>
+
+    <script>
+
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$filter){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        
+        $scope.data1 = [
+            {name:"风景",content:"风景风景风景风景风景风景"},
+            {name:"汽车",content:"汽车汽车汽车汽车汽车汽车"},
+            {name:"新闻",content:"新闻新闻新闻新闻新闻新闻"},
+        ];
+
+        $scope.data2 = [
+            {name:"动漫",content:"动漫动漫动漫动漫动漫动漫"},
+            {name:"游戏",content:"游戏游戏游游戏戏游戏游戏"},
+        ];
+    })
+
+    m1.directive("myDick",function(){
+        return {
+            restrict:"E",
+            replace:true,
+            scope:{
+                myClass:"@",
+                // @绑定字符串,输入什么，解析什么
+                myData:"=",
+            },
+            controller:["$scope",function($scope){
+                $scope.show = function(){
+                    var inps = document.querySelector(".oDiv111").querySelectorAll("input");
+                    var divs = document.querySelector(".oDiv111").querySelectorAll("div");
+                    // console.log(inps[1]);
+                    for(let i=0;i<inps.length;i++){
+                        inps[i].className="";
+                        divs[i].style.display="none";
+                    }
+                        inps[this.$index].className="red";
+                        divs[this.$index].style.display="block";
+                }
+            }],
+            // 隔离作用域，让数据隔离
+            template:`<div class="{{myClass}}">
+                        <input type="button" ng-repeat="data in myData" ng-value="data.name" ng-class="{red:$first}" ng-click="show()"/>
+                        <div ng-repeat="data in myData" ng-style="{display:$first? 'block':'none'}" >{{data.content}}</div>
+                    </div>`,
+            // templateUrl:"temp2.html"
+        }
+    })
+  
+
+    </script>
+</body>
+</html>

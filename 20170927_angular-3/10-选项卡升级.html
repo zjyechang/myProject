@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    .red{
+        background-color: red;
+    }
+    .oDiv>div{
+        border: 1px solid lightcoral;
+        display: none;
+        width: 150px;
+        height: 200px;
+    }
+    .oDiv111 div,.oDiv222 div{
+        display: none;
+        width: 200px;
+        height: 200px;
+        border: 2px solid purple;
+    } 
+
+    
+    </style>
+</head>
+<body ng-app="myapp" >
+   
+    <div ng-controller="Aaa">
+        <my-dick my-class="oDiv111" my-name="name" my-fn="show()"></my-dick>
+        <my-dick my-class="oDiv222" my-name="name1"></my-dick>
+        
+    </div>
+
+
+    <script>
+
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+        $scope.name1="charley";
+        // $scope.show = function(){
+        //     alert(111);
+        // }
+    })
+
+    m1.directive("myDick",function(){
+        return {
+            restrict:"E",
+            replace:true,
+            scope:{
+                myClass:"@",
+                // @绑定字符串,输入什么，解析什么
+                myName:"=",
+                // =绑定数据，是作用域下的变量名
+                myFn:"&",
+            },
+            controller:["$scope",function($scope){
+                $scope.name="jb";
+                $scope.show=function(){
+                alert(222);
+                }
+            }],
+            // 隔离作用域，让数据隔离
+            template:'<div class="{{myClass}}">\
+                        <span class="red" ng-click="myFn()">新闻</span>\
+                        <span>美女</span>\
+                        <span>搞笑</span>\
+                        <span>图片</span>\
+                        <div style="display:block">{{myName}}:{{name}}</div>\
+                        <div>美女美女美女美女美女</div>\
+                        <div>搞笑搞笑搞笑搞笑搞笑</div>\
+                        <div>图片图片图片图片图片</div>\
+                    </div>',
+            // templateUrl:"temp2.html"
+                
+        }
+    })
+  
+
+    </script>
+</body>
+</html>

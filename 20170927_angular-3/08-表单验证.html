@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    .red{
+        color: red;
+    }
+    
+    </style>
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa">
+        <form action="" name="yForm">
+            <p>
+
+            <label for="">账号：</label>
+            <input type="text" name="Acc" placeholder="请输入账号"
+            required ng-pattern="/^[a-zA-Z]+$/" ng-model="oFormText.un" ng-blur="change('oFormText',yForm.Acc.$error)">
+            <!-- 步骤一：静态方法改变 -->
+            <!-- 用filter筛选提示 -->
+            <span class="red" ng-repeat="FM in oFormText.oFormList | filter:oFormText.oFormVal">{{FM.tips}}</span>
+            <!-- 步骤二，创建一个动态的值用来筛选 -->
+
+            <!-- 步骤三，添加条件和触发事件 -->
+        </p>
+        <p>
+            <label for="">密码</label>
+            <input type="password" name="pass" placeholder="请输入密码" ng-minlength="6"
+            required ng-pattern="/^\w+$/" ng-model="mmp" ng-blur="change('oFormPass',yForm.pass.$error)">
+
+            <span class="red" ng-repeat="shit in oFormPass.list | filter:oFormPass.oFormVal">{{shit.tips}}</span>
+        </p>
+
+        </form>
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$filter){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.oFormText={
+            oFormVal:'default',
+            oFormList:[
+                {name:"default",tips:"请输入账号"},
+                {name:"required",tips:"账号不能为空"},
+                {name:"pattern",tips:"请输入英文"},
+                {name:"ok",tips:"√"},
+            ]
+        };
+
+        $scope.oFormPass={
+            oFormVal:"default",
+            list:[
+                {name:"default",tips:"请输入密码"},
+                {name:"required",tips:"密码不能为空"},
+                {name:"pattern",tips:"密码不能包含空格"},
+                {name:"minlength",tips:"密码不少于6位"},
+                {name:"ok",tips:"√"},
+            ]
+        };
+        $scope.change = function(obj,err){
+                // console.log(err);
+                for(let attr in err){
+                    console.log(attr);
+                    if(err[attr]){
+                        $scope[obj].oFormVal = attr;
+                        return;
+                    }
+                }
+                $scope[obj].oFormVal = "ok";
+            }
+    })
+
+
+  
+
+    </script>
+</body>
+</html>

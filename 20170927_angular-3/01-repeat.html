@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa" ng-init="name='hello'">
+    <!-- 相当于$scope.name="hello"; -->
+    </div>
+    
+    <div ng-controller="Aaa">
+        <div ng-repeat="arr1 in arr" ng-init="arr1Index=$index">
+            
+            <p ng-repeat="arr2 in arr1" ng-init="arr2Index=$index">
+                {{arr1Index}}{{arr2Index}}
+            
+                {{ arr2 }}
+            </p>
+        </div>
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$filter){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+
+        $scope.arr=[["aaa","bbb"],["ccc","ddd"]];
+
+    })
+
+
+  
+
+    </script>
+</body>
+</html>

@@ -11,11 +11,13 @@
     <div ng-controller="Aaa" ng-click="name='fff'">
        {{name}}
        <!-- ng-bind增加用户体验，在加载是不会显示{{name}} -->
-       <p ng-bind="name"></p>
        <!-- ng-bind不支持正常多个解析 -->
-        <p ng-bind-template="{{name}},{{name}}"></p>
-        <!-- ng-bind-html可以识别标签，使用率低，需要单独添加模块 -->
+       <p ng-bind="name"></p>
 
+       <!-- 支持多个解析 -->
+        <p ng-bind-template="{{name}},{{name}}"></p>
+        
+        <!-- ng-bind-html可以识别标签，使用率低，需要单独添加模块 -->
         <p ng-bind-html="{{name}}"></p>
     </div>
 
@@ -32,7 +34,7 @@
         $scope.name = "yechang";
         $scope.age = 15;
         $timeout(function(){
-            $scope.name = "zhoupeng";        
+            $scope.name = "<h1>charley</h1>";        
         },2000)
 
         $scope.show=function(){

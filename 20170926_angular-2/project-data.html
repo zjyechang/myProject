@@ -10,6 +10,9 @@
         padding:0;
         margin:0;
     }
+    html{
+        height:100%;
+    }
     body{
         background: url("./img/1.jpg") no-repeat 50% 50%;
         background-size: cover;
@@ -30,6 +33,10 @@
         border:2px solid darkorange;
         padding:6px;
     }
+    .lightblue{
+        background-color: lightcoral;
+    }
+
     
     </style>
     <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
@@ -42,24 +49,29 @@
         <input type="text" placeholder="搜索" ng-blur="search()" ng-model="searchVal">
 
         <table>
-            <tr>
-                <td ng-click="dataSort('name')">名称</td>
-                <td ng-click="dataSort('date')">播放期间</td>
-                <td ng-click="dataSort('number')">集数</td>
-                <td ng-click="dataSort('type')">类型</td>
-                <td ng-click="dataSort('director')">导演</td>
-                <td ng-click="dataSort('conpany')">出品公司</td>
-                <td ng-click="dataSort('intro')">简介</td>
-            </tr>
-            <tr ng-repeat="anime in list">
-                <td>{{ anime.name }}</td>
-                <td>{{ anime.date }}</td>
-                <td>{{ anime.number }}</td>
-                <td>{{ anime.type }}</td>
-                <td>{{ anime.director }}</td>
-                <td>{{ anime.conpany }}</td>
-                <td>{{ anime.intro }}</td>
-            </tr>
+            <thead>
+                <tr>
+                    <td ng-click="dataSort('name')">名称</td>
+                    <td ng-click="dataSort('date')">播放期间</td>
+                    <td ng-click="dataSort('number')">集数</td>
+                    <td ng-click="dataSort('type')">类型</td>
+                    <td ng-click="dataSort('director')">导演</td>
+                    <td ng-click="dataSort('conpany')">出品公司</td>
+                    <td ng-click="dataSort('intro')">简介</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="anime in list" ng-class-odd="lightblue:true">
+                    <td>{{ anime.name }}</td>
+                    <td>{{ anime.date }}</td>
+                    <td>{{ anime.number }}</td>
+                    <td>{{ anime.type }}</td>
+                    <td>{{ anime.director }}</td>
+                    <td>{{ anime.conpany }}</td>
+                    <td>{{ anime.intro }}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <script>

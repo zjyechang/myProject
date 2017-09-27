@@ -36,14 +36,17 @@ ng-controller：是控制器连接试图和数据的。 ng-app：初始化指令
 $scope是一个把view（一个DOM元素）连结到controller上的对象。但 $scope 实际上就是一个JavaScript对象，controller和view都可以访问它，所以我们可以利用它在两者间传递信息。在这个 $scope 对象里，我们既存储数据，又存储将要运行在view上的函数。  
 $scope 自身局部作用域  
 $rootScope 全局作用域 先找自身局部作用域，在找全局作用域  
+
 ### module
 angular.module("myapp",[])
 第一个参数是模块名称，第二个是依赖模块的数组，如果不需要填空数组.   
 在<html>标签上多了一个属性ng-app=”MyApp”，它的作用就是用来指定ng的作用域是在<html>标签以内部分。在js中，我们调用angular对象的module方法来声明一个模块，模块的名字和ng-app的值对应。这样声明一下就可以让ng运行起来了。  
+
 ### ng-controller
 要明确创建一个$scope 对象，我们就要给DOM元素安上一个controller对象，使用的是ng-controller 指令属性：
 <div ng-controller="xxxx"> {{ person.name }} </div>  
 ng-controller指令给所在的DOM元素创建了一个新的$scope 对象,这个scope链与原型链相似。
+
 
 ## ajax
 其中提供两个方法：success方法和error方法  
@@ -111,15 +114,24 @@ $scope.$watch() 监听新值与旧值 $scope.$watch($scope.show,function(newVal,
 最后一个函数是true则深度监听，可以监听集合
 
 
-## 注意事项,代码压缩
+## 注意事项,
+### 代码压缩
 上线时候，代码需要进行压缩 function($scope)经过压缩会变成function($s) angular不会识别$s 写成一个数组方式，可以解决这个问题 m1.controller('Aaa',['$scope',function($scope){ $scope.name='hello'; }]);
 
 不用控制器，直接添加全局变量
 
 m1.run(["$rootScope",function($rootScope){
     $rootScope.name = "his";
-    
 }])
+
+### 用户体验
+ng-value：增加用户体验。
+如果我么用的是value=“{{name}}”的话，当我们网络不好的时候会在页面中显示出
+{{name}}。在解析中。。。
+当我们用的是ng-value=“name”的话。页面中就不会显示出表达式的样式。
+ng-bind：相当于{{ name }}
+
+
 ## 工具方法
 
 angular.bind();改this指向  

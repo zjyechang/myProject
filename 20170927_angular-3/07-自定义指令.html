@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa">
+        <hi></hi>
+
+        <div hi></div>
+
+        <div class="hi"></div>
+
+        <!-- directive:hi -->
+        <!-- 注释后要有空格,且必须设置replace为true -->
+        <!-- directive:hi(需要一个空格)-->
+        
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$filter){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+
+    })
+
+        // m1.directive("名称",回调函数)
+    m1.directive("hi",function(){
+        // 要用驼峰命名,可写成myHi
+        // 使用时必须写成<my-hi></my-hi>    <div my-hi></div>
+        return {
+            // restrict:'E',
+            // hi的类型定义为E  element标签（一定要大写，小写不识别）
+            // A 属性  C class类名  M 注释
+
+            // 可以组合使用，就是标签属性都支持
+            restrict:'EAMC',
+
+            // 替换外层包裹的标签和替换注释
+            replace:true,
+
+            // 给hi这个指令自定义模板
+            template:"<h2>angular</h2>",
+
+        }
+    })
+  
+
+    </script>
+</body>
+</html>
