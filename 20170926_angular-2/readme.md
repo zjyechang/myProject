@@ -207,10 +207,6 @@ fun.prototype.name="hellow";
     <p>error信息:{{ oForm.oInput.$error}}</p>
 
 
-### 选项卡
-
-
-
 ### 自定义指令
     m1.directive("myHi",function(){
         // 要用驼峰命名
@@ -242,7 +238,10 @@ fun.prototype.name="hellow";
 
         <!-- directive:hi -->
         <!-- 注释后要有空格,且必须设置replace为true -->
-### 
+
+### 选项卡
+
+
 
 # 练习
 1.背景图  

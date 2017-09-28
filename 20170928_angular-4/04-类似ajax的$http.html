@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    .red{
+        background-color: red;
+    }
+    .oDiv111 div,.oDiv222 div{
+        border: 1px solid lightcoral;
+        display: none;
+        width: 150px;
+        height: 200px;
+    }
+    
+    </style>
+</head>
+<body ng-app="myapp" >
+   
+    <table ng-controller="Aaa" border="1">
+        <tr>
+            <th>id</th>
+            <th>名称</th>
+            <th>价格</th>
+        </tr>
+        <tr ng-repeat="data in dataList">
+            <td>{{data.goods_id}}</td>
+            <td>{{data.goods_name}}</td>
+            <td>{{data.price}}</td>
+        </tr>
+    </table>
+
+
+    <script>
+
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$http){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+
+        // $http({
+        //     method:"GET",
+        //     url: "http:h6.duchengjiu.top/shop/api_goods.php",
+
+        // }).success(function(data,state,header,config){
+        //     console.log(data);
+        //     console.log(config);
+        //     console.log(state);
+        //     console.log(header);
+        // }).error(function(){
+        //     alert("Boom");
+        // });
+
+        // $http.get("http:h6.duchengjiu.top/shop/api_goods.php".success(function(data){
+        //     console.log(data);
+        // }))
+
+
+        $http({
+            method:"GET",
+            url: "http:h6.duchengjiu.top/shop/api_goods.php",
+
+        }).then(function successCallback(response){
+            console.log(response);
+            $scope.dataList = response.data.data;
+        }, function errorCallback(response){
+            alert("Boom");
+        });
+    })
+
+    
+
+    </script>
+</body>
+</html>

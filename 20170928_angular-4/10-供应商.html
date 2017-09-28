@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    *{padding:0;margin:0;}
+    #parent div{
+        width:100%;
+        height:600px;
+        background-color: skyblue;
+        margin-bottom:30px;
+
+    }
+    #parent ul{
+        position: fixed;
+        width: 200px;
+        top:30px;
+        right: 0;
+        list-style: none;
+        border:1px solid dodgerblue;
+        background-color: lightcoral;
+        cursor: pointer;
+    }
+    
+    
+    
+    </style>
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa" id="parent">
+        <ul>
+            <li ng-repeat="id in [1,2,3,4,5,6]" ng-click="change('div'+id)">{{id}}跳转到第{{id}}个div</li>
+        </ul> 
+        <div ng-repeat="id in [1,2,3,4,5,6]" ng-attr-id="div{{id}}">
+                我是第{{id}}个div的内容
+        </div>
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$location, $anchorScroll){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.change=function(id){
+            $location.hash(id);
+            // 设置hash值
+
+            $anchorScroll();
+            // 不写这个会出现小bug
+        }
+
+    });
+
+
+    m1.config(function($anchorScrollProvider){
+
+        $anchorScrollProvider.disableAutoScrolling();
+    // disableAutoScrolling()方法禁止hash值自动调整
+    // 需要调用$anchorScroll()才能跳转
+
+    // 在m1模块下，config方法，接受一个数组引用相应的供应商
+    // 服务的名称$anchorScroll后面加上provider就成了服务的供应商
+    // 例如$scope的供应商,就是$scopeProvider
+    // 并不是所有的服务都有供应商
+    });
+
+
+    </script>
+</body>
+</html>

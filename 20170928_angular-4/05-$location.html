@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa" ng-inculde="'temp.html'">
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$location){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+        var a = $location.absUrl();
+        // $location.absUrl()得到编码后的绝对地址
+        $location.path("/aaa/bbb/ccc");
+        var b = $location.path();
+        // 配合路由使用，改变网址路径，有历史记录
+        console.log(b)
+
+        $location.path("/aaa/bbb/ccc").replace();
+        // replace()可以保留替换，历史路径方式，这样就没有历史记录了
+        $location.hash("hi");
+        var e = $location.hash();
+        // $location.hash();可以得到相应的hash值
+
+        console.log(f);
+
+        $location.search({"name":"boy"});
+        var f = $location.search();
+        // 可以得到相应的search值
+        
+        var g = $location.url();
+        // 得到一个并不是绝对路径的地址
+        
+        var h = $location.host();
+        // 返回url中的主机路径
+
+        var i = $location.port();
+        // 端口
+        
+        var j = $location.protocol();
+        // 协议
+        console.log(a,b,c,d,e,f,g,h,i,j)
+        
+    })
+
+
+  
+
+    </script>
+</body>
+</html>

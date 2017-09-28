@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    .red{
+        background-color: red;
+    }
+    .oDiv111 div,.oDiv222 div{
+        border: 1px solid lightcoral;
+        display: none;
+        width: 150px;
+        height: 200px;
+    }
+    
+    </style>
+</head>
+<body ng-app="myapp" >
+   
+    <div ng-controller="Aaa">
+        
+        <my-hi>
+            <my-hello></my-hello>
+        </my-hi>
+    </div>
+
+    <script>
+
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name = "路飞";
+    })
+
+    
+
+    m1.directive("myHi",function(){
+        return {
+            restrict:"E",
+            replace:true,
+            transclude:true,
+            // 可以在模板中引用其他自定义指令
+
+            template:'<div>Hi:{{name}}<h1 ng-transclude></h1></div>',
+        }
+    })
+
+
+    m1.directive("myHello",function(){
+        return {
+            restrict:"E",
+            replace:true,
+            template:"<div>Hello:{{name}}</div>",
+        }
+    })
+    </script>
+</body>
+</html>

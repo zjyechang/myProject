@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa" ng-inculde="'temp.html'">
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$cacheFactory){
+
+        var cache = $cacheFactory("myCache",{capacity:3});
+        // capacity限制缓存数据长度
+
+
+        cache.put('name',"yechang");
+        cache.put('age',22);
+        cache.put('sex','man');
+        cache.put('color','lightblue');
+        // 用put（）方法缓存数据
+
+        console.log(cache.info());
+        console.log(cache.get("color"));
+
+
+        cache.removeAll();
+        console.log(cache.info());        
+        console.log(cache.get("age"));
+        // 删除所有缓存数据        
+
+        cache.destroy();
+        // 删除整个cache
+        console.log(cache.info());
+    })
+
+
+  
+
+    </script>
+</body>
+</html>

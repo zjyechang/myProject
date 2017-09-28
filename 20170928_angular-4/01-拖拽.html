@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <style>
+    .oDiv{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+
+    }
+    </style>
+</head>
+<body ng-app="myapp">
+   
+    <div class="oDiv" my-run>
+    </div>
+
+
+    <script src="../JSframe/jquery/jquery-1.12.3.min.js"></script>
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.directive("myRun",function(){
+        return {
+            restrict:"A",
+            // link对元素绑定scope数据和进行事件绑定
+            link:function(scope,element,attr){
+                console.log(element);
+                element.on("mousedown",function(e){
+                    let that =this;
+                    divX = e.pageX - $(this).offset().left;
+                    divY = e.pageY - $(this).offset().top;
+                    // console.log(e.pageX,$(this).offset().left);
+
+                    $(document).on("mousemove",function(e){
+                        $(that).css("left",e.pageX-divX);
+                        $(that).css("top",e.pageY-divY);
+                    });
+
+                    $(document).on("mouseup",function(e){
+                        $(document).off();
+                    })
+                    return false;
+                })
+            },
+        }
+    })
+  
+
+    </script>
+</body>
+</html>

@@ -195,4 +195,3 @@ angular.bootstrap(document.,['myApp'])
 服务$timeout
 ### $scope.$apply
 放入原生js中，让原生代码可以实现功能
-### ng-src和ng-href

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="Aaa">
+			@@ name @@
+		</div>
+        
+        
+
+        <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+		<script type="text/javascript">
+			
+			var m1 = angular.module('myApp',[]);
+
+            m1.config(["$interpolateProvider",function($interpolateProvider){
+                    $interpolateProvider.startSymbol("@@");
+                    $interpolateProvider.endSymbol("@@");
+                }])
+
+
+
+			m1.controller('Aaa',function($scope,$location,$interpolate){
+				$scope.name="yechang";
+			})
+		</script>
+	</body>
+</html>
