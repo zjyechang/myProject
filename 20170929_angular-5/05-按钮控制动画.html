@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular-animate.min.js"></script>
+    <style>
+    .oDiv{
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        transition: all 2s;
+    }
+    
+    /* .oDiv.ng-enter,
+    .oDiv.ng-leave-active{
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    .oDiv.ng-enter-active,
+    .oDiv.ng-leave{
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+    } */
+    .oDiv.ng-enter{
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    .oDiv.ng-enter-active{
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+    }
+    .oDiv.ng-leave{
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+    }
+    .oDiv.ng-leave-active{
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    
+    </style>
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa" ng-init="sss=true">
+        <input type="button" ng-click="sss=!sss" value="click">
+        <div ng-if="sss" class="oDiv"></div>
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',['ngAnimate']);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.controller("Aaa",function($scope,$log){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+    })
+
+
+    console.dir();//打印对象信息
+
+    </script>
+</body>
+</html>

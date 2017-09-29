@@ -1,0 +1,10 @@
+    <div id="show">
+        <h1>商品展示内容内容</h1>
+
+        <ul class="show-list">
+            <li ng-repeat="data in dataList"></li>
+            <img ng-src="{{data.goods_thumb}}" alt="">
+            <p>商品名称：{{data.goods_name}}</p>
+            <p>商品价格：{{data.price}}</p>
+        </ul>
+    </div>

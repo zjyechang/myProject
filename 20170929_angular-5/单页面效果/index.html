@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular-route.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa" class="nav">
+        <a ng-click="location.path('/index')">首页</a>
+        <a href="#shop">展示商城</a>
+        <a href="#user">用户</a>
+    </div>
+    <div ng-view class="oDiv"></div>
+
+    <script>
+    var m1 = angular.module('myapp',['ngRoute']);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+        .when('/index',{
+            templateUrl: 'view/indexTemplate.html',
+            controller:'Aaa'
+        }).when('/shop',{
+            templateUrl:'view/showTemplate.html',
+            controller:'Bbb'
+        }).when('/user',{
+            templateUrl:'view/userTemplate.html' ,           
+            controller:'Ccc'
+        }).otherwise({
+            redirectTo: '/tp',
+            template:'<p>错误</p>'
+            // redirectTo是默认哈希和模板
+            // 初始和哈希值错误时的模板            
+        })
+    }])
+
+    m1.controller("Aaa",["$scope","$location",function($scope,$location){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+        $scope.location = $location;
+    }])
+
+    m1.controller("Bbb",["$scope","$http",function($scope,$http){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="charley";
+        $http({
+            method:"GET",
+            url:"http://h6.duchengjiu.top/shop/api_goods.php",
+
+        }).then( function success(response){
+            console.log(response.data.data);
+            $scope.dataList = response.data.data;
+        })
+    }])
+
+    m1.controller("Ccc",["$scope",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="mmp";
+    }])
+
+
+    </script>
+</body>
+</html>

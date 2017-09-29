@@ -8,7 +8,11 @@
     <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
     <style>
     li{
-        margin-top:20;
+        margin-top:20px;
+        width:600px;
+        height:30px;
+        line-height:30px;
+        list-style: none;
         background-color: lightblue;
         
     }
@@ -18,34 +22,45 @@
 <body ng-app="myapp">
    
     <div ng-controller="Aaa">
-        <input type="text" ng-name="name" placeholder="输入想要搜索">
+        <input type="text" ng-name="name" placeholder="输入想要搜索" ng-keyup="change(name)">
+        <input type="button" ng-click="change(name)" value="搜索">
+    
+        <ul>
+            <li ng-repeat="data in dataList">{{data}}</li>
+        </ul>
+    
     </div>
 
     <script>
     var m1 = angular.module('myapp',[]);
     // 用angular.module()方法创建一个模块化，存入m1变量。
 
-    m1.controller("Aaa",function($scope,$http){
+    m1.controller("Aaa",function($scope,$http,$timeout){
     // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
-        $scope.name="yechang";
-        $scope.dataList= [
-            "title": "data";
+        var timer = null;
+        $scope.change = function(name){
+            $timeout.cancel(timer);
 
+            timer=$timeout(function(){
+                $http({
+                    method:"JSONP",
+                    url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+name+"&cb=JSON_CALLBACK"
+                    // 百度用的jq方法，在angular中要替换成JSON_CALLBACK才能收到回调函数
+                }).success(function(data){
+                    console.log(data);
+                    $scope.dataList = data.s;
+                },400)
+            })
+        }
 
-        ];
-
-        $scope.change = function
-
-        https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=&json=1&p=3&sid=1454_21082_20927&req=2&sc=eb&csor=0&cb=jQuery1102027352807363638987_1506569821338&_=1506569821340
+       
     })
 
-
-  
 
     </script>
 </body>
 </html>
-<!--  -->1.输入框，按钮
+<!-- 1.输入框，按钮
 2.展示模块ul>li
 3.百度直接调用jsonp
-4.延迟搜索
+4.延迟搜索 -->

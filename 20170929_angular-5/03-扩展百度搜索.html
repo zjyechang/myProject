@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				margin-top: 20px;
+				width: 600px;
+				height: 30px;
+				line-height: 30px;
+				background: orange;
+				color: purple;
+				list-style: none;
+			}
+            .oLi{
+                transition:all 0.5s;
+            }
+            .oLi.ng-enter{
+                opacity:0;
+            }
+            .oLi.ng-enter-active{
+                opacity:1;
+            }
+		</style>
+	</head>
+	<body>
+		<div ng-controller="Aaa">
+			<input type="text" ng-model="name" ng-keyup="change(name)" placeholder="请输入搜索内容"/>
+			<input type="button" ng-click="change(name)" value="搜索"/>
+			
+			<ul>
+				<li class="oLi" ng-repeat="data in dataList">{{data}}</li>
+			</ul>
+        </div>
+        
+
+        <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+        <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular-animate.min.js"></script>
+		<script type="text/javascript">
+			
+			var m1 = angular.module('myApp',['ngAnimate']);
+			m1.controller('Aaa',function($scope,$http,$timeout){
+//				$scope.dataList = [
+//					{title:"今天天气还行~但是昨天很冷~"},
+//					{title:"今天天气还行~但是昨天很冷~+1"},
+//					{title:"今天天气还行~但是昨天很冷~+2"},
+//					{title:"今天天气还行~但是昨天很冷~+3"}
+//				];
+				var timer = null;
+				$scope.change = function(name){
+					$timeout.cancel(timer);
+					//清除延迟器
+					timer=$timeout(function(){
+						$http({
+							method: 'JSONP',
+							url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+name+"&cb=JSON_CALLBACK"
+	//						百度用的jq的方法,在angular中要改成JSON_CALLBACK才能收到回调信息
+						}).success(function(data){
+							console.log(data);
+							$scope.dataList = data.s;
+						})
+					},400);
+					
+				}
+			})
+		</script>
+	</body>
+</html>
+<!--1。输入框，按钮
+2.展示的模块ul》li
+3.百度接口调用JSONP
+4.延迟搜索-->

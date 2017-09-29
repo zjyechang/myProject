@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+}
+#show {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
+#show .show-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+#show .show-list li {
+  width: 25rem;
+  height: 35rem;
+  text-align: center;
+  border: 1px solid #000;
+}
+#show .show-list li img {
+  width: 25rem;
+}

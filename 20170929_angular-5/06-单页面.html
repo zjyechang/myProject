@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular-route.min.js"></script>
+    <style>
+    .oDiv{
+        width: 800px;
+        height: 600px;
+        border:2px solid darkcyan;
+        background-color: lemonchiffon;
+        margin-top:20px;
+    }
+    
+    </style>
+    
+</head>
+<body ng-app="myapp">
+   
+    <div ng-controller="Aaa">
+        <a ng-click="location.path('/tp')">图片</a>
+        <a href="#bk">博客</a>
+        <a href="#qc">汽车</a>
+        <div ng-view class="oDiv">图片</div>
+    </div>
+
+    <script>
+    var m1 = angular.module('myapp',['ngRoute']);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+
+    m1.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+        .when('/tp',{
+            template: '<p>{{name}}图片图片图片图片</p>',
+            controller:'Aaa'
+        }).when('/qc',{
+            template:'<p>{{name}}汽车汽车汽车汽车</p>',
+            controller:'Bbb'
+        }).when('/bk',{
+            template:'<p>{{name}}博客博客博客博客</p>' ,           
+            controller:'Ccc'
+        }).otherwise({
+            redirectTo: '/tp',
+            template:'<p>错误</p>'
+            // redirectTo是默认哈希和模板
+            // 初始和哈希值错误时的模板            
+        })
+    }])
+
+    m1.controller("Aaa",["$scope","$location",function($scope,$location){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="yechang";
+        $scope.location = $location;
+    }])
+
+    m1.controller("Bbb",["$scope",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="charley";
+    }])
+
+    m1.controller("Ccc",["$scope",function($scope){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.name="mmp";
+    }])
+
+
+    </script>
+</body>
+</html>
