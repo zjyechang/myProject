@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.0/angular.min.js"></script>
+
+</head>
+<body ng-controller="Aaa">
+   
+    <button ng-click="reg()">注册</button>
+
+    <form action="">
+      <p> 账号 <input type="text" id="acc"></p>
+      <p> 密码 <input type="password" id="pass"></p>
+      <button ng-click="log()" type="button">登录</button>
+    </form>
+
+    <form action="">
+        <p> 账号 <input type="text" id="title"></p>
+        <p> 密码 <input type="text" id="content"></p>
+        <button ng-click="add()" type="button">添加留言</button>
+        <button ng-click="search()" type="button">查询留言</button>
+        <p><input type="text" id="delete"><button type="button" ng-click="delete()">删除指定留言</button></p>
+    </form>
+    <script>
+    var m1 = angular.module('myapp',[]);
+    // 用angular.module()方法创建一个模块化，存入m1变量。
+    m1.controller("Aaa",["$scope","$http","$httpParamSerializerJQLike",function($scope,$http,$httpParamSerializerJQLike){
+    // 在m1之下绑定controller控制器，把相关的视图和控制器连接到一起
+        $scope.reg = function(){
+            $http({
+                method:"POST",
+                url: "http://localhost:3000/users/register",
+                data: $httpParamSerializerJQLike({
+                    username: "charley",
+                    password: "123456",
+                    phone: "13111111"
+                }),
+                headers:{
+                    "content-type": "application/x-www-form-urlencoded"
+                }
+            }).then(function(response){
+                console.log(response);
+            })
+        }
+
+        $scope.add = function(){
+            var titleVal = document.querySelector("#title").value;
+            var contentVal = document.querySelector("#content").value;
+            // console.log(titleVal,contentVal)
+            $http({
+                method:"GET",
+                url: "http://localhost:3000/message/add?title="+titleVal+"&content="+contentVal,
+                headers:{
+                    "content-type": "application/x-www-form-urlencoded"
+                }
+            }).then(function(response){
+                console.log(response);
+            })
+        }
+
+
+        $scope.search = function(){
+            $http({
+                method:"GET",
+                url: "http://localhost:3000/message/search",
+                data: $httpParamSerializerJQLike({
+
+                }),
+                headers:{
+                    "content-type": "application/x-www-form-urlencoded"
+                }
+            }).then(function(response){
+                console.log(response);
+            })
+        }
+
+
+        $scope.delete = function(){
+            var deleteVal = document.querySelector("#delete").value;
+            $http({
+                method:"GET",
+                url: "http://localhost:3000/message/delete?title="+deleteVal,
+                headers:{
+                    "content-type": "application/x-www-form-urlencoded"
+                }
+            }).then(function(response){
+                console.log(response);
+            })
+        }
+
+    }])
+
+    </script>
+</body>
+</html>

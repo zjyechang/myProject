@@ -1,0 +1,20 @@
+{
+  "name": "1011_blog",
+  "version": "1.0.0",
+  "description": "1.注册管理员\r 2.登录（授权，以下api需要token才能访问）\r 3.发布，修改，删除博文\r 4.删除评论",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.12.1",
+    "morgan": "^1.9.0"
+  }
+}

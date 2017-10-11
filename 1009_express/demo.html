@@ -10,7 +10,7 @@
     <button>注册</button>
     <script>
     const HOST = "http://localhost:3000/";
-    const REGISTER = "users/register?username=&age=19";
+    const REGISTER = "users/register?username=yechang&age=19";
 
     document.querySelector("button").onclick=function(){
         var xhr = new XMLHttpRequest();
@@ -20,7 +20,7 @@
             }
         }
         xhr.open("GET",HOST+REGISTER);
-        xhr.send(null);
+        xhr.send();
     }
     </script>
 </body>
