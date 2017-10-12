@@ -1,0 +1,8 @@
+header {
+  transition: all 1s ease 0s;
+  display: flex;
+}
+a {
+  color: red;
+  display: block;
+}
