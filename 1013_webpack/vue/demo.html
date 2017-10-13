@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">{{name}}</div>
+
+
+    <div id="app-2">
+        <span v-bind:title="message">鼠标悬停几秒钟查看此处动态绑定的提示信息！</span>
+    </div>
+
+    <div id="app-3">
+        <p v-if="seen">你看到我了</p>
+    </div>
+
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in datalist">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app-5">
+        <p>{{message}}</p>
+        <button v-on:click='reverse'>逆转消息</button>
+    </div>
+
+    <div id="app-6">
+        <p>{{message}}</p>
+        <input type="text" v-model="message">
+    </div>
+
+
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                name: 'yechang',
+            }
+        })
+    
+        var app2 = new Vue({
+            el: "#app-2",
+            data: {
+                message:new Date().toLocaleString(),
+            }
+        })
+
+        var app3 = new Vue({
+            el: "#app-3",
+            data: {
+                seen: true,
+            }
+        })
+
+        var app4 = new Vue({
+            el: "#app-4",
+            data: {
+                datalist:[
+                    {text: "今天,天气很好"},
+                    {text: "吃两个叉烧包"},
+                    {text: "美滋滋"},
+                ]
+            }
+        })
+
+        var app5 = new Vue({
+            el: "#app-5",
+            data: {
+                message: 'Hello,my friend!'
+            },
+            methods: {
+                reverse :function(){
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        })
+
+        var app6 = new Vue({
+            el: "#app-6",
+            data: {
+                message: 'What the fuck!'
+            }
+        })
+        
+        
+    </script>
+
+
+    <div id="app-7">
+        <ol>
+            <todo-item
+                v-for="demo in datalist"
+                v-bind:todo="demo"
+                v-bind:key="demo.id"
+                >
+            </todo-item>
+        </ol>
+    </div>
+    <script>
+        
+    Vue.component('todo-item',{
+        props: ['todo'],
+        template: '<li>{{ todo.text }} </li>'
+    })
+
+    var app7 = new Vue({
+            el: '#app-7',
+            data: {
+                datalist: [
+                    {id: 0,text: "香蕉" },
+                    {id: 1,text: "牛奶" },
+                    {id: 2,text: "巧克力" },
+                    {id: 3,text: "饿了吗" },
+                    {id: 4,text: "把它吃掉，把它吃掉" },
+                    {id: 3,text: "洗衣皂" },
+                ] 
+            }
+        })
+    </script>
+
+
+      </script>
+</body>
+</html>

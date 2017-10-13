@@ -3,16 +3,20 @@ let gulp = require('gulp'),
     connect = require('gulp-connect'),      //服务器实时编译
     htmlmin = require('gulp-htmlmin'),      //压缩html
     less = require('gulp-less'),            //实时编译less
-    cssmin = require('gulp-cssmin'),           //压缩css
+    cssmin = require('gulp-cssmin'),        //压缩css
     rename = require('gulp-rename'),        //重命名
     concat = require('gulp-concat'),        //合并文件
     del = require('del'),                   //删除文件
+    sass = require('gulp-sass'),            //编译sass
+    stylus = require('gulp-stylus'),        //编译stylus
+    babel = require('gulp-babel'),          //编译js
+    imagemin = require('gulp-imagemin'),    //压缩图片
 
     LessAutoprefix = require('less-plugin-autoprefix'),                 //less自动编译
     autoprefix = new LessAutoprefix({ browsers: ['last 5 versions']});  // 兼容最新的n个版本
 
 //调用task(任务)api，任务名称：default是默认执行的任务，第二参数写回调
-gulp.task('default',['clean','study','copy-html','less','watch','server'],() => console.log("666"));
+gulp.task('default',['clean','study','copy-html','less','watch','server', 'imagemin'],() => console.log("666"));
 
 gulp.task('eat',() => console.log("eat a big banana"));
 
@@ -30,18 +34,26 @@ gulp.task("copy-html", function(){
 
 // 实时监听index的变化，如果发生变化则执行copy
 //监听中枢
-gulp.task('watch',['watch-html', 'watch-less', 'watch-js']);
+gulp.task('watch',['watch-html', 'watch-less', 'watch-sass', 'watch-stylus', 'watch-js']);
 
 gulp.task('watch-html',() => {
     return gulp.watch("index.html", ['copy-html']);
 });
 
 gulp.task('watch-less',() => {
-    return gulp.watch("./src/style/**/*", ['less']);
+    return gulp.watch("./src/style/*.less", ['less']);
+});
+
+gulp.task('watch-sass',() => {
+    return gulp.watch("./src/style/*.scss", ['sass']);
+});
+
+gulp.task('watch-stylus',() => {
+    return gulp.watch("./src/style/*.styl", ['stylus']);
 });
 
 gulp.task('watch-js',() => {
-    
+    return gulp.watch("./src/**/*.js",['babel-js'])
 });
 
 
@@ -71,3 +83,35 @@ gulp.task('less',() => {
 gulp.task('clean', () => {
     del(['dist/*']);
 });
+
+
+// sass
+gulp.task('sass', () => {
+    return gulp.src('src/style/*.scss')
+            .pipe(sass())
+            .pipe(concat('index.min.css'))
+            .pipe(gulp.dest('dist/css'));
+})
+
+//stylus
+gulp.task('stylus', () => {
+    return gulp.src('src/style/demmo.styl')
+            .pipe(stylus())
+            .pipe(concat('demmo.css'))
+            .pipe(gulp.dest('dist/css'));
+});
+
+//js
+gulp.task('babel-js', () => {
+    return gulp.src('./src/**/*.js')
+            .pipe(babel())
+            .pipe(concat('index.js'))
+            .pipe(rename( {suffix: 'min'} ))
+            .pipe(gulp.dest('dist/script'));
+});
+
+gulp.task('imagemin', () => {
+    gulp.src('src/image/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/images/'))
+})
