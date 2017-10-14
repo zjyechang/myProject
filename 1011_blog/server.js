@@ -13,6 +13,7 @@ var categoryRoute = require('./app/routes/category');
 var setupRoute = require('./app/routes/setup');
 var userRoute = require('./app/routes/user');
 var blogRoute = require('./app/routes/blog');
+var commentRoute = require('./app/routes/comment');
 
 // =======================
 // 配置 =========
@@ -32,6 +33,7 @@ app.use('/category',categoryRoute);
 app.use('/setup',setupRoute);
 app.use('/user',userRoute);
 app.use('/blog',blogRoute);
+app.use('/comment',commentRoute);
 
 app.use('/',express.Router().get('/',function(req,res){
     res.end('Not exist');

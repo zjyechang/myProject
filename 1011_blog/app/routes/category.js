@@ -13,12 +13,12 @@ router.post('/',function(req,res){
             res.json({
                 success: false,
                 message: '添加分类失败',
-            })
+            });
         }else{
             res.json({success: true,message: '添加分类成功!'})
         }
-    })
-})
+    });
+});
 // 查看所有分类
 router.get('/',function(req,res){
 
@@ -27,9 +27,9 @@ router.get('/',function(req,res){
             success: true,
             data: categories,
             message: '查看分类成功!',
-        })
-    })
-})
+        });
+    });
+});
 
 // 更新分类
 router.put('/',function(req,res){
@@ -42,16 +42,16 @@ router.put('/',function(req,res){
             res.json({
                 success: false,
                 message: "更新分类失败",
-            })
+            });
         }else{
             res.json({
                 success: true,
                 message: "更新分类成功",
-            })
+            });
         }
-    })
+    });
 
-})
+});
 // 删除分类
 router.delete('/',function(req,res){
     console.log('delete category');
@@ -63,10 +63,10 @@ router.delete('/',function(req,res){
             res.json({
                 success: false,
                 message: "删除分类失败",
-            })
+            });
         }else{
             res.json({success: true,message: '删除分类成功!'})
         }
-    })
-})
+    });
+});
 module.exports = router;

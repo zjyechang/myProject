@@ -11,22 +11,22 @@ router.get('/',function(req,res){
 
     if(category){
         var reg = new RegExp("^"+category+"$");
-        var whereObj = {category: reg};
+        whereObj = {category: reg};
     }
 
     Blog.find(whereObj,function(err,blogs){
         res.json({
             success: true,
             data: blogs,
-        })
-    })
-})
+        });
+    });
+});
 
 
 //发布博客文章
 router.post('/',function(req,res){
     //结构赋值
-    var {title, body, author, tags, hidden, category}= req.body;
+    let {title, body, author, tags, hidden, category}= req.body;
     if(title.length < 3){
         res.json({
             success: false,
@@ -49,6 +49,7 @@ router.post('/',function(req,res){
         hidden,
         category,
     });
+
     blog.save(function(err){
         if(err){
             res.json({ success: false, message: "博文发布失败" })
@@ -58,7 +59,25 @@ router.post('/',function(req,res){
     });
 });
 
+
+
+// 删除博文
 router.delete('/',function(req,res){
 
-})
+    var {title} = req.body;
+
+    Blog.remove({title:title},function(err){
+        if(err){
+            res.json({
+                success: false,
+                message: "删除博文失败",
+            });
+        }else{
+            res.json({success: true,message: '删除博文成功!'})
+        }
+    });
+});
+
+
+
 module.exports = router;
