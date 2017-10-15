@@ -91,7 +91,7 @@ var flag = true;
                         var obj = localStorage.setItem("userSearch",userSearch);
                         window.location.href = "search.html";
                     }else{
-                        layer.msg('你搜的都是些什么？')
+                        layer.msg('你搜的都是些什么？');
                     }
                 }
             })

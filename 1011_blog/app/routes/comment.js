@@ -26,30 +26,20 @@ router.post('/',function(req,res){
 // 删除评论
 router.delete('/',function(req,res){
     
-    var {id,body,commentId} = req.body;
+    var {id,body} = req.body;
     
         Blog.findById(id,function(err,blog){
             if(err){
                 return res.json({success: false, message: "删除评论失败!"});
             }
             let comments = [];
-            blog.comments.forEach( (i) => {
-                console.log({_id: commentId, body: body})
-                console.log( i )
-                console.log(i != {_id: commentId, body: body})
-
-                
-                if( i != {_id: commentId, body: body}){
-                    comments.push(i);
-                    // console.log(i);
-                    // console.log(i.body)
+            blog.comments.forEach( (item,index) => {
+                if(blog.comments[index].body != body){
+                    comments.push(blog.comments[index]);
                 }
-            } ); 
+            })
+   
             blog.comments = comments;
-
-            console.log(req.body)
-            // console.log(blog.comments);
-
             blog.save(function(err){
                 if(err){
                     return res.json({
