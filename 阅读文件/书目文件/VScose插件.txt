@@ -1,4 +1,4 @@
-1.Auto close Tag  
+﻿1.Auto close Tag  
 自动封闭括号  
 
 2.Beautify  
@@ -45,3 +45,12 @@ markdown转化为其他类型文件
 
 16.view in Browser  
 在浏览器中查看  
+
+17.Debugger for chrome
+可以在vscode中用chome的控制台调试
+
+18.jshint
+统一格式用
+
+19.Vetur
+vue调试工具
