@@ -1323,8 +1323,6 @@
     <script src="./jquery-1.12.3.min.js"></script>
     <script>
 
-
-
 // function loadImage(url, callback) { 
 // var img = new Image(); //创建一个Image对象，实现图片的预下载 
 // img.src = url; 
@@ -1369,27 +1367,27 @@ $(".play")[0].onclick=$(".play")[0].ontouchstart = function(){
            }
 
              
-        //    $(".xi")[0].onclick = $(".cloud1")[0].onclick = function(){
+           $(".xi")[0].onclick = $(".cloud1")[0].onclick = function(){
             
-        //     $(".qi").removeClass("Qi");
-        //        $(".xi").removeClass("Xi");
-        //        $(".logo").removeClass("Logo");                            
-        //        setTimeout(function() {
-        //             $(".qi").addClass("Qi");
-        //             $(".xi").addClass("Xi");
-        //             $(".logo").addClass("Logo");   
-        //        }, 100);
-        //    }
+                $(".qi").removeClass("Qi");
+                $(".xi").removeClass("Xi");
+                $(".logo").removeClass("Logo");                            
+                setTimeout(function() {
+                        $(".qi").addClass("Qi");
+                        $(".xi").addClass("Xi");
+                        $(".logo").addClass("Logo");   
+                }, 100);
+           }
            $(".xi")[0].ontouchstart = $(".cloud1")[0].ontouchstart = function(){
                
                 $(".qi").removeClass("Qi");
                 $(".xi").removeClass("Xi");
                 $(".logo").removeClass("Logo");                            
-               setTimeout(function() {
-                    $(".qi").addClass("Qi");
-                    $(".xi").addClass("Xi");
-                    $(".logo").addClass("Logo");   
-               }, 100);
+                setTimeout(function() {
+                        $(".qi").addClass("Qi");
+                        $(".xi").addClass("Xi");
+                        $(".logo").addClass("Logo");   
+                }, 100);
            }
 
     </script>
