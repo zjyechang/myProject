@@ -14,5 +14,56 @@
         }
     </style>
     <div>????</div>
+    <input type="text">
+    <script>
+        document.querySelector('style').onclick=function(){ this.style.backgroundColor='red'}
+        document.querySelector('input').onclick=function(){ this.style.backgroundColor='red'}
+        document.querySelector('style').onfocus=function(){ this.style.backgroundColor='blue'}
+
+
+        // 两个字符串的最大相似序列
+    var a = 'adsanjkbhkdsba';
+    var b = 'dasnjnjkdskbhkgfadsan';
+    var count = 0;
+    var max = 0;
+    var str = '';
+    var maxStr = '';
+    for (let k=0;k<a.length;k++){
+        let j =k;
+        for(let i=0;i<b.length;i++){
+            if(a[j] == b[i]){
+                j++;
+                count ++;
+                str += b[i];
+                if(i==b.length-1){
+                    max= max>count? max : count;
+                    maxStr = max>count? maxStr : str;
+                    j = k;
+                    count = 0;
+                    str = '';
+                }
+            }else{
+                max= max>count? max : count;
+                maxStr = max>count? maxStr : str;
+                j = k;
+                count = 0;
+                str = '';
+            }
+        }
+    }
+    console.log('最大序列数'+max+"最大序列字符串"+maxStr);
+
+
+
+    var arr = [1,1];
+    for(let i=0;i<100;i++){
+        if(i<2){
+            continue;
+        }else{
+            arr[i] = arr[i-1]+arr[i-2];
+        }
+    }
+    console.log(arr)
+    </script>
 </body>
 </html>
