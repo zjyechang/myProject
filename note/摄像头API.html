@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+window.onload= function () {
+    function getUserMedia(constraints,success,error){
+        if(navigator.mediaDevices.getUserMedia){
+            navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+        }else if(navigator.webkitGetUserMedia){
+            navigator.webkitGetUserMedia(constraints,success,error);
+        }else if(navigator.mozGetUserMedia){
+            navigator.mozGetUserMedia(constraints,success,error);
+        }else if(navigator.getUserMedia){
+            navigator.getUserMedia(constraints,success,error);
+        }
+    }
+    var video =document.getElementById("video");
+    var canvas =document.getElementById("canvas");
+    var context =canvas.getContext("2d");
+
+    function success(stream){
+        var CompatibleURL =window.URL || window.webkitURL;
+        video.src=CompatibleURL.createObjectURL(stream);
+        video.play();
+    }
+    function error(error){
+        console.log('访问用户媒体失败：',error.name,error.message);
+    }
+if(navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia){
+    getUserMedia({video:{width:480,height:320}},success,error);
+}else{
+    alert("您的浏览器不支持访问用户媒体设备！");
+}
+document.getElementById("capture").addEventListener("click", function () {
+    context.drawImage(video,0,0,480,320);
+})
+
+}
+    </script>
+</head>
+<body>
+<video id="video" autoplay style="width: 480px; height: 320px"></video>
+<div><button id="capture">拍照</button></div>
+<canvas id="canvas" width="480" height="320"></canvas>
+</body>
+</html>
+
+
