@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul,ol{list-style:none;}
+        img {
+            display: block;  /* 清除图片底册 3像素缝隙*/
+        }
+        .slider {
+            width: 490px;
+            height: 170px;
+            border:1px solid #ccc;
+            margin: 100px auto;
+            padding:5px;
+            position: relative;
+        }
+        .inner {
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            position: relative;
+            /*overflow: hidden*/
+        }
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .inner ul li {
+            float: left;
+        }
+        .slider ol {
+            position: absolute;
+            left: 50%;
+            margin-left: -80px;
+            bottom: 10px;
+
+        }
+        .slider ol li{
+            float: left;
+            width: 18px;
+            height: 18px;
+            background-color: #fff;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 18px;
+            cursor: pointer;
+        }
+        .slider ol li.current {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div class="slider">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="images/01.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/02.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/03.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/04.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/05.jpg" alt=""/></a></li>
+        </ul>
+    </div>
+    <ol>
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+</body>
+</html>

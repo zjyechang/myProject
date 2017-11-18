@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<img src="images/jd1.png" alt="" id="pic"/>
+<script>
+    //事件源：   被触发者  img
+    var pic = document.getElementById("pic");
+    pic.onmouseover = function(){
+        pic.onmouseout = function(){
+            pic.src = "images/jd1.png";
+        }
+        pic.src = "images/jd2.png";
+    }
+</script>
+</body>
+</html>

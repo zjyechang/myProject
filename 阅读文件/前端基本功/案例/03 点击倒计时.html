@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text"/>
+<button id="btn">点击发送短信</button>
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+    var count = 5;  // 数据的 10
+    var timer = null; // 定时器的名字
+    btn.onclick = function() {
+        clearInterval(timer);  // 先清除掉原来的定时器
+        // alert(11);
+        this.disabled = true;
+         //alert(this);  // this 指向的是 btn
+        var that = this;  // 把 btn 对象 给 that  var _this = this;
+        timer = setInterval(sendTextMessage,1000);  // 开启定时器 名字  timer
+        function sendTextMessage() {
+            count--;
+        //this.innerHTML = "还剩余"+count+"秒";
+           // alert(this); // this 指向的是 定时器  window
+            //alert(that);
+            if(count >= 0 )
+            {
+                that.innerHTML =  "还剩余"+count+"秒";
+            }
+            else
+            {
+                that.innerHTML = "重新发送短信";
+                that.disabled = false;
+                clearInterval(timer);  // 清除定时器
+                count = 5;
+            }
+
+
+        }
+
+    }
+</script>

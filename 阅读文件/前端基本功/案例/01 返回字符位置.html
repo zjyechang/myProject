@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+字符串:<input type="text" id="txt"/>   索引的字符串: <input type="text" id="index"/>
+<button id="btn1">从前面开始索引</button>
+<button id="btn2">从后面开始索引</button>
+</body>
+</html>
+<script>
+    function $(id) {return document.getElementById(id);}
+    $("btn1").onclick = function() {
+        alert($("txt").value.indexOf($("index").value));
+        //   asdf.indexOf("d")    根据字符 返回位置  返回d 在 asdf 中的位置
+    }
+    $("btn2").onclick = function(){
+        alert($("txt").value.lastIndexOf($("index").value));
+        //  asdfd.lastIndexOf("d")   返回d  再asdf  位置  从后面开始数
+    }
+</script>
