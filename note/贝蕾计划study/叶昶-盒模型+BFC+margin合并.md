@@ -1,13 +1,58 @@
 # 2017/12/20   叶昶
-## 盒模型分为：
+## 盒模分为：
 从里到外 content，padding，border，margin组成一个完整的盒模型
 
-1、W3C的标准Box Model:  
-2、IE)传统下Box Model（IE6以下，不含IE6版本或“QuirksMode下IE5.5+”，盒模型相同，只是大小计算不同）height，width计算包括了padding和border  
+
+### 宽高的计算方式
+1、W3C的标准Box Model，按content计算宽高。  
+2、IE传统下Box Model（IE6以下，不含IE6版本或“QuirksMode下IE5.5+”，盒模型相同，只是大小计算不同）height，width计算包括了padding和border  
+
 box-sizing属性可以控制width的计算区域。  
 box-sizing ： content-box || border-box 
 
-基本所有
+### padding
+```
+值	描述
+auto	浏览器计算内边距。
+length	规定以具体单位计的内边距值，比如像素、厘米等。默认值是 0px。但不允许使用负值。
+%	规定基于父元素的宽度的百分比的内边距。
+```
+实际测试padding的百分比，测试结果并不是等于，而是近似等于。浏览器计算会存在偏差，
+
+### border
+1. border绘制在“元素的背景之上”,换句话来说，元素的背景是内容、内边距和边框区的背景。
+2. border默认样式border-style:none;
+3. 默认颜色border-color: 元素文本颜色。利用这个特性，解决边框和文本颜色需要保持的设计要求。
+4. 实现透明边框 border-color:transparent;
+
+### margin
+```
+值	描述
+auto	浏览器计算外边距。
+length	规定以具体单位计的外边距值，比如像素、厘米等。
+%	规定基于父元素的宽度的百分比的外边距
+margin: auto计算规则
+```
+设置margin: auto后，
+
+- 行内元素，行内块级元素margin取值0；
+
+- 块级元素，在文档流中
+
+```
+margin-bottom和margin-top取值0；
+margin-left和margin-right取值相同，按照下面公式计算
+'margin-left' + 'border' + 'padding' + 'width' + 'margin-right' = width of containing block
+```
+
+- 块级元素，不在文档流中
+```
+margin-left和margin-right取值相同，按照下面公式计算
+'margin-left' + 'border' + 'padding' + 'width' + 'margin-right' = width of containing block
+margin-top和margin-bottom取值相同，按照下面公式计算
+'margin-top' + 'border' + 'padding' + 'height' + 'margin-bottom' = height of containing block
+```
+
 
 ## margin合并产生原因及解决
 ### 原因：
@@ -71,5 +116,4 @@ BFC的产生至少满足以下其中一项：
 <img src="https://upload-images.jianshu.io/upload_images/192464-47f55b6a8de7b3c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/654"> 
 图片为浮动的，默认是上图，当给文字创建新的BFC后b变为下图
 <img src="https://upload-images.jianshu.io/upload_images/192464-2620aa5e31bd83f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/658">
-
 
