@@ -13,7 +13,7 @@ box-sizing ： content-box || border-box
 ### 原因：
 这些margin都处于普通文档流流中，并在同一个BFC中；  
 这些margin没有被非空内容、padding、border 或 clear 分隔开；  
-这些margin在垂直方向上是毗邻的，包括以下几种情况：  
+这些margin在垂直方向上（书写顺序是水平的时候）是毗邻的，包括以下几种情况：  
 1、一个box的top margin与第一个子box的top margin  
 2、一个box的bottom margin与最后一个子box的bottom margin，但须在该box的height 为auto的情况下  
 3、一个box的bottom margin与紧接着的下一个box的top margin  
@@ -27,12 +27,13 @@ box-sizing ： content-box || border-box
 
 ### 解决：
 创建不同的BFC，具体一些操作：  
-1.float为 left|right  
-2.overflow为 hidden|auto|scroll  
-3.display为 table-cell|table-caption|inline-block  
-4.position为 absolute|fixed  
-5.设置zoom: 1;（zoom属性为IE中的属性，用于缩放元素，现在除了firefox其他的都能使用，但是不推荐非IE使用）  
-6.添加before伪元素，设置display为 table|block（必须添加content，否则伪元素不起作用）  
+1. float为 left|right  
+2. overflow为 hidden|auto|scroll  
+3. display为 table-cell|table-caption|inline-block  
+4. position为 absolute|fixed  
+5. 设置zoom: 1;（zoom属性为IE中的属性，用于缩放元素，现在除了firefox其他的都能使用，但是不推荐非IE使用）  
+6. 添加before伪元素，设置display为 table|block（必须添加content，否则伪元素不起作用）  
+7. display: flow-root;声明这是一个新的BFC
 
 
 
