@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex</title>
+    <style lang="css">
+        .cantont {
+            position: absolute;
+            top: 400px;
+            left: 400px;
+            perspective: 1000px;
+            -webkit-perspective: 1000px;
+            width: 400px;
+            height: 400px;
+        }
+        .box {
+            width: 400px;
+            height: 400px;
+            /* 组合体旋转，加上这个属性 */
+            transform-style:preserve-3d;
+            transition: all 0.1s;
+        }
+        .box > div{
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background-color: rgb(235, 255, 235);
+            border: 1px solid #000;
+            border-radius: 20px;
+            font-size: 60px;
+        }
+        .point {
+            display: inline-block;
+            width: 100px;
+            height: 100px;          
+            background-color: #000;
+            border-radius: 50%;
+            margin: 15px;
+        }
+        .side1 {
+            transform: translateZ(200px);
+            justify-content: center;
+            align-items: center;
+        }
+        .side1 .point{
+            width: 150px;
+            height: 150px;
+            background-color: #f00;
+        }
+        .side2 {
+            transform: rotateX(90deg) translateZ(200px);
+            justify-content: space-around;
+            align-items: center;
+        }
+        .side3 {
+            transform: rotateY(-90deg) translateZ(200px);
+            justify-content: space-around;
+        }
+        .side3 .point:nth-child(2){
+            align-self: center;
+        }
+        .side3 .point:nth-child(3){
+            align-self: flex-end;
+        }
+        .side4 {
+            transform: rotateY(90deg) translateZ(200px);
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+        .side4 > .point {
+            margin: 20px;
+        }
+        .side5 {
+            transform: rotateX(-90deg) translateZ(200px);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .wrap-point {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .side6 {
+            transform: rotateX(180deg) translateZ(200px);
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cantont">
+        <div class="box">
+            <div class="side1">
+                <div class="point"></div>
+            </div>
+            <div class="side2">
+                <div class="point"></div>   
+                <div class="point"></div>
+            </div>
+            <div class="side3">
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+            </div>
+            <div class="side4">
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+            </div>
+            <div class="side5">
+                <div class="wrap-point">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+                <div class="point"></div>
+                <div class="wrap-point">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+            </div>
+            <div class="side6">
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var box = document.querySelector('.box');
+
+        box.addEventListener('mousedown', function(e) {
+            let disX = e.clientX - box.offsetLeft;
+            let disY = e.clientY - box.offsetTop;
+            // let xx = e.pageX;
+            // let yy = e.pageY;
+
+            function rotate(e) {
+                box.style.transform = `rotateX(${-(e.clientY-disY)}deg) rotateY(${(e.clientX-disX)}deg)`;
+                return false;
+            }
+            document.addEventListener('mousemove', rotate);
+
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', rotate)
+            })
+        });
+    </script>
+</body>
+</html>
