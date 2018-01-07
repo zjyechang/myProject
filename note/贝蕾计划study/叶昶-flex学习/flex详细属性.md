@@ -156,3 +156,22 @@ none
 该关键字等于 0 0 auto.   
 
 > 当使用一个或两个无单位数时, flex-basis会从auto变为0. 可以参考Flexible Box Layout Module
+
+ 
+## flex-grow flex-shrink flex-basis 搭配使用的作用
+flex-grow 是扩展比率  
+flex-shrink 是收缩比率  
+flex-basis 伸缩基准值  
+
+
+- 假设flex盒子父级宽度固定为800px，子元素的flex-basis总和加起来为1000px； 那么 1000px > 800px (父级的宽度)；子元素势必要压缩；，最后的选择是flex-shrink来进行压缩计算
+- 同样上面的例子，我们改下父级宽度为1200px;
+flex-basis的总和为 1000px，小于父级宽度，将有200px的剩余宽度；既然有剩余，我们就不要加权计算，剩余的宽度将根据flex-grow，值得总和进行百分比，那么200px就会根据份数比来分配剩余的空间；  
+
+剩余后宽度 w = (子元素flex-grow值 /所有子元素flex-grow的总和) * 剩余值
+
+所以以上两种情况下，第一种flex-grow是不列入计算公式的，第二种flex-basis和flex-shrink是不列入计算公式的。
+
+很多时候我们的父级是不固定的，那么怎么办，其实很简单了，对照上面的公式，前提是已经设置了flex-basis值得元素，如果宽度的随机值小于flex-basis的时候就按第一种计算，反之第二种
+
+
