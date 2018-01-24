@@ -91,11 +91,16 @@ margin-top和margin-bottom取值相同，按照下面公式计算
 一个BFC包含创建该上下文元素的所有子元素，但不包括创建了新BFC的子元素的内部元素。这从另一方角度说明，一个元素不能同时存在于两个BFC中。BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然；  
 
 
-BFC的产生至少满足以下其中一项：
-1.float的值不为none
-2.position的值不为static或者relative
-3.display的值为 table-cell, table-caption, inline-block, flex, 或者 inline-flex中的其中一个
-4.overflow的值不为visible
+**BFC的产生至少满足以下其中一项：**
+1. 根元素或其它包含它的元素
+2. 浮动元素 (元素的 float 不是 none)
+3. 绝对定位元素 (元素的 position 为 absolute 或 fixed)
+4. 内联块 (元素具有 display: inline-block)
+5. 表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)
+6. 表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)
+7. 具有overflow 且值不是 visible 的块元素，
+8. display: flow-root
+9. column-span: all 应当总是会创建一个新的格式化上下文，即便具有 column-span: all 的元素并不被包裹在一个多列容器中。
 
 ### BFC的特性
 1.边缘不和浮动元素重叠，浮动盒区域不叠加到BFC上；  
@@ -109,12 +114,16 @@ BFC的产生至少满足以下其中一项：
 ### BFC的由来
 遵循以前报纸的排版，以前的报纸将margin合并后文字排版比较好看，网页最早都是一些文字，就按报社的标准来了
 
+### 约束规则
+1. 边缘不和浮动元素重叠，浮动盒区域不叠加到BFC上。
+2. 在块格式化上下文中，盒从包含块顶部一个接一个地垂直摆,放两个同胞盒间的垂直距离取决于 margin 属性。
+3. 同一个块格式化上下文中的相邻块级盒的垂直外边距将折叠。
+4. 每个盒的左外边缘紧贴包含块的左边缘（从右到左的格式里，则为盒右外边缘紧贴包含块右边缘），有浮动也是如此
+5. BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。外面的元素不会影响到容器内的子元素。
+6. 计算BFC的高度时，浮动元素也参与计算
+7. 同一个BFC中，浮动元素不会重叠在BFC上面。
 
-###一些作用
-1.利用BFC可以消除Margin Collapse  
-2.利用BFC去qq清除内部浮动  
-3.利用BFC阻止文本换行
+
 <img src="https://upload-images.jianshu.io/upload_images/192464-47f55b6a8de7b3c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/654"> 
 图片为浮动的，默认是上图，当给文字创建新的BFC后b变为下图
 <img src="https://upload-images.jianshu.io/upload_images/192464-2620aa5e31bd83f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/658">
-
