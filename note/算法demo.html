@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="output">选择排序</div>
+    <div class="output">插入排序</div>
+    <div class="output">选择排序</div>
+    <div class="output">选择排序</div>
+    <div class="output">选择排序</div>
+    <div class="output">选择排序</div>
+    <div class="output">选择排序</div>
+    <div class="output">选择排序</div>
+    <div class="output">选择排序</div>
+    <div class="output">选择排序</div>
+</body>
+<script>
+    let divOutput = document.querySelectorAll('.output');
+    // 选择排序
+    let arr = [1,4,30,6,83,86,3,113,543,737,44]
+    function select(arr) {
+        let sign = 0,
+            largeNum = 0,
+            length = arr.length;
+        for (let i = 0; i < length; i++) {
+            sign = i;
+            largeNum = 0;
+            for (let j = i + 1; j < length; j++) {
+                if (arr[j] < arr[sign]) {
+                    sign = j;
+                    largeNum = arr[sign];
+                }
+            }
+            arr[i] = [arr[sign], arr[sign] = arr[i]][0];
+        }
+        console.log(arr);
+        divOutput[0].innerHTML += arr;
+    }
+
+
+    // 插入排序
+    function insert(arr) {
+        let current = arr[sign],
+            length = arr.length;
+        for (let i = 1; i < length; i++) {
+            current = arr[i];
+            for (let j = i - 1; j > 0; j--) {
+                if (arr[j] > current) {
+                    arr[j+1] = arr[j];
+                }
+            }
+            arr[i] = [arr[sign], arr[sign] = arr[i]][0];
+        }
+        console.log(arr);
+        divOutput[0].innerHTML += arr;
+    }
+    insert(arr);
+
+    function insertionSort(arr) {
+    var len = arr.length;
+    var preIndex, current;
+    for (var i = 1; i < len; i++) {
+        preIndex = i - 1;
+        current = arr[i];
+        while(preIndex >= 0 && arr[preIndex] > current) {
+            arr[preIndex+1] = arr[preIndex];
+            preIndex--;
+        }
+        arr[preIndex+1] = current;
+    }
+    return arr;
+}
+// console.log(insertionSort(arr,111))
+</script>
+</html>
