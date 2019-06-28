@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let str = `<div>
+
+<!-- 详细助力 -->
+<div class="mask" v-if="helpDialog">
+    <div class="dialog help-get-water">
+        <img src="//h0.hucdn.com/open/201836/0fde881c7d46588b_120x120.png" alt="" class="close-btn help-close-btn" v-if="helpWater.biz_status !== 3" @click="closeDialog('贝店果园_助力领水滴_发起助力弹窗_关闭')">
+        <div class="level-up-title" v-if="helpWater.biz_status === 0">助力领水滴</div>
+        <div class="level-up-title" v-else>恭喜完成助力</div>
+        <p v-if="helpWater.biz_status === 0" class="dialog-h2-title">分享<span class="red-desc">小程序</span>邀请好友助力</p>
+        <p v-if="helpWater.biz_status === 0" class="dialog-h2-title">最高可得<span class="red-desc">120g</span>水滴</p>
+        <p v-else-if="helpWater.biz_status === 1" class="dialog-h2-title">分享完成可拿<span class="red-desc">80-120g</span>水滴</p>
+        <p v-else class="dialog-h2-title">恭喜你将获得<span class="red-desc">80-120g</span>水滴</p>
+        <div class="water-img-wrapper">?</div>
+        <div v-show="helpWater.biz_status === 0" class="water-timer">
+            活动仅剩 {{countDown}}
+        </div>
+        <div v-if="helpWater.biz_status === 0" class="help-list">
+            <div class="item-img-wrapper" v-for="(item, index) in helpWater.help_num" :key="index">
+                <img :src="helpWater.help_list[index].avatar | avatar" class="help-item" v-if="helpWater.help_list[index]">
+                <img src="//h0.hucdn.com/open/201843/14c4b7ca27061a74_80x80.png" class="help-item" @click="helpClick(helpWater.biz_status)" v-else>
+            </div>
+        </div>
+        
+        <p v-if="helpWater.biz_status === 3" class="dialog-content help-content">听说明日助力水滴会更多哦~</p>
+        <button :class="" @click="helpClick(helpWater.biz_status)">{{helpWaterText}}</button>
+        <p v-if="helpWater.biz_status === 0" class="help-water-tips">好友点击微信小程序，完成助力</p>
+    </div>
+</div>
+
+<!-- 助力结果 -->
+<div class="mask" v-if="helpResultDialog">
+    <div class="dialog help-get-water help-dialog">
+        <img src="//h0.hucdn.com/open/201836/0fde881c7d46588b_120x120.png" alt="" class="close-btn help-close-btn" v-if="helpWater.biz_status !== 3" @click="closeDialog('贝店果园_助力领水滴_发起助力弹窗_关闭')">
+        <div class="level-up-title" v-if="helpResultInfo.success">助力成功</div>
+        <div class="level-up-title fail-title" v-else>助力失败</div>
+        <p class="err-msg" v-if="!helpResultInfo.success">{{helpResultInfo.message}}</p>
+        <p class="dialog-h2-title" v-if="helpWater && helpWater.task_type">邀请好友助力得<span class="font-red">80-120g</span>水滴</p>
+        <p class="dialog-h2-title" v-else>你还有<span class="font-red">5-15g</span>水滴未领取</p>
+        <div class="water-img-wrapper">?</div> 
+        <button class="dialog-btn margin-btn" @click="helpResultClose">立即领取</button>
+    </div>
+</div>
+</div>`
+    str = str
+        .replace(/<(\/?)div([^\>]*)>/g, '<$1view$2>')
+        .replace(/<(\/?)footer([^\>]*)>/g, '<$1footer$2>')
+        .replace(/<(\/?)header([^\>]*)>/g, '<$1header$2>')
+        .replace(/<(\/?)section([^\>]*)>/g, '<$1section$2>')
+        .replace(/<(\/?)p([^\>]*)>/g, '<$1view$2>')
+        .replace(/<(\/?)span([^\>]*)>/g, '<$1text$2>')
+        .replace(/<(\/?)li([^\>]*)>/g, '<$1view$2>')
+        .replace(/<(\/?)ul([^\>]*)>/g, '<$1scroll-view$2>')
+        .replace(/<img([^\>]*)>/g, '<image$1></image>')
+        .replace(/@click/g, 'bindtap')
+        .replace(/bindtap="([a-zA-Z]*)\(([^\)]*)\)"/g, 'bindtap="$1" data-fn="$2"')
+        .replace(/v-show="([^\"]*)"/g, 'wx:if="{{$1}}"')
+        .replace(/v-if="([^\"]*)"/g, 'wx:if="{{$1}}"')
+        .replace(/v-else-if="([^\"]*)"/g, 'wx:elif="{{$1}}"')
+        .replace(/v-else/g, 'wx:else')
+        .replace(/:src="([^\"]*)"/g, 'src="{{$1}}"')
+        .replace(/:class="([^\"]*)"/g, 'class="{{$1}}"')
+        .replace(/:style="([^\"]*)"/g, 'style="{{$1}}"')
+        .replace(/:key="([^\"]*)"/g, 'wx:key="{{$1}}"')
+        .replace(/v-for="\(([a-zA-Z]*),\s?([a-zA-Z]*)\) in (\S*)"/g, 'wx:for="{{$3}}" wx:for-item="$1" wx:for-index="$2"')
+        .replace(/v-for="([a-zA-Z]*) in (\S*)"/g, 'wx:for="{{$3}}" wx:for-item="$1"')
+
+    console.log(str);
+
+
+    String.prototype.UrlEncodeGB2312 = function () {
+        var str = this;
+        str = str.replace(/./g, function (sHex) {
+            window.EnCodeStr = "";
+            window.sHex = sHex;
+            window.execScript('window.EnCodeStr=Hex(Asc(window.sHex))', "vbscript");
+            return window.EnCodeStr.replace(/../g, "%{blogcontent}amp;");
+        });
+        return str;
+    }
+    String.prototype.UrlEncode = function () {
+        var s = escape(this);
+        var sa = s.split("%");
+        var retV = "", retE = "";
+        if (sa[0] != "") {
+            retV = sa[0];
+        }
+        for (var i = 1; i < sa.length; i++) {
+            if (sa[i].substring(0, 1) == "u") {
+                retV += Hex2Utf8(Str2Hex(sa[i].substring(1, 5)));
+                if (sa[i].length > 4)
+                    retV += sa[i].substring(5);
+            }
+            else retV += "%" + sa[i];
+        }
+        return retV;
+    }
+    function Str2Hex(s) {
+        var c = "";
+        var n;
+        var ss = "0123456789ABCDEF";
+        var digS = "";
+        for (var i = 0; i < s.length; i++) {
+            c = s.charAt(i);
+            n = ss.indexOf(c);
+            digS += Dec2Dig(eval(n));
+        }
+        return digS;
+    }
+    function Dec2Dig(n1) {
+        var s = "";
+        var n2 = 0;
+        for (var i = 0; i < 4; i++) {
+            n2 = Math.pow(2, 3 - i);
+            if (n1 >= n2) {
+                s += '1';
+                n1 = n1 - n2;
+            }
+            else
+                s += '0';
+        }
+        return s;
+    }
+    function Dig2Dec(s) {
+        var retV = 0;
+        if (s.length == 4) {
+            for (var i = 0; i < 4; i++) {
+                retV += eval(s.charAt(i)) * Math.pow(2, 3 - i);
+            }
+            return retV;
+        }
+        return -1;
+    }
+    function Hex2Utf8(s) {
+        var retS = "";
+        var tempS = "";
+        var ss = "";
+        if (s.length == 16) {
+            tempS = "1110" + s.substring(0, 4);
+            tempS += "10" + s.substring(4, 10);
+            tempS += "10" + s.substring(10, 16);
+            var sss = "0123456789ABCDEF";
+            for (var i = 0; i < 3; i++) {
+                retS += "%";
+                ss = tempS.substring(i * 8, (eval(i) + 1) * 8);
+                retS += sss.charAt(Dig2Dec(ss.substring(0, 4)));
+                retS += sss.charAt(Dig2Dec(ss.substring(4, 8)));
+            }
+            return retS;
+        }
+        return "";
+    }
+</script>
+
+</html>
