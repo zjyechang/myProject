@@ -374,7 +374,7 @@
     "json-stable-stringify": "^1.0.1",
     "json5": "^0.5.1",
     "jsonify": "^0.0.0",
-    "kind-of": "^4.0.0",
+    "kind-of": "^6.0.3",
     "lazy-cache": "^1.0.4",
     "lcid": "^1.0.0",
     "load-json-file": "^2.0.0",
